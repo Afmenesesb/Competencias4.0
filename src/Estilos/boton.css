@@ -1,0 +1,22 @@
+.btnLog {
+
+    color: rgba(255, 255, 255, 0.774);
+    background: transparent;
+    border: unset;
+    font-size: 20px;
+    
+    
+}
+.btnLog:hover {
+    color: white;
+}
+.btnlogout {
+
+    color: rgba(255, 255, 255, 0.774);
+    background: transparent;
+    border: unset;
+    
+}
+.btnlogout:hover {
+    color: white;
+}
