@@ -4,6 +4,8 @@ import iconoU from './../Recursos/iconoU.svg';
 import { useAuth0 } from "@auth0/auth0-react";
 import { LogoutButton } from "./Logout";
 import { Profile } from "./Profile";
+import Competencias from "./Competencias";
+import Modulos from "./Modulos";
 
 class Cabecera extends Component {
     render() {
@@ -38,8 +40,15 @@ class Cabecera extends Component {
                                 <LogoutButton />
                             </Nav>
                         </Navbar.Collapse>
+                      
                     </Container>
                 </Navbar>
+                <Competencias/>
+                <Modulos/>
+
+                
+                
+                
             </div>
         );
     }

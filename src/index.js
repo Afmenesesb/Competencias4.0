@@ -1,9 +1,11 @@
 import React from 'react';
+import firebaseConfig from './firebaseConfig';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { Auth0Provider } from '@auth0/auth0-react';
 import reportWebVitals from './reportWebVitals';
+import {FirebaseAppProvider} from 'reactfire';
 
 ReactDOM.render(
   <React.StrictMode>

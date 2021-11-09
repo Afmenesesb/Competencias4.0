@@ -6,6 +6,7 @@ import Home from './Home';
 import { LoginButton } from './Login';
 import { LogoutButton } from "./Logout";
 
+
 class Cabecera extends Component {
     render() {
         return (
