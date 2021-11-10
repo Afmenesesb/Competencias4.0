@@ -1,0 +1,21 @@
+.parrafo1{
+    text-align: justify;
+    margin-top: 2%;
+    font-size: 15px;
+    margin-left: 17%;
+    margin-right: 17%;
+}
+.imgCuerpo{
+    display:block;
+    margin-top: 2%;
+    width: 750px;
+    margin:auto;
+    border-radius: 50px;
+}
+table{
+    margin-top: 2%;
+}
+  tr:hover {background-color: rgb(64, 184, 104);}
+.link{
+    color: rgb(255, 255, 255);
+}

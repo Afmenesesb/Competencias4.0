@@ -12,24 +12,34 @@ import './../Estilos/buttongroup.css';
 
 
 const identificar = (event)=>{
+    const boton1=document.getElementById('btM1');
+    const boton2=document.getElementById('btM2');
+    const boton3=document.getElementById('btM3');
     if(event.target.id=="btC1"){
-        document.getElementById('btM1').innerText='1';
-        document.getElementById('btM2').innerText='2';
-        document.getElementById('btM3').innerText='3';
-        console.log("El id del botón es"+event.target.id);
+        boton1.innerText='Información contable';
+        boton1.disabled=false;
+        boton2.innerText='Gestión de organizaciones';
+        boton2.disabled=false;
+        boton3.innerText='Análisis económico';
+        boton3.disabled=false;
     }
     else{
         if(event.target.id=="btC2"){
-            document.getElementById('btM1').innerText='4';
-            document.getElementById('btM2').innerText='5';
-            document.getElementById('btM3').innerText='6';
-            console.log("El id del botón es"+event.target.id);
+            boton1.innerText='Conocimiento digital';
+            boton1.disabled=false;
+            boton2.innerText='Comunicación  digital';
+            boton2.disabled=false;
+            boton3.innerText='Gestión de la información';
+            boton3.disabled=false;
         }
         else{
             if(event.target.id=="btC3"){
-                document.getElementById('btM1').innerText='7';
-                document.getElementById('btM2').innerText='8';
-                document.getElementById('btM3').innerText='9';
+                boton1.innerText='Pensamiento crítico ';
+                boton1.disabled=false;
+                boton2.innerText='Pensamiento analítico';
+                boton2.disabled=false;
+                boton3.innerText='Resolución de problemas';
+                boton3.disabled=false;
             }
         }
     }

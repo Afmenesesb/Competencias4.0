@@ -7,13 +7,14 @@ import { LoginButton } from './Login';
 import { LogoutButton } from "./Logout";
 import './../Estilos/buttongroup.css';
 
+
 class Modulos extends Component {
     render() {
         return (
             <div class="btn-groupM" role="group" aria-label="Basic example">
-            <button id="btM1"  type="button" class="btn btn-success">Modulo 1</button>
-            <button id="btM2"  type="button" class="btn btn-success">Modulo 2</button>
-            <button id="btM3"  type="button" class="btn btn-success">Modulo 3</button>
+            <button disabled="true" id="btM1"  type="button" class="btn btn-success"></button>
+            <button disabled="true" id="btM2"  type="button" class="btn btn-success"></button>
+            <button disabled="true" id="btM3"  type="button" class="btn btn-success"></button>
           </div>
         );
     }

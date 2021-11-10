@@ -6,6 +6,7 @@ import { LogoutButton } from "./Logout";
 import { Profile } from "./Profile";
 import Competencias from "./Competencias";
 import Modulos from "./Modulos";
+import Cuerpo from "./Cuerpo";
 
 class Cabecera extends Component {
     render() {
@@ -45,6 +46,9 @@ class Cabecera extends Component {
                 </Navbar>
                 <Competencias/>
                 <Modulos/>
+                <Cuerpo/>
+              
+                
 
                 
                 

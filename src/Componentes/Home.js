@@ -24,7 +24,7 @@ const data = [
         compt: 'Administracion de negocios',
         parrafo: 'aca se escribe la descripcion del navegable',
         link: 'https://www.uniquindio.edu.co/programas/publicaciones/309/administracion-de-negocios-presencial/',
-        imagen: <img src={Admin} alt=""></img>
+        imagen: <img class="admin" src={Admin} alt=""></img>
 
     },
     {
@@ -32,7 +32,7 @@ const data = [
         compt: 'Administracion financiera',
         parrafo: 'aca se escribe la descripcion del navegable',
         link: 'https://www.uniquindio.edu.co/programas/publicaciones/306/administracion-financiera-a-distancia/',
-        imagen: <img src={AdminFin} alt=""></img>
+        imagen: <img class="admin" src={AdminFin} alt=""></img>
 
     },
     {
@@ -40,7 +40,7 @@ const data = [
         compt: 'Contaduria publica',
         parrafo: 'aca se escribe la descripcion del navegable',
         link: 'https://www.uniquindio.edu.co/programas/publicaciones/310/contaduria-publica/',
-        imagen: <img src={Contaduria} alt=""></img>
+        imagen: <img class="admin" src={Contaduria} alt=""></img>
 
     }
 
