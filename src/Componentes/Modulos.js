@@ -7,7 +7,21 @@ import { LoginButton } from './Login';
 import { LogoutButton } from "./Logout";
 import './../Estilos/buttongroup.css';
 
+const modificarCont = (event)=>{
+    const boton1=document.getElementById('btM1');
+    const boton2=document.getElementById('btM2');
+    const boton3=document.getElementById('btM3');
+    const contenidoLorem=document.getElementById('cont');
+    if( boton1.innerText=='Información contable'){
 
+        alert(contenidoLorem);
+        
+    }
+   
+   
+        
+        
+}
 class Modulos extends Component {
     render() {
         return (
