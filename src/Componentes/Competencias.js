@@ -34,7 +34,7 @@ const identificar = (event)=>{
         }
         else{
             if(event.target.id=="btC3"){
-                boton1.innerText='Pensamiento crítico ';
+                boton1.innerText='Pensamiento crítico';
                 boton1.disabled=false;
                 boton2.innerText='Pensamiento analítico';
                 boton2.disabled=false;
