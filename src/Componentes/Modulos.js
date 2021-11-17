@@ -24,15 +24,11 @@ const modificarCont = (event)=>{
         if(boton1.innerText=='Información contable'){
             contLorem.innerHTML='Este es el bloque de informacion contable';
             contImg.src=infCont1;
-            descTab1.innerHTML="Tabla-inf contable";
-            descTab2.innerHTML="Tabla2-inf contable";
-            descTab3.innerHTML="Tabla3-inf contable";
 
         }
         if(boton1.innerText=='Conocimiento digital'){
             contLorem.innerHTML='Este es el bloque de Conocimiento digital';
             contImg.src="";
-            descTab1.innerHTML="Tabla-Con digital";
         }
         if(boton1.innerText=='Pensamiento crítico'){
             contLorem.innerHTML='Este es el bloque de PC';
