@@ -28,13 +28,6 @@ class Cabecera extends Component {
                             <Nav className="me-auto">
                                 <Nav.Link href="#pricing">Inicio</Nav.Link>
                                 <Nav.Link href="#pricing">Encuesta</Nav.Link>
-                                <NavDropdown title="Competencias profesionales" id="collasible-nav-dropdown">
-                                    <NavDropdown.Item href="#action/3.1">Ciencias Economicas</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2">Ciencias Administrativas</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">Ciencias Contables</NavDropdown.Item>
-                                    <NavDropdown.Divider />
-                                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                                </NavDropdown>
                             </Nav>
                             <Profile />
                             <Nav>
