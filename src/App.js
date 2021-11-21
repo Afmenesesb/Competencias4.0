@@ -7,6 +7,7 @@ import { LogoutButton } from './Componentes/Logout';
 import { Profile } from './Componentes/Profile';
 import { useAuth0 } from '@auth0/auth0-react';
 import CabeceraHome from './Componentes/CabeceraHome';
+import CabeceraGestor from './Componentes/CabeceraGestor';
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
     <div className="App">
       {isAuthenticated ? (
         <>
-          <CabeceraHome/>
+          <CabeceraGestor/>
           
 
         </>

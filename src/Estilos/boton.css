@@ -10,13 +10,13 @@
 .btnLog:hover {
     color: white;
 }
-.btnlogout {
+.btnlogout,.btnEncuesta,.btnPregunta,.btnMaterial {
 
     color: rgba(255, 255, 255, 0.774);
     background: transparent;
     border: unset;
     
 }
-.btnlogout:hover {
+.btnlogout:hover, .btnEncuesta:hover, .btnPregunta:hover, .btnMaterial:hover {
     color: white;
 }
