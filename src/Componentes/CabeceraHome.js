@@ -7,6 +7,8 @@ import { Profile } from "./Profile";
 import Competencias from "./Competencias";
 import Modulos from "./Modulos";
 import Cuerpo from "./Cuerpo";
+import { BrowserRouter as Router, Routes, Link, Route } from "react-router-dom";
+import Encuestas from "./Encuestas";
 
 class Cabecera extends Component {
     render() {
@@ -26,34 +28,37 @@ class Cabecera extends Component {
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="me-auto">
-                                <Nav.Link href="#pricing">Inicio</Nav.Link>
-                                <Nav.Link href="#pricing">Encuesta</Nav.Link>
-                                <NavDropdown title="Competencias profesionales" id="collasible-nav-dropdown">
-                                    <NavDropdown.Item href="#action/3.1">Ciencias Economicas</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2">Ciencias Administrativas</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">Ciencias Contables</NavDropdown.Item>
-                                    <NavDropdown.Divider />
-                                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                                </NavDropdown>
+                                <Router>
+                                    <Link to="/Encuestas">Encuesta</Link>
+                                    <Link to="/">About</Link>
+                                    <Link to="/users">Users</Link>
+                                </Router>
+
                             </Nav>
                             <Profile />
                             <Nav>
                                 <LogoutButton />
                             </Nav>
                         </Navbar.Collapse>
-                      
+
                     </Container>
                 </Navbar>
-                <Competencias/>
-                <Modulos/>
-                <Cuerpo/>
-              
-                
+                <Router>
+                    <Routes>
+                        <Route path="/Encuestas" element={<Encuestas />}>
 
-                
-                
-                
+                        </Route>
+                        <Route path="/users">
+
+                        </Route>
+                        <Route path="/" element={<Competencias/>,<Modulos/>}>
+
+                        </Route>
+                    </Routes>
+
+                </Router>
             </div>
+
         );
     }
 

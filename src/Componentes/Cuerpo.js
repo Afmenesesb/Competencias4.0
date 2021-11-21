@@ -3,6 +3,7 @@ import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import './../Estilos/cuerpo.css';
 import infCont from './../Recursos/img-informacionContable.jpg';
 import Table from 'react-bootstrap/Table'
+import Encuestas from './Encuestas'
 
 class Cuerpo extends Component {
 
