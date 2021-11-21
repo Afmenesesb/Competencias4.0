@@ -30,7 +30,7 @@ function App() {
         <div className="App">
           {isAuthenticated ? (
 
-            <CabeceraHome />
+            <CabeceraGestor />
 
           ) : (
 
@@ -49,7 +49,8 @@ function App() {
           <div className="App">
             {isAuthenticated ? (
 
-              <CabeceraGestor />
+
+              <CabeceraHome />
 
             ) : (
 
@@ -65,13 +66,13 @@ function App() {
       else {
         return (
           <div className="App">
-          
-          <h1>NO TIENE ACCESO A LA PAGINA WEB</h1>
-          <button class="btn btn-danger">SALIR</button>
-    
+
+            <h1>NO TIENE ACCESO A LA PAGINA WEB</h1>
+            <button class="btn btn-danger">SALIR</button>
+
           </div>
-          
-    
+
+
         );
       }
 

@@ -1,12 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
+import { onSnapshot, collection } from "firebase/firestore";
 import { Navbar, Nav, NavDropdown, Container, ButtonGroup,Button,ToggleButton,ToggleButtonGroup } from "react-bootstrap";
-import iconoU from './../Recursos/iconoU.svg';
-import { useAuth0 } from "@auth0/auth0-react";
-import Home from './Home';
-import { LoginButton } from './Login';
-import { LogoutButton } from "./Logout";
 import './../Estilos/buttongroup.css';
 import infCont1 from './../Recursos/img-informacionContable.jpg';
+import db from "../firebaseConfig";
 
 const modificarCont = (event)=>{
     const boton1=document.getElementById('btM1');
@@ -75,18 +72,30 @@ const modificarCont = (event)=>{
         }
     }
 }
-class Modulos extends Component {
-    render() {
-        return (
-            <div class="btn-groupM" role="group" aria-label="Basic example">
-            <button  onClick={(e)=>{modificarCont(e)}} id="btM1"  type="button" class="btn btn-success"></button>
-            <button  onClick={(e)=>{modificarCont(e)}} id="btM2"  type="button" class="btn btn-success"></button>
-            <button  onClick={(e)=>{modificarCont(e)}} id="btM3"  type="button" class="btn btn-success"></button>
-          </div>
-        );
-    }
+export default function ModulosGestor() {
+
+    const [pregunta, setPregunta] = useState([{ name: "Loading...", id: "initial" }]);
+
+    useEffect(
+        () =>
+            onSnapshot(collection(db, "Pregunta"), (snapshot) =>
+                setPregunta(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+            ),
+        []
+    );
+    return (
+        <div class="btn-groupM" role="group" aria-label="Basic example">
+            <button onClick={(e) => { modificarCont(e) }} id="btM1" type="button" class="btn btn-success"></button>
+            <button onClick={(e) => { modificarCont(e) }} id="btM2" type="button" class="btn btn-success"></button>
+            <button onClick={(e) => { modificarCont(e) }} id="btM3" type="button" class="btn btn-success"></button>
+            <ul>
+                {pregunta.map((p) => (
+                    <li key={p.id}>
+                        <a href="#">{p.texto}</a>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
 
 }
-
-
-export default Modulos;

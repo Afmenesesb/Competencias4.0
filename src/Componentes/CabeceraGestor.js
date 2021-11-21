@@ -6,7 +6,7 @@ import { LogoutButton } from "./Logout";
 import { Profile } from "./Profile";
 import '../Estilos/boton.css';
 import Pregunta from "./Pregunta";
-
+import ModulosGestor from "./ModulosGestor";
 
 export default function CabeceraGestor() {
 
@@ -29,8 +29,10 @@ export default function CabeceraGestor() {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <button class="btnEncuesta">Encuesta</button>
-                            <button class="btnMaterial">Modulos</button>
+                            <button class="btnEncuesta" onClick={() => 
+                            setVisibilidadEncuesta(true)
+                            }>Encuesta</button>
+                            <button class="btnMaterial" onClick={() => setVisibilidadModulo(true)}>Modulos</button>
                             <button class="btnPregunta" onClick={() => setVisibilidadPregunta(true)}>Preguntas</button>
                         </Nav>
                         <Profile />
@@ -49,6 +51,16 @@ export default function CabeceraGestor() {
                     ) : (
                         null
                     )}
+            {visibilidadModulo ? (
+                        <>
+                            <ModulosGestor/>
+
+
+                        </>
+                    ) : (
+                        null
+                    )}
+
         </div>
     );
 
