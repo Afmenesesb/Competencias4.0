@@ -14,28 +14,28 @@ const modificarCont = (event)=>{
     const boton3=document.getElementById('btM3');
     const contLorem=document.getElementById('contLor');
     const contImg=document.getElementById('imgCont');
-    const descTab1=document.getElementById('Desc1');
-    const descTab2=document.getElementById('Desc2');
-    const descTab3=document.getElementById('Desc3');
+    const descTab1=document.getElementById('desc1');
+    const descTab2=document.getElementById('desc2');
+    const descTab3=document.getElementById('desc3');
     const botonTab1=document.getElementById('btnCP1');
     const botonTab2=document.getElementById('btnCP2');
     const botonTab3=document.getElementById('btnCP3');
     if(event.target.id=="btM1" ){
         if(boton1.innerText=='Información contable'){
-            contLorem.innerHTML='Este es el bloque de informacion contable';
+            contLorem.innerText='Este es el bloque de informacion contable';
             contImg.src=infCont1;
-            descTab1.innerHTML="Tabla-inf contable";
-            descTab2.innerHTML="Tabla2-inf contable";
-            descTab3.innerHTML="Tabla3-inf contable";
+            descTab1.innerHTML='Tabla-inf contable';
+            descTab2.innerHTML='Tabla2-inf contable';
+            descTab3.innerHTML='Tabla3-inf contable';
 
         }
         if(boton1.innerText=='Conocimiento digital'){
-            contLorem.innerHTML='Este es el bloque de Conocimiento digital';
+            contLorem.innerText='Este es el bloque de Conocimiento digital';
             contImg.src="";
-            descTab1.innerHTML="Tabla-Con digital";
+            descTab1.innerHTML='Tabla-Con digital';
         }
         if(boton1.innerText=='Pensamiento crítico'){
-            contLorem.innerHTML='Este es el bloque de PC';
+            contLorem.innerText='Este es el bloque de PC';
             contImg.src="";
         }
     }
