@@ -73,7 +73,7 @@ const modificarCont = (event) => {
         }
     }
 }
-export default function Modulos() {
+export default function ModulosGestor() {
 
     const [pregunta, setPregunta] = useState([{ name: "Loading...", id: "initial" }]);
 

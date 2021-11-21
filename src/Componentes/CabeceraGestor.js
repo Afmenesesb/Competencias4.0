@@ -10,7 +10,9 @@ import Pregunta from "./Pregunta";
 
 export default function CabeceraGestor() {
 
-    const [visibilidad, setVisibilidad] = useState(false);
+    const [visibilidadPregunta, setVisibilidadPregunta] = useState(false);
+    const [visibilidadModulo, setVisibilidadModulo] = useState(false);
+    const [visibilidadEncuesta, setVisibilidadEncuesta] = useState(false);
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="success" variant="dark" wit>
@@ -27,17 +29,18 @@ export default function CabeceraGestor() {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <button class="btnPregunta" onClick={() => setVisibilidad(true)}>Preguntas</button>
                             <button class="btnEncuesta">Encuesta</button>
-                            <button class="btnMaterial">Material</button>
+                            <button class="btnMaterial">Modulos</button>
+                            <button class="btnPregunta" onClick={() => setVisibilidadPregunta(true)}>Preguntas</button>
                         </Nav>
                         <Profile />
                         <Nav>
                             <LogoutButton />
                         </Nav>
                     </Navbar.Collapse>
-
-                    {visibilidad ? (
+                </Container>
+            </Navbar>
+            {visibilidadPregunta ? (
                         <>
                             <Pregunta/>
 
@@ -46,9 +49,6 @@ export default function CabeceraGestor() {
                     ) : (
                         null
                     )}
-
-                </Container>
-            </Navbar>
         </div>
     );
 
