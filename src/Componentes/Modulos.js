@@ -17,6 +17,7 @@ const modificarCont = (event)=>{
     const botonTab1=document.getElementById('btnCP1');
     const botonTab2=document.getElementById('btnCP2');
     const botonTab3=document.getElementById('btnCP3');
+    const cuerpo=document.getElementById('cuerpoPrin');
     if(event.target.id=="btM1" ){
         if(boton1.innerText=='Información contable'){
             contLorem.innerText='Este es el bloque de informacion contable';
@@ -24,16 +25,19 @@ const modificarCont = (event)=>{
             descTab1.innerHTML='Tabla-inf contable';
             descTab2.innerHTML='Tabla2-inf contable';
             descTab3.innerHTML='Tabla3-inf contable';
+            cuerpo.style.display='block';
 
         }
         if(boton1.innerText=='Conocimiento digital'){
             contLorem.innerText='Este es el bloque de Conocimiento digital';
             contImg.src="";
             descTab1.innerHTML='Tabla-Con digital';
+            cuerpo.style.display='block';
         }
         if(boton1.innerText=='Pensamiento crítico'){
             contLorem.innerText='Este es el bloque de PC';
             contImg.src="";
+            cuerpo.style.display='block';
         }
     }
     else{

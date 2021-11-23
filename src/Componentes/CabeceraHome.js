@@ -10,13 +10,23 @@ import Cuerpo from "./Cuerpo";
 import { BrowserRouter as Router, Routes, Link, Route } from "react-router-dom";
 import Encuestas from "./Encuestas";
 
+
+function mostrar(e) {
+    document.getElementById('inicio').style.display='block'
+    document.getElementById('menuEncuesta').style.display='none'
+    
+}
+function ocultar(e) {
+    document.getElementById('inicio').style.display='none'
+    document.getElementById('menuEncuesta').style.display='block'
+}
 class Cabecera extends Component {
     render() {
         return (
-            <div>
+            <div id="cabeceraH">
+
                 <Navbar collapseOnSelect expand="lg" bg="success" variant="dark" wit>
                     <Container>
-
                         <img
                             src={iconoU}
                             width="70"
@@ -28,12 +38,8 @@ class Cabecera extends Component {
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="me-auto">
-                                <Router>
-                                    <Link to="/Encuestas">Encuesta</Link>
-                                    <Link to="/">About</Link>
-                                    <Link to="/users">Users</Link>
-                                </Router>
-
+                                <button id="bInicio" class="btnEncuesta" onClick={(e)=>{mostrar(e)}} >Inicio</button>
+                                <button class="btnEncuesta" onClick={(e)=>{ocultar(e)}} >Encuesta</button>
                             </Nav>
                             <Profile />
                             <Nav>
@@ -43,21 +49,18 @@ class Cabecera extends Component {
 
                     </Container>
                 </Navbar>
-                <Router>
-                    <Routes>
-                        <Route path="/Encuestas" element={<Encuestas />}>
 
-                        </Route>
-                        <Route path="/users">
+                <div id="inicio">
+                    <Competencias />
+                    <Modulos />
+                    <Cuerpo />
+                </div>
+                <Encuestas/>
 
-                        </Route>
-                        <Route path="/" element={<Competencias/>,<Modulos/>}>
 
-                        </Route>
-                    </Routes>
 
-                </Router>
-            </div>
+            </div >
+
 
         );
     }

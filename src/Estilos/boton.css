@@ -20,3 +20,6 @@
 .btnlogout:hover, .btnEncuesta:hover, .btnPregunta:hover, .btnMaterial:hover {
     color: white;
 }
+#cuer{
+    display: none;
+}

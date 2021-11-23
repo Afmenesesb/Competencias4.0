@@ -51,7 +51,7 @@ class Competencias extends Component {
     
     render() {
         return (
-            <div   class="btn-group" role="group" aria-label="Basic example">
+            <div   id="comp" class="btn-group" role="group" aria-label="Basic example">
             <button id="btC1" onClick={(e)=>{identificar(e)}} type="button" class="btn btn-success">Conocimiento</button>
             <button id="btC2" onClick={(e)=>{identificar(e)}} type="button" class="btn btn-success">Competencias digitales</button>
             <button id="btC3" onClick={(e)=>{identificar(e)}} type="button" class="btn btn-success">Actitud</button>
