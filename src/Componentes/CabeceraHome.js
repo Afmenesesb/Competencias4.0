@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Routes, Link, Route } from "react-router-dom";
 import Encuestas from "./Encuestas";
 
 
+
 function mostrar(e) {
     document.getElementById('inicio').style.display='block'
     document.getElementById('menuEncuesta').style.display='none'
@@ -54,6 +55,7 @@ class Cabecera extends Component {
                     <Competencias />
                     <Modulos />
                     <Cuerpo />
+                    
                 </div>
                 <Encuestas/>
 

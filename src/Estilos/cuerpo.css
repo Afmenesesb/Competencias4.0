@@ -28,3 +28,15 @@ table{
 .cuerpo{
     display: none;
 }
+#checkEncuesta{
+    height: 30%;
+    width: 65%;
+    margin: auto;
+    text-align: left;
+    
+}
+#flexSwitchCheckDefault
+{
+    border-color:rgb(56, 141, 75);
+    border-style: groove;
+}

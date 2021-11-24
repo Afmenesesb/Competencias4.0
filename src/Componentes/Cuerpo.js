@@ -4,6 +4,7 @@ import './../Estilos/cuerpo.css';
 import infCont from './../Recursos/img-informacionContable.jpg';
 import Table from 'react-bootstrap/Table'
 
+
 class Cuerpo extends Component {
 
     render() {
@@ -63,6 +64,10 @@ class Cuerpo extends Component {
                             </tr>
                         </tbody>
                     </Table>
+                </div>
+                <div class="form-check form-switch" id="checkEncuesta">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"/>
+                    <label id="moduloEncuesta" class="form-check-label" for="flexSwitchCheckDefault">Checked switch checkbox input</label>
                 </div>
             </div>
         );
