@@ -22,6 +22,7 @@ const modificarCont = (event) => {
 
     if (event.target.id == "btM1") {
         if (boton1.innerText == 'Información contable') {
+            console.log("holaaaa")
             contLorem.innerText = 'Este es el bloque de informacion contable';
             contImg.src = infCont1;
             descTab1.innerHTML = 'Tabla-inf contable';
