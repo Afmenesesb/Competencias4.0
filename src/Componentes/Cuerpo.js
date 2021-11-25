@@ -9,7 +9,18 @@ export default function Cuerpo() {
     const [visibilidadAlert, setVisibilidadAlert] = useState(false);
     const modificarEstado = () => {
 
-        setVisibilidadAlert(true);
+        if(visibilidadAlert)
+        {
+
+            setVisibilidadAlert(false);
+        }
+        else
+        {
+            setVisibilidadAlert(true);
+        }
+        
+        
+        
     }
     return (
         <div id="cuerpoPrin" class="cuerpo">
@@ -74,7 +85,7 @@ export default function Cuerpo() {
             </div>
             {visibilidadAlert ? (
                 <>
-                    <div disabled="true" class="alert alert-success" role="alert">
+                    <div id="mensajeExito"class="alert alert-success" role="alert">
                         Se ha activado la Encuesta !
                     </div>
                 </>

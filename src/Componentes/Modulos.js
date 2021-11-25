@@ -19,10 +19,11 @@ const modificarCont = (event) => {
     const botonTab3 = document.getElementById('btnCP3');
     const cuerpo = document.getElementById('cuerpoPrin');
     const check= document.getElementById('moduloEncuesta');
+    const mensaje=document.getElementById('mensajeExito');
+    const botonEncuesta=document.getElementById('flexSwitchCheckDefault');
 
     if (event.target.id == "btM1") {
         if (boton1.innerText == 'Información contable') {
-            console.log("holaaaa")
             contLorem.innerText = 'Este es el bloque de informacion contable';
             contImg.src = infCont1;
             descTab1.innerHTML = 'Tabla-inf contable';
@@ -31,20 +32,24 @@ const modificarCont = (event) => {
             cuerpo.style.display = 'block';
             check.innerText="Activar encuesta para Informacion Contable";
             
+            
 
         }
         if (boton1.innerText == 'Conocimiento digital') {
             contLorem.innerText = 'Este es el bloque de Conocimiento digital';
             contImg.src = "";
             descTab1.innerHTML = 'Tabla-Con digital';
-            cuerpo.style.display = 'block';
             check.innerText="Activar encuesta para Conocimiento Digital";
+            mensaje.textContent="";
+            
+            
         }
         if (boton1.innerText == 'Pensamiento crítico') {
             contLorem.innerText = 'Este es el bloque de PC';
             contImg.src = "";
             cuerpo.style.display = 'block';
             check.innerText="Activar encuesta para Pensamiento Critico";
+            mensaje.style.display='block';
         }
     }
     else {
