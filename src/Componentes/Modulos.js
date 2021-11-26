@@ -49,7 +49,7 @@ const modificarCont = (event) => {
             contImg.src = "";
             cuerpo.style.display = 'block';
             check.innerText="Activar encuesta para Pensamiento Critico";
-            mensaje.style.display='block';
+            
         }
     }
     else {
