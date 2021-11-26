@@ -5,8 +5,6 @@ class Formulario extends React.Component {
 
     render() {
         return (
-
-
             <form>
                 <div class="mb-3">
                     <label for="pregunta 1" class="form-label">Pregunta 1</label>
@@ -181,11 +179,6 @@ class Formulario extends React.Component {
                             OPCION 4
                         </label>
                     </div>
-
-
-
-
-
                 </div>
 
 

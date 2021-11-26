@@ -21,3 +21,6 @@
     color: rgb(56, 141, 75);
     
 }
+.form,.tab-content{
+    display: none;
+}
