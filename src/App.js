@@ -49,7 +49,7 @@ function App() {
           <div className="App">
             {isAuthenticated ? (
 
-
+              
               <CabeceraHome />
 
             ) : (

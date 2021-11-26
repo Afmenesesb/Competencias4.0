@@ -19,6 +19,7 @@ export default function Cuerpo() {
         const btnpencri = document.getElementById('v-pills-pencri-tab');
         const btnpenana = document.getElementById('v-pills-penana-tab');
         const btnrespro = document.getElementById('v-pills-respro-tab');
+        const botonEncuesta=document.getElementById('flexSwitchCheckDefault');
         if (chekbtn.innerText == 'Activar encuesta para Informacion Contable') {
             btninfcont.removeAttribute('disabled');
         }
@@ -65,7 +66,7 @@ export default function Cuerpo() {
                 }
             }
         }
-        if(visibilidadAlert)
+        if(botonEncuesta.checked==false)
         {
 
             setVisibilidadAlert(false);

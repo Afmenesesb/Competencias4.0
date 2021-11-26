@@ -32,58 +32,63 @@ const modificarCont = (event) => {
             cuerpo.style.display = 'block';
             check.innerText="Activar encuesta para Informacion Contable";
             
-            
-
         }
-        if (boton1.innerText == 'Conocimiento digital') {
-            contLorem.innerText = 'Este es el bloque de Conocimiento digital';
+        if (boton2.innerText == 'Gestión de organizaciones') {
+            contLorem.innerHTML = 'Este es el bloque de Ges org';
             contImg.src = "";
-            descTab1.innerHTML = 'Tabla-Con digital';
-            check.innerText="Activar encuesta para Conocimiento Digital";
-            mensaje.textContent="";
-            
-            
+            check.innerText="Activar encuesta para Gestion de organizaciones";
         }
-        if (boton1.innerText == 'Pensamiento crítico') {
-            contLorem.innerText = 'Este es el bloque de PC';
+        if (boton3.innerText == 'Análisis económico') {
+            contLorem.innerHTML = 'Este es el bloque de Analis econ';
             contImg.src = "";
-            cuerpo.style.display = 'block';
-            check.innerText="Activar encuesta para Pensamiento Critico";
-            
+            check.innerText="Activar encuesta para Analisis economico";
         }
+        
     }
     else {
         if (event.target.id == "btM2") {
-            if (boton2.innerText == 'Gestión de organizaciones') {
-                contLorem.innerHTML = 'Este es el bloque de Ges org';
+           
+            if (boton1.innerText == 'Conocimiento digital') {
+                contLorem.innerText = 'Este es el bloque de Conocimiento digital';
                 contImg.src = "";
-                check.innerText="Activar encuesta para Gestion de organizaciones";
+                descTab1.innerHTML = 'Tabla-Con digital';
+                check.innerText="Activar encuesta para Conocimiento Digital";
+                mensaje.textContent="";
+                botonEncuesta.checked=false;
+                
             }
+
             if (boton2.innerText == 'Comunicación digital') {
                 contLorem.innerHTML = 'Este es el bloque de Com Digital';
                 contImg.src = "";
                 check.innerText="Activar encuesta para Comunicacion Digital";
             }
-            if (boton2.innerText == 'Pensamiento analítico') {
-                contLorem.innerHTML = 'Este es el bloque de Pens analítico';
+            
+            if (boton3.innerText == 'Gestión de la información') {
+                contLorem.innerHTML = 'Este es el bloque de Ges inf';
                 contImg.src = "";
-                check.innerText="Activar encuesta para Pensamiento Analitico";
+                check.innerText="Activar encuesta para Gestion de la Informacion";
             }
+           
 
 
         }
         else {
             if (event.target.id == "btM3") {
-                if (boton3.innerText == 'Análisis económico') {
-                    contLorem.innerHTML = 'Este es el bloque de Analis econ';
+
+                if (boton1.innerText == 'Pensamiento crítico') {
+                    contLorem.innerText = 'Este es el bloque de PC';
                     contImg.src = "";
-                    check.innerText="Activar encuesta para Analisis economico";
+                    cuerpo.style.display = 'block';
+                    check.innerText="Activar encuesta para Pensamiento Critico";
+                    
                 }
-                if (boton3.innerText == 'Gestión de la información') {
-                    contLorem.innerHTML = 'Este es el bloque de Ges inf';
+                if (boton2.innerText == 'Pensamiento analítico') {
+                    contLorem.innerHTML = 'Este es el bloque de Pens analítico';
                     contImg.src = "";
-                    check.innerText="Activar encuesta para Gestion de la Informacion";
+                    check.innerText="Activar encuesta para Pensamiento Analitico";
                 }
+                
                 if (boton3.innerText == 'Resolución de problemas') {
                     contLorem.innerHTML = 'Este es el bloque de Res problem';
                     contImg.src = "";
