@@ -9,6 +9,62 @@ export default function Cuerpo() {
     const [visibilidadAlert, setVisibilidadAlert] = useState(false);
     const modificarEstado = () => {
 
+        const chekbtn = document.getElementById('moduloEncuesta');
+        const btninfcont = document.getElementById('v-pills-infcont-tab');
+        const btngesorg = document.getElementById('v-pills-gesorg-tab');
+        const btnanec = document.getElementById('v-pills-anec-tab');
+        const btncontdig = document.getElementById('v-pills-contdig-tab');
+        const btncomdig = document.getElementById('v-pills-comdig-tab');
+        const btngesin = document.getElementById('v-pills-gesin-tab');
+        const btnpencri = document.getElementById('v-pills-pencri-tab');
+        const btnpenana = document.getElementById('v-pills-penana-tab');
+        const btnrespro = document.getElementById('v-pills-respro-tab');
+        if (chekbtn.innerText == 'Activar encuesta para Informacion Contable') {
+            btninfcont.removeAttribute('disabled');
+        }
+        else {
+            if (chekbtn.innerText == 'Activar encuesta para Gestion de organizaciones') {
+                btngesorg.removeAttribute('disabled');
+            }
+            else {
+                if (chekbtn.innerText == 'Activar encuesta para Conocimiento Digital') {
+                    btncontdig.removeAttribute('disabled');
+                }
+                else {
+                    if (chekbtn.innerText == 'Activar encuesta para Comunicacion Digital') {
+                        btncomdig.removeAttribute('disabled');
+                    }
+                    else {
+                        if (chekbtn.innerText == 'Activar encuesta para Gestion de la Informacion') {
+                            btngesin.removeAttribute('disabled');
+                        }
+                        else {
+                            if (chekbtn.innerText == 'Activar encuesta para Analisis economico') {
+                                btnanec.removeAttribute('disabled');
+                            }
+                            else {
+                                if (chekbtn.innerText == 'Activar encuesta para Pensamiento Critico') {
+                                    btnpencri.removeAttribute('disabled');
+                                }
+                                else {
+                                    if (chekbtn.innerText == 'Activar encuesta para Pensamiento Analitico') {
+                                        btnpenana.removeAttribute('disabled');
+                                    }
+                                    else {
+                                        if (chekbtn.innerText == 'Activar encuesta para Resolucion de problemas') {
+                                            btnrespro.removeAttribute('disabled');
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+
+
+                    }
+                }
+            }
+        }
         if(visibilidadAlert)
         {
 
@@ -18,10 +74,8 @@ export default function Cuerpo() {
         {
             setVisibilidadAlert(true);
         }
-        
-        
-        
     }
+    
     return (
         <div id="cuerpoPrin" class="cuerpo">
             <h1 id="contLor" class="parrafo1">

@@ -30,7 +30,7 @@ function App() {
         <div className="App">
           {isAuthenticated ? (
 
-            <CabeceraHome />
+            <CabeceraGestor />
 
           ) : (
 
@@ -49,7 +49,8 @@ function App() {
           <div className="App">
             {isAuthenticated ? (
 
-              <CabeceraGestor />
+
+              <CabeceraHome />
 
             ) : (
 
