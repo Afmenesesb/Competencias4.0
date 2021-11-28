@@ -40,7 +40,8 @@ function App() {
         <div className="App">
           {isAuthenticated ? (
 
-            <CabeceraGestor />
+            <CabeceraHome />
+
 
           ) : (
 
@@ -59,8 +60,8 @@ function App() {
           <div className="App">
             {isAuthenticated ? (
 
-              
-              <CabeceraHome />
+              <CabeceraGestor />
+
 
             ) : (
 
@@ -78,8 +79,8 @@ function App() {
           <div className="App">
 
             <h1>NO TIENE ACCESO A LA PAGINA WEB</h1>
-            <Salir/>
-            
+            <Salir />
+
           </div>
 
 

@@ -2,6 +2,7 @@ import { setDoc, doc, collection} from "firebase/firestore";
 import React, { Component, useState } from "react";
 import '../Estilos/gestorPregunta.css';
 import db from "../firebaseConfig";
+import swal from 'sweetalert';
 
 export default function Pregunta() {
 
@@ -39,11 +40,19 @@ export default function Pregunta() {
         });
         /*Reiniciamos los campos para que queden limpios*/
         setValues({ ...initialValues});
-        console.log("que viva el vicio hptaa");
+        swal(
+            {
+                title: "Pregunta",
+                text: "!La pregunta se ha guardado exitosamente ¡",
+                icon: "success",
+                button: "Aceptar",
+                timer: "8000"
+            }
+        );
     }
 
     return (
-        <div>
+        <div id="formularioPregunta">
             <form class="form1" onSubmit={handleSumit}>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Id de la pregunta</label>

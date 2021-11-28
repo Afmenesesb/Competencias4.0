@@ -7,13 +7,23 @@ import { Profile } from "./Profile";
 import '../Estilos/boton.css';
 import Pregunta from "./Pregunta";
 import ModulosGestor from "./ModulosGestor";
+import Modulos from "./Modulos";
+import Competencias from "./Competencias";
 
 export default function CabeceraGestor() {
 
     /*Constantes para manejar el estado de visibilidad de los componentes de la cabecera del gestor*/
-    const [visibilidadPregunta, setVisibilidadPregunta] = useState(false);
-    const [visibilidadModulo, setVisibilidadModulo] = useState(false);
-    const [visibilidadEncuesta, setVisibilidadEncuesta] = useState(false);
+    function mostrar(e) {
+        document.getElementById('inicioGestor').style.display='block';
+        document.getElementById('formularioPregunta').style.display='none';
+        
+    }
+    /*Funcion para ocultar los elementos de inicio*/
+    function ocultar(e) {
+        
+        document.getElementById('inicioGestor').style.display='none';
+        document.getElementById('formularioPregunta').style.display='block';
+    }
     return (
         /*Uso del mismo formato de cabecera inicial, modificando algunos componentes segun la necesidad, en este casola del gestor de conocimiento*/
         <div>
@@ -31,11 +41,9 @@ export default function CabeceraGestor() {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <button class="btnEncuesta" onClick={() => 
-                            setVisibilidadEncuesta(true)
-                            }>Encuesta</button>
-                            <button class="btnMaterial" onClick={() => setVisibilidadModulo(true)}>Modulos</button>
-                            <button class="btnPregunta" onClick={() => setVisibilidadPregunta(true)}>Preguntas</button>
+                            <button class="btnEncuesta">Encuesta</button>
+                            <button class="btnMaterial" onClick={(e) => mostrar(e)}>Modulos</button>
+                            <button class="btnPregunta" onClick={(e) => ocultar(e)}>Preguntas</button>
                         </Nav>
                         <Profile />
                         <Nav>
@@ -44,26 +52,12 @@ export default function CabeceraGestor() {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-
-            {/*Control de visibilidad de cada componente de la cabecera*/}
-            {visibilidadPregunta ? (
-                        <>
-                            <Pregunta/>
-
-
-                        </>
-                    ) : (
-                        null
-                    )}
-            {visibilidadModulo ? (
-                        <>
-                            <ModulosGestor/>
-
-
-                        </>
-                    ) : (
-                        null
-                    )}
+            <div id="inicioGestor">
+                    <Competencias />
+                    <Modulos />
+                    
+            </div>
+            <Pregunta/>
 
         </div>
     );
