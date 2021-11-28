@@ -3,22 +3,74 @@ import React, { Component, useState, useEffect } from "react";
 import './../Estilos/encuesta.css';
 import Cuerpo from "./Cuerpo";
 import Formulario from "./Formulario";
+import swal from 'sweetalert';
 
 
-
+var bandCuest=null;
 export default function Encuestas() {
-
   const [modulo1, setModulo1] = useState(false);
   const [modulo2, setModulo2] = useState(false);
   const modificarForm = (event) => {
-    const formula = document.getElementById('divForm');
-    formula.style.display='block';
+    const btn1 = document.getElementById('v-pills-con-tab');
+    const btn2 = document.getElementById('v-pills-compdi-tab');
+    const btn3 = document.getElementById('v-pills-act-tab');
+    if(bandCuest==false){
+      swal(
+        {
+          title: "Realizando encuesta",
+          text: "Se está realizando una encuesta",
+          icon: "info",
+          button: "Aceptar",
+          timer: "5000"
+        }
+      );
+    }
+    else{
+      
+      swal(
+        {
+          title: "Comenzar encuesta",
+          text: "No podrá salir de la encuesta hasta finalizar la misma",
+          icon: "info",
+          buttons: ["No", "Si"],
+          timer: "5000"
+        }
+      ).then(respuesta => {
+        if (respuesta) {
+          btn1.disabled = true;
+          btn2.disabled = true;
+          btn3.disabled = true;
+          swal({
+            text: "Ha iniciado la encuesta",
+            icon: "success"
+            
+          })
+          const formula = document.getElementById('divForm');
+          formula.style.display = 'block';
+          bandCuest=false;
+          event.target.disabled=true;
+        }
+      });
+    }
+    
+
+   
+
+
+
+
   }
   const modificarModulos = (event) => {
-    const formul = document.getElementById('v-pills-tabContent');
-    formul.style.display='block';
+    
+      const formul = document.getElementById('v-pills-tabContent');
+      formul.style.display = 'block';
+    
+    
+      
+    
+
   }
-  
+
 
   return (
     <div id="menuEncuesta" class="mencuesta">
@@ -44,10 +96,10 @@ export default function Encuestas() {
           <button onClick={(e) => { modificarForm(e) }} class="btn1" id="v-pills-respro-tab" data-bs-toggle="pill" data-bs-target="#v-pills-respro" type="button" role="tab" aria-controls="v-pills-respro" aria-selected="true" >Resolución de problemas</button></div>
       </div>
       <div id="divForm" class="form">
-      <Formulario/>
+        <Formulario />
+      </div>
     </div>
-    </div>
-    
+
   );
 }
 
