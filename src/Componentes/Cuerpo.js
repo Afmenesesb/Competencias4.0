@@ -5,9 +5,11 @@ import infCont from './../Recursos/img-informacionContable.jpg';
 import Table from 'react-bootstrap/Table'
 
 export default function Cuerpo() {
-
+    
+    /*Constantes para manejar el estado de visibilidad de los mensajes de alerta*/
     const [visibilidadAlert, setVisibilidadAlert] = useState(false);
     const modificarEstado = () => {
+/*Se obtienen los elementos por medio del getElementById*/
 
         const chekbtn = document.getElementById('moduloEncuesta');
         const btninfcont = document.getElementById('v-pills-infcont-tab');

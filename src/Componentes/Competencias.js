@@ -9,9 +9,10 @@ import { LogoutButton } from "./Logout";
 import './../Estilos/buttongroup.css';
 
 
-
+/*Funcion para la interaccion y coneccion entre los botones de competencia*/
 
 const identificar = (event)=>{
+    /*Se obtienen los elementos por medio del getElementById*/
     const boton1=document.getElementById('btM1');
     const boton2=document.getElementById('btM2');
     const boton3=document.getElementById('btM3');
@@ -51,6 +52,7 @@ class Competencias extends Component {
     
     render() {
         return (
+            /*Estructura de grupo de botones de competencias*/
             <div   id="comp" class="btn-group" role="group" aria-label="Basic example">
             <button id="btC1" onClick={(e)=>{identificar(e)}} type="button" class="btn btn-success">Conocimiento</button>
             <button id="btC2" onClick={(e)=>{identificar(e)}} type="button" class="btn btn-success">Competencias digitales</button>

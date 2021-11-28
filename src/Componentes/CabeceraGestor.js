@@ -10,10 +10,12 @@ import ModulosGestor from "./ModulosGestor";
 
 export default function CabeceraGestor() {
 
+    /*Constantes para manejar el estado de visibilidad de los componentes de la cabecera del gestor*/
     const [visibilidadPregunta, setVisibilidadPregunta] = useState(false);
     const [visibilidadModulo, setVisibilidadModulo] = useState(false);
     const [visibilidadEncuesta, setVisibilidadEncuesta] = useState(false);
     return (
+        /*Uso del mismo formato de cabecera inicial, modificando algunos componentes segun la necesidad, en este casola del gestor de conocimiento*/
         <div>
             <Navbar collapseOnSelect expand="lg" bg="success" variant="dark" wit>
                 <Container>
@@ -42,6 +44,8 @@ export default function CabeceraGestor() {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+
+            {/*Control de visibilidad de cada componente de la cabecera*/}
             {visibilidadPregunta ? (
                         <>
                             <Pregunta/>

@@ -11,19 +11,22 @@ import { BrowserRouter as Router, Routes, Link, Route } from "react-router-dom";
 import Encuestas from "./Encuestas";
 
 
-
+/*Funcion para mostrar los elementos de inicio*/
 function mostrar(e) {
     document.getElementById('inicio').style.display='block'
     document.getElementById('menuEncuesta').style.display='none'
     
 }
+/*Funcion para ocultar los elementos de inicio*/
 function ocultar(e) {
     document.getElementById('inicio').style.display='none'
     document.getElementById('menuEncuesta').style.display='block'
 }
+
 class Cabecera extends Component {
     render() {
         return (
+            /*Uso del mismo formato de cabecera inicial, modificando algunos componentes segun la necesidad, en este casola del usuario del aplicativo*/
             <div id="cabeceraH">
 
                 <Navbar collapseOnSelect expand="lg" bg="success" variant="dark" wit>
@@ -57,6 +60,7 @@ class Cabecera extends Component {
                     <Cuerpo />
                     
                 </div>
+                {/*Se agrega el componente de Encuestas para que sea visible en el componente CabeceraHome*/}
                 <Encuestas/>
 
 

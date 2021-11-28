@@ -10,7 +10,8 @@ import { LogoutButton } from "./Logout";
 class Cabecera extends Component {
     render() {
         return (
-            <div>
+            /*Plantilla de la cabecera de inicio de la aplicacion usando bootstrap 5 y sus atributos de interfaz*/
+            <div>                
                 <Navbar collapseOnSelect expand="lg" bg="success" variant="dark" wit>
                     <Container>
 

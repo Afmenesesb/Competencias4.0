@@ -31,6 +31,7 @@ const modificarCont = (event) => {
             descTab3.innerHTML = 'Tabla3-inf contable';
             cuerpo.style.display = 'block';
             check.innerText="Activar encuesta para Informacion Contable";
+            botonEncuesta.checked=false;
             
         }
         if (boton1.innerText == 'Conocimiento digital') {
@@ -47,6 +48,7 @@ const modificarCont = (event) => {
             contImg.src = "";
             cuerpo.style.display = 'block';
             check.innerText="Activar encuesta para Pensamiento Critico";
+            botonEncuesta.checked=false;
             
         }
     }
@@ -57,6 +59,7 @@ const modificarCont = (event) => {
                 contImg.src = "";
                 cuerpo.style.display = 'block';
                 check.innerText="Activar encuesta para Gestion de organizaciones";
+                botonEncuesta.checked=false;
             }
            
 
@@ -65,12 +68,14 @@ const modificarCont = (event) => {
                 contImg.src = "";
                 check.innerText="Activar encuesta para Comunicacion Digital";
                 cuerpo.style.display = 'block';
+                botonEncuesta.checked=false;
             }
             if (boton2.innerText == 'Pensamiento analítico') {
                 contLorem.innerHTML = 'Este es el bloque de Pens analítico';
                 contImg.src = "";
                 check.innerText="Activar encuesta para Pensamiento Analitico";
                 cuerpo.style.display = 'block';
+                botonEncuesta.checked=false;
             }
         }
         else {
@@ -81,12 +86,14 @@ const modificarCont = (event) => {
                     contImg.src = "";
                     cuerpo.style.display = 'block';
                     check.innerText="Activar encuesta para Analisis economico";
+                    botonEncuesta.checked=false;
                 }
                 if (boton3.innerText == 'Gestión de la información') {
                     contLorem.innerHTML = 'Este es el bloque de Ges inf';
                     contImg.src = "";
                     check.innerText="Activar encuesta para Gestion de la Informacion";
                     cuerpo.style.display = 'block';
+                    botonEncuesta.checked=false;
                 }
                
                 if (boton3.innerText == 'Resolución de problemas') {
@@ -94,6 +101,7 @@ const modificarCont = (event) => {
                     contImg.src = "";
                     check.innerText="Activar encuesta para Resolucion de problemas";
                     cuerpo.style.display = 'block';
+                    botonEncuesta.checked=false;
                 }
 
             }
