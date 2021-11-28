@@ -2,19 +2,20 @@ import React, { Component, useState } from "react";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import './../Estilos/cuerpo.css';
 import infCont from './../Recursos/img-informacionContable.jpg';
-import Table from 'react-bootstrap/Table'
+import Table from 'react-bootstrap/Table';
+import swal from 'sweetalert';
 
 export default function Cuerpo() {
-    
+
     /*Constantes para manejar el estado de visibilidad de los mensajes de alerta*/
     const [visibilidadAlert, setVisibilidadAlert] = useState(false);
     const modificarForm = () => {
         const formula = document.getElementById('divForm');
-        formula.style.display='block';
-        
-      }
+        formula.style.display = 'block';
+
+    }
     const modificarEstado = () => {
-    /*Se obtienen los elementos por medio del getElementById*/
+        /*Se obtienen los elementos por medio del getElementById*/
 
         const checkbtn = document.getElementById('moduloEncuesta');
         const btninfcont = document.getElementById('v-pills-infcont-tab');
@@ -26,42 +27,44 @@ export default function Cuerpo() {
         const btnpencri = document.getElementById('v-pills-pencri-tab');
         const btnpenana = document.getElementById('v-pills-penana-tab');
         const btnrespro = document.getElementById('v-pills-respro-tab');
-        const botonEncuesta=document.getElementById('flexSwitchCheckDefault');
+        const botonEncuesta = document.getElementById('flexSwitchCheckDefault');
+        const check = document.getElementById('moduloEncuesta');
+        const mensaje= check.innerText.substring(21);
         if (checkbtn.innerText == 'Activar encuesta para Informacion Contable') {
-            btninfcont.style.display='block';
+            btninfcont.style.display = 'block';
         }
         else {
             if (checkbtn.innerText == 'Activar encuesta para Gestion de organizaciones') {
-                btngesorg.style.display='block';
+                btngesorg.style.display = 'block';
 
             }
             else {
                 if (checkbtn.innerText == 'Activar encuesta para Conocimiento Digital') {
-                    btncontdig.style.display='block';
+                    btncontdig.style.display = 'block';
                 }
                 else {
                     if (checkbtn.innerText == 'Activar encuesta para Comunicacion Digital') {
-                        btncomdig.style.display='block';
+                        btncomdig.style.display = 'block';
                     }
                     else {
                         if (checkbtn.innerText == 'Activar encuesta para Gestion de la Informacion') {
-                            btngesin.style.display='block';
+                            btngesin.style.display = 'block';
                         }
                         else {
                             if (checkbtn.innerText == 'Activar encuesta para Analisis economico') {
-                                btnanec.style.display='block';
+                                btnanec.style.display = 'block';
                             }
                             else {
                                 if (checkbtn.innerText == 'Activar encuesta para Pensamiento Critico') {
-                                    btnpencri.style.display='block';
+                                    btnpencri.style.display = 'block';
                                 }
                                 else {
                                     if (checkbtn.innerText == 'Activar encuesta para Pensamiento Analitico') {
-                                        btnpenana.style.display='block';
+                                        btnpenana.style.display = 'block';
                                     }
                                     else {
                                         if (checkbtn.innerText == 'Activar encuesta para Resolucion de problemas') {
-                                            btnrespro.style.display='block';
+                                            btnrespro.style.display = 'block';
                                         }
                                     }
                                 }
@@ -74,17 +77,24 @@ export default function Cuerpo() {
                 }
             }
         }
-        if(botonEncuesta.checked==false)
-        {
+        if (botonEncuesta.checked == false) {
 
             setVisibilidadAlert(false);
         }
-        else
-        {
-            setVisibilidadAlert(true);
+        else {
+           
+                swal(
+                    {
+                        title: "Encuesta",
+                        text: "!Se ha activado la encuesta correspondiente a " + mensaje + "¡",
+                        icon: "info",
+                        button: "Aceptar",
+                        timer: "3000"
+                    }
+                );
         }
     }
-    
+
     return (
         <div id="cuerpoPrin" class="cuerpo">
             <h1 id="contLor" class="parrafo1">
@@ -146,15 +156,7 @@ export default function Cuerpo() {
                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onClick={() => modificarEstado()} />
                 <label id="moduloEncuesta" class="form-check-label" for="flexSwitchCheckDefault">Checked switch checkbox input</label>
             </div>
-            {visibilidadAlert ? (
-                <>
-                    <div id="mensajeExito"class="alert alert-success" role="alert">
-                        Se ha activado la Encuesta !
-                    </div>
-                </>
-            ) : (
-                null
-            )}
+
 
         </div>
     );

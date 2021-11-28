@@ -19,7 +19,7 @@ const modificarCont = (event) => {
     const botonTab3 = document.getElementById('btnCP3');
     const cuerpo = document.getElementById('cuerpoPrin');
     const check= document.getElementById('moduloEncuesta');
-    const mensaje=document.getElementById('mensajeExito');
+    const alerta=document.getElementById('alerta');
     const botonEncuesta=document.getElementById('flexSwitchCheckDefault');
 
     if (event.target.id == "btM1") {
@@ -33,6 +33,7 @@ const modificarCont = (event) => {
             check.innerText="Activar encuesta para Informacion Contable";
             botonEncuesta.checked=false;
             
+            
         }
         if (boton1.innerText == 'Conocimiento digital') {
             contLorem.innerText = 'Este es el bloque de Conocimiento digital';
@@ -40,7 +41,6 @@ const modificarCont = (event) => {
             descTab1.innerHTML = 'Tabla-Con digital';
             check.innerText="Activar encuesta para Conocimiento Digital";
             botonEncuesta.checked=false;
-            cuerpo.style.display = 'block';
             
         }
         if (boton1.innerText == 'Pensamiento crítico') {
@@ -75,6 +75,7 @@ const modificarCont = (event) => {
                 contImg.src = "";
                 check.innerText="Activar encuesta para Pensamiento Analitico";
                 cuerpo.style.display = 'block';
+                botonEncuesta.checked=false;
             }
         }
         else {
@@ -85,12 +86,14 @@ const modificarCont = (event) => {
                     contImg.src = "";
                     cuerpo.style.display = 'block';
                     check.innerText="Activar encuesta para Analisis economico";
+                    botonEncuesta.checked=false;
                 }
                 if (boton3.innerText == 'Gestión de la información') {
                     contLorem.innerHTML = 'Este es el bloque de Ges inf';
                     contImg.src = "";
                     check.innerText="Activar encuesta para Gestion de la Informacion";
                     cuerpo.style.display = 'block';
+                    botonEncuesta.checked=false;
                 }
                
                 if (boton3.innerText == 'Resolución de problemas') {
@@ -98,6 +101,7 @@ const modificarCont = (event) => {
                     contImg.src = "";
                     check.innerText="Activar encuesta para Resolucion de problemas";
                     cuerpo.style.display = 'block';
+                    botonEncuesta.checked=false;
                 }
 
             }
