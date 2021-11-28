@@ -75,7 +75,6 @@ const modificarCont = (event) => {
                 contImg.src = "";
                 check.innerText="Activar encuesta para Pensamiento Analitico";
                 cuerpo.style.display = 'block';
-                botonEncuesta.checked=false;
             }
         }
         else {
@@ -86,14 +85,12 @@ const modificarCont = (event) => {
                     contImg.src = "";
                     cuerpo.style.display = 'block';
                     check.innerText="Activar encuesta para Analisis economico";
-                    botonEncuesta.checked=false;
                 }
                 if (boton3.innerText == 'Gestión de la información') {
                     contLorem.innerHTML = 'Este es el bloque de Ges inf';
                     contImg.src = "";
                     check.innerText="Activar encuesta para Gestion de la Informacion";
                     cuerpo.style.display = 'block';
-                    botonEncuesta.checked=false;
                 }
                
                 if (boton3.innerText == 'Resolución de problemas') {
@@ -101,7 +98,6 @@ const modificarCont = (event) => {
                     contImg.src = "";
                     check.innerText="Activar encuesta para Resolucion de problemas";
                     cuerpo.style.display = 'block';
-                    botonEncuesta.checked=false;
                 }
 
             }
