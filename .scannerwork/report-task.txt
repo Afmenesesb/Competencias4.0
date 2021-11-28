@@ -1,0 +1,6 @@
+projectKey=competencias4.0.1
+serverUrl=http://localhost:9000
+serverVersion=9.2.1.49989
+dashboardUrl=http://localhost:9000/dashboard?id=competencias4.0.1
+ceTaskId=AX1ot7uaSqkNkg1SMOdb
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AX1ot7uaSqkNkg1SMOdb
