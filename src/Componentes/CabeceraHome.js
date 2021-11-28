@@ -19,6 +19,7 @@ function mostrar(e) {
 }
 /*Funcion para ocultar los elementos de inicio*/
 function ocultar(e) {
+    
     document.getElementById('inicio').style.display='none'
     document.getElementById('menuEncuesta').style.display='block'
 }
