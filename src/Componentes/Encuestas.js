@@ -65,10 +65,6 @@ export default function Encuestas() {
       const formul = document.getElementById('v-pills-tabContent');
       formul.style.display = 'block';
     
-    
-      
-    
-
   }
 
 

@@ -75,7 +75,7 @@ export default function Formulario() {
         
     function obtenerTexto() {
         
-        let array=pregunta.;
+        let array=pregunta;
         console.console.log(array + "holaaaa");
 
     }

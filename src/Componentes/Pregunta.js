@@ -4,9 +4,8 @@ import '../Estilos/gestorPregunta.css';
 import db from "../firebaseConfig";
 import swal from 'sweetalert';
 
+
 export default function Pregunta() {
-
-
 
     const initialValues = {
 
