@@ -3,6 +3,7 @@ import swal from 'sweetalert';
 import Encuestas from "./Encuestas";
 import db from "../firebaseConfig";
 import { onSnapshot, collection } from "firebase/firestore";
+import './../Estilos/formulario.css';
 
 
 const conteoRespuestas = (event) => {
@@ -39,7 +40,7 @@ const conteoRespuestas = (event) => {
                 text: "Usted ha tenido " + contador + " respuestas correctas",
                 icon: "success",
                 button: "Aceptar",
-                timer: "2000"
+                timer: "8000"
             }
         );
         const formula = document.getElementById('divForm');
@@ -74,51 +75,34 @@ export default function Formulario() {
             []
         );
         
-    function obtenerTexto() {
-        
-        var numeros=[];
-        const moduloPregunta=document.getElementById('moduloEncuesta');
-        const modulo= moduloPregunta.innerText.substring(21);
-        
-        
-
-        if(numeros.length==0)
-        {
-            console.log("no sirvio de nada");
-        }
-        else
-        {
-            console.log("doy jesucristo");
-        }
-
-    }
 
     return (
-        <div class="mb-3">
+        <div class="formularioC">
+            <h2 id="encuesta">ENCUESTA</h2>
             <label for="pregunta 1" class="form-label" id="pregunta1"></label>
             <div class="form-check">
                 <input type="radio" id="casa" name="pregunta1" value="C" />
-                <label for="casa">
+                <label for="casa" id="respuesta1">
                 </label>Correcta
             </div>
 
             <div class="form-check">
                 <input type="radio" id="r02" name="pregunta1" value="F" />
-                <label for="dewey">Falsa
+                <label for="dewey" id="respuesta2">Falsa
 
                 </label>
             </div>
 
             <div class="form-check">
                 <input type="radio" id="r03" name="pregunta1" value="F" />
-                <label for="dewey">Falsa
+                <label for="dewey" id="respuesta3">Falsa
 
                 </label>
             </div>
 
             <div class="form-check">
                 <input type="radio" id="r04" name="pregunta1" value="F" />
-                <label for="dewey">Falsa
+                <label for="dewey" id="respuesta4">Falsa
                 </label>
             </div>
 
@@ -131,28 +115,28 @@ export default function Formulario() {
 
             <div class="form-check">
                 <input type="radio" id="r11" name="pregunta2" value="F" />
-                <label for="dewey">Falsa
+                <label for="dewey" id="respuesta5">Falsa
 
                 </label>
             </div>
 
             <div class="form-check">
-                <input type="radio" id="r12" name="pregunta2" value="F" />
-                <label for="dewey">Falsa
+                <input type="radio"  id="r12" name="pregunta2" value="F" />
+                <label for="dewey" id="respuesta6">Falsa
 
                 </label>
             </div>
 
             <div class="form-check">
                 <input type="radio" id="r13" name="pregunta2" value="F" />
-                <label for="dewey">Falsa
+                <label for="dewey" id="respuesta7">Falsa
 
                 </label>
             </div>
 
             <div class="form-check">
                 <input type="radio" id="r14" name="pregunta2" value="C" />
-                <label for="dewey">Correcta
+                <label for="dewey" id="respuesta8">Correcta
                 </label>
             </div>
 
@@ -161,23 +145,23 @@ export default function Formulario() {
 
             <div class="form-check">
                 <input type="radio" id="r21" name="pregunta3" value="F" />
-                <label for="dewey">Falsa
+                <label for="dewey" id="respuesta9">Falsa
                 </label>
             </div>
 
             <div class="form-check">
                 <input type="radio" id="r22" name="pregunta3" value="C" />
-                <label for="dewey">Correcta
+                <label for="dewey" id="respuesta10">Correcta
                 </label>
             </div>
             <div class="form-check">
                 <input type="radio" id="r23" name="pregunta3" value="F" />
-                <label for="dewey">Falsa
+                <label for="dewey" id="respuesta11">Falsa
                 </label>
             </div>
             <div class="form-check">
                 <input type="radio" id="r24" name="pregunta3" value="F" />
-                <label for="dewey">Falsa
+                <label for="dewey" id="respuesta12">Falsa
                 </label>
             </div>
 
@@ -188,26 +172,26 @@ export default function Formulario() {
 
             <div class="form-check">
                 <input type="radio" id="r31" name="pregunta4" value="C" />
-                <label for="dewey">Correcta
+                <label for="dewey" id="respuesta13">Correcta
                 </label>
             </div>
 
             <div class="form-check">
                 <input type="radio" id="r32" name="pregunta4" value="F" />
-                <label for="dewey">Falsa
+                <label for="dewey" id="respuesta14">Falsa
                 </label>
             </div>
 
             <div class="form-check">
                 <input type="radio" id="r33" name="pregunta4" value="F" />
-                <label for="dewey">Falsa
+                <label for="dewey" id="respuesta15">Falsa
 
                 </label>
             </div>
 
             <div class="form-check">
                 <input type="radio" id="r34" name="pregunta4" value="F" />
-                <label for="dewey">Falsa
+                <label for="dewey" id="respuesta16">Falsa
 
                 </label>
             </div>
@@ -218,27 +202,27 @@ export default function Formulario() {
 
             <div class="form-check">
                 <input type="radio" id="r41" name="pregunta5" value="C" />
-                <label for="dewey">Correcta
+                <label for="dewey" id="respuesta17">Correcta
 
                 </label>
             </div>
 
             <div class="form-check">
                 <input type="radio" id="r42" name="pregunta5" value="F" />
-                <label for="dewey">Falsa
+                <label for="dewey" id="respuesta18">Falsa
 
                 </label>
             </div>
 
             <div class="form-check">
                 <input type="radio" id="r43" name="pregunta5" value="F" />
-                <label for="dewey">Falsa
+                <label for="dewey" id="respuesta19">Falsa
                 </label>
             </div>
 
             <div class="form-check">
                 <input type="radio" id="r44" name="pregunta5" value="F" />
-                <label for="dewey">Falsa
+                <label for="dewey" id="respuesta20">Falsa
                 </label>
             </div>
             <button onClick={() => {conteoRespuestas()}} class="btn btn-success" id="btnEnviar">Enviar</button>

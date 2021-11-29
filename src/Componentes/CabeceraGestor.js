@@ -45,6 +45,7 @@ class CabeceraGestor extends Component {
                             <Nav className="me-auto">
                                 <button id="bModulos" class="btnMaterial" onClick={(e) => {mostrarM(e)}}>Modulos</button>
                                 <button class="btnPregunta" onClick={(e) => {ocultarM(e)}}>Preguntas</button>
+                                <button class="btnRespuesta">Respuestas</button>
                             </Nav>
                             <Profile />
                             <Nav>
