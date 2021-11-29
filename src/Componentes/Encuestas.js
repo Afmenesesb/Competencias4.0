@@ -43,6 +43,7 @@ export default function Encuestas() {
           btn1.disabled = true;
           btn2.disabled = true;
           btn3.disabled = true;
+          window.bandCuest = false;
           swal({
             text: "Ha iniciado la encuesta",
             icon: "success"

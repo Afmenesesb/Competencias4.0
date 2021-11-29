@@ -43,6 +43,12 @@ const conteoRespuestas = (event) => {
                 timer: "8000"
             }
         );
+        checked_pregunta1.checked=false;
+        checked_pregunta2.checked=false;
+        checked_pregunta3.checked=false;
+        checked_pregunta4.checked=false;
+        checked_pregunta5.checked=false;
+
         const formula = document.getElementById('divForm');
         formula.style.display = 'none';
         btn1.disabled = false;
