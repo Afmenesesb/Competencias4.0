@@ -47,6 +47,7 @@ const conteoRespuestas = (event) => {
         btn1.disabled = false;
         btn2.disabled = false;
         btn3.disabled = false;
+        window.bandCuest=null;
     } else {
         swal(
             {
@@ -75,14 +76,26 @@ export default function Formulario() {
         
     function obtenerTexto() {
         
-        let array=pregunta;
-        console.console.log(array + "holaaaa");
+        var numeros=[];
+        const moduloPregunta=document.getElementById('moduloEncuesta');
+        const modulo= moduloPregunta.innerText.substring(21);
+        
+        
+
+        if(numeros.length==0)
+        {
+            console.log("no sirvio de nada");
+        }
+        else
+        {
+            console.log("doy jesucristo");
+        }
 
     }
 
     return (
         <div class="mb-3">
-            <label for="pregunta 1" class="form-label"></label>
+            <label for="pregunta 1" class="form-label" id="pregunta1"></label>
             <div class="form-check">
                 <input type="radio" id="casa" name="pregunta1" value="C" />
                 <label for="casa">
@@ -228,7 +241,7 @@ export default function Formulario() {
                 <label for="dewey">Falsa
                 </label>
             </div>
-            <button onClick={() => {obtenerTexto()}} class="btn btn-success" id="btnEnviar">Enviar</button>
+            <button onClick={() => {conteoRespuestas()}} class="btn btn-success" id="btnEnviar">Enviar</button>
         </div>
 
     );

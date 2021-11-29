@@ -4,17 +4,20 @@ import './../Estilos/encuesta.css';
 import Cuerpo from "./Cuerpo";
 import Formulario from "./Formulario";
 import swal from 'sweetalert';
+import db from "../firebaseConfig";
+import { onSnapshot, collection } from "firebase/firestore";
 
 
-var bandCuest=null;
+
 export default function Encuestas() {
+  window.bandCuest = null;
   const [modulo1, setModulo1] = useState(false);
   const [modulo2, setModulo2] = useState(false);
   const modificarForm = (event) => {
     const btn1 = document.getElementById('v-pills-con-tab');
     const btn2 = document.getElementById('v-pills-compdi-tab');
     const btn3 = document.getElementById('v-pills-act-tab');
-    if(bandCuest==false){
+    if (window.bandCuest == false) {
       swal(
         {
           title: "Realizando encuesta",
@@ -25,8 +28,8 @@ export default function Encuestas() {
         }
       );
     }
-    else{
-      
+    else {
+
       swal(
         {
           title: "Comenzar encuesta",
@@ -43,28 +46,53 @@ export default function Encuestas() {
           swal({
             text: "Ha iniciado la encuesta",
             icon: "success"
-            
+
           })
           const formula = document.getElementById('divForm');
           formula.style.display = 'block';
-          bandCuest=false;
-          event.target.disabled=true;
+          event.target.disabled = true;
         }
       });
     }
-    
 
-   
+
+
 
 
 
 
   }
+  const [pregunta, setPregunta] = useState([{ name: "Loading...", id: "initial" }]);
+
+  useEffect(
+    () =>
+      onSnapshot(collection(db, "Pregunta"), (snapshot) =>
+        setPregunta(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+      ),
+    []
+  );
   const modificarModulos = (event) => {
-    
-      const formul = document.getElementById('v-pills-tabContent');
-      formul.style.display = 'block';
-    
+
+    const formul = document.getElementById('v-pills-tabContent');
+    formul.style.display = 'block';
+    var numeros = [];
+    const moduloPregunta = document.getElementById('moduloEncuesta');
+    const modulo = moduloPregunta.innerText.substring(21);
+    const preg = document.getElementById('pregunta1');
+    numeros.push(pregunta);
+
+
+    for (let step = 0; step < pregunta.length; step++) {
+    }
+
+    if (numeros.length == 0) {
+      console.log("no sirvio de nada");
+    }
+    else {
+      console.log(pregunta.length);
+
+    }
+
   }
 
 
