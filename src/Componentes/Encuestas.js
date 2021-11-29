@@ -75,24 +75,35 @@ export default function Encuestas() {
 
     const formul = document.getElementById('v-pills-tabContent');
     formul.style.display = 'block';
-    var numeros = [];
+    var pregModulo = [];
+    var preguntas=[];
     const moduloPregunta = document.getElementById('moduloEncuesta');
-    const modulo = moduloPregunta.innerText.substring(21);
-    const preg = document.getElementById('pregunta1');
-    numeros.push(pregunta);
+    const modulo = moduloPregunta.innerText.substring(22);
 
 
+    for (let step = 1; step <6; step++) {
+
+      const aux=document.getElementById('pregunta' + step);
+      preguntas.push(aux);
+
+    }
+    
     for (let step = 0; step < pregunta.length; step++) {
-    }
 
-    if (numeros.length == 0) {
-      console.log("no sirvio de nada");
+      console.log(pregunta[step].idModulo);
+      if(pregunta[step].idModulo==modulo)
+      {
+        pregModulo.push(pregunta[step].texto);
+      }
     }
-    else {
-      console.log(pregunta.length);
-
+    var aux=pregModulo.length;
+    for (let step = 0; step <aux; step++ )
+    {
+      var aleatorio= Math.floor(Math.random() * ( pregModulo.length- 0)) + 0;
+      console.log(aleatorio);
+      preguntas[step].innerText= (step+1) + ") " + pregModulo[aleatorio];
+      pregModulo.splice(aleatorio,1);
     }
-
   }
 
 

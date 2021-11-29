@@ -109,28 +109,11 @@ const modificarCont = (event) => {
     }
 }
 export default function ModulosGestor() {
-
-    const [pregunta, setPregunta] = useState([{ name: "Loading...", id: "initial" }]);
-
-    useEffect(
-        () =>
-            onSnapshot(collection(db, "Pregunta"), (snapshot) =>
-                setPregunta(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-            ),
-        []
-    );
     return (
         <div class="btn-groupM" role="group" aria-label="Basic example">
             <button onClick={(e) => { modificarCont(e) }} id="btM1" type="button" class="btn btn-success"></button>
             <button onClick={(e) => { modificarCont(e) }} id="btM2" type="button" class="btn btn-success"></button>
             <button onClick={(e) => { modificarCont(e) }} id="btM3" type="button" class="btn btn-success"></button>
-            <ul>
-                {pregunta.map((p) => (
-                    <li key={p.id}>
-                        <a href="#">{p.texto}</a>
-                    </li>
-                ))}
-            </ul>
         </div>
     );
 

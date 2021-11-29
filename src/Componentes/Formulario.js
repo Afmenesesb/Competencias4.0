@@ -126,7 +126,7 @@ export default function Formulario() {
 
 
 
-            <label for="pregunta 2" class="form-label">Pregunta 2</label>
+            <label for="pregunta 2" class="form-label" id="pregunta2">Pregunta 2</label>
 
 
             <div class="form-check">
@@ -156,7 +156,7 @@ export default function Formulario() {
                 </label>
             </div>
 
-            <label for="pregunta 2" class="form-label">Pregunta 3</label>
+            <label for="pregunta 2" class="form-label" id="pregunta3">Pregunta 3</label>
 
 
             <div class="form-check">
@@ -183,7 +183,7 @@ export default function Formulario() {
 
 
 
-            <label for="pregunta 4" class="form-label">Pregunta 4</label>
+            <label for="pregunta 4" class="form-label" id="pregunta4">Pregunta 4</label>
 
 
             <div class="form-check">
@@ -213,7 +213,7 @@ export default function Formulario() {
             </div>
 
 
-            <label for="pregunta 5" class="form-label">Pregunta 5</label>
+            <label for="pregunta 5" class="form-label" id="pregunta5">Pregunta 5</label>
 
 
             <div class="form-check">
