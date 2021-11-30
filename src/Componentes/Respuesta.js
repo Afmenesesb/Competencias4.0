@@ -5,7 +5,7 @@ import db from "../firebaseConfig";
 import swal from 'sweetalert';
 
 
-export default function Pregunta() {
+export default function Respuesta() {
 
     const initialValues = {
 
@@ -51,7 +51,7 @@ export default function Pregunta() {
     }
 
     return (
-        <div id="formularioPregunta">
+        <div id="formularioRespuesta">
             <form class="form1" onSubmit={handleSumit}>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Id de la pregunta</label>

@@ -10,14 +10,14 @@
 .btnLog:hover {
     color: white;
 }
-.btnlogout,.btnEncuesta,.btnPregunta,.btnMaterial {
+.btnlogout,.btnEncuesta,.btnPregunta,.btnMaterial,.btnRespuesta {
 
     color: rgba(255, 255, 255, 0.774);
     background: transparent;
     border: unset;
     
 }
-.btnlogout:hover, .btnEncuesta:hover, .btnPregunta:hover, .btnMaterial:hover {
+.btnlogout:hover, .btnEncuesta:hover, .btnPregunta:hover, .btnMaterial:hover, .btnRespuesta:hover {
     color: white;
 }
 #cuer{

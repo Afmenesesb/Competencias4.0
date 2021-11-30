@@ -60,12 +60,8 @@ class Cabecera extends Component {
                     <Modulos />
                     <Cuerpo />
                     
-                </div>
-                {/*Se agrega el componente de Encuestas para que sea visible en el componente CabeceraHome*/}
+                </div>   
                 <Encuestas/>
-
-
-
             </div >
 
 
