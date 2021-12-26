@@ -6,6 +6,7 @@ import { onSnapshot, collection } from "firebase/firestore";
 import './../Estilos/formulario.css';
 
 
+
 const conteoRespuestas = (event) => {
     var checked_pregunta1 = document.querySelector('input[name = "pregunta1"]:checked');
     var checked_pregunta2 = document.querySelector('input[name = "pregunta2"]:checked');
@@ -231,7 +232,10 @@ export default function Formulario() {
                 <label for="dewey" id="respuesta20">Falsa
                 </label>
             </div>
+            <br/>
             <button onClick={() => {conteoRespuestas()}} class="btn btn-success" id="btnEnviar">Enviar</button>
+            <br/>
+            <br/>
         </div>
 
     );

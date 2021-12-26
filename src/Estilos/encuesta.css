@@ -47,19 +47,21 @@ margin-top: 2px;
     }
 
 .btn1{
-    color: rgb(24, 70, 15);
+    color: black;
     background-color: white;
     border-radius: 5px;
     font-size: medium;
-    border-color: rgb(0, 0, 0);
+    border-color: rgb(46, 146, 104);
     height: 35px;
+    width: 300px;
     display: none;
 }
-.btn1:focus{
-    color:rgb(255, 255, 255);
-    background-color: rgb(0, 0, 0);
-    transform: scale(1.1);
+.btn1:hover {
+
+    background: rgb(46, 146, 104);
+    color: white;
 }
+
 .btn1:disabled{
     color:white;
     background-color: rgb(46, 146, 104);
@@ -69,13 +71,13 @@ margin-top: 2px;
 }
 
 #area{
-    color:black;
+    color:rgb(46, 146, 104);
     font-size: medium;
     font-weight: bold;
 }
 #modulo{
     margin-top: 10px;
-    color:black;
+    color:rgb(46, 146, 104);;
     font-size: medium;
     text-align: left;
     font-weight: bold;

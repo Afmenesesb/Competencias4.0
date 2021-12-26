@@ -6,6 +6,8 @@
     border-color: rgb(46, 146, 104);
     border-style: solid;
     border-width: 3px;
+    
+    
 }
 #encuesta{
     margin-top: 15px;
@@ -14,7 +16,7 @@
     font-size: medium;
     text-align: center;
     margin-right: 12px;
-    margin-bottom: 30px;
+    
 }
 .form-label{
     margin-left: 10px;
@@ -26,4 +28,11 @@
 }
 .rb{
     content:rgb(46, 146, 104);
+}
+#btnEnviar {
+
+    margin: inherit;
+    height: 40px;
+    width: 150px;
+    font-weight:bold;
 }

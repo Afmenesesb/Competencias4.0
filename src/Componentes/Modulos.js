@@ -58,7 +58,7 @@ const modificarCont = (event) => {
                 contLorem.innerHTML = 'Este es el bloque de Ges org';
                 contImg.src = "";
                 cuerpo.style.display = 'block';
-                check.innerText="Activar encuesta para Gestion de organizaciones";
+                check.innerText="Activar encuesta para Gestion de Organizaciones";
                 botonEncuesta.checked=false;
             }
            
@@ -73,7 +73,7 @@ const modificarCont = (event) => {
             if (boton2.innerText == 'Pensamiento analítico') {
                 contLorem.innerHTML = 'Este es el bloque de Pens analítico';
                 contImg.src = "";
-                check.innerText="Activar encuesta para Pensamiento Analitico";
+                check.innerText="Activar encuesta para Pensamiento Analítico";
                 cuerpo.style.display = 'block';
                 botonEncuesta.checked=false;
             }
@@ -85,7 +85,7 @@ const modificarCont = (event) => {
                     contLorem.innerHTML = 'Este es el bloque de Analis econ';
                     contImg.src = "";
                     cuerpo.style.display = 'block';
-                    check.innerText="Activar encuesta para Analisis economico";
+                    check.innerText="Activar encuesta para Analisis Economico";
                     botonEncuesta.checked=false;
                 }
                 if (boton3.innerText == 'Gestión de la información') {
@@ -97,9 +97,9 @@ const modificarCont = (event) => {
                 }
                
                 if (boton3.innerText == 'Resolución de problemas') {
-                    contLorem.innerHTML = 'Este es el bloque de Res problem';
+                    contLorem.innerHTML = 'Este es el bloque de Resolucion de Problemas';
                     contImg.src = "";
-                    check.innerText="Activar encuesta para Resolucion de problemas";
+                    check.innerText="Activar encuesta para resolución de problemas";
                     cuerpo.style.display = 'block';
                     botonEncuesta.checked=false;
                 }
@@ -108,7 +108,7 @@ const modificarCont = (event) => {
         }
     }
 }
-export default function ModulosGestor() {
+export default function Modulos() {
     return (
         <div class="btn-groupM" role="group" aria-label="Basic example">
             <button onClick={(e) => { modificarCont(e) }} id="btM1" type="button" class="btn btn-success"></button>

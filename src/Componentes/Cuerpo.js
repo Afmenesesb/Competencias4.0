@@ -30,11 +30,12 @@ export default function Cuerpo() {
         const botonEncuesta = document.getElementById('flexSwitchCheckDefault');
         const check = document.getElementById('moduloEncuesta');
         const mensaje= check.innerText.substring(21);
+        console.log(checkbtn.innerText);
         if (checkbtn.innerText == 'Activar encuesta para Informacion Contable') {
             btninfcont.style.display = 'block';
         }
         else {
-            if (checkbtn.innerText == 'Activar encuesta para Gestion de organizaciones') {
+            if (checkbtn.innerText == 'Activar encuesta para Gestion de Organizaciones') {
                 btngesorg.style.display = 'block';
 
             }
@@ -51,7 +52,7 @@ export default function Cuerpo() {
                             btngesin.style.display = 'block';
                         }
                         else {
-                            if (checkbtn.innerText == 'Activar encuesta para Analisis economico') {
+                            if (checkbtn.innerText == 'Activar encuesta para Analisis Economico') {
                                 btnanec.style.display = 'block';
                             }
                             else {
@@ -59,11 +60,11 @@ export default function Cuerpo() {
                                     btnpencri.style.display = 'block';
                                 }
                                 else {
-                                    if (checkbtn.innerText == 'Activar encuesta para Pensamiento Analitico') {
+                                    if (checkbtn.innerText == 'Activar encuesta para Pensamiento Analítico') {
                                         btnpenana.style.display = 'block';
                                     }
                                     else {
-                                        if (checkbtn.innerText == 'Activar encuesta para Resolucion de problemas') {
+                                        if (checkbtn.innerText == 'Activar encuesta para resolución de problemas') {
                                             btnrespro.style.display = 'block';
                                         }
                                     }
