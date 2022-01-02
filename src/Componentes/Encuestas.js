@@ -51,7 +51,6 @@ export default function Encuestas() {
           })
           const formula = document.getElementById('divForm');
           formula.style.display = 'block';
-          console.log("hola");
           event.target.disabled = true;
         }
       });

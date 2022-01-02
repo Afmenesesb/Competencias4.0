@@ -4,3 +4,8 @@
 .btn-groupM{
     margin-top: 0.5%;
 }
+
+#formularioPregunta{
+
+    display: none;
+}

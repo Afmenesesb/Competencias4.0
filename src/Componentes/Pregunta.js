@@ -6,7 +6,6 @@ import swal from 'sweetalert';
 
 
 export default function Pregunta() {
-
     const initialValues = {
 
         id: '',
@@ -51,7 +50,7 @@ export default function Pregunta() {
     }
 
     return (
-        <div id="formularioPregunta">
+        <div id="formularioPregunta" >
             <form class="form1" onSubmit={handleSumit}>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Id de la pregunta</label>
@@ -69,11 +68,12 @@ export default function Pregunta() {
                     <input type="checkbox" class="form-check-input" id="exampleCheck1" />
                     <label class="form-check-label" for="exampleCheck1">Check me out</label>
                 </div>
-                <button id="btnGuardar" type="submit" class="btn btn-success">Guardar</button>
+                <button id="btnGuardar" type="submit" class="btn btn-success" >Guardar</button>
             </form>
 
         </div>
 
 
     );
+
 }

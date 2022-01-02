@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Routes, Link, Route } from "react-router-dom";
 import Encuestas from "./Encuestas";
 
 
+
 /*Funcion para mostrar los elementos de inicio*/
 function mostrar(e) {
     document.getElementById('inicio').style.display='block'

@@ -9,26 +9,36 @@ import Pregunta from "./Pregunta";
 import ModulosGestor from "./ModulosGestor";
 import Modulos from "./Modulos";
 import Competencias from "./Competencias";
+import Cuerpo from "./Cuerpo";
+import Respuesta from "./Respuesta";
 
-function mostrarM(e) {
+function mostrarI() {
     document.getElementById('inicioGestor').style.display = 'block'
     document.getElementById('formularioPregunta').style.display = 'none'
-
+    document.getElementById('formularioRespuesta').style.display = 'none'
 }
 /*Funcion para ocultar los elementos de inicio*/
-function ocultarM(e) {
+function mostrarP(e) {
 
     document.getElementById('inicioGestor').style.display = 'none'
     document.getElementById('formularioPregunta').style.display = 'block'
+    document.getElementById('formularioRespuesta').style.display = 'none'
+}
+function mostrarR(e) {
+
+    document.getElementById('inicioGestor').style.display = 'none'
+    document.getElementById('formularioPregunta').style.display = 'none'
+    document.getElementById('formularioRespuesta').style.display= 'block'
 }
 
-class CabeceraGestor extends Component {
-
+export default class CabeceraGestor extends Component {
+    
     /*Constantes para manejar el estado de visibilidad de los componentes de la cabecera del gestor*/
     render() {
         return (
             /*Uso del mismo formato de cabecera inicial, modificando algunos componentes segun la necesidad, en este casola del gestor de conocimiento*/
             <div>
+                
                 <Navbar collapseOnSelect expand="lg" bg="success" variant="dark" wit>
                     <Container>
 
@@ -43,9 +53,9 @@ class CabeceraGestor extends Component {
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="me-auto">
-                                <button id="bModulos" class="btnMaterial" onClick={(e) => {mostrarM(e)}}>Modulos</button>
-                                <button class="btnPregunta" onClick={(e) => {ocultarM(e)}}>Preguntas</button>
-                                <button class="btnRespuesta">Respuestas</button>
+                                <button id="bModulos" class="btnMaterial" onClick={() => {mostrarI()}}>Modulos</button>
+                                <button class="btnPregunta" onClick={(e) => {mostrarP(e)}}>Preguntas</button>
+                                <button class="btnRespuesta" onClick={(e) => {mostrarR(e)}}>Respuestas</button>
                             </Nav>
                             <Profile />
                             <Nav>
@@ -54,12 +64,14 @@ class CabeceraGestor extends Component {
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
+
                 <div id="inicioGestor">
                     <Competencias />
                     <Modulos />
+                    <Cuerpo />
 
-                </div>
-                
+                </div>      
+                <Respuesta/>
                 <Pregunta />
             </div>
             
@@ -67,4 +79,3 @@ class CabeceraGestor extends Component {
     }
 
 }
-export default CabeceraGestor;
