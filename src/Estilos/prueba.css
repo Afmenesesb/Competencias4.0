@@ -57,8 +57,12 @@
   {
     border-radius: 180px;
     width: 50px;
-    color: white;
+    color: black;
   }
   h6 {
     color: transparent;
+  }
+  #usuario {
+
+    color: white;
   }

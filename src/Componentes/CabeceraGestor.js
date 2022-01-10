@@ -30,6 +30,12 @@ function mostrarR(e) {
     document.getElementById('formularioPregunta').style.display = 'none'
     document.getElementById('formularioRespuesta').style.display= 'block'
 }
+function mostrarE(e) {
+
+    document.getElementById('inicioGestor').style.display = 'none'
+    document.getElementById('formularioPregunta').style.display = 'none'
+    document.getElementById('formularioRespuesta').style.display= 'none'
+}
 
 export default class CabeceraGestor extends Component {
     
@@ -56,6 +62,7 @@ export default class CabeceraGestor extends Component {
                                 <button id="bModulos" class="btnMaterial" onClick={() => {mostrarI()}}>Modulos</button>
                                 <button class="btnPregunta" onClick={(e) => {mostrarP(e)}}>Preguntas</button>
                                 <button class="btnRespuesta" onClick={(e) => {mostrarR(e)}}>Respuestas</button>
+                                <button class="btnRespuesta" onClick={(e) => {mostrarE(e)}}>Estadisticas</button>
                             </Nav>
                             <Profile />
                             <Nav>

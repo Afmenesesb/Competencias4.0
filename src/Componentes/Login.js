@@ -5,5 +5,5 @@ import '../Estilos/boton.css';
 export const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
 
-  return <button onClick={() => loginWithRedirect()} class="btnLog">Iniciar sesion</button>;
+  return <button onClick={() => loginWithRedirect()} class="btnLog" >Iniciar sesion</button>;
 };

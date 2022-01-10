@@ -1,14 +1,10 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Cabecera from './Componentes/Cabecera';
-import Home from './Componentes/Home';
-import { LoginButton } from './Componentes/Login';
-import { LogoutButton } from './Componentes/Logout';
-import { Profile } from './Componentes/Profile';
 import { useAuth0 } from '@auth0/auth0-react';
 import CabeceraHome from './Componentes/CabeceraHome';
 import CabeceraGestor from './Componentes/CabeceraGestor';
-import Button from 'react-bootstrap/Button';
+
 
 
 export const Salir = () => {
@@ -31,8 +27,7 @@ function verificarDominio(dominio) {
 function App() {
   const { isAuthenticated, isLoading, user } = useAuth0();
 
-
-  if (isLoading) return <h1>Loading...</h1>
+  if (isLoading) return <h1 id="cargando">Loading...</h1>
 
   if (isAuthenticated) {
     if (user.email.includes('uniquindio')) {
@@ -40,8 +35,8 @@ function App() {
         <div className="App">
           {isAuthenticated ? (
 
-            <CabeceraHome />
 
+            <CabeceraHome />
 
           ) : (
 

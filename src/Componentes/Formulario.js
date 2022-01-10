@@ -4,10 +4,11 @@ import Encuestas from "./Encuestas";
 import db from "../firebaseConfig";
 import { onSnapshot, collection } from "firebase/firestore";
 import './../Estilos/formulario.css';
+import { useAuth0 } from '@auth0/auth0-react';
 
 
 
-const conteoRespuestas = (event) => {
+const ConteoRespuestas = (event) => {
     var checked_pregunta1 = document.querySelector('input[name = "pregunta1"]:checked');
     var checked_pregunta2 = document.querySelector('input[name = "pregunta2"]:checked');
     var checked_pregunta3 = document.querySelector('input[name = "pregunta3"]:checked');
@@ -16,6 +17,7 @@ const conteoRespuestas = (event) => {
     const btn1 = document.getElementById('v-pills-con-tab');
     const btn2 = document.getElementById('v-pills-compdi-tab');
     const btn3 = document.getElementById('v-pills-act-tab');
+    const usuario= document.getElementById('usuario').innerText;
     var contador = 0;
     if (checked_pregunta1 != null && checked_pregunta2 != null &&
         checked_pregunta3 != null && checked_pregunta4 != null &&
@@ -38,7 +40,7 @@ const conteoRespuestas = (event) => {
         swal(
             {
                 title: "Terminó la encuesta",
-                text: "Usted ha tenido " + contador + " respuestas correctas",
+                text: usuario + " Usted ha tenido " + contador + " respuestas correctas",
                 icon: "success",
                 button: "Aceptar",
                 timer: "8000"
@@ -73,6 +75,7 @@ const conteoRespuestas = (event) => {
 export default function Formulario() {
 
         const [pregunta, setPregunta] = useState([{ name: "Loading...", id: "initial" }]);
+        const { user } = useAuth0();
     
         useEffect(
             () =>
@@ -233,7 +236,7 @@ export default function Formulario() {
                 </label>
             </div>
             <br/>
-            <button onClick={() => {conteoRespuestas()}} class="btn btn-success" id="btnEnviar">Enviar</button>
+            <button onClick={() => {ConteoRespuestas()}} class="btn btn-success" id="btnEnviar">Enviar</button>
             <br/>
             <br/>
         </div>
