@@ -75,12 +75,20 @@ const ConteoRespuestas = (event) => {
 export default function Formulario() {
 
         const [pregunta, setPregunta] = useState([{ name: "Loading...", id: "initial" }]);
+        const [respuesta, setRespuesta]=useState([{ name: "Loading...", id: "initial" }]);
         const { user } = useAuth0();
     
         useEffect(
             () =>
                 onSnapshot(collection(db, "Pregunta"), (snapshot) =>
                     setPregunta(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+                ),
+            []
+        );
+        useEffect(
+            () =>
+                onSnapshot(collection(db, "Respuesta"), (snapshot) =>
+                    setRespuesta(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
                 ),
             []
         );
@@ -93,7 +101,7 @@ export default function Formulario() {
             <div class="form-check">
                 <input type="radio" id="casa" name="pregunta1" value="C" />
                 <label for="casa" id="respuesta1">
-                </label>Correcta
+                </label>
             </div>
 
             <div class="form-check">
@@ -226,7 +234,7 @@ export default function Formulario() {
 
             <div class="form-check">
                 <input type="radio" id="r43" name="pregunta5" value="F" />
-                <label for="dewey" id="respuesta19">Falsa
+                <label for="dewey" id="respuesta19">
                 </label>
             </div>
 

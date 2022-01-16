@@ -5,7 +5,7 @@ import Cuerpo from "./Cuerpo";
 import Formulario from "./Formulario";
 import swal from 'sweetalert';
 import db from "../firebaseConfig";
-import { onSnapshot, collection } from "firebase/firestore";
+import { onSnapshot, collection, doc, getDoc } from "firebase/firestore";
 
 
 
@@ -57,6 +57,7 @@ export default function Encuestas() {
     }
   }
   const [pregunta, setPregunta] = useState([{ name: "Loading...", id: "initial" }]);
+  const [respuesta, setRespuesta]= useState([{ name: "Loading...", id: "initial" }]);
 
   useEffect(
     () =>
@@ -65,13 +66,22 @@ export default function Encuestas() {
       ),
     []
   );
+  const añadirPreguntas = async () =>{
+
+    const docRef = doc(db, "Pregunta", "Pregunta1IC", "Respuesta", "Respuesta1");
+    const snap= await getDoc(docRef);
+    console.log("Document data:", snap.data());
+
+  }
   const modificarModulos = (event) => {
 
+    
     const formul = document.getElementById('v-pills-tabContent');
     formul.style.display = 'block';
     var pregModulo = [];
     var preguntas = [];
     var respuestas = [];
+    var respuestaPregunta=[];
     const moduloPregunta = document.getElementById('moduloEncuesta');
     const modulo = moduloPregunta.innerText.substring(22);
 
@@ -80,12 +90,15 @@ export default function Encuestas() {
 
       const aux = document.getElementById('pregunta' + step);
       preguntas.push(aux);
+      console.log(pregunta[1]);
+      
 
     }
     for (let step = 1; step < 21; step++) {
 
       const aux = document.getElementById('respuesta' + step);
       respuestas.push(aux);
+      console.log(respuesta[1]);
 
     }
 
@@ -94,6 +107,7 @@ export default function Encuestas() {
       console.log(pregunta[step].idModulo);
       if (pregunta[step].idModulo == modulo) {
         pregModulo.push(pregunta[step].texto);
+        añadirPreguntas();
       }
     }
     var aux = pregModulo.length;
@@ -104,8 +118,6 @@ export default function Encuestas() {
       pregModulo.splice(aleatorio, 1);
     }
   }
-
-
   return (
     <div id="menuEncuesta" class="mencuesta">
 
