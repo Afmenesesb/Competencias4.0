@@ -99,27 +99,27 @@ export default function Formulario() {
             <h2 id="encuesta">ENCUESTA</h2>
             <label for="pregunta 1" class="form-label" id="pregunta1"></label>
             <div class="form-check">
-                <input type="radio" id="casa" name="pregunta1" value="C" />
+                <input type="radio" id="r1" name="pregunta1"  />
                 <label for="casa" id="respuesta1">
                 </label>
             </div>
 
             <div class="form-check">
-                <input type="radio" id="r02" name="pregunta1" value="F" />
+                <input type="radio" id="r2" name="pregunta1"  />
                 <label for="dewey" id="respuesta2">Falsa
 
                 </label>
             </div>
 
             <div class="form-check">
-                <input type="radio" id="r03" name="pregunta1" value="F" />
+                <input type="radio" id="r3" name="pregunta1"  />
                 <label for="dewey" id="respuesta3">Falsa
 
                 </label>
             </div>
 
             <div class="form-check">
-                <input type="radio" id="r04" name="pregunta1" value="F" />
+                <input type="radio" id="r4" name="pregunta1"  />
                 <label for="dewey" id="respuesta4">Falsa
                 </label>
             </div>
@@ -132,28 +132,28 @@ export default function Formulario() {
 
 
             <div class="form-check">
-                <input type="radio" id="r11" name="pregunta2" value="F" />
+                <input type="radio" id="r5" name="pregunta2"  />
                 <label for="dewey" id="respuesta5">Falsa
 
                 </label>
             </div>
 
             <div class="form-check">
-                <input type="radio"  id="r12" name="pregunta2" value="F" />
+                <input type="radio"  id="r6" name="pregunta2"  />
                 <label for="dewey" id="respuesta6">Falsa
 
                 </label>
             </div>
 
             <div class="form-check">
-                <input type="radio" id="r13" name="pregunta2" value="F" />
+                <input type="radio" id="r7" name="pregunta2"  />
                 <label for="dewey" id="respuesta7">Falsa
 
                 </label>
             </div>
 
             <div class="form-check">
-                <input type="radio" id="r14" name="pregunta2" value="C" />
+                <input type="radio" id="r8" name="pregunta2"  />
                 <label for="dewey" id="respuesta8">Correcta
                 </label>
             </div>
@@ -162,23 +162,23 @@ export default function Formulario() {
 
 
             <div class="form-check">
-                <input type="radio" id="r21" name="pregunta3" value="F" />
+                <input type="radio" id="r9" name="pregunta3"  />
                 <label for="dewey" id="respuesta9">Falsa
                 </label>
             </div>
 
             <div class="form-check">
-                <input type="radio" id="r22" name="pregunta3" value="C" />
+                <input type="radio" id="r10" name="pregunta3"  />
                 <label for="dewey" id="respuesta10">Correcta
                 </label>
             </div>
             <div class="form-check">
-                <input type="radio" id="r23" name="pregunta3" value="F" />
+                <input type="radio" id="r11" name="pregunta3"  />
                 <label for="dewey" id="respuesta11">Falsa
                 </label>
             </div>
             <div class="form-check">
-                <input type="radio" id="r24" name="pregunta3" value="F" />
+                <input type="radio" id="r12" name="pregunta3"  />
                 <label for="dewey" id="respuesta12">Falsa
                 </label>
             </div>
@@ -189,26 +189,26 @@ export default function Formulario() {
 
 
             <div class="form-check">
-                <input type="radio" id="r31" name="pregunta4" value="C" />
+                <input type="radio" id="r13" name="pregunta4"  />
                 <label for="dewey" id="respuesta13">Correcta
                 </label>
             </div>
 
             <div class="form-check">
-                <input type="radio" id="r32" name="pregunta4" value="F" />
+                <input type="radio" id="r14" name="pregunta4"  />
                 <label for="dewey" id="respuesta14">Falsa
                 </label>
             </div>
 
             <div class="form-check">
-                <input type="radio" id="r33" name="pregunta4" value="F" />
+                <input type="radio" id="r15" name="pregunta4"  />
                 <label for="dewey" id="respuesta15">Falsa
 
                 </label>
             </div>
 
             <div class="form-check">
-                <input type="radio" id="r34" name="pregunta4" value="F" />
+                <input type="radio" id="r16" name="pregunta4"  />
                 <label for="dewey" id="respuesta16">Falsa
 
                 </label>
@@ -219,27 +219,27 @@ export default function Formulario() {
 
 
             <div class="form-check">
-                <input type="radio" id="r41" name="pregunta5" value="C" />
+                <input type="radio" id="r17" name="pregunta5"  />
                 <label for="dewey" id="respuesta17">Correcta
 
                 </label>
             </div>
 
             <div class="form-check">
-                <input type="radio" id="r42" name="pregunta5" value="F" />
+                <input type="radio" id="r18" name="pregunta5"  />
                 <label for="dewey" id="respuesta18">Falsa
 
                 </label>
             </div>
 
             <div class="form-check">
-                <input type="radio" id="r43" name="pregunta5" value="F" />
+                <input type="radio" id="r19" name="pregunta5"  />
                 <label for="dewey" id="respuesta19">
                 </label>
             </div>
 
             <div class="form-check">
-                <input type="radio" id="r44" name="pregunta5" value="F" />
+                <input type="radio" id="r20" name="pregunta5" />
                 <label for="dewey" id="respuesta20">Falsa
                 </label>
             </div>

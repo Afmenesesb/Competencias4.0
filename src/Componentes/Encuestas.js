@@ -14,6 +14,7 @@ export default function Encuestas() {
   const [modulo1, setModulo1] = useState(false);
   const [modulo2, setModulo2] = useState(false);
   const checkbtn = document.getElementById('moduloEncuesta');
+  const respuestaC="";
   var pregModulo = [];
   var preguntas = [];
   var respuestas = [];
@@ -21,6 +22,8 @@ export default function Encuestas() {
   var contenidoRespuesta = "";
   var aleatorios = [];
   var aleatoriosRespuesta=[];
+  var preguntasMostradas=[];
+  var respuestaCorrecta=[];
   const modificarForm = (event) => {
     const btn1 = document.getElementById('v-pills-con-tab');
     const btn2 = document.getElementById('v-pills-compdi-tab');
@@ -70,7 +73,7 @@ export default function Encuestas() {
 
   }
   const [pregunta, setPregunta] = useState([{ name: "Loading...", id: "initial" }]);
-  const [respuesta, setRespuesta] = useState([{ name: "Loading...", id: "initial" }]);
+ 
 
   useEffect(
     () =>
@@ -79,23 +82,38 @@ export default function Encuestas() {
       ),
     []
   );
+
+  const obtenerRespuestaCorrecta = (step) =>
+  {
+    const respuestaFormulario= document.getElementById('r' + (step));
+    respuestaFormulario.value='C';
+  }
   const obtenerRespuestas = async (ref, inicio) => {
     var document = await getDoc(ref);
     var contenido = document.get("texto");
+    var valorRespuesta= document.get("valor");
+    if(valorRespuesta==true)
+    {
+        respuestaCorrecta=contenido;
+    }
     contenidoRespuesta = contenido;
     respuestasModulo.push(contenidoRespuesta);
 
     if ((respuestasModulo.length%4)==0) {
       var inicial = 4 * inicio;
       var final =inicial+4;
-      console.log(final);
-      console.log(inicial);
       console.log(respuestasModulo.length);
       llenarArregloRespuestasAleatorias(respuestasModulo.length);
       console.log(aleatoriosRespuesta);
       console.log(respuestasModulo);
       for (let step = inicial; step < final; step++) {
         var posicion = aleatoriosRespuesta[0];
+        if(respuestasModulo[posicion]== respuestaCorrecta)
+        {
+          console.log(step);
+          obtenerRespuestaCorrecta(step+1);
+          
+        }
         respuestas[step].innerText = respuestasModulo[posicion];
         aleatoriosRespuesta.splice(0,1);
         console.log(aleatoriosRespuesta);
@@ -139,12 +157,26 @@ export default function Encuestas() {
       aleatorios[j] = k;
     }
   }
+  const llenarArregloPreguntasAleatoriasMostrar = (numeroPreg) => {
+    for (let index = 0; index < numeroPreg; index++) {
+      preguntasMostradas.push(index);
+    }
+    var i, j, k;
+    for (i = preguntasMostradas.length; i; i--) {
+      j = Math.floor(Math.random() * i);
+      k = preguntasMostradas[i - 1];
+      preguntasMostradas[i - 1] = preguntasMostradas[j];
+      preguntasMostradas[j] = k;
+    }
+  }
   const añadirPreguntas = async (modulo) => {
 
     var snap = null;
-
+    llenarArregloPreguntasAleatoriasMostrar(10);
+    console.log(preguntasMostradas);
     for (let index = 0; index < 5; index++) {
-      const docRef = doc(db, "Modulo", modulo, "Preguntas", "Pregunta" + (index + 1));
+      var posicion=preguntasMostradas[index];
+      const docRef = doc(db, "Modulo", modulo, "Preguntas", "Pregunta" + (posicion + 1));
       snap = await getDoc(docRef);
       console.log(snap.get("texto"));
       pregModulo.push(snap.get("texto"));
@@ -154,8 +186,9 @@ export default function Encuestas() {
     var aux = pregModulo.length;
     for (let step = 0; step < aux; step++) {
       var posicion = aleatorios[step];
-      preguntas[posicion].innerText = (step + 1) + ") " + pregModulo[step];
-      añadirRespuestas(modulo, (step + 1), aleatorios[step]);
+      var posicion2= preguntasMostradas[step];
+      preguntas[posicion].innerText = (posicion + 1) + ") " + pregModulo[step];
+      añadirRespuestas(modulo, (posicion2 + 1), aleatorios[step]);
     }
 
 
