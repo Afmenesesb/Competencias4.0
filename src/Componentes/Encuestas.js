@@ -13,6 +13,14 @@ export default function Encuestas() {
   window.bandCuest = null;
   const [modulo1, setModulo1] = useState(false);
   const [modulo2, setModulo2] = useState(false);
+  const checkbtn = document.getElementById('moduloEncuesta');
+  var pregModulo = [];
+  var preguntas = [];
+  var respuestas = [];
+  var respuestasModulo = [];
+  var contenidoRespuesta = "";
+  var aleatorios = [];
+  var aleatoriosRespuesta=[];
   const modificarForm = (event) => {
     const btn1 = document.getElementById('v-pills-con-tab');
     const btn2 = document.getElementById('v-pills-compdi-tab');
@@ -55,9 +63,14 @@ export default function Encuestas() {
         }
       });
     }
+
+
+
+
+
   }
   const [pregunta, setPregunta] = useState([{ name: "Loading...", id: "initial" }]);
-  const [respuesta, setRespuesta]= useState([{ name: "Loading...", id: "initial" }]);
+  const [respuesta, setRespuesta] = useState([{ name: "Loading...", id: "initial" }]);
 
   useEffect(
     () =>
@@ -66,22 +79,94 @@ export default function Encuestas() {
       ),
     []
   );
-  const añadirPreguntas = async () =>{
+  const obtenerRespuestas = async (ref, inicio) => {
+    var document = await getDoc(ref);
+    var contenido = document.get("texto");
+    contenidoRespuesta = contenido;
+    respuestasModulo.push(contenidoRespuesta);
 
-    const docRef = doc(db, "Pregunta", "Pregunta1IC", "Respuesta", "Respuesta1");
-    const snap= await getDoc(docRef);
-    console.log("Document data:", snap.data());
+    if ((respuestasModulo.length%4)==0) {
+      var inicial = 4 * inicio;
+      var final =inicial+4;
+      console.log(final);
+      console.log(inicial);
+      console.log(respuestasModulo.length);
+      llenarArregloRespuestasAleatorias(respuestasModulo.length);
+      console.log(aleatoriosRespuesta);
+      console.log(respuestasModulo);
+      for (let step = inicial; step < final; step++) {
+        var posicion = aleatoriosRespuesta[0];
+        respuestas[step].innerText = respuestasModulo[posicion];
+        aleatoriosRespuesta.splice(0,1);
+        console.log(aleatoriosRespuesta);
+      }
+    }
+
+  }
+
+  const añadirRespuestas = (modulo, numPreguntas, inicio) => {
+
+    for (let index2 = 0; index2 < 4; index2++) {
+      const docRef2 = doc(db, "Modulo", modulo, "Preguntas", "Pregunta" + numPreguntas, "Respuestas", "Respuesta" + (index2 + 1));
+      console.log("entra");
+      obtenerRespuestas(docRef2, inicio);
+    }
+
+  }
+  const llenarArregloRespuestasAleatorias = (numeroRespuestas) => {
+
+    var inicio=numeroRespuestas-4;
+    for (let index = inicio; index < numeroRespuestas; index++) {
+      aleatoriosRespuesta.push(index);
+    }
+    var i, j, k;
+    for (i = aleatoriosRespuesta.length; i; i--) {
+      j = Math.floor(Math.random() * i);
+      k = aleatoriosRespuesta[i - 1];
+      aleatoriosRespuesta[i - 1] = aleatoriosRespuesta[j];
+      aleatoriosRespuesta[j] = k;
+    }
+  }
+  const llenarArregloPreguntasAleatorias = (numeroPreg) => {
+    for (let index = 0; index < numeroPreg; index++) {
+      aleatorios.push(index);
+    }
+    var i, j, k;
+    for (i = aleatorios.length; i; i--) {
+      j = Math.floor(Math.random() * i);
+      k = aleatorios[i - 1];
+      aleatorios[i - 1] = aleatorios[j];
+      aleatorios[j] = k;
+    }
+  }
+  const añadirPreguntas = async (modulo) => {
+
+    var snap = null;
+
+    for (let index = 0; index < 5; index++) {
+      const docRef = doc(db, "Modulo", modulo, "Preguntas", "Pregunta" + (index + 1));
+      snap = await getDoc(docRef);
+      console.log(snap.get("texto"));
+      pregModulo.push(snap.get("texto"));
+    }
+    llenarArregloPreguntasAleatorias(pregModulo.length);
+    console.log(aleatorios);
+    var aux = pregModulo.length;
+    for (let step = 0; step < aux; step++) {
+      var posicion = aleatorios[step];
+      preguntas[posicion].innerText = (step + 1) + ") " + pregModulo[step];
+      añadirRespuestas(modulo, (step + 1), aleatorios[step]);
+    }
+
 
   }
   const modificarModulos = (event) => {
 
-    
+
     const formul = document.getElementById('v-pills-tabContent');
     formul.style.display = 'block';
-    var pregModulo = [];
-    var preguntas = [];
-    var respuestas = [];
-    var respuestaPregunta=[];
+
+
     const moduloPregunta = document.getElementById('moduloEncuesta');
     const modulo = moduloPregunta.innerText.substring(22);
 
@@ -90,33 +175,18 @@ export default function Encuestas() {
 
       const aux = document.getElementById('pregunta' + step);
       preguntas.push(aux);
-      console.log(pregunta[1]);
-      
 
     }
     for (let step = 1; step < 21; step++) {
 
       const aux = document.getElementById('respuesta' + step);
       respuestas.push(aux);
-      console.log(respuesta[1]);
 
     }
 
-    for (let step = 0; step < pregunta.length; step++) {
+    añadirPreguntas(modulo);
 
-      console.log(pregunta[step].idModulo);
-      if (pregunta[step].idModulo == modulo) {
-        pregModulo.push(pregunta[step].texto);
-        añadirPreguntas();
-      }
-    }
-    var aux = pregModulo.length;
-    for (let step = 0; step < aux; step++) {
-      var aleatorio = Math.floor(Math.random() * (pregModulo.length - 0)) + 0;
-      console.log(aleatorio);
-      preguntas[step].innerText = (step + 1) + ") " + pregModulo[aleatorio];
-      pregModulo.splice(aleatorio, 1);
-    }
+
   }
   return (
     <div id="menuEncuesta" class="mencuesta">
@@ -146,7 +216,7 @@ export default function Encuestas() {
           <button onClick={(e) => { modificarForm(e) }} class="btn1" id="v-pills-penana-tab" data-bs-toggle="pill" data-bs-target="#v-pills-penana" type="button" role="tab" aria-controls="v-pills-penana" aria-selected="true" >Pensamiento Analítico</button>
           <button onClick={(e) => { modificarForm(e) }} class="btn1" id="v-pills-respro-tab" data-bs-toggle="pill" data-bs-target="#v-pills-respro" type="button" role="tab" aria-controls="v-pills-respro" aria-selected="true" >Resolución de problemas</button></div>
       </div>
-      <br/>
+      <br />
       <div id="divForm" class="form">
         <Formulario />
       </div>
