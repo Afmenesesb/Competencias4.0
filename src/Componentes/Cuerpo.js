@@ -35,7 +35,7 @@ export default function Cuerpo() {
             btninfcont.style.display = 'block';
         }
         else {
-            if (checkbtn.innerText == 'Activar encuesta para Gestion de Organizaciones') {
+            if (checkbtn.innerText == 'Activar encuesta para Gestion de organizaciones') {
                 btngesorg.style.display = 'block';
 
             }

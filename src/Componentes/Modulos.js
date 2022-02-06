@@ -58,7 +58,7 @@ const modificarCont = (event) => {
                 contLorem.innerHTML = 'Este es el bloque de Ges org';
                 contImg.src = "";
                 cuerpo.style.display = 'block';
-                check.innerText="Activar encuesta para Gestion de Organizaciones";
+                check.innerText="Activar encuesta para Gestion de organizaciones";
                 botonEncuesta.checked=false;
             }
            

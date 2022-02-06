@@ -15,6 +15,8 @@ export default function Encuestas() {
   const [modulo2, setModulo2] = useState(false);
   const checkbtn = document.getElementById('moduloEncuesta');
   const respuestaC="";
+  const reinicio= [];
+  var modulo="";
   var pregModulo = [];
   var preguntas = [];
   var respuestas = [];
@@ -28,6 +30,8 @@ export default function Encuestas() {
     const btn1 = document.getElementById('v-pills-con-tab');
     const btn2 = document.getElementById('v-pills-compdi-tab');
     const btn3 = document.getElementById('v-pills-act-tab');
+    const moduloPregunta = document.getElementById('moduloEncuesta');
+    modulo = moduloPregunta.innerText.substring(22);
     if (window.bandCuest == false) {
       swal(
         {
@@ -66,9 +70,10 @@ export default function Encuestas() {
         }
       });
     }
-
-
-
+    console.log(modulo);
+    añadirPreguntas(modulo);
+    
+    
 
 
   }
@@ -102,21 +107,15 @@ export default function Encuestas() {
     if ((respuestasModulo.length%4)==0) {
       var inicial = 4 * inicio;
       var final =inicial+4;
-      console.log(respuestasModulo.length);
       llenarArregloRespuestasAleatorias(respuestasModulo.length);
-      console.log(aleatoriosRespuesta);
-      console.log(respuestasModulo);
       for (let step = inicial; step < final; step++) {
         var posicion = aleatoriosRespuesta[0];
         if(respuestasModulo[posicion]== respuestaCorrecta)
         {
-          console.log(step);
-          obtenerRespuestaCorrecta(step+1);
-          
+          obtenerRespuestaCorrecta(step+1);    
         }
         respuestas[step].innerText = respuestasModulo[posicion];
         aleatoriosRespuesta.splice(0,1);
-        console.log(aleatoriosRespuesta);
       }
     }
 
@@ -126,7 +125,6 @@ export default function Encuestas() {
 
     for (let index2 = 0; index2 < 4; index2++) {
       const docRef2 = doc(db, "Modulo", modulo, "Preguntas", "Pregunta" + numPreguntas, "Respuestas", "Respuesta" + (index2 + 1));
-      console.log("entra");
       obtenerRespuestas(docRef2, inicio);
     }
 
@@ -143,18 +141,6 @@ export default function Encuestas() {
       k = aleatoriosRespuesta[i - 1];
       aleatoriosRespuesta[i - 1] = aleatoriosRespuesta[j];
       aleatoriosRespuesta[j] = k;
-    }
-  }
-  const llenarArregloPreguntasAleatorias = (numeroPreg) => {
-    for (let index = 0; index < numeroPreg; index++) {
-      aleatorios.push(index);
-    }
-    var i, j, k;
-    for (i = aleatorios.length; i; i--) {
-      j = Math.floor(Math.random() * i);
-      k = aleatorios[i - 1];
-      aleatorios[i - 1] = aleatorios[j];
-      aleatorios[j] = k;
     }
   }
   const llenarArregloPreguntasAleatoriasMostrar = (numeroPreg) => {
@@ -178,18 +164,21 @@ export default function Encuestas() {
       var posicion=preguntasMostradas[index];
       const docRef = doc(db, "Modulo", modulo, "Preguntas", "Pregunta" + (posicion + 1));
       snap = await getDoc(docRef);
-      console.log(snap.get("texto"));
       pregModulo.push(snap.get("texto"));
     }
-    llenarArregloPreguntasAleatorias(pregModulo.length);
-    console.log(aleatorios);
     var aux = pregModulo.length;
     for (let step = 0; step < aux; step++) {
-      var posicion = aleatorios[step];
       var posicion2= preguntasMostradas[step];
-      preguntas[posicion].innerText = (posicion + 1) + ") " + pregModulo[step];
-      añadirRespuestas(modulo, (posicion2 + 1), aleatorios[step]);
+      console.log(preguntas);
+      preguntas[step].innerText = (step + 1) + ") " + pregModulo[step];
+      añadirRespuestas(modulo, (posicion2 + 1), step);
     }
+    preguntasMostradas.splice(0,preguntasMostradas.length);
+    pregModulo.splice(0,pregModulo.length);
+    console.log(preguntasMostradas);
+    console.log(pregModulo);
+
+    
 
 
   }
@@ -198,11 +187,6 @@ export default function Encuestas() {
 
     const formul = document.getElementById('v-pills-tabContent');
     formul.style.display = 'block';
-
-
-    const moduloPregunta = document.getElementById('moduloEncuesta');
-    const modulo = moduloPregunta.innerText.substring(22);
-
 
     for (let step = 1; step < 6; step++) {
 
@@ -216,10 +200,6 @@ export default function Encuestas() {
       respuestas.push(aux);
 
     }
-
-    añadirPreguntas(modulo);
-
-
   }
   return (
     <div id="menuEncuesta" class="mencuesta">
@@ -234,7 +214,7 @@ export default function Encuestas() {
         <div class="tab-pane fade show active" id="v-pills-con" role="tabpanel" aria-labelledby="v-pills-con-tab">
           <h2 id="modulo">MODULOS</h2>
           <button onClick={(e) => { modificarForm(e) }} class="btn1" id="v-pills-infcont-tab" data-bs-toggle="pill" data-bs-target="#v-pills-infcont" type="button" role="tab" aria-controls="v-pills-infcont" aria-selected="true" >Informacion contable</button>
-          <button onClick={(e) => { modificarForm(e) }} class="btn1" id="v-pills-gesorg-tab" data-bs-toggle="pill" data-bs-target="#v-pills-gesorg" type="button" role="tab" aria-controls="v-pills-gesorg" aria-selected="true" >Gestión de organizaciones</button>
+          <button onClick={(e) => { modificarForm(e) }} class="btn1" id="v-pills-gesorg-tab" data-bs-toggle="pill" data-bs-target="#v-pills-gesorg" type="button" role="tab" aria-controls="v-pills-gesorg" aria-selected="true" >Gestion de organizaciones</button>
           <button onClick={(e) => { modificarForm(e) }} class="btn1" id="v-pills-anec-tab" data-bs-toggle="pill" data-bs-target="#v-pills-anec" type="button" role="tab" aria-controls="v-pills-anec" aria-selected="true" >Análisis económico</button>
         </div>
         <div class="tab-pane fade" id="v-pills-compdi" role="tabpanel" aria-labelledby="v-pills-profile-tab">
