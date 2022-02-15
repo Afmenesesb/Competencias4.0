@@ -11,12 +11,12 @@ import { onSnapshot, collection, doc, getDoc } from "firebase/firestore";
 
 export default function Encuestas() {
   window.bandCuest = null;
+  window.modulo=null;
   const [modulo1, setModulo1] = useState(false);
   const [modulo2, setModulo2] = useState(false);
   const checkbtn = document.getElementById('moduloEncuesta');
   const respuestaC="";
   const reinicio= [];
-  var modulo="";
   var pregModulo = [];
   var preguntas = [];
   var respuestas = [];
@@ -30,8 +30,9 @@ export default function Encuestas() {
     const btn1 = document.getElementById('v-pills-con-tab');
     const btn2 = document.getElementById('v-pills-compdi-tab');
     const btn3 = document.getElementById('v-pills-act-tab');
-    const moduloPregunta = document.getElementById('moduloEncuesta');
-    modulo = moduloPregunta.innerText.substring(22);
+    window.modulo=document.getElementById(event.target.id).innerText;
+    console.log(window.modulo);
+
     if (window.bandCuest == false) {
       swal(
         {
@@ -70,8 +71,7 @@ export default function Encuestas() {
         }
       });
     }
-    console.log(modulo);
-    añadirPreguntas(modulo);
+    añadirPreguntas(window.modulo);
     
     
 
@@ -213,7 +213,7 @@ export default function Encuestas() {
       <div class="tab-content" id="v-pills-tabContent">
         <div class="tab-pane fade show active" id="v-pills-con" role="tabpanel" aria-labelledby="v-pills-con-tab">
           <h2 id="modulo">MODULOS</h2>
-          <button onClick={(e) => { modificarForm(e) }} class="btn1" id="v-pills-infcont-tab" data-bs-toggle="pill" data-bs-target="#v-pills-infcont" type="button" role="tab" aria-controls="v-pills-infcont" aria-selected="true" >Informacion contable</button>
+          <button onClick={(e) => { modificarForm(e) }} class="btn1" id="v-pills-infcont-tab" data-bs-toggle="pill" data-bs-target="#v-pills-infcont" type="button" role="tab" aria-controls="v-pills-infcont" aria-selected="true" >Informacion Contable</button>
           <button onClick={(e) => { modificarForm(e) }} class="btn1" id="v-pills-gesorg-tab" data-bs-toggle="pill" data-bs-target="#v-pills-gesorg" type="button" role="tab" aria-controls="v-pills-gesorg" aria-selected="true" >Gestion de organizaciones</button>
           <button onClick={(e) => { modificarForm(e) }} class="btn1" id="v-pills-anec-tab" data-bs-toggle="pill" data-bs-target="#v-pills-anec" type="button" role="tab" aria-controls="v-pills-anec" aria-selected="true" >Análisis económico</button>
         </div>
