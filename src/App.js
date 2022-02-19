@@ -30,7 +30,7 @@ function App() {
   if (isLoading) return <h1 id="cargando">Loading...</h1>
 
   if (isAuthenticated) {
-    if (user.email.includes('uniquindio')) {
+    if (user.email.includes('gmail')) {
       return (
         <div className="App">
           {isAuthenticated ? (

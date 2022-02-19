@@ -13,6 +13,7 @@ export const Profile = () => {
       <div>
         <img src={user.picture} class="imgP"/>
         <h6 id="usuario">{user.given_name}</h6>
+        <h6 id="email">{user.email}</h6>
       </div>
     )
   );
