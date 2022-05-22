@@ -5,6 +5,17 @@ import infCont from './../Recursos/img-informacionContable.jpg';
 import Table from 'react-bootstrap/Table';
 import swal from 'sweetalert';
 
+
+const verificarEncuestas= () => {
+
+    const encuestas= doc(db, "Estudiantes");
+
+
+}
+
+
+
+
 export default function Cuerpo() {
 
     /*Constantes para manejar el estado de visibilidad de los mensajes de alerta*/
@@ -18,18 +29,19 @@ export default function Cuerpo() {
         /*Se obtienen los elementos por medio del getElementById*/
 
         const checkbtn = document.getElementById('moduloEncuesta');
-        const btninfcont = document.getElementById('v-pills-infcont-tab');
-        const btngesorg = document.getElementById('v-pills-gesorg-tab');
-        const btnanec = document.getElementById('v-pills-anec-tab');
-        const btncontdig = document.getElementById('v-pills-contdig-tab');
-        const btncomdig = document.getElementById('v-pills-comdig-tab');
-        const btngesin = document.getElementById('v-pills-gesin-tab');
-        const btnpencri = document.getElementById('v-pills-pencri-tab');
-        const btnpenana = document.getElementById('v-pills-penana-tab');
-        const btnrespro = document.getElementById('v-pills-respro-tab');
+        const btninfcont = document.getElementById('informacion contable');
+        const btngesorg = document.getElementById('gestion de organizaciones');
+        const btnanec = document.getElementById('analisis economico');
+        const btncontdig = document.getElementById('conocimiento digital');
+        const btncomdig = document.getElementById('comunicacion digital');
+        const btngesin = document.getElementById('gestion de la informacion');
+        const btnpencri = document.getElementById('pensamiento critico');
+        const btnpenana = document.getElementById('pensamiento analitico');
+        const btnrespro = document.getElementById('resolucion de problemas');
         const botonEncuesta = document.getElementById('flexSwitchCheckDefault');
         const check = document.getElementById('moduloEncuesta');
-        const mensaje= check.innerText.substring(21);
+        const mensaje = check.innerText.substring(21);
+        const usuario = document.getElementById('usuario').innerText;
         console.log(checkbtn.innerText);
         if (checkbtn.innerText == 'Activar encuesta para Informacion Contable') {
             btninfcont.style.display = 'block';
@@ -83,18 +95,36 @@ export default function Cuerpo() {
             setVisibilidadAlert(false);
         }
         else {
-           
+
+            if (document.getElementById(mensaje).ariaDisabled != null) {
+
                 swal(
                     {
-                        title: "Encuesta",
-                        text: "¡Se ha activado la encuesta correspondiente a "+mensaje+" !",
+                        title: "Advertencia",
+                        text: usuario + "¡Esta encuesta ya esta activada y fue resuelta!",
                         icon: "info",
                         button: "Aceptar",
                         timer: "3000"
                     }
                 );
+            }
+
+            else {
+
+                swal(
+                    {
+                        title: "Encuesta",
+                        text: "¡Se ha activado la encuesta correspondiente a " + mensaje + " !",
+                        icon: "info",
+                        button: "Aceptar",
+                        timer: "3000"
+                    }
+                );
+            }
         }
     }
+
+
 
     return (
         <div id="cuerpoPrin" class="cuerpo">
