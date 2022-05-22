@@ -30,12 +30,13 @@ function App() {
   if (isLoading) return <h1 id="cargando">Loading...</h1>
 
   if (isAuthenticated) {
-    if (user.email.includes('gmail')) {
+    if (user.email.includes('uqvirtual')) {
       return (
         <div className="App">
           {isAuthenticated ? (
 
-            <CabeceraGestor/>
+            <CabeceraHome />
+
 
 
           ) : (
@@ -50,12 +51,12 @@ function App() {
 
     }
     else {
-      if (user.email.includes('uqvirtual')) {
+      if (user.email.includes('uniquindio')) {
         return (
           <div className="App">
             {isAuthenticated ? (
 
-              <CabeceraHome/>
+              <CabeceraGestor />
 
 
             ) : (

@@ -46,6 +46,7 @@ class Cabecera extends Component {
                             <Nav className="me-auto">
                                 <button id="bInicio" class="btnEncuesta" onClick={(e)=>{mostrar(e)}} >Inicio</button>
                                 <button class="btnEncuesta" onClick={(e)=>{ocultar(e)}} >Encuesta</button>
+                                <button class="btnEncuesta" onClick={(e)=>{ocultar(e)}} >Estadisticas</button>
                             </Nav>
                             <Profile />
                             <Nav>

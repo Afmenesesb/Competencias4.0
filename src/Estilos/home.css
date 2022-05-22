@@ -16,3 +16,7 @@ p{
     text-align: center;
 
 }
+#nombreUsuario{
+    text-transform:lowercase;
+    color: #ffff;
+}

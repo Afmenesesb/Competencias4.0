@@ -47,7 +47,7 @@ const ConteoRespuestas = (event) => {
         swal(
             {
                 title: "Terminó la encuesta",
-                text: " Usted ha tenido " + contador + " respuestas correctas",
+                text: usuario + " Usted ha tenido " + contador + " respuestas correctas",
                 icon: "success",
                 button: "Aceptar",
                 timer: "8000"
