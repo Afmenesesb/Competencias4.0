@@ -6,15 +6,12 @@ import Table from 'react-bootstrap/Table';
 import swal from 'sweetalert';
 
 
-const verificarEncuestas= () => {
+/*const verificarEncuestas= () => {
 
     const encuestas= doc(db, "Estudiantes");
 
 
-}
-
-
-
+}*/
 
 export default function Cuerpo() {
 
