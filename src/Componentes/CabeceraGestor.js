@@ -11,11 +11,13 @@ import Modulos from "./Modulos";
 import Competencias from "./Competencias";
 import Cuerpo from "./Cuerpo";
 import Respuesta from "./Respuesta";
+import Estadisticas from "./Estadisticas";
 
 function mostrarI() {
     document.getElementById('inicioGestor').style.display = 'block'
     document.getElementById('formularioPregunta').style.display = 'none'
     document.getElementById('formularioRespuesta').style.display = 'none'
+    document.getElementById('formEstadisticas').style.display = 'none'
 }
 /*Funcion para ocultar los elementos de inicio*/
 function mostrarP(e) {
@@ -23,18 +25,21 @@ function mostrarP(e) {
     document.getElementById('inicioGestor').style.display = 'none'
     document.getElementById('formularioPregunta').style.display = 'block'
     document.getElementById('formularioRespuesta').style.display = 'none'
+    document.getElementById('formEstadisticas').style.display = 'none'
 }
 function mostrarR(e) {
 
     document.getElementById('inicioGestor').style.display = 'none'
     document.getElementById('formularioPregunta').style.display = 'none'
     document.getElementById('formularioRespuesta').style.display= 'block'
+    document.getElementById('formEstadisticas').style.display = 'none'
 }
 function mostrarE(e) {
 
     document.getElementById('inicioGestor').style.display = 'none'
     document.getElementById('formularioPregunta').style.display = 'none'
     document.getElementById('formularioRespuesta').style.display= 'none'
+    document.getElementById('formEstadisticas').style.display = 'block'
 }
 
 export default class CabeceraGestor extends Component {
@@ -80,6 +85,7 @@ export default class CabeceraGestor extends Component {
                 </div>      
                 <Respuesta/>
                 <Pregunta />
+                <Estadisticas />
             </div>
             
         );
