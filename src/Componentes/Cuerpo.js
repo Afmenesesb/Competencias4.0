@@ -35,6 +35,17 @@ export default function Cuerpo() {
         const btnpencri = document.getElementById('pensamiento critico');
         const btnpenana = document.getElementById('pensamiento analitico');
         const btnrespro = document.getElementById('resolucion de problemas');
+        const btnlider = document.getElementById('Liderazgo en red');
+        const btntred = document.getElementById('Trabajo en red');
+        const btnaprzco = document.getElementById('Aprendizaje continuo');
+        const btnvisest = document.getElementById('Vision estrategica');
+        const btnoricli = document.getElementById('Orientacion al cliente');
+        const btninno = document.getElementById('Innovación, originalidad e iniciativa');
+        const btnanaev = document.getElementById('Análisis y evolución de sistemas');
+        const btndisypro = document.getElementById('Diseño y programación de nuevas tecnologías');
+        const btnlidereins = document.getElementById('Liderazgo e influencia social');
+        const btnintem = document.getElementById('Inteligencia emocional');
+
         const botonEncuesta = document.getElementById('flexSwitchCheckDefault');
         const check = document.getElementById('moduloEncuesta');
         const mensaje = check.innerText.substring(21);
@@ -76,6 +87,53 @@ export default function Cuerpo() {
                                         if (checkbtn.innerText == 'Activar encuesta para resolución de problemas') {
                                             btnrespro.style.display = 'block';
                                         }
+                                        else {
+                                            if (checkbtn.innerText == 'Activar encuesta para Liderazgo en red') {
+                                                btnlider.style.display = 'block';
+                                            }else {
+                                                if (checkbtn.innerText == 'Activar encuesta para Trabajo en red') {
+                                                    btntred.style.display = 'block';
+                                                }
+                                                else {
+                                                    if (checkbtn.innerText == 'Activar encuesta para Aprendizaje continuo') {
+                                                        btnaprzco.style.display = 'block';
+                                                    }else {
+                                                    if (checkbtn.innerText == 'Activar encuesta para Visión estratégica') {
+                                                        btnvisest.style.display = 'block';
+                                                    }else {
+                                                        if (checkbtn.innerText == 'Activar encuesta para Orientación al cliente') {
+                                                            btnoricli.style.display = 'block';
+                                                        }else {
+                                                            if (checkbtn.innerText == 'Activar encuesta para Innovacion,originalidad e iniciativa') {
+                                                                btninno.style.display = 'block';
+                                                            }else {
+                                                                if (checkbtn.innerText == 'Activar encuesta para Analisis y evolución de sistemas') {
+                                                                    btnanaev.style.display = 'block';
+                                                                }else {
+                                                                    if (checkbtn.innerText == 'Activar encuesta para Diseños y programación de nuevas tecnológicas') {
+                                                                        btndisypro.style.display = 'block';
+                                                                    }else {
+                                                                        if (checkbtn.innerText == 'Activar encuesta para Liderazgo e influencia social') {
+                                                                            btnlidereins.style.display = 'block';
+                                                                        }else {
+                                                                            if (checkbtn.innerText == 'Activar encuesta para Inteligencia emocional') {
+                                                                                btnintem.style.display = 'block';
+                                                                            }
+                                                                            
+                                                                        }
+                                                                        
+                                                                    }
+                                                                    
+                                                                }
+                                                                
+                                                            }
+                                                            
+                                                        }
+                                                        
+                                                    }
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -105,9 +163,9 @@ export default function Cuerpo() {
 
         }
     }
+    }
 
-
-
+    
     return (
         <div id="cuerpoPrin" class="cuerpo">
             <h1 id="contLor" class="parrafo1">
@@ -174,3 +232,5 @@ export default function Cuerpo() {
         </div>
     );
 }
+
+    

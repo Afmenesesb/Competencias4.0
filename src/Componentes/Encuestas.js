@@ -216,18 +216,31 @@ export default function Encuestas() {
           <button onClick={(e) => { modificarForm(e) }} class="btn1" id="informacion contable" data-bs-toggle="pill" data-bs-target="#v-pills-infcont" type="button" role="tab" aria-controls="v-pills-infcont" aria-selected="true" >Informacion Contable</button>
           <button onClick={(e) => { modificarForm(e) }} class="btn1" id="gestion de organizaciones" data-bs-toggle="pill" data-bs-target="#v-pills-gesorg" type="button" role="tab" aria-controls="v-pills-gesorg" aria-selected="true" >Gestion de organizaciones</button>
           <button onClick={(e) => { modificarForm(e) }} class="btn1" id="analisis economico" data-bs-toggle="pill" data-bs-target="#v-pills-anec" type="button" role="tab" aria-controls="v-pills-anec" aria-selected="true" >Analisis Economico</button>
+          
         </div>
         <div class="tab-pane fade" id="v-pills-compdi" role="tabpanel" aria-labelledby="v-pills-profile-tab">
           <h2 id="modulo">MODULOS</h2>
           <button onClick={(e) => { modificarForm(e) }} class="btn1" id="conocimiento digital" data-bs-toggle="pill" data-bs-target="#v-pills-contdig" type="button" role="tab" aria-controls="v-pills-contdig" aria-selected="true" >Conocimiento Digital</button>
           <button onClick={(e) => { modificarForm(e) }} class="btn1" id="comunicacion digital" data-bs-toggle="pill" data-bs-target="#v-pills-comdig" type="button" role="tab" aria-controls="v-pills-comdig" aria-selected="true" >Comunicacion Digital</button>
           <button onClick={(e) => { modificarForm(e) }} class="btn1" id="gestion de la informacion" data-bs-toggle="pill" data-bs-target="#v-pills-gesin" type="button" role="tab" aria-controls="v-pills-gesin" aria-selected="true" >Gestion de la informacion</button>
+          <button onClick={(e) => { modificarForm(e) }} class="btn1" id="Liderazgo en red" data-bs-toggle="pill" data-bs-target="#v-pills-lider" type="button" role="tab" aria-controls="v-pills-lider" aria-selected="true" >Liderazgo en red</button>
+          <button onClick={(e) => { modificarForm(e) }} class="btn1" id="Trabajo en red" data-bs-toggle="pill" data-bs-target="#v-pills-gesin" type="button" role="tab" aria-controls="v-pills-gesin" aria-selected="true" >Trabajo en red</button>
+          <button onClick={(e) => { modificarForm(e) }} class="btn1" id="Aprendizaje continuo" data-bs-toggle="pill" data-bs-target="#v-pills-gesin" type="button" role="tab" aria-controls="v-pills-gesin" aria-selected="true" >Aprendizaje Continuo</button>
+          <button onClick={(e) => { modificarForm(e) }} class="btn1" id="Vision estrategica" data-bs-toggle="pill" data-bs-target="#v-pills-gesin" type="button" role="tab" aria-controls="v-pills-gesin" aria-selected="true" >Vision Estrategica</button>
+          <button onClick={(e) => { modificarForm(e) }} class="btn1" id="Orientacion al cliente" data-bs-toggle="pill" data-bs-target="#v-pills-gesin" type="button" role="tab" aria-controls="v-pills-gesin" aria-selected="true" >Orientacion al cliente</button>
+
+
         </div>
         <div class="tab-pane fade" id="v-pills-act" role="tabpanel" aria-labelledby="v-pills-act-tab">
           <h2 id="modulo">MODULOS</h2>
-          <button onClick={(e) => { modificarForm(e) }} class="btn1" id="pensamiento critico" data-bs-toggle="pill" data-bs-target="#v-pills-pencri" type="button" role="tab" aria-controls="v-pills-pencri" aria-selected="true" >Pensamiento Crotico</button>
+          <button onClick={(e) => { modificarForm(e) }} class="btn1" id="pensamiento critico" data-bs-toggle="pill" data-bs-target="#v-pills-pencri" type="button" role="tab" aria-controls="v-pills-pencri" aria-selected="true" >Pensamiento Critico</button>
           <button onClick={(e) => { modificarForm(e) }} class="btn1" id="pensamiento analitico" data-bs-toggle="pill" data-bs-target="#v-pills-penana" type="button" role="tab" aria-controls="v-pills-penana" aria-selected="true" >Pensamiento Analítico</button>
-          <button onClick={(e) => { modificarForm(e) }} class="btn1" id="resolucion de problemas" data-bs-toggle="pill" data-bs-target="#v-pills-respro" type="button" role="tab" aria-controls="v-pills-respro" aria-selected="true" >Resolución de problemas</button></div>
+          <button onClick={(e) => { modificarForm(e) }} class="btn1" id="resolucion de problemas" data-bs-toggle="pill" data-bs-target="#v-pills-respro" type="button" role="tab" aria-controls="v-pills-respro" aria-selected="true" >Solucion de problemas</button>
+          <button onClick={(e) => { modificarForm(e) }} class="btn1" id="Innovación, originalidad e iniciativa" data-bs-toggle="pill" data-bs-target="#v-pills-respro" type="button" role="tab" aria-controls="v-pills-respro" aria-selected="true" >Innovacion, Originalidad e iniciativa</button>
+          <button onClick={(e) => { modificarForm(e) }} class="btn1" id="Análisis y evolución de sistemas" data-bs-toggle="pill" data-bs-target="#v-pills-respro" type="button" role="tab" aria-controls="v-pills-respro" aria-selected="true" >Analisis y evolucion de sistemas</button>
+          <button onClick={(e) => { modificarForm(e) }} class="btn1" id="Diseño y programación de nuevas tecnologías" data-bs-toggle="pill" data-bs-target="#v-pills-respro" type="button" role="tab" aria-controls="v-pills-respro" aria-selected="true" >Diseño y programacion de nuevas tecnologias</button>
+          <button onClick={(e) => { modificarForm(e) }} class="btn1" id="Liderazgo e influencia social" data-bs-toggle="pill" data-bs-target="#v-pills-respro" type="button" role="tab" aria-controls="v-pills-respro" aria-selected="true" >Liderazgo e influencia social</button>
+          <button onClick={(e) => { modificarForm(e) }} class="btn1" id="Inteligencia emocional" data-bs-toggle="pill" data-bs-target="#v-pills-respro" type="button" role="tab" aria-controls="v-pills-respro" aria-selected="true" >Inteligencia Emocional</button></div>
       </div>
       <br />
       <div id="divForm" class="form">

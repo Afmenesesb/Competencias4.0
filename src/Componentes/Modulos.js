@@ -9,6 +9,12 @@ const modificarCont = (event) => {
     const boton1 = document.getElementById('btM1');
     const boton2 = document.getElementById('btM2');
     const boton3 = document.getElementById('btM3');
+    const boton4 = document.getElementById('btM4');
+    const boton5 = document.getElementById('btM5');
+    const boton6 = document.getElementById('btM6');
+    const boton7 = document.getElementById('btM7');
+    const boton8 = document.getElementById('btM8');
+    
     const contLorem = document.getElementById('contLor');
     const contImg = document.getElementById('imgCont');
     const descTab1 = document.getElementById('desc1');
@@ -31,9 +37,7 @@ const modificarCont = (event) => {
             descTab3.innerHTML = 'Tabla3-inf contable';
             cuerpo.style.display = 'block';
             check.innerText="Activar encuesta para Informacion Contable";
-            botonEncuesta.checked=false;
-            
-            
+            botonEncuesta.checked=false;   
         }
         if (boton1.innerText == 'Conocimiento digital') {
             contLorem.innerText = 'Este es el bloque de Conocimiento digital';
@@ -61,9 +65,7 @@ const modificarCont = (event) => {
                 check.innerText="Activar encuesta para Gestion de organizaciones";
                 botonEncuesta.checked=false;
             }
-           
-
-            if (boton2.innerText == 'Comunicación digital') {
+            if (boton2.innerText == 'Comunicacion digital') {
                 contLorem.innerHTML = 'Este es el bloque de Com Digital';
                 contImg.src = "";
                 check.innerText="Activar encuesta para Comunicacion Digital";
@@ -104,6 +106,110 @@ const modificarCont = (event) => {
                     botonEncuesta.checked=false;
                 }
 
+            } else {
+                if (event.target.id == "btM4") {
+    
+                    if (boton4.innerText == 'Innovacion,originalidad e iniciativa') {
+                        contLorem.innerHTML = 'Este es el bloque de Innovacion,originalidad e iniciativa';
+                        contImg.src = "";
+                        cuerpo.style.display = 'block';
+                        check.innerText="Activar encuesta para Innovacion,originalidad e iniciativa";
+                        botonEncuesta.checked=false;
+                    }
+                    if (boton4.innerText == 'Liderazgo en red') {
+                        contLorem.innerHTML = 'Este es el bloque de Liderazgo en red';
+                        contImg.src = "";
+                        check.innerText="Activar encuesta para Liderazgo en red";
+                        cuerpo.style.display = 'block';
+                        botonEncuesta.checked=false;
+                    }
+                   
+    
+                }
+                else {
+                    if (event.target.id == "btM5") {
+        
+                        if (boton5.innerText == 'Analisis y evolución de sistemas') {
+                            contLorem.innerHTML = 'Este es el bloque de Analisis y evolución de sistemas';
+                            contImg.src = "";
+                            cuerpo.style.display = 'block';
+                            check.innerText="Activar encuesta para Analisis y evolución de sistemas";
+                            botonEncuesta.checked=false;
+                        }
+                        if (boton5.innerText == 'Trabajo en red') {
+                            contLorem.innerHTML = 'Este es el bloque de Trabajo en red';
+                            contImg.src = "";
+                            check.innerText="Activar encuesta para Trabajo en red";
+                            cuerpo.style.display = 'block';
+                            botonEncuesta.checked=false;
+                        }
+                       
+        
+                    }
+                    else {
+                        if (event.target.id == "btM6") {
+            
+                            if (boton6.innerText == 'Diseños y programación de nuevas tecnológicas') {
+                                contLorem.innerHTML = 'Este es el bloque de Diseños y programación de nuevas tecnológicas';
+                                contImg.src = "";
+                                cuerpo.style.display = 'block';
+                                check.innerText="Activar encuesta para Diseños y programación de nuevas tecnológicas";
+                                botonEncuesta.checked=false;
+                            }
+                            if (boton6.innerText == 'Aprendizaje continuo') {
+                                contLorem.innerHTML = 'Este es el bloque de Aprendizaje continuo';
+                                contImg.src = "";
+                                check.innerText="Activar encuesta para Aprendizaje continuo";
+                                cuerpo.style.display = 'block';
+                                botonEncuesta.checked=false;
+                            }
+                           
+            
+                        }
+                        else {
+                            if (event.target.id == "btM7") {
+                
+                                if (boton7.innerText == 'Liderazgo e influencia social') {
+                                    contLorem.innerHTML = 'Este es el bloque de Liderazgo e influencia social';
+                                    contImg.src = "";
+                                    cuerpo.style.display = 'block';
+                                    check.innerText="Activar encuesta para Liderazgo e influencia social";
+                                    botonEncuesta.checked=false;
+                                }
+                                if (boton7.innerText == 'Visión estratégica') {
+                                    contLorem.innerHTML = 'Este es el bloque de Visión estratégica';
+                                    contImg.src = "";
+                                    check.innerText="Activar encuesta para Visión estratégica";
+                                    cuerpo.style.display = 'block';
+                                    botonEncuesta.checked=false;
+                                }
+                               
+                
+                            }
+                            else {
+                                if (event.target.id == "btM8") {
+                    
+                                    if (boton8.innerText == 'Inteligencia emocional') {
+                                        contLorem.innerHTML = 'Este es el bloque de Inteligencia emocional';
+                                        contImg.src = "";
+                                        cuerpo.style.display = 'block';
+                                        check.innerText="Activar encuesta para Inteligencia emocional";
+                                        botonEncuesta.checked=false;
+                                    }
+                                    if (boton8.innerText == 'Orientación al cliente') {
+                                        contLorem.innerHTML = 'Este es el bloque de Orientación al cliente';
+                                        contImg.src = "";
+                                        check.innerText="Activar encuesta para Orientación al cliente";
+                                        cuerpo.style.display = 'block';
+                                        botonEncuesta.checked=false;
+                                    }
+                                   
+                    
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -114,6 +220,11 @@ export default function Modulos() {
             <button onClick={(e) => { modificarCont(e) }} id="btM1" type="button" class="btn btn-success"></button>
             <button onClick={(e) => { modificarCont(e) }} id="btM2" type="button" class="btn btn-success"></button>
             <button onClick={(e) => { modificarCont(e) }} id="btM3" type="button" class="btn btn-success"></button>
+            <button onClick={(e) => { modificarCont(e) }} id="btM4" type="button" class="btn btn-success"></button>
+            <button onClick={(e) => { modificarCont(e) }} id="btM5" type="button" class="btn btn-success"></button>
+            <button onClick={(e) => { modificarCont(e) }} id="btM6" type="button" class="btn btn-success"></button>
+            <button onClick={(e) => { modificarCont(e) }} id="btM7" type="button" class="btn btn-success"></button>
+            <button onClick={(e) => { modificarCont(e) }} id="btM8" type="button" class="btn btn-success"></button>
         </div>
     );
 

@@ -16,31 +16,66 @@ const identificar = (event) => {
     const boton1 = document.getElementById('btM1');
     const boton2 = document.getElementById('btM2');
     const boton3 = document.getElementById('btM3');
+    const boton4 = document.getElementById('btM4');
+    const boton5 = document.getElementById('btM5');
+    const boton6 = document.getElementById('btM6');
+    const boton7 = document.getElementById('btM7');
+    const boton8 = document.getElementById('btM8');
+    boton1.style.display='none';
+    boton2.style.display='none';
+    boton3.style.display='none';
+    boton4.style.display='none';
+    boton5.style.display='none';
+    boton6.style.display='none';
+    boton7.style.display='none';
+    boton8.style.display='none';
+
     if (event.target.id == "btC1") {
         boton1.innerText = 'Información contable';
-        boton1.disabled = false;
+        boton1.style.display='block';
         boton2.innerText = 'Gestión de organizaciones';
-        boton2.disabled = false;
+        boton2.style.display='block';
         boton3.innerText = 'Análisis económico';
-        boton3.disabled = false;
+        boton3.style.display='block';
     }
     else {
         if (event.target.id == "btC2") {
             boton1.innerText = 'Conocimiento digital';
-            boton1.disabled = false;
-            boton2.innerText = 'Comunicación  digital';
-            boton2.disabled = false;
+            boton1.style.display='block';
+            boton2.innerText = 'Comunicacion digital';
+            boton2.style.display='block';
             boton3.innerText = 'Gestión de la información';
-            boton3.disabled = false;
+            boton3.style.display='block';
+            boton4.innerText = 'Liderazgo en red';
+            boton4.style.display='block';
+            boton5.innerText = 'Trabajo en red';
+            boton5.style.display='block';
+            boton6.innerText = 'Aprendizaje continuo';
+            boton6.style.display='block';
+            boton7.innerText = 'Visión estratégica';
+            boton7.style.display='block';
+            boton8.innerText = 'Orientación al cliente';
+            boton8.style.display='block';
         }
         else {
             if (event.target.id == "btC3") {
                 boton1.innerText = 'Pensamiento crítico';
-                boton1.disabled = false;
+                boton1.style.display='block';
                 boton2.innerText = 'Pensamiento analítico';
-                boton2.disabled = false;
+                boton2.style.display='block';
                 boton3.innerText = 'Resolución de problemas';
-                boton3.disabled = false;
+                boton3.style.display='block';
+                boton4.innerText = 'Innovacion,originalidad e iniciativa';
+                boton4.style.display='block';
+                boton5.innerText = 'Analisis y evolución de sistemas';
+                boton5.style.display='block';
+                boton6.innerText = 'Diseños y programación de nuevas tecnológicas';
+                boton6.style.display='block';
+                boton7.innerText = 'Liderazgo e influencia social';   
+                boton7.style.display='block';
+                boton8.innerText = 'Inteligencia emocional';
+                boton8.style.display='block';
+              
             }
         }
     }
