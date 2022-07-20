@@ -93,31 +93,16 @@ export default function Cuerpo() {
         }
         else {
 
-            if (document.getElementById(mensaje).ariaDisabled != null) {
+            swal(
+                {
+                    title: "Encuesta",
+                    text: "¡Se ha activado la encuesta correspondiente a " + mensaje + " !",
+                    icon: "info",
+                    button: "Aceptar",
+                    timer: "3000"
+                }
+            );
 
-                swal(
-                    {
-                        title: "Advertencia",
-                        text: usuario + "¡Esta encuesta ya esta activada y fue resuelta!",
-                        icon: "info",
-                        button: "Aceptar",
-                        timer: "3000"
-                    }
-                );
-            }
-
-            else {
-
-                swal(
-                    {
-                        title: "Encuesta",
-                        text: "¡Se ha activado la encuesta correspondiente a " + mensaje + " !",
-                        icon: "info",
-                        button: "Aceptar",
-                        timer: "3000"
-                    }
-                );
-            }
         }
     }
 
