@@ -2,6 +2,7 @@ import { setDoc, doc, collection} from "firebase/firestore";
 import React, { Component, useState } from "react";
 import db from "../firebaseConfig";
 import swal from 'sweetalert';
+import '../Estilos/estadisticas.css';
 
 const modificarCont = (event) => {
 
