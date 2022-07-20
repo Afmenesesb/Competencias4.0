@@ -10,7 +10,7 @@ import {FirebaseAppProvider} from 'reactfire';
 ReactDOM.render(
   <React.StrictMode>
     <Auth0Provider domain="dev-p4jtlhvn.us.auth0.com" 
-    clientId="YbtphK1RJlbHKyJa2fCCHpi9jtTFyj63" 
+    clientId="iV6eUEGHCRL4lkc5njihOiM7o52xHTDL" 
     redirectUri={window.location.origin}>
     <App />
     </Auth0Provider>
