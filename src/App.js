@@ -6,7 +6,6 @@ import CabeceraHome from './Componentes/CabeceraHome';
 import CabeceraGestor from './Componentes/CabeceraGestor';
 
 
-
 export const Salir = () => {
   const { logout } = useAuth0();
 
@@ -51,7 +50,7 @@ function App() {
 
     }
     else {
-      if (user.email.includes('gmail')) {
+      if (user.email.includes('uniquindio')) {
         return (
           <div className="App">
             {isAuthenticated ? (
