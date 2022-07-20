@@ -1,8 +1,8 @@
 import { setDoc, doc, collection } from "firebase/firestore";
 import React, { Component, useState } from "react";
-import '../Estilos/gestorPregunta.css';
 import db from "../firebaseConfig";
 import swal from 'sweetalert';
+import '../Estilos/estIndividual.css';
 
 export default function EstadisticasIndividuales() {
 
@@ -10,7 +10,6 @@ export default function EstadisticasIndividuales() {
 
     return (
         <div id="formularioBusquedaEst" >
-
             <form>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>

@@ -88,11 +88,10 @@ export default class CabeceraGestor extends Component {
                     <Cuerpo />
 
                 </div>      
+                <Estadisticas />
                 <Respuesta/>
                 <Pregunta />
-                <Estadisticas />
                 <EstatsEstudiante/>
-
             </div>
             
         );
