@@ -162,9 +162,20 @@ export default function Encuestas() {
     console.log(preguntasMostradas);
     for (let index = 0; index < 5; index++) {
       var posicion=preguntasMostradas[index];
+      const collectionPreg= collection(db,"Modulo", modulo, "Preguntas");
+      var cantidadPreguntas=collectionPreg.length;
+      console.log(cantidadPreguntas);
       const docRef = doc(db, "Modulo", modulo, "Preguntas", "Pregunta" + (posicion + 1));
       snap = await getDoc(docRef);
-      pregModulo.push(snap.get("texto"));
+      console.log(snap);
+      if(snap != null)
+      {
+        pregModulo.push(snap.get("texto"));
+      }
+      else
+      {
+        pregModulo.length=pregModulo.length-1;
+      }
     }
     var aux = pregModulo.length;
     for (let step = 0; step < aux; step++) {
