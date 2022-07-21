@@ -164,6 +164,7 @@ export default function Encuestas() {
       var posicion=preguntasMostradas[index];
       const collectionPreg= collection(db,"Modulo", modulo, "Preguntas");
       var cantidadPreguntas=collectionPreg.length;
+      const q=query(collection(db, "Modulo", modulo, "Pregunta"));
       console.log(cantidadPreguntas);
       const docRef = doc(db, "Modulo", modulo, "Preguntas", "Pregunta" + (posicion + 1));
       snap = await getDoc(docRef);
