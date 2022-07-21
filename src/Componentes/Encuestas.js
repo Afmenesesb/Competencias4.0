@@ -5,7 +5,7 @@ import Cuerpo from "./Cuerpo";
 import Formulario from "./Formulario";
 import swal from 'sweetalert';
 import db from "../firebaseConfig";
-import { onSnapshot, collection, doc, getDoc } from "firebase/firestore";
+import { onSnapshot, collection, doc, getDoc, query } from "firebase/firestore";
 
 
 
