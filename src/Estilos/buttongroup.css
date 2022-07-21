@@ -1,8 +1,10 @@
 .btn-group{
-    margin-top: 5%;
-}
-.btn-groupM{
     margin-top: 0.5%;
+    margin-left: 250px;
+    margin-right: 250px;
+}
+.btn-group1{
+    margin-top: 4.5%;
 }
 
 #formularioPregunta{
