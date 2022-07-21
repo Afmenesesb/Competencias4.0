@@ -9,20 +9,30 @@ import Modulos from "./Modulos";
 import Cuerpo from "./Cuerpo";
 import { BrowserRouter as Router, Routes, Link, Route } from "react-router-dom";
 import Encuestas from "./Encuestas";
+import EstadisticasEstudiantes from "./EstadisticasEstudiantes";
 
 
 
 /*Funcion para mostrar los elementos de inicio*/
-function mostrar(e) {
+function inicio(e) {
     document.getElementById('inicio').style.display='block'
     document.getElementById('menuEncuesta').style.display='none'
+    document.getElementById('estadisticasEstudiantes').style.display='none'
     
 }
 /*Funcion para ocultar los elementos de inicio*/
-function ocultar(e) {
+function encuesta(e) {
     
     document.getElementById('inicio').style.display='none'
     document.getElementById('menuEncuesta').style.display='block'
+    document.getElementById('estadisticasEstudiantes').style.display='none'
+}
+function estadistica(e) {
+    
+    document.getElementById('inicio').style.display='none'
+    document.getElementById('menuEncuesta').style.display='none'
+    document.getElementById('estadisticasEstudiantes').style.display='block'
+
 }
 
 class Cabecera extends Component {
@@ -44,9 +54,9 @@ class Cabecera extends Component {
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="me-auto">
-                                <button id="bInicio" class="btnEncuesta" onClick={(e)=>{mostrar(e)}} >Inicio</button>
-                                <button class="btnEncuesta" onClick={(e)=>{ocultar(e)}} >Encuesta</button>
-                                <button class="btnEncuesta" onClick={(e)=>{ocultar(e)}} >Estadisticas</button>
+                                <button id="bInicio" class="btnEncuesta" onClick={(e)=>{inicio(e)}} >Inicio</button>
+                                <button class="btnEncuesta" onClick={(e)=>{encuesta(e)}} >Encuesta</button>
+                                <button class="btnEncuesta" onClick={(e)=>{estadistica(e)}} >Estadisticas</button>
                             </Nav>
                             <Profile />
                             <Nav>
@@ -63,6 +73,7 @@ class Cabecera extends Component {
                     <Cuerpo />
                 </div>   
                 <Encuestas/>
+                <EstadisticasEstudiantes/>
             </div >
 
 
