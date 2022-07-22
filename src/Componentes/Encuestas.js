@@ -5,32 +5,33 @@ import Cuerpo from "./Cuerpo";
 import Formulario from "./Formulario";
 import swal from 'sweetalert';
 import db from "../firebaseConfig";
-import { onSnapshot, collection, doc, getDoc, query } from "firebase/firestore";
+import { onSnapshot, collection, doc, getDoc, query, getDocs } from "firebase/firestore";
 
 
 
 export default function Encuestas() {
   window.bandCuest = null;
-  window.modulo=null;
+  window.modulo = null;
   const [modulo1, setModulo1] = useState(false);
   const [modulo2, setModulo2] = useState(false);
   const checkbtn = document.getElementById('moduloEncuesta');
-  const respuestaC="";
-  const reinicio= [];
+  const respuestaC = "";
+  const reinicio = [];
   var pregModulo = [];
   var preguntas = [];
   var respuestas = [];
   var respuestasModulo = [];
   var contenidoRespuesta = "";
   var aleatorios = [];
-  var aleatoriosRespuesta=[];
-  var preguntasMostradas=[];
-  var respuestaCorrecta=[];
+  var aleatoriosRespuesta = [];
+  var preguntasMostradas = [];
+  var respuestaCorrecta = [];
+  var cantidadPreguntas = [];
   const modificarForm = (event) => {
     const btn1 = document.getElementById('v-pills-con-tab');
     const btn2 = document.getElementById('v-pills-compdi-tab');
     const btn3 = document.getElementById('v-pills-act-tab');
-    window.modulo=document.getElementById(event.target.id).innerText;
+    window.modulo = document.getElementById(event.target.id).innerText;
     console.log(window.modulo);
 
     if (window.bandCuest == false) {
@@ -72,13 +73,13 @@ export default function Encuestas() {
       });
     }
     añadirPreguntas(window.modulo);
-    
-    
+
+
 
 
   }
   const [pregunta, setPregunta] = useState([{ name: "Loading...", id: "initial" }]);
- 
+
 
   useEffect(
     () =>
@@ -88,34 +89,31 @@ export default function Encuestas() {
     []
   );
 
-  const obtenerRespuestaCorrecta = (step) =>
-  {
-    const respuestaFormulario= document.getElementById('r' + (step));
-    respuestaFormulario.value='C';
+  const obtenerRespuestaCorrecta = (step) => {
+    const respuestaFormulario = document.getElementById('r' + (step));
+    respuestaFormulario.value = 'C';
   }
   const obtenerRespuestas = async (ref, inicio) => {
     var document = await getDoc(ref);
     var contenido = document.get("texto");
-    var valorRespuesta= document.get("valor");
-    if(valorRespuesta==true)
-    {
-        respuestaCorrecta=contenido;
+    var valorRespuesta = document.get("valor");
+    if (valorRespuesta == true) {
+      respuestaCorrecta = contenido;
     }
     contenidoRespuesta = contenido;
     respuestasModulo.push(contenidoRespuesta);
 
-    if ((respuestasModulo.length%4)==0) {
+    if ((respuestasModulo.length % 4) == 0) {
       var inicial = 4 * inicio;
-      var final =inicial+4;
+      var final = inicial + 4;
       llenarArregloRespuestasAleatorias(respuestasModulo.length);
       for (let step = inicial; step < final; step++) {
         var posicion = aleatoriosRespuesta[0];
-        if(respuestasModulo[posicion]== respuestaCorrecta)
-        {
-          obtenerRespuestaCorrecta(step+1);    
+        if (respuestasModulo[posicion] == respuestaCorrecta) {
+          obtenerRespuestaCorrecta(step + 1);
         }
         respuestas[step].innerText = respuestasModulo[posicion];
-        aleatoriosRespuesta.splice(0,1);
+        aleatoriosRespuesta.splice(0, 1);
       }
     }
 
@@ -131,7 +129,7 @@ export default function Encuestas() {
   }
   const llenarArregloRespuestasAleatorias = (numeroRespuestas) => {
 
-    var inicio=numeroRespuestas-4;
+    var inicio = numeroRespuestas - 4;
     for (let index = inicio; index < numeroRespuestas; index++) {
       aleatoriosRespuesta.push(index);
     }
@@ -157,40 +155,64 @@ export default function Encuestas() {
   }
   const añadirPreguntas = async (modulo) => {
 
+    const q = query(collection(db, "Modulo", modulo, "Preguntas"));
+
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      cantidadPreguntas.push(doc);
+    });
     var snap = null;
-    llenarArregloPreguntasAleatoriasMostrar(10);
+    console.log(cantidadPreguntas);
+    llenarArregloPreguntasAleatoriasMostrar(cantidadPreguntas.length);
     console.log(preguntasMostradas);
     for (let index = 0; index < 5; index++) {
-      var posicion=preguntasMostradas[index];
-      const collectionPreg= collection(db,"Modulo", modulo, "Preguntas");
-      var cantidadPreguntas=collectionPreg.length;
-      const q=query(collection(db, "Modulo", modulo, "Pregunta"));
-      console.log(cantidadPreguntas);
+      var posicion = preguntasMostradas[index];
+      const collectionPreg = collection(db, "Modulo", modulo, "Preguntas");
       const docRef = doc(db, "Modulo", modulo, "Preguntas", "Pregunta" + (posicion + 1));
       snap = await getDoc(docRef);
-      console.log(snap);
-      if(snap != null)
-      {
+
+      if (snap.get("texto") != null) {
         pregModulo.push(snap.get("texto"));
+        console.log(pregModulo);
       }
-      else
-      {
-        pregModulo.length=pregModulo.length-1;
+
+    }
+    var numeroPreguntas = pregModulo.length;
+    document.getElementById('cantPreguntas').innerText="Contestar las siguientes " + numeroPreguntas + " preguntas";
+    for (let step = 0; step<numeroPreguntas; step++) {
+
+      const aux = document.getElementById('pregunta' + (step+1));
+      preguntas.push(aux);
+
+    }
+    if(numeroPreguntas<5)
+    {
+    /* ciclo con el fin de ocultar las preguntas de los modulos que tienen menos de 5 preguntas*/
+    for (let index = 5; index > numeroPreguntas; index--) {
+      document.getElementById('pregunta' + index).style.display='none';
+
+    /*ciclo para ocultar las respuestas a las preguntas del formulario que no se le dieron valores*/
+      for (let index2 = 1; index2 < 5 ; index2++){
+        document.getElementById('respuesta' + index + '.' + index2).style.display='none';
       }
     }
-    var aux = pregModulo.length;
-    for (let step = 0; step < aux; step++) {
-      var posicion2= preguntasMostradas[step];
+  }
+
+  console.log(numeroPreguntas);
+    for (let step = 0; step <numeroPreguntas; step++) {
+      var posicion2 = preguntasMostradas[step];
       console.log(preguntas);
       preguntas[step].innerText = (step + 1) + ") " + pregModulo[step];
       añadirRespuestas(modulo, (posicion2 + 1), step);
     }
-    preguntasMostradas.splice(0,preguntasMostradas.length);
-    pregModulo.splice(0,pregModulo.length);
+  
+    preguntasMostradas.splice(0, preguntasMostradas.length);
+    pregModulo.splice(0, pregModulo.length);
     console.log(preguntasMostradas);
     console.log(pregModulo);
+    cantidadPreguntas.splice(0,cantidadPreguntas.length);
 
-    
+
 
 
   }
@@ -200,12 +222,6 @@ export default function Encuestas() {
     const formul = document.getElementById('v-pills-tabContent');
     formul.style.display = 'block';
 
-    for (let step = 1; step < 6; step++) {
-
-      const aux = document.getElementById('pregunta' + step);
-      preguntas.push(aux);
-
-    }
     for (let step = 1; step < 21; step++) {
 
       const aux = document.getElementById('respuesta' + step);
@@ -228,7 +244,7 @@ export default function Encuestas() {
           <button onClick={(e) => { modificarForm(e) }} class="btn1" id="informacion contable" data-bs-toggle="pill" data-bs-target="#v-pills-infcont" type="button" role="tab" aria-controls="v-pills-infcont" aria-selected="true" >Informacion Contable</button>
           <button onClick={(e) => { modificarForm(e) }} class="btn1" id="gestion de organizaciones" data-bs-toggle="pill" data-bs-target="#v-pills-gesorg" type="button" role="tab" aria-controls="v-pills-gesorg" aria-selected="true" >Gestion de organizaciones</button>
           <button onClick={(e) => { modificarForm(e) }} class="btn1" id="analisis economico" data-bs-toggle="pill" data-bs-target="#v-pills-anec" type="button" role="tab" aria-controls="v-pills-anec" aria-selected="true" >Analisis Economico</button>
-          
+
         </div>
         <div class="tab-pane fade" id="v-pills-compdi" role="tabpanel" aria-labelledby="v-pills-profile-tab">
           <h2 id="modulo">MODULOS</h2>
