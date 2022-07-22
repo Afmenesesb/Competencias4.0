@@ -26,7 +26,7 @@ function verificarDominio(dominio) {
 function App() {
   const { isAuthenticated, isLoading, user } = useAuth0();
 
-  if (isLoading) return <h1 id="cargando">Bienvenido. CARGANDO...</h1>
+  if (isLoading) return <h1 id="cargando">Cargando...</h1>
 
   if (isAuthenticated) {
     if (user.email.includes('uqvirtual')) {
