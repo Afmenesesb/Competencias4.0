@@ -216,6 +216,7 @@ const modificarCont = (event) => {
 }
 export default function Modulos() {
     return (
+        <div>
         <div id="mod" class="btn-group" role="group" aria-label="Basic example">
             <button onClick={(e) => { modificarCont(e) }} id="btM1" type="button" class="btn btn-success"></button>
             <button onClick={(e) => { modificarCont(e) }} id="btM2" type="button" class="btn btn-success"></button>
@@ -225,6 +226,7 @@ export default function Modulos() {
             <button onClick={(e) => { modificarCont(e) }} id="btM6" type="button" class="btn btn-success"></button>
             <button onClick={(e) => { modificarCont(e) }} id="btM7" type="button" class="btn btn-success"></button>
             <button onClick={(e) => { modificarCont(e) }} id="btM8" type="button" class="btn btn-success"></button>
+        </div>
         </div>
     );
 

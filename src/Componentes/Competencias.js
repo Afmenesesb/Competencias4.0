@@ -89,6 +89,7 @@ class Competencias extends Component {
         return (
             /*Estructura de grupo de botones de competencias*/
             <div id="comp" class="btn-group1" role="group" aria-label="Basic example">
+                <h2 id="area">AREAS</h2>
                 <button id="btC1" onClick={(e) => { identificar(e) }} type="button" class="btn btn-success">Conocimiento</button>
                 <button id="btC2" onClick={(e) => { identificar(e) }} type="button" class="btn btn-success">Competencias digitales</button>
                 <button id="btC3" onClick={(e) => { identificar(e) }} type="button" class="btn btn-success">Actitud</button>

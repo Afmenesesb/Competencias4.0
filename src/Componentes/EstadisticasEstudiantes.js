@@ -21,33 +21,22 @@ import {
     Tooltip,
     Legend
   );
-  const data = {
+    function estadisticaA(e) {
+        document.getElementById('graficasEstudiantes').style.display='block'
+    }
+    function estadisticaM(e) {
+        document.getElementById('graficasEstudiantes').style.display='none'
+        
+    }
+  const dataConocimiento = {
     labels: [
         'Información contable',
         'Gestión de organizaciones',
-        'Analisis Economico',
-        'Conocimiento digital',
-        'Aprendizaje continuo',
-        'Comunicacion Digital',
-        'Conocimiento Digital',
-        'Gestion de la informacion',
-        'Liderazgo en red',
-        'Orientacion al cliente',
-        'Trabajo en red',
-        'Vision estrategica',
-        'Analisis y evolucion de sistemas',
-        'Diseño y programacion de nuevas tecnologias',
-        'Innovacion,originalidad e iniciativa',
-        'Inteligencia emocional',
-        'Liderazgo e influencia social',
-        'Pensamiento analítico',
-        'Pensamiento crítico',
-        'Solucion de problemas'
+        'Analisis Economico'
     ],
     datasets: [{
-      label: 'Conocimiento',
+      label: '#Preguntas correctas',
       data: [3, 5,2],
-      order:1,
       fill: true,
       backgroundColor: 'rgba(255, 99, 132, 0.2)',
       borderColor: 'rgb(255, 99, 132)',
@@ -55,22 +44,67 @@ import {
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgb(255, 99, 132)'
-    }, {
-      label: 'Competencias digitales',
-      data: [3,5,4],
-      order:1,
+    },{
+        label: '',
+        data: [0],
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgb(255, 99, 132)',
+        pointBackgroundColor: 'rgb(255, 99, 132)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgb(255, 99, 132)'
+      }]
+  };
+  const dataActitud = {
+    labels: [
+        'Analisis y evolucion de sistemas',
+        'Diseño y programacion de nuevas tecnologias',
+        'Innovacion,originalidad e iniciativa',
+        'Inteligencia emocional',
+        'Liderazgo e influencia social',
+        'Pensamiento analítico',
+        'Pensamiento crítico',
+        'Solucion de problemas',
+    ],
+    datasets: [{
+      label: '#Preguntas correctas',
+      data: [3, 5,2,4,5,3,4,4],
       fill: true,
-      backgroundColor: 'rgba(54, 162, 235, 0.2)',
-      borderColor: 'rgb(54, 162, 235)',
-      pointBackgroundColor: 'rgb(54, 162, 235)',
+      spengaps:true,
+      backgroundColor: 'rgba(255, 99, 132, 0.2)',
+      borderColor: 'rgb(255, 99, 132)',
+      pointBackgroundColor: 'rgb(255, 99, 132)',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgb(54, 162, 235)'
+      pointHoverBorderColor: 'rgb(255, 99, 132)'
       
     },{
-      label: 'Actitud',
-      data: [3,2,1],
-      order:3,
+        label: 'Base',
+        data: [0],
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgb(255, 99, 132)',
+        pointBackgroundColor: 'rgb(255, 99, 132)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgb(255, 99, 132)'
+      }
+    ]
+    
+  };
+  const dataCompetencias = {
+    labels: [
+        'Conocimiento digital',
+        'Aprendizaje continuo',
+        'Comunicacion Digital',
+        'Conocimiento Digital',
+        'Gestion de la informacion',
+        'Liderazgo en red',
+        'Orientacion al cliente',
+        'Trabajo en red'
+    ],
+    datasets: [{
+      label: '#Preguntas correctas',
+      data: [3,2,5,4,2,3,4,5],
       fill: true,
       backgroundColor: 'rgba(54, 162, 235, 0.2)',
       borderColor: 'rgb(54, 162, 235)',
@@ -78,32 +112,35 @@ import {
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgb(54, 162, 235)'
-    }]
-  };
-  const config = {
-    type: 'radar',
-    data: data,
-    options: {
-      elements: {
-        line: {
-          borderWidth: 3
-        }
-      }
-    },
+    },{
+        label: '',
+        data: [0],
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgb(255, 99, 132)',
+        pointBackgroundColor: 'rgb(255, 99, 132)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgb(255, 99, 132)'
+      }]
   };
 
-function estadisticaActi(e) {
 
-}
-function estadistica(e) {
-
-}
 export default function EstadisticasEstudiantes() {
     return (
-        <div id="estadisticasEstudiantes" class="mencuesta">
-            <div><Radar data={data} /></div>
+        
+        <div>
+            <div id="btnsGraficas" class="btn-group" role="group" aria-label="Basic example">
+            <button onClick={(e) => {estadisticaA(e)}} id="btEA" type="button" class="btn btn-success">Estadisticas AREA</button>
+            <button onClick={(e) => {estadisticaM(e)}} id="btEM" type="button" class="btn btn-success">Estadisticas MODULO</button>
+        </div>
+        <div id="graficasEstudiantes" class="mencuesta">
+            <div id="grfCon" class="mengraf">CONOCIMIENTO<Radar data={dataConocimiento} /></div>
+            <div id="grfCom" class="mengraf">COMPETENCIAS<Radar data={dataCompetencias} /></div>
+            <div id="grfAct" class="mengraf">ACTITUD<Radar data={dataActitud} /></div>
+            </div>
             
         </div>
+        
 
 
     );

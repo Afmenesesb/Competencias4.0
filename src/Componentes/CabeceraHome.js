@@ -17,7 +17,8 @@ import EstadisticasEstudiantes from "./EstadisticasEstudiantes";
 function inicio(e) {
     document.getElementById('inicio').style.display='block'
     document.getElementById('menuEncuesta').style.display='none'
-    document.getElementById('estadisticasEstudiantes').style.display='none'
+    document.getElementById('btnsGraficas').style.display='none'
+    document.getElementById('graficasEstudiantes').style.display='none'
     
 }
 /*Funcion para ocultar los elementos de inicio*/
@@ -25,14 +26,15 @@ function encuesta(e) {
     
     document.getElementById('inicio').style.display='none'
     document.getElementById('menuEncuesta').style.display='block'
-    document.getElementById('estadisticasEstudiantes').style.display='none'
+    document.getElementById('btnsGraficas').style.display='none'
+    document.getElementById('graficasEstudiantes').style.display='none'
+
 }
 function estadistica(e) {
     
     document.getElementById('inicio').style.display='none'
     document.getElementById('menuEncuesta').style.display='none'
-    document.getElementById('estadisticasEstudiantes').style.display='block'
-
+    document.getElementById('btnsGraficas').style.display='block'
 }
 
 class Cabecera extends Component {
