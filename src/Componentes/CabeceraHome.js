@@ -19,6 +19,7 @@ function inicio(e) {
     document.getElementById('menuEncuesta').style.display='none'
     document.getElementById('btnsGraficas').style.display='none'
     document.getElementById('graficasEstudiantes').style.display='none'
+    document.getElementById('graficasEstudiantesM').style.display='none'
     
 }
 /*Funcion para ocultar los elementos de inicio*/
@@ -28,6 +29,7 @@ function encuesta(e) {
     document.getElementById('menuEncuesta').style.display='block'
     document.getElementById('btnsGraficas').style.display='none'
     document.getElementById('graficasEstudiantes').style.display='none'
+    document.getElementById('graficasEstudiantesM').style.display='none'
 
 }
 function estadistica(e) {

@@ -73,13 +73,6 @@ export default function Encuestas() {
       });
     }
     añadirPreguntas(window.modulo);
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> d1ddd84e8531379a221cd19a34fb44743ddfd70c
   }
   const [pregunta, setPregunta] = useState([{ name: "Loading...", id: "initial" }]);
 
