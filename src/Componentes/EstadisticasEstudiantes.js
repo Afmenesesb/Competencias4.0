@@ -4,7 +4,7 @@ import db from "../firebaseConfig";
 import swal from 'sweetalert';
 import Encuestas from "./Encuestas";
 import '../Estilos/estIndividual.css';
-import { Radar } from 'react-chartjs-2';
+import { Radar,Bar } from 'react-chartjs-2';
 import {
     Chart as ChartJS,
     RadialLinearScale,
@@ -13,6 +13,9 @@ import {
     Filler,
     Tooltip,
     Legend,
+    CategoryScale,
+    LinearScale,
+    BarElement
   } from 'chart.js';
 import { Email } from "@material-ui/icons";
   ChartJS.register(
@@ -21,77 +24,162 @@ import { Email } from "@material-ui/icons";
     LineElement,
     Filler,
     Tooltip,
-    Legend
+    Legend,
+    CategoryScale,
+    LinearScale,
+    BarElement
   );
   
   
 export default function EstadisticasEstudiantes() {
-  var email= '';
-  var informacionCon=0;
-  var gestionOrg=0;
-  var analisisEco=0;
-  var analisisEvo=0;
-  var diseñoPro=0;
-  var inteligenciaEmo=0;
-  var innovacionOri=3;
-  var liderazgoInfl=0;
-  var pensamientoAna=0;
-  var pensamientoCri=0;
-  var solucionPro=0;
-  var conocimientoDig=0;
-  var aprendizajeCon=0;
-  var comunicacionDig=0;
-  var gestionInf=0;
-  var liderazgoRed=0;
-  var trabajoRed=0;
-  var visionEst=0;
-  var orientacionCli=0; 
-  var actitudM=0;
-  var competenciasM=0;
-  var conocimientoM=0;
-  var colorActi='rgba(27, 105, 17, 0.774)';
-  var colorActiR='rgba(75, 216, 56, 0.774)';
-  var colorComp='';
-  var colorCompR='';
-  var colorCono='';
-  var colorConoR='';
+  var informacionCon
+  var gestionOrg
+  var analisisEco
+  var analisisEvo
+  var diseñoPro
+  var inteligenciaEmo
+  var innovacionOri
+  var liderazgoInfl
+  var pensamientoAna
+  var pensamientoCri
+  var solucionPro
+  var conocimientoDig
+  var aprendizajeCon
+  var comunicacionDig
+  var gestionInf
+  var liderazgoRed
+  var trabajoRed
+  var visionEst
+  var orientacionCli
+  var actitudM
+  var competenciasM
+  var conocimientoM
+  var colorActi
+  var colorActiR
+  var colorComp
+  var colorCompR
+  var colorCono
+  var colorConoR
+  var colorInfCont,colorInfContR
+  var colorGestionOrg,colorGestionOrgR
+  var colorInfCont,colorInfContR
+  var colorInfCont,colorInfContR
+  var colorInfCont,colorInfContR
+  var colorInfCont,colorInfContR
+  var colorInfCont,colorInfContR
+  var colorInfCont,colorInfContR
+  var colorInfCont,colorInfContR
+  var colorInfCont,colorInfContR
+  var colorInfCont,colorInfContR
+  var colorInfCont,colorInfContR
+  var colorInfCont,colorInfContR
+  var colorInfCont,colorInfContR
+  var colorInfCont,colorInfContR
+  var colorInfCont,colorInfContR
+  var colorInfCont,colorInfContR
+  var colorInfCont,colorInfContR
 
-  function estadisticaA(e){
-      window.innovacionOri=4;
-      swal(
-        {
-            title: "Generando estadisticas",
-            text: " Usted ha querido generar las estadisticas por AREA",
-            icon: "success",
-            button: "Aceptar",
-            timer: "8000"
-        }
-    );
-      email = document.getElementById('email').innerText;  
-      //actitudM=analisisEvo+diseñoPro+innovacionOri+inteligenciaEmo+liderazgoInfl+pensamientoAna+pensamientoCri+solucionPro;
-      actitudM=12;
-      competenciasM=conocimientoDig+aprendizajeCon+comunicacionDig+visionEst+gestionInf+liderazgoRed+orientacionCli+trabajoRed;
-      conocimientoM=informacionCon+gestionOrg+analisisEco;
-      if(actitudM>=25){
-        colorActi='rgba(27, 105, 17, 0.774)';
-        colorActiR='rgba(75, 216, 56, 0.774)';
-      }else{
-        if(actitudM<25&&actitudM>=16){
-          colorActi='rgba(238, 255, 0, 0.774)';
-          colorActiR='rgba(238, 255, 0, 0.862)';
-        }
-        else{
-          colorActi='rgba(175, 28, 28, 0.774)';
-          colorActiR='rgba(249, 61, 61, 0.774)';
-        }
-      }
-      document.getElementById('graficasEstudiantes').style.display='block'
-   }
-  function estadisticaM(e) {
-      document.getElementById('graficasEstudiantes').style.display='none'
-      email = document.getElementById('email').innerText;  
-   }
-
+  estadisticas();
+  const dataModulosCono = {
+    labels:[
+      'Información contable',
+      'Gestión de organizaciones',
+      'Analisis Economico'
+  ] ,
+    datasets: [{
+      label: '#Preguntas correctas',
+      data: [informacionCon,gestionOrg,analisisEco],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(255, 159, 64, 0.2)',
+        'rgba(255, 205, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(201, 203, 207, 0.2)'
+      ],
+      borderColor: [
+        'rgb(255, 99, 132)',
+        'rgb(255, 159, 64)',
+        'rgb(255, 205, 86)',
+        'rgb(75, 192, 192)',
+        'rgb(54, 162, 235)',
+        'rgb(153, 102, 255)',
+        'rgb(201, 203, 207)'
+      ],
+      borderWidth: 1
+    }]
+  };
+  const dataModulosComp = {
+    labels:[
+      'Conocimiento digital',
+      'Aprendizaje continuo',
+      'Comunicacion Digital',
+      'Vision estrategica',
+      'Gestion de la informacion',
+      'Liderazgo en red',
+      'Orientacion al cliente',
+      'Trabajo en red'
+  ] ,
+    datasets: [{
+      label: '#Preguntas correctas',
+      data: [conocimientoDig,aprendizajeCon,comunicacionDig,visionEst,gestionInf,liderazgoRed,orientacionCli,trabajoRed],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(255, 159, 64, 0.2)',
+        'rgba(255, 205, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(201, 203, 207, 0.2)'
+      ],
+      borderColor: [
+        'rgb(255, 99, 132)',
+        'rgb(255, 159, 64)',
+        'rgb(255, 205, 86)',
+        'rgb(75, 192, 192)',
+        'rgb(54, 162, 235)',
+        'rgb(153, 102, 255)',
+        'rgb(201, 203, 207)'
+      ],
+      borderWidth: 1
+    }]
+  };
+  const dataModulosAct = {
+    labels:[
+      'Analisis y evolucion de sistemas',
+        'Diseño y programacion de nuevas tecnologias',
+        'Innovacion,originalidad e iniciativa',
+        'Inteligencia emocional',
+        'Liderazgo e influencia social',
+        'Pensamiento analítico',
+        'Pensamiento crítico',
+        'Solucion de problemas',
+  ] ,
+    datasets: [{
+      label: '#Preguntas correctas',
+      data: [analisisEvo,diseñoPro,innovacionOri,inteligenciaEmo,liderazgoInfl,pensamientoAna,pensamientoCri,solucionPro],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(255, 159, 64, 0.2)',
+        'rgba(255, 205, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(201, 203, 207, 0.2)'
+      ],
+      borderColor: [
+        'rgb(255, 99, 132)',
+        'rgb(255, 159, 64)',
+        'rgb(255, 205, 86)',
+        'rgb(75, 192, 192)',
+        'rgb(54, 162, 235)',
+        'rgb(153, 102, 255)',
+        'rgb(201, 203, 207)'
+      ],
+      borderWidth: 1
+    }]
+  };
   const dataConocimiento = {
     labels: [
         'Información contable',
@@ -102,24 +190,57 @@ export default function EstadisticasEstudiantes() {
       label: '#Preguntas correctas',
       data: [informacionCon,gestionOrg,analisisEco],
       fill: true,
-      backgroundColor: 'rgba(255, 99, 132, 0.2)',
-      borderColor: 'rgb(255, 99, 132)',
-      pointBackgroundColor: 'rgb(255, 99, 132)',
+      backgroundColor: colorConoR,
+      borderColor: colorCono,
+      pointBackgroundColor: colorCono,
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgb(255, 99, 132)'
     },{
         label: '',
         data: [0],
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgb(255, 99, 132)',
-        pointBackgroundColor: 'rgb(255, 99, 132)',
+        backgroundColor: colorConoR,
+        borderColor: colorCono,
+        pointBackgroundColor: colorCono,
         pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: 'rgb(255, 99, 132)'
       }]
   };
-  var dataActitud = {
+  
+  const dataCompetencias = {
+    labels: [
+        'Conocimiento digital',
+        'Aprendizaje continuo',
+        'Comunicacion Digital',
+        'Vision estrategica',
+        'Gestion de la informacion',
+        'Liderazgo en red',
+        'Orientacion al cliente',
+        'Trabajo en red'
+    ],
+    datasets: [{
+      label: '#Preguntas correctas',
+      data: [conocimientoDig,aprendizajeCon,comunicacionDig,visionEst,gestionInf,liderazgoRed,orientacionCli,trabajoRed],
+      fill: true,
+      backgroundColor: colorCompR,
+      borderColor: colorComp,
+      pointBackgroundColor: colorComp,
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgb(54, 162, 235)'
+    },{
+        label: '',
+        data: [0],
+        backgroundColor: colorCompR,
+        borderColor: colorComp,
+        pointBackgroundColor: colorComp,
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgb(255, 99, 132)'
+      }]
+  };
+  const dataActitud = {
     labels: [
         'Analisis y evolucion de sistemas',
         'Diseño y programacion de nuevas tecnologias',
@@ -135,9 +256,9 @@ export default function EstadisticasEstudiantes() {
       data: [analisisEvo,diseñoPro,innovacionOri,inteligenciaEmo,liderazgoInfl,pensamientoAna,pensamientoCri,solucionPro],
       fill: true,
       spengaps:true,
-      backgroundColor: colorActi,
-      borderColor: colorActiR,
-      pointBackgroundColor: 'rgb(255, 99, 132)',
+      backgroundColor: colorActiR,
+      borderColor: colorActi,
+      pointBackgroundColor: colorActi,
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgb(255, 99, 132)'
@@ -145,9 +266,9 @@ export default function EstadisticasEstudiantes() {
     },{
         label: '',
         data: [0],
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgb(255, 99, 132)',
-        pointBackgroundColor: 'rgb(255, 99, 132)',
+        backgroundColor: colorActiR,
+        borderColor: colorActi,
+        pointBackgroundColor: colorActi,
         pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: 'rgb(255, 99, 132)'
@@ -155,51 +276,108 @@ export default function EstadisticasEstudiantes() {
     ]
     
   };
-  var dataCompetencias = {
-    labels: [
-        'Conocimiento digital',
-        'Aprendizaje continuo',
-        'Comunicacion Digital',
-        'Vision estrategica',
-        'Gestion de la informacion',
-        'Liderazgo en red',
-        'Orientacion al cliente',
-        'Trabajo en red'
-    ],
-    datasets: [{
-      label: '#Preguntas correctas',
-      data: [conocimientoDig,aprendizajeCon,comunicacionDig,visionEst,gestionInf,liderazgoRed,orientacionCli,trabajoRed],
-      fill: true,
-      backgroundColor: 'rgba(54, 162, 235, 0.2)',
-      borderColor: 'rgb(54, 162, 235)',
-      pointBackgroundColor: 'rgb(54, 162, 235)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgb(54, 162, 235)'
-    },{
-        label: '',
-        data: [0],
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgb(255, 99, 132)',
-        pointBackgroundColor: 'rgb(255, 99, 132)',
-        pointBorderColor: '#fff',
-        pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgb(255, 99, 132)'
-      }]
-  };
+  
+  function estadisticas(){
+      informacionCon=3;
+      gestionOrg=5;
+      analisisEco=2;
+      analisisEvo=2;
+      diseñoPro=2;
+      inteligenciaEmo=3;
+      innovacionOri=1;
+      liderazgoInfl=5;
+      pensamientoAna=3;
+      pensamientoCri=4;
+      solucionPro=2;
+      conocimientoDig=5;
+      aprendizajeCon=2;
+      comunicacionDig=3;
+      gestionInf=1;
+      liderazgoRed=2;
+      trabajoRed=3;
+      visionEst=4;
+      orientacionCli=3;
+
+      actitudM=analisisEvo+diseñoPro+innovacionOri+inteligenciaEmo+liderazgoInfl+pensamientoAna+pensamientoCri+solucionPro;
+      competenciasM=conocimientoDig+aprendizajeCon+comunicacionDig+visionEst+gestionInf+liderazgoRed+orientacionCli+trabajoRed;
+      conocimientoM=informacionCon+gestionOrg+analisisEco;
+
+
+      if(conocimientoM>=12){
+        colorCono='rgba(27, 105, 17, 0.774)';
+        colorConoR='rgba(41, 253, 3, 0.400)';
+      }
+      
+      //Graficas CONOCIMIENTO
+      if(conocimientoM>=12){
+        colorCono='rgba(27, 105, 17, 0.774)';
+        colorConoR='rgba(41, 253, 3, 0.400)';
+      }else{
+        if(conocimientoM<12&&conocimientoM>=8){
+          colorCono='rgba(253, 165, 3, 0.774)';
+          colorConoR='rgba(253, 253, 3, 0.400)';
+        }
+        else{
+          colorCono='rgba(175, 28, 28, 0.774)';
+          colorConoR='rgba(249, 61, 61, 0.400)';
+        }
+      }
+      //Graficas COMPETENCIAS
+      if(competenciasM>=30){
+        colorComp='rgba(27, 105, 17, 0.774)';
+        colorCompR='rgba(41, 253, 3, 0.400)';
+      }else{
+        if(competenciasM<30&&competenciasM>=19){
+          colorComp='rgba(253, 165, 3, 0.774)';
+          colorCompR='rgba(253, 253, 3, 0.400)';
+        }
+        else{
+          colorComp='rgba(175, 28, 28, 0.774)';
+          colorCompR='rgba(249, 61, 61, 0.400)';
+        }
+      }
+      //Graficas ACTITUD
+      if(actitudM>=25){
+        colorActi='rgba(27, 105, 17, 0.774)';
+        colorActiR='rgba(41, 253, 3, 0.400)';
+      }else{
+        if(actitudM<25&&actitudM>=16){
+          colorActi='rgba(253, 165, 3, 0.774)';
+          colorActiR='rgba(253, 253, 3, 0.400)';
+        }
+        else{
+          colorActi='rgba(175, 28, 28, 0.774)';
+          colorActiR='rgba(249, 61, 61, 0.400)';
+        }
+      }
+   }
+   function mostrarEstadisticaA(e) {
+    document.getElementById('graficasEstudiantes').style.display='block'
+    document.getElementById('graficasEstudiantesM').style.display='none'
+   }
+  function mostrarEstadisticaM(e) {
+    document.getElementById('graficasEstudiantes').style.display='none'
+    document.getElementById('graficasEstudiantesM').style.display='block'
+   }
+
+ 
     return (
         <div>
             <div id="btnsGraficas" class="btn-group" role="group" aria-label="Basic example">
-            <button onClick={(e) => {estadisticaA(e)}} id="btEA" type="button" class="btn btn-success">Estadisticas AREA</button>
-            <button onClick={(e) => {estadisticaM(e)}} id="btEM" type="button" class="btn btn-success">Estadisticas MODULO</button>
+            <button onClick={(e) => {mostrarEstadisticaA(e)}} id="btEA" type="button" class="btn btn-success">Estadisticas AREA</button>
+            <button onClick={(e) => {mostrarEstadisticaM(e)}} id="btEM" type="button" class="btn btn-success">Estadisticas MODULO</button>
         </div>
         <div id="graficasEstudiantes" class="mencuesta">
-            <div id="grfCon" class="mengraf">CONOCIMIENTO<Radar data={dataConocimiento} /></div>
             <div id="grfCom" class="mengraf">COMPETENCIAS<Radar data={dataCompetencias} /></div>
+            <div id="grfCon" class="mengraf">CONOCIMIENTO<Radar data={dataConocimiento} /></div>
             <div id="grfAct" class="mengraf">ACTITUD<Radar data={dataActitud} /></div>
-            </div>
-            
         </div>
+        <div id="graficasEstudiantesM" class="mencuesta">
+            <div id="grfConM" class="mengraf">CONOCIMIENTO por MODULO<Bar data={dataModulosCono} /></div>
+            <div id="grfComM" class="mengraf">COMPETENCIAS por MODULO<Bar data={dataModulosComp} /></div>
+            <div id="grfActM" class="mengraf">ACTITUD por MODULO<Bar data={dataModulosAct} /></div>
+        </div>
+      </div>
         
 
 
