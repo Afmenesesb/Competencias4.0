@@ -61,7 +61,7 @@ const identificar = (event) => {
             if (event.target.id == "btC3") {
                 boton1.innerText = 'Pensamiento crítico';
                 boton1.style.display='block';
-                boton2.innerText = 'Pensamiento analítico';
+                boton2.innerText = 'Pensamiento analitico';
                 boton2.style.display='block';
                 boton3.innerText = 'Resolución de problemas';
                 boton3.style.display='block';

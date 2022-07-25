@@ -72,10 +72,10 @@ const modificarCont = (event) => {
                 cuerpo.style.display = 'block';
                 botonEncuesta.checked=false;
             }
-            if (boton2.innerText == 'Pensamiento analítico') {
-                contLorem.innerHTML = 'Este es el bloque de Pens analítico';
+            if (boton2.innerText == 'Pensamiento analitico') {
+                contLorem.innerHTML = 'Este es el bloque de Pens analitico';
                 contImg.src = "";
-                check.innerText="Activar encuesta para Pensamiento Analítico";
+                check.innerText="Activar encuesta para Pensamiento Analitico";
                 cuerpo.style.display = 'block';
                 botonEncuesta.checked=false;
             }

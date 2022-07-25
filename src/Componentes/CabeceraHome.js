@@ -75,9 +75,9 @@ class Cabecera extends Component {
                     <Competencias />
                     <Modulos />
                     <Cuerpo />
-                </div>   
+                </div>
                 <Encuestas/>
-                <EstadisticasEstudiantes/>
+                <EstadisticasEstudiantes/> 
             </div >
 
 

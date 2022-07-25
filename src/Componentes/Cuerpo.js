@@ -80,7 +80,7 @@ export default function Cuerpo() {
                                     btnpencri.style.display = 'block';
                                 }
                                 else {
-                                    if (checkbtn.innerText == 'Activar encuesta para Pensamiento Analítico') {
+                                    if (checkbtn.innerText == 'Activar encuesta para Pensamiento Analitico') {
                                         btnpenana.style.display = 'block';
                                     }
                                     else {

@@ -1,8 +1,7 @@
-import { formatMs } from "@material-ui/core";
 import React, { Component, useState, useEffect } from "react";
 import './../Estilos/encuesta.css';
-import Cuerpo from "./Cuerpo";
 import Formulario from "./Formulario";
+import EstadisticasEstudiantes from "./EstadisticasEstudiantes";
 import swal from 'sweetalert';
 import db from "../firebaseConfig";
 import { onSnapshot, collection, doc, getDoc, query, getDocs } from "firebase/firestore";
@@ -258,7 +257,7 @@ export default function Encuestas() {
         <div class="tab-pane fade" id="v-pills-act" role="tabpanel" aria-labelledby="v-pills-act-tab">
           <h2 id="modulo">MODULOS</h2>
           <button onClick={(e) => { modificarForm(e) }} class="btn1" id="pensamiento critico" data-bs-toggle="pill" data-bs-target="#v-pills-pencri" type="button" role="tab" aria-controls="v-pills-pencri" aria-selected="true" >Pensamiento Critico</button>
-          <button onClick={(e) => { modificarForm(e) }} class="btn1" id="pensamiento analitico" data-bs-toggle="pill" data-bs-target="#v-pills-penana" type="button" role="tab" aria-controls="v-pills-penana" aria-selected="true" >Pensamiento Analítico</button>
+          <button onClick={(e) => { modificarForm(e) }} class="btn1" id="pensamiento analitico" data-bs-toggle="pill" data-bs-target="#v-pills-penana" type="button" role="tab" aria-controls="v-pills-penana" aria-selected="true" >Pensamiento Analitico</button>
           <button onClick={(e) => { modificarForm(e) }} class="btn1" id="resolucion de problemas" data-bs-toggle="pill" data-bs-target="#v-pills-respro" type="button" role="tab" aria-controls="v-pills-respro" aria-selected="true" >Solucion de problemas</button>
           <button onClick={(e) => { modificarForm(e) }} class="btn1" id="Innovación, originalidad e iniciativa" data-bs-toggle="pill" data-bs-target="#v-pills-respro" type="button" role="tab" aria-controls="v-pills-respro" aria-selected="true" >Innovacion, Originalidad e iniciativa</button>
           <button onClick={(e) => { modificarForm(e) }} class="btn1" id="Análisis y evolución de sistemas" data-bs-toggle="pill" data-bs-target="#v-pills-respro" type="button" role="tab" aria-controls="v-pills-respro" aria-selected="true" >Analisis y evolucion de sistemas</button>

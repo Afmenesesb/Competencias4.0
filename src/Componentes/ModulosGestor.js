@@ -47,7 +47,7 @@ const modificarCont = (event) => {
                 contLorem.innerHTML = 'Este es el bloque de Com Digital';
                 contImg.src = "";
             }
-            if (boton2.innerText == 'Pensamiento analítico') {
+            if (boton2.innerText == 'Pensamiento analitico') {
                 contLorem.innerHTML = 'Este es el bloque de Pens analítico';
                 contImg.src = "";
             }
