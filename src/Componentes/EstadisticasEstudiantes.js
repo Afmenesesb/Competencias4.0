@@ -740,11 +740,25 @@ export default function EstadisticasEstudiantes() {
         <button onClick={(e) => { mostrarEstadisticaM(e) }} id="btEM" type="button" class="btn btn-success">Estadisticas MODULO</button>
       </div>
       <div id="graficasEstudiantes" class="mencuesta">
+        <h1 id="tituloCaracteristicasArea" class="tituloCaracteristicas">Caracterización
+        </h1>
+        <h1 id="textoCaracteristicasArea" class="textoCaracteristicas">Cada una de las áreas contiene una caracterización por nivel, los cuales son:
+            Nivel alto:
+            Nivel Medio:
+            Nivel Alto:
+        </h1>
         <div id="grfCom" class="mengraf">COMPETENCIAS<Radar data={dataCompetencias} /></div>
         <div id="grfCon" class="mengraf">CONOCIMIENTO<Radar data={dataConocimiento} /></div>
         <div id="grfAct" class="mengraf">ACTITUD<Radar data={dataActitud} /></div>
       </div>
       <div id="graficasEstudiantesM" class="mencuesta">
+      <h1 id="tituloCaracteristicasArea" class="tituloCaracteristicas">Caracterización
+        </h1>
+        <h1 id="textoCaracteristicasArea" class="textoCaracteristicas">Cada una de las áreas contiene una caracterización por nivel, los cuales son:
+            Nivel alto:
+            Nivel Medio:
+            Nivel Alto:
+        </h1>
         <div id="grfConM" class="mengraf">CONOCIMIENTO por MODULO<Bar data={dataModulosCono} /></div>
         <div id="grfComM" class="mengraf">COMPETENCIAS por MODULO<Bar data={dataModulosComp} /></div>
         <div id="grfActM" class="mengraf">ACTITUD por MODULO<Bar data={dataModulosAct} /></div>

@@ -4,3 +4,8 @@
 #estadisticasEstudiantes{
     margin-top: 5%;
 }
+.Caracterizacion{
+    display:inline-block;
+    color: rgba(252, 0, 0, 0.613);
+    text-align: right;
+}
