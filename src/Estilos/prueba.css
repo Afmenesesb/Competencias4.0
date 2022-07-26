@@ -66,3 +66,13 @@
 
     color: white;
   }
+  h2{
+    text-align: center;
+    margin-top: 0.5%;
+    color:rgb(46, 146, 104);
+    font-size: medium;
+    font-weight: bold;;
+  }
+  #tituloEstadisticas{
+    margin-top: 2%;
+  }

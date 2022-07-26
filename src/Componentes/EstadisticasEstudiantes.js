@@ -735,7 +735,9 @@ export default function EstadisticasEstudiantes() {
 
   return (
     <div>
-      <div id="btnsGraficas" class="btn-group" role="group" aria-label="Basic example">
+      
+      <div id="btnsGraficas" class="btn-group1" role="group" aria-label="Basic example">
+      <h2 id="tituloEstadisticas">ESTADISTICAS</h2>
         <button onClick={(e) => { mostrarEstadisticaA(e) }} id="btEA" type="button" class="btn btn-success">Estadisticas AREA</button>
         <button onClick={(e) => { mostrarEstadisticaM(e) }} id="btEM" type="button" class="btn btn-success">Estadisticas MODULO</button>
       </div>

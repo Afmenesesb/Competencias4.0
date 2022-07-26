@@ -93,6 +93,7 @@ class Competencias extends Component {
                 <button id="btC1" onClick={(e) => { identificar(e) }} type="button" class="btn btn-success">Conocimiento</button>
                 <button id="btC2" onClick={(e) => { identificar(e) }} type="button" class="btn btn-success">Competencias digitales</button>
                 <button id="btC3" onClick={(e) => { identificar(e) }} type="button" class="btn btn-success">Actitud</button>
+                <h2 id="moduloTitulo">MODULOS</h2>
             </div>
         );
     }

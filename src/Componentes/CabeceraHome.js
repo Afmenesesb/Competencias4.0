@@ -59,8 +59,8 @@ class Cabecera extends Component {
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="me-auto">
                                 <button id="bInicio" class="btnEncuesta" onClick={(e)=>{inicio(e)}} >Inicio</button>
-                                <button class="btnEncuesta" onClick={(e)=>{encuesta(e)}} >Encuesta</button>
-                                <button class="btnEncuesta" onClick={(e)=>{estadistica(e)}} >Estadisticas</button>
+                                <button id="bEncuesta"class="btnEncuesta" onClick={(e)=>{encuesta(e)}} >Encuesta</button>
+                                <button id="bEstadisticas"class="btnEncuesta" onClick={(e)=>{estadistica(e)}} >Estadisticas</button>
                             </Nav>
                             <Profile />
                             <Nav>
