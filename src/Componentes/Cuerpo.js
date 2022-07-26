@@ -145,23 +145,24 @@ export default function Cuerpo() {
                 }
             }
         }
-        if (botonEncuesta.checked == false) {
+        
+    }
+    if (botonEncuesta.checked == false) {
 
-            setVisibilidadAlert(false);
-        }
-        else {
+        setVisibilidadAlert(false);
+    }
+    else {
 
-            swal(
-                {
-                    title: "Encuesta",
-                    text: "¡Se ha activado la encuesta correspondiente a " + mensaje + " !",
-                    icon: "info",
-                    button: "Aceptar",
-                    timer: "3000"
-                }
-            );
+        swal(
+            {
+                title: "Encuesta",
+                text: "Se ha activado la encuesta correspondiente a " + mensaje ,
+                icon: "info",
+                button: "Aceptar",
+                timer: "3000"
+            }
+        );
 
-        }
     }
     }
 

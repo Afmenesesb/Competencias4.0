@@ -42,7 +42,7 @@ ChartJS.register(
   var Solucion = 0;
   var ConocimientoDigital = 0;
   var AprendizajeContinuo = 0;
-  var ComunicacionDigital = 3;
+  var ComunicacionDigital = 0;
   var Gestiondelainformacion = 0;
   var Liderazgoenred = 0;
   var Trabajoenred = 0;
@@ -142,6 +142,7 @@ ChartJS.register(
     }
   }
   const obtenerNotas = async (e) => {
+    InformacionContable=1;
     var emailEstudiante="afmenesesb@uqvirtual.edu.co";
     const q = query(collection(db, "Estudiantes", emailEstudiante, "Notas"));
     const querySnapshot = await getDocs(q);

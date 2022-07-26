@@ -27,16 +27,29 @@ p{
     font-weight: bold;
 
 }
-#bInicio:focus{
-    color: rgb(24, 70, 15);
-    background-color: white;
-    }
-#bEncuesta:focus{
-    color: rgb(24, 70, 15);
-    background-color: white;
-    }
-#bEstadisticas:focus{
-    color: rgb(24, 70, 15);
-    background-color: white;
+#bInicio:focus,#bEncuesta:focus,#bEstadisticas:focus{
+    color: rgba(255, 255, 255, 0.94);
+    background-color: #49ad85;
+    border-radius: 4px;
     }
 
+#bInicio,#bEncuesta,#bEstadisticas{
+    font-size: 1rem;
+    margin: 10px;
+    }
+#bInicio:hover,#bEncuesta:hover,#bEstadisticas:hover{
+    color: rgba(255, 255, 255, 0.94);
+    background-color: #49ad85;
+    border-radius: 4px;
+    }
+.btnlogout:hover{
+    color: rgba(246, 246, 246, 0.94);
+    background-color: rgba(137, 10, 10, 0.94);
+    border-radius: 4px;
+    }
+.btnlog:hover{
+    color: rgba(246, 246, 246, 0.94);
+    background-color: #308113;
+    border-radius: 4px;
+    }
+    

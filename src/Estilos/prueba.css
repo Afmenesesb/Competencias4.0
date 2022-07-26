@@ -62,8 +62,10 @@
   h6 {
     color: transparent;
   }
-  #usuario {
-
+  #imagenperfil{
+    margin-top: 20px;
+  }
+  #usuario{
     color: white;
   }
   h2{
