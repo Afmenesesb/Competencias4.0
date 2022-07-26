@@ -20,3 +20,23 @@ p{
     text-transform:lowercase;
     color: #ffff;
 }
+#moduloTitulo{
+    margin-top: 0.5%;
+    color:rgb(46, 146, 104);
+    font-size: medium;
+    font-weight: bold;
+
+}
+#bInicio:focus{
+    color: rgb(24, 70, 15);
+    background-color: white;
+    }
+#bEncuesta:focus{
+    color: rgb(24, 70, 15);
+    background-color: white;
+    }
+#bEstadisticas:focus{
+    color: rgb(24, 70, 15);
+    background-color: white;
+    }
+
