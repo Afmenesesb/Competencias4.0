@@ -29,9 +29,7 @@ ChartJS.register(
   LinearScale,
   BarElement
 );
-
-export default function EstadisticasEstudiantes() {
-  var InformacionContable = 0;
+  var InformacionContable =0;
   var Gestion = 0;
   var AnalisisEconomico = 0;
   var Analisisyevolucion = 0;
@@ -44,7 +42,7 @@ export default function EstadisticasEstudiantes() {
   var Solucion = 0;
   var ConocimientoDigital = 0;
   var AprendizajeContinuo = 0;
-  var ComunicacionDigital = 0;
+  var ComunicacionDigital = 3;
   var Gestiondelainformacion = 0;
   var Liderazgoenred = 0;
   var Trabajoenred = 0;
@@ -83,12 +81,68 @@ export default function EstadisticasEstudiantes() {
   var colorInfCont, colorInfContR
   var colorInfCont, colorInfContR
   var notasEstudiante = [];
+  
+
+ 
+  const estadisticas = () => {
+    actitudM = Analisisyevolucion + Diseñoyprogramacion + Innovacion + InteligenciaEmocional + Liderazgoeinfluencia + PensamientoAnalitico + PensamientoCritico + Solucion;
+    competenciasM = ConocimientoDigital + AprendizajeContinuo + ComunicacionDigital + VisionEstrategica + Gestiondelainformacion + Liderazgoenred + Orientacionalcliente + Trabajoenred;
+    conocimientoM = InformacionContable + Gestion + AnalisisEconomico;
+
+    console.log(actitudM);
+    obtenerNotas();
 
 
+    if (conocimientoM >= 12) {
+      colorCono = 'rgba(27, 105, 17, 0.774)';
+      colorConoR = 'rgba(41, 253, 3, 0.400)';
+    }
+
+    //Graficas CONOCIMIENTO
+    if (conocimientoM >= 12) {
+      colorCono = 'rgba(27, 105, 17, 0.774)';
+      colorConoR = 'rgba(41, 253, 3, 0.400)';
+    } else {
+      if (conocimientoM < 12 && conocimientoM >= 8) {
+        colorCono = 'rgba(253, 165, 3, 0.774)';
+        colorConoR = 'rgba(253, 253, 3, 0.400)';
+      }
+      else {
+        colorCono = 'rgba(175, 28, 28, 0.774)';
+        colorConoR = 'rgba(249, 61, 61, 0.400)';
+      }
+    }
+    //Graficas COMPETENCIAS
+    if (competenciasM >= 30) {
+      colorComp = 'rgba(27, 105, 17, 0.774)';
+      colorCompR = 'rgba(41, 253, 3, 0.400)';
+    } else {
+      if (competenciasM < 30 && competenciasM >= 19) {
+        colorComp = 'rgba(253, 165, 3, 0.774)';
+        colorCompR = 'rgba(253, 253, 3, 0.400)';
+      }
+      else {
+        colorComp = 'rgba(175, 28, 28, 0.774)';
+        colorCompR = 'rgba(249, 61, 61, 0.400)';
+      }
+    }
+    //Graficas ACTITUD
+    if (actitudM >= 25) {
+      colorActi = 'rgba(27, 105, 17, 0.774)';
+      colorActiR = 'rgba(41, 253, 3, 0.400)';
+    } else {
+      if (actitudM < 25 && actitudM >= 16) {
+        colorActi = 'rgba(253, 165, 3, 0.774)';
+        colorActiR = 'rgba(253, 253, 3, 0.400)';
+      }
+      else {
+        colorActi = 'rgba(175, 28, 28, 0.774)';
+        colorActiR = 'rgba(249, 61, 61, 0.400)';
+      }
+    }
+  }
   const obtenerNotas = async (e) => {
-    console.log("hola");
-    /*var emailEstudiante = document.getElementById('email').innerText;*/
-    var emailEstudiante = "jdgutierrezc@uqvirtual.edu.co";
+    var emailEstudiante="afmenesesb@uqvirtual.edu.co";
     const q = query(collection(db, "Estudiantes", emailEstudiante, "Notas"));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
@@ -179,89 +233,10 @@ export default function EstadisticasEstudiantes() {
         }
       }
     });
-    estadisticas();
   }
+  
+  estadisticas();
 
-  const estadisticas = () => {
-    console.log(Analisisyevolucion);
-    /*InformacionContable = 3;
-    Gestion = 5;
-    AnalisisEconomico = 2;
-    Analisisyevolucion = 2;
-    Diseñoyprogramacion = 2;
-    InteligenciaEmocional = 3;
-    Innovacion = 1;
-    Liderazgoeinfluencia = 5;
-    PensamientoAnalitico = 3;
-    PensamientoCritico = 4;
-    Solucion = 2;
-    ConocimientoDigital = 5;
-    AprendizajeContinuo = 2;
-    ComunicacionDigital = 3;
-    Gestiondelainformacion = 1;
-    Liderazgoenred = 2;
-    Trabajoenred = 3;
-    VisionEstrategica = 4;
-    Orientacionalcliente = 3;*/
-
-    actitudM = Analisisyevolucion + Diseñoyprogramacion + Innovacion + InteligenciaEmocional + Liderazgoeinfluencia + PensamientoAnalitico + PensamientoCritico + Solucion;
-    competenciasM = ConocimientoDigital + AprendizajeContinuo + ComunicacionDigital + VisionEstrategica + Gestiondelainformacion + Liderazgoenred + Orientacionalcliente + Trabajoenred;
-    conocimientoM = InformacionContable + Gestion + AnalisisEconomico;
-
-    console.log(actitudM);
-
-
-    if (conocimientoM >= 12) {
-      colorCono = 'rgba(27, 105, 17, 0.774)';
-      colorConoR = 'rgba(41, 253, 3, 0.400)';
-    }
-
-    //Graficas CONOCIMIENTO
-    if (conocimientoM >= 12) {
-      colorCono = 'rgba(27, 105, 17, 0.774)';
-      colorConoR = 'rgba(41, 253, 3, 0.400)';
-    } else {
-      if (conocimientoM < 12 && conocimientoM >= 8) {
-        colorCono = 'rgba(253, 165, 3, 0.774)';
-        colorConoR = 'rgba(253, 253, 3, 0.400)';
-      }
-      else {
-        colorCono = 'rgba(175, 28, 28, 0.774)';
-        colorConoR = 'rgba(249, 61, 61, 0.400)';
-      }
-    }
-    //Graficas COMPETENCIAS
-    if (competenciasM >= 30) {
-      colorComp = 'rgba(27, 105, 17, 0.774)';
-      colorCompR = 'rgba(41, 253, 3, 0.400)';
-    } else {
-      if (competenciasM < 30 && competenciasM >= 19) {
-        colorComp = 'rgba(253, 165, 3, 0.774)';
-        colorCompR = 'rgba(253, 253, 3, 0.400)';
-      }
-      else {
-        colorComp = 'rgba(175, 28, 28, 0.774)';
-        colorCompR = 'rgba(249, 61, 61, 0.400)';
-      }
-    }
-    //Graficas ACTITUD
-    if (actitudM >= 25) {
-      colorActi = 'rgba(27, 105, 17, 0.774)';
-      colorActiR = 'rgba(41, 253, 3, 0.400)';
-    } else {
-      if (actitudM < 25 && actitudM >= 16) {
-        colorActi = 'rgba(253, 165, 3, 0.774)';
-        colorActiR = 'rgba(253, 253, 3, 0.400)';
-      }
-      else {
-        colorActi = 'rgba(175, 28, 28, 0.774)';
-        colorActiR = 'rgba(249, 61, 61, 0.400)';
-      }
-    }
-  }
-
-  obtenerNotas();
-  console.log(InformacionContable);
   const dataModulosCono = {
     labels: [
       'Información contable',
@@ -458,8 +433,12 @@ export default function EstadisticasEstudiantes() {
     ]
 
   };
-
+  
+export default function EstadisticasEstudiantes() {
+  
+  
   const mostrarEstadisticaA = (e) => {
+    estadisticas();
     document.getElementById('graficasEstudiantes').style.display = 'block'
     document.getElementById('graficasEstudiantesM').style.display = 'none'
   }
