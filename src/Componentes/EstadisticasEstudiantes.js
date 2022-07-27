@@ -1,4 +1,4 @@
-import { setDoc, doc, collection, query, getDocs, onSnapshot } from "firebase/firestore";
+import { setDoc, doc,getDoc, collection, query, getDocs, onSnapshot } from "firebase/firestore";
 import React, { Component, useState } from "react";
 import db from "../firebaseConfig";
 import swal from 'sweetalert';
@@ -83,19 +83,13 @@ ChartJS.register(
   var colorInfCont, colorInfContR
   var notasEstudiante = [];
   
-  
-
- 
+export default function EstadisticasEstudiantes() {
   const estadisticas = () => {
-    InformacionContable=3;
+    obtenerNotas();
     actitudM = Analisisyevolucion + Diseñoyprogramacion + Innovacion + InteligenciaEmocional + Liderazgoeinfluencia + PensamientoAnalitico + PensamientoCritico + Solucion;
     competenciasM = ConocimientoDigital + AprendizajeContinuo + ComunicacionDigital + VisionEstrategica + Gestiondelainformacion + Liderazgoenred + Orientacionalcliente + Trabajoenred;
     conocimientoM = InformacionContable + Gestion + AnalisisEconomico;
-
-    console.log(actitudM);
-    obtenerNotas();
-
-
+    
     if (conocimientoM >= 12) {
       colorCono = 'rgba(27, 105, 17, 0.774)';
       colorConoR = 'rgba(41, 253, 3, 0.400)';
@@ -145,99 +139,20 @@ ChartJS.register(
     }
   }
   const obtenerNotas = async () => {
+    AnalisisEconomico=5;
     var email = document.getElementById('email').innerText;
-    const q = query(collection(db, "Estudiantes",email,"Notas"));
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
-      notasEstudiante.push(doc.id);
-
-      for (let index = 0; index < competenciasEstudiante.length; index++) {
-
-        if (doc.id == competenciasEstudiante[index]) {
-
-          if (index == 0) {
-            InformacionContable = doc.get("nota");
-            break;
-          }
-          if (index == 1) {
-            Gestion = doc.get("nota");
-            break;
-          }
-          if (index == 2) {
-            AnalisisEconomico = doc.get("nota");
-            break;
-          }
-          if (index == 3) {
-            Analisisyevolucion = doc.get("nota");
-            break;
-          }
-          if (index == 4) {
-            Diseñoyprogramacion = doc.get("nota");
-            break;
-          }
-          if (index == 5) {
-            InteligenciaEmocional = doc.get("nota");
-            break;
-          }
-          if (index == 6) {
-            Innovacion = doc.get("nota");
-            break;
-          }
-          if (index == 7) {
-            Liderazgoeinfluencia = doc.get("nota");
-            break;
-          }
-          if (index == 8) {
-            PensamientoAnalitico = doc.get("nota");
-            break;
-          }
-          if (index == 9) {
-            PensamientoCritico = doc.get("nota");
-            break;
-          }
-          if (index == 10) {
-            Solucion = doc.get("nota");
-            break;
-          }
-          if (index == 11) {
-            ConocimientoDigital = doc.get("nota");
-            break;
-          }
-          if (index == 12) {
-            AprendizajeContinuo = doc.get("nota");
-            break;
-          }
-          if (index == 13) {
-            ComunicacionDigital = doc.get("nota");
-            break;
-          }
-          if (index == 14) {
-            Gestiondelainformacion = doc.get("nota");
-            break;
-          }
-          if (index == 15) {
-            Liderazgoenred = doc.get("nota");
-            break;
-          }
-          if (index == 16) {
-            Trabajoenred = doc.get("nota");
-            break;
-          }
-          if (index == 17) {
-            VisionEstrategica = doc.get("nota");
-            break;
-          }
-          if (index == 18) {
-            Orientacionalcliente = doc.get("nota");
-            break;
-          }
-
-        }
-      }
-    });
-  }
-
+    const docRef = doc(db, "Estudiantes",email,"Notas","Analisis Economico");
+    const docSnap = await getDoc(docRef);
+    AnalisisEconomico=docSnap.data();
+    if (docSnap.exists()) {
+    console.log("Document data:", docSnap.data());
+    } else {
+    // doc.data() will be undefined in this case
+    console.log("No such document!");
+    }
+    AnalisisEconomico=3;
+  };
+  estadisticas();
   const dataModulosCono = {
     labels: [
       'Información contable',
@@ -434,8 +349,6 @@ ChartJS.register(
     ]
 
   };
-  
-export default function EstadisticasEstudiantes() {
   const mostrarEstadisticaA = (e) => {
     estadisticas();
     document.getElementById('graficasEstudiantes').style.display = 'block'
