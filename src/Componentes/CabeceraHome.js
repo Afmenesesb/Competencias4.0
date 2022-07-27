@@ -79,7 +79,7 @@ class Cabecera extends Component {
                 <Encuestas/>
                 <EstadisticasEstudiantes/> 
             </div >
-
+            
 
         );
     }

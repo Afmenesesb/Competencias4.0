@@ -268,6 +268,8 @@ export default function Encuestas() {
       <div id="divForm" class="form">
         <Formulario />
       </div>
+      
+      
     </div>
 
   );
