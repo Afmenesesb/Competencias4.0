@@ -7,9 +7,9 @@
 }
 
 #v-pills-con-tab,#v-pills-compdi-tab,#v-pills-act-tab{
-margin-left: 250px;
-margin-right: 250px;
-margin-top: 2px;
+margin-left: 350px;
+margin-right: 350px;
+margin-top: 4   px;
 }
 #v-pills-con-tab:focus{
     color: rgb(24, 70, 15);
@@ -25,23 +25,23 @@ margin-top: 2px;
     }
 
 #v-pills-con-tab:disabled{
-        color:#ecebebc4;
-        background-color: rgb(155, 155, 155);
-        border-color: rgb(95, 93, 93);
+        color:#ffffffc4;
+        background-color: rgba(155, 155, 155, 0.595);
+        border-color: rgba(95, 93, 93, 0.193);
         border-style: solid;
         border-width: 3px;
         }
 #v-pills-compdi-tab:disabled{
-    color:#ecebebc4;
-    background-color: rgb(155, 155, 155);
-    border-color: rgb(95, 93, 93);
+    color:#ffffffc4;
+    background-color: rgba(155, 155, 155, 0.595);
+    border-color: rgba(95, 93, 93, 0.193);
     border-style: solid;
     border-width: 3px;
     }
 #v-pills-act-tab:disabled{
-    color:#ecebebc4;
-    background-color: rgb(155, 155, 155);
-    border-color: rgb(95, 93, 93);
+    color:#ffffffc4;
+        background-color: rgba(155, 155, 155, 0.595);
+        border-color: rgba(95, 93, 93, 0.193);
     border-style: solid;
     border-width: 3px;
     }
