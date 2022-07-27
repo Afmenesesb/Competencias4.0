@@ -87,6 +87,7 @@ ChartJS.register(
 
  
   const estadisticas = () => {
+    InformacionContable=3;
     actitudM = Analisisyevolucion + Diseñoyprogramacion + Innovacion + InteligenciaEmocional + Liderazgoeinfluencia + PensamientoAnalitico + PensamientoCritico + Solucion;
     competenciasM = ConocimientoDigital + AprendizajeContinuo + ComunicacionDigital + VisionEstrategica + Gestiondelainformacion + Liderazgoenred + Orientacionalcliente + Trabajoenred;
     conocimientoM = InformacionContable + Gestion + AnalisisEconomico;
