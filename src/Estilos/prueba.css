@@ -45,7 +45,7 @@
   }
   .app
   {
-    background-image: url('./../Recursos/fondo1.jpg');
+    background-image: url('./../Recursos/FondoHome.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     height: 600px;

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Carousel, ListGroupItem } from "react-bootstrap";
-import industria4 from './../Recursos/fondo2.png';
 import Admin from './../Recursos/Admin.png';
 import AdminFin from './../Recursos/AdminFin.jpg';
 import Contaduria from './../Recursos/Contaduria.png';

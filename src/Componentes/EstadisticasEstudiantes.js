@@ -5,6 +5,7 @@ import swal from 'sweetalert';
 import Encuestas from "./Encuestas";
 import '../Estilos/estIndividual.css';
 import { Radar, Bar } from 'react-chartjs-2';
+import { useAuth0 } from "@auth0/auth0-react";
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -82,6 +83,7 @@ ChartJS.register(
   var colorInfCont, colorInfContR
   var notasEstudiante = [];
   
+  
 
  
   const estadisticas = () => {
@@ -141,10 +143,9 @@ ChartJS.register(
       }
     }
   }
-  const obtenerNotas = async (e) => {
-    InformacionContable=1;
-    var emailEstudiante="afmenesesb@uqvirtual.edu.co";
-    const q = query(collection(db, "Estudiantes", emailEstudiante, "Notas"));
+  const obtenerNotas = async () => {
+    var email = document.getElementById('email').innerText;
+    const q = query(collection(db, "Estudiantes",email,"Notas"));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
@@ -235,8 +236,6 @@ ChartJS.register(
       }
     });
   }
-  
-  estadisticas();
 
   const dataModulosCono = {
     labels: [
@@ -436,8 +435,6 @@ ChartJS.register(
   };
   
 export default function EstadisticasEstudiantes() {
-  
-  
   const mostrarEstadisticaA = (e) => {
     estadisticas();
     document.getElementById('graficasEstudiantes').style.display = 'block'
@@ -451,7 +448,6 @@ export default function EstadisticasEstudiantes() {
 
   return (
     <div>
-      
       <div id="btnsGraficas" class="btn-group1" role="group" aria-label="Basic example">
       <h2 id="tituloEstadisticas">ESTADISTICAS</h2>
         <button onClick={(e) => { mostrarEstadisticaA(e) }} id="btEA" type="button" class="btn btn-success">Estadisticas AREA</button>
