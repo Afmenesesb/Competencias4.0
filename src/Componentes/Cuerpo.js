@@ -170,7 +170,6 @@ export default function Cuerpo() {
     return (
         <div id="cuerpoPrin" class="cuerpo">
             <h1 id="contLor" class="parrafo1">
-                <input type="texto">Escriba su texto acá</input>
             </h1>
             <div class="contenedorImg">
                 <img id="imgCont" class="imgCuerpo" src={infCont} ></img>

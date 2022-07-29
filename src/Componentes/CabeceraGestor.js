@@ -13,6 +13,7 @@ import Cuerpo from "./Cuerpo";
 import Respuesta from "./Respuesta";
 import Estadisticas from "./Estadisticas";
 import EstatsEstudiante from "./EstadisticasIndividuales";
+import CuerpoGestor from "./CuerpoGestor"
 
 function mostrarI() {
     document.getElementById('inicioGestor').style.display = 'block'
@@ -84,8 +85,8 @@ export default class CabeceraGestor extends Component {
 
                 <div id="inicioGestor">
                     <Competencias />
-                    <Modulos />
-                    <Cuerpo />
+                    <ModulosGestor />
+                    <CuerpoGestor />
 
                 </div>      
                 <Estadisticas />
