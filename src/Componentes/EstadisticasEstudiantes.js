@@ -1,10 +1,10 @@
-import { setDoc, doc,getDoc, collection, query, getDocs, onSnapshot } from "firebase/firestore";
+import { setDoc, doc, getDoc, collection, query, getDocs, onSnapshot } from "firebase/firestore";
 import React, { Component, useState } from "react";
 import db from "../firebaseConfig";
 import swal from 'sweetalert';
 import Encuestas from "./Encuestas";
 import '../Estilos/estIndividual.css';
-import { Radar, Bar } from 'react-chartjs-2';
+import { Radar, Bar, Chart } from 'react-chartjs-2';
 import { useAuth0 } from "@auth0/auth0-react";
 import {
   Chart as ChartJS,
@@ -31,7 +31,7 @@ ChartJS.register(
   LinearScale,
   BarElement
 );
-var InformacionContable =0;
+var InformacionContable = 0;
 var Gestion = 0;
 var AnalisisEconomico = 0;
 var Analisisyevolucion = 0;
@@ -66,8 +66,8 @@ var colorCono = 0;
 var colorConoR = 0;
 var notasEstudiante = [];
 const obtenerNotas = async () => {
-  var email="afmenesesb@uqvirtual.edu.co";
-  const q = query(collection(db, "Estudiantes",email,"Notas"));
+  var email = "afmenesesb@uqvirtual.edu.co";
+  const q = query(collection(db, "Estudiantes", email, "Notas"));
   try {
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
@@ -154,71 +154,119 @@ const obtenerNotas = async () => {
       }
     });
   } catch (error) {
-     swal({
-      text:"El error fue: "+error
-     })
+    swal({
+      text: "El error fue: " + error
+    })
   }
-  
- 
-}
- 
- 
-  const estadisticas = () => {
-    obtenerNotas();
-    InformacionContable=3;
-    actitudM = Analisisyevolucion + Diseñoyprogramacion + Innovacion + InteligenciaEmocional + Liderazgoeinfluencia + PensamientoAnalitico + PensamientoCritico + Solucion;
-    competenciasM = ConocimientoDigital + AprendizajeContinuo + ComunicacionDigital + VisionEstrategica + Gestiondelainformacion + Liderazgoenred + Orientacionalcliente + Trabajoenred;
-    conocimientoM = InformacionContable + Gestion + AnalisisEconomico;
-    
-    if (conocimientoM >= 12) {
-      colorCono = 'rgba(27, 105, 17, 0.774)';
-      colorConoR = 'rgba(41, 253, 3, 0.400)';
-    }
+  var speedCanvas= document.getElementById("speedChart");
+  var speedData={
 
-    //Graficas CONOCIMIENTO
-    if (conocimientoM >= 12) {
-      colorCono = 'rgba(27, 105, 17, 0.774)';
-      colorConoR = 'rgba(41, 253, 3, 0.400)';
-    } else {
-      if (conocimientoM < 12 && conocimientoM >= 8) {
-        colorCono = 'rgba(253, 165, 3, 0.774)';
-        colorConoR = 'rgba(253, 253, 3, 0.400)';
-      }
-      else {
-        colorCono = 'rgba(175, 28, 28, 0.774)';
-        colorConoR = 'rgba(249, 61, 61, 0.400)';
-      }
-    }
-    //Graficas COMPETENCIAS
-    if (competenciasM >= 30) {
-      colorComp = 'rgba(27, 105, 17, 0.774)';
-      colorCompR = 'rgba(41, 253, 3, 0.400)';
-    } else {
-      if (competenciasM < 30 && competenciasM >= 19) {
-        colorComp = 'rgba(253, 165, 3, 0.774)';
-        colorCompR = 'rgba(253, 253, 3, 0.400)';
-      }
-      else {
-        colorComp = 'rgba(175, 28, 28, 0.774)';
-        colorCompR = 'rgba(249, 61, 61, 0.400)';
+    label:'#Respuestas correctas',
+    data: [InformacionContable, Gestion, AnalisisEconomico],
+  };
+
+  /*var chartOptions= {
+    Legend: {
+
+      display: true,
+      position: 'top',
+      labels: {
+        boxWidth:80,
+        fontColor: 'black'
       }
     }
-    //Graficas ACTITUD
-    if (actitudM >= 25) {
-      colorActi = 'rgba(27, 105, 17, 0.774)';
-      colorActiR = 'rgba(41, 253, 3, 0.400)';
-    } else {
-      if (actitudM < 25 && actitudM >= 16) {
-        colorActi = 'rgba(253, 165, 3, 0.774)';
-        colorActiR = 'rgba(253, 253, 3, 0.400)';
+  };*/
+
+  var barChart= new ChartJS(speedCanvas,
+    {
+      type: 'bar',
+      data: {
+        labels: ['Información contable',
+        'Gestión de organizaciones',
+        'Analisis Economico'],
+        datasets: [speedData]
+
       }
-      else {
-        colorActi = 'rgba(175, 28, 28, 0.774)';
-        colorActiR = 'rgba(249, 61, 61, 0.400)';
-      }
+    });
+}
+
+
+const estadisticas = () => {
+  InformacionContable = 3;
+  actitudM = Analisisyevolucion + Diseñoyprogramacion + Innovacion + InteligenciaEmocional + Liderazgoeinfluencia + PensamientoAnalitico + PensamientoCritico + Solucion;
+  competenciasM = ConocimientoDigital + AprendizajeContinuo + ComunicacionDigital + VisionEstrategica + Gestiondelainformacion + Liderazgoenred + Orientacionalcliente + Trabajoenred;
+  conocimientoM = InformacionContable + Gestion + AnalisisEconomico;
+
+  if (conocimientoM >= 12) {
+    colorCono = 'rgba(27, 105, 17, 0.774)';
+    colorConoR = 'rgba(41, 253, 3, 0.400)';
+  }
+
+  //Graficas CONOCIMIENTO
+  if (conocimientoM >= 12) {
+    colorCono = 'rgba(27, 105, 17, 0.774)';
+    colorConoR = 'rgba(41, 253, 3, 0.400)';
+  } else {
+    if (conocimientoM < 12 && conocimientoM >= 8) {
+      colorCono = 'rgba(253, 165, 3, 0.774)';
+      colorConoR = 'rgba(253, 253, 3, 0.400)';
+    }
+    else {
+      colorCono = 'rgba(175, 28, 28, 0.774)';
+      colorConoR = 'rgba(249, 61, 61, 0.400)';
     }
   }
-  obtenerNotas()
+  //Graficas COMPETENCIAS
+  if (competenciasM >= 30) {
+    colorComp = 'rgba(27, 105, 17, 0.774)';
+    colorCompR = 'rgba(41, 253, 3, 0.400)';
+  } else {
+    if (competenciasM < 30 && competenciasM >= 19) {
+      colorComp = 'rgba(253, 165, 3, 0.774)';
+      colorCompR = 'rgba(253, 253, 3, 0.400)';
+    }
+    else {
+      colorComp = 'rgba(175, 28, 28, 0.774)';
+      colorCompR = 'rgba(249, 61, 61, 0.400)';
+    }
+  }
+  //Graficas ACTITUD
+  if (actitudM >= 25) {
+    colorActi = 'rgba(27, 105, 17, 0.774)';
+    colorActiR = 'rgba(41, 253, 3, 0.400)';
+  } else {
+    if (actitudM < 25 && actitudM >= 16) {
+      colorActi = 'rgba(253, 165, 3, 0.774)';
+      colorActiR = 'rgba(253, 253, 3, 0.400)';
+    }
+    else {
+      colorActi = 'rgba(175, 28, 28, 0.774)';
+      colorActiR = 'rgba(249, 61, 61, 0.400)';
+    }
+  }
+
+  var radarCanvas = document.getElementById("RadarChart");
+  var radarData = {
+    label: 'Preguntas Correctas',
+    data: [ConocimientoDigital, AprendizajeContinuo, ComunicacionDigital, VisionEstrategica, Gestiondelainformacion, Liderazgoenred, Orientacionalcliente, Trabajoenred]
+  };
+
+  var barChart = new ChartJS(radarCanvas, {
+
+    type: 'bar',
+    data: {
+      labels: ["Conocimiento digital",
+        'Aprendizaje continuo',
+        'Comunicacion Digital',
+        'Vision estrategica',
+        'Gestion de la informacion',
+        'Liderazgo en red',
+        'Orientacion al cliente',
+        'Trabajo en red'],
+      datasets: [radarData]
+    }
+  });
+}
 export default function EstadisticasEstudiantes() {
   const dataModulosCono = {
     labels: [
@@ -430,16 +478,17 @@ export default function EstadisticasEstudiantes() {
   return (
     <div>
       <div id="btnsGraficas" class="btn-group1" role="group" aria-label="Basic example">
-      <h2 id="tituloEstadisticas">ESTADISTICAS</h2>
+        <h2 id="tituloEstadisticas">ESTADISTICAS</h2>
         <button onClick={(e) => { mostrarEstadisticaA(e) }} id="btEA" type="button" class="btn btn-success">Estadisticas AREA</button>
         <button onClick={(e) => { mostrarEstadisticaM(e) }} id="btEM" type="button" class="btn btn-success">Estadisticas MODULO</button>
       </div>
       <div id="graficasEstudiantes" class="mencuesta">
-        <div id="grfCom" class="mengraf">COMPETENCIAS<Radar data={dataCompetencias} /></div>
+        <canvas id="RadarChart" width="600" height="400"></canvas>
         <div id="grfCon" class="mengraf">CONOCIMIENTO<Radar data={dataConocimiento} /></div>
         <div id="grfAct" class="mengraf">ACTITUD<Radar data={dataActitud} /></div>
       </div>
       <div id="graficasEstudiantesM" class="mencuesta">
+        <canvas id="speedChart" width="600" height="400"></canvas>
         <div id="grfConM" class="mengraf">CONOCIMIENTO por MODULO<Bar data={dataModulosCono} /></div>
         <div id="grfComM" class="mengraf">COMPETENCIAS por MODULO<Bar data={dataModulosComp} /></div>
         <div id="grfActM" class="mengraf">ACTITUD por MODULO<Bar data={dataModulosAct} /></div>
