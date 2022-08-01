@@ -43,8 +43,13 @@ table{
 #moduloEncuesta{
     font-size: 15px;
 }
-textarea {
+#textoSubir {
     width: 70%;
     height: 150px;
     margin-top: 35px;
   }
+#textoBusqueda{
+    width: 28%;
+    height: 150px;
+    margin-top: 35px;
+}
