@@ -31,6 +31,7 @@ ChartJS.register(
   LinearScale,
   BarElement
 );
+var contador = 0;
 var InformacionContable = 0;
 var Gestion = 0;
 var AnalisisEconomico = 0;
@@ -177,7 +178,7 @@ const obtenerNotas = async () => {
       text: "El error fue: " + error
     })
   }
-      estadisticas();
+  estadisticas();
 }
 
 
@@ -186,71 +187,71 @@ const estadisticas = () => {
   actitudM = Analisisyevolucion + Diseñoyprogramacion + Innovacion + InteligenciaEmocional + Liderazgoeinfluencia + PensamientoAnalitico + PensamientoCritico + Solucion;
   competenciasM = ConocimientoDigital + AprendizajeContinuo + ComunicacionDigital + VisionEstrategica + Gestiondelainformacion + Liderazgoenred + Orientacionalcliente + Trabajoenred;
   conocimientoM = InformacionContable + Gestion + AnalisisEconomico;
-//InformacionContable
-    if (InformacionContable==5) {
-      colorInfCont = 'rgba(27, 105, 17, 0.774)';
-      colorInfContR = 'rgba(41, 253, 3, 0.400)';
-    } else {
-      if (InformacionContable==4 || InformacionContable==3) {
-        colorInfCont = 'rgba(253, 165, 3, 0.774)';
-        colorInfContR = 'rgba(253, 253, 3, 0.400)';
-      }
-      else {
-        colorInfCont = 'rgba(175, 28, 28, 0.774)';
-        colorInfContR = 'rgba(249, 61, 61, 0.400)';
-      }
+  //InformacionContable
+  if (InformacionContable == 5) {
+    colorInfCont = 'rgba(27, 105, 17, 0.774)';
+    colorInfContR = 'rgba(41, 253, 3, 0.400)';
+  } else {
+    if (InformacionContable == 4 || InformacionContable == 3) {
+      colorInfCont = 'rgba(253, 165, 3, 0.774)';
+      colorInfContR = 'rgba(253, 253, 3, 0.400)';
     }
-    //Gestion
-    if (Gestion==5) {
-      colorGestion = 'rgba(27, 105, 17, 0.774)';
-      colorGestionR = 'rgba(41, 253, 3, 0.400)';
-    } else {
-      if (Gestion==4 || Gestion==3) {
-        colorGestion = 'rgba(253, 165, 3, 0.774)';
-        colorGestionR = 'rgba(253, 253, 3, 0.400)';
-      }
-      else {
-        colorGestion = 'rgba(175, 28, 28, 0.774)';
-        colorGestionR = 'rgba(249, 61, 61, 0.400)';
-      }
+    else {
+      colorInfCont = 'rgba(175, 28, 28, 0.774)';
+      colorInfContR = 'rgba(249, 61, 61, 0.400)';
     }
+  }
+  //Gestion
+  if (Gestion == 5) {
+    colorGestion = 'rgba(27, 105, 17, 0.774)';
+    colorGestionR = 'rgba(41, 253, 3, 0.400)';
+  } else {
+    if (Gestion == 4 || Gestion == 3) {
+      colorGestion = 'rgba(253, 165, 3, 0.774)';
+      colorGestionR = 'rgba(253, 253, 3, 0.400)';
+    }
+    else {
+      colorGestion = 'rgba(175, 28, 28, 0.774)';
+      colorGestionR = 'rgba(249, 61, 61, 0.400)';
+    }
+  }
 
-    //AnalisisEconomico
-     if (AnalisisEconomico==5) {
-      colorAnaEco = 'rgba(27, 105, 17, 0.774)';
-      colorAnaEcoR = 'rgba(41, 253, 3, 0.400)';
-    } else {
-      if (AnalisisEconomico==4 || AnalisisEconomico==3) {
-        colorAnaEco = 'rgba(253, 165, 3, 0.774)';
-        colorAnaEcoR = 'rgba(253, 253, 3, 0.400)';
-      }
-      else {
-        colorAnaEco = 'rgba(175, 28, 28, 0.774)';
-        colorAnaEcoR = 'rgba(249, 61, 61, 0.400)';
-      }
-    } 
+  //AnalisisEconomico
+  if (AnalisisEconomico == 5) {
+    colorAnaEco = 'rgba(27, 105, 17, 0.774)';
+    colorAnaEcoR = 'rgba(41, 253, 3, 0.400)';
+  } else {
+    if (AnalisisEconomico == 4 || AnalisisEconomico == 3) {
+      colorAnaEco = 'rgba(253, 165, 3, 0.774)';
+      colorAnaEcoR = 'rgba(253, 253, 3, 0.400)';
+    }
+    else {
+      colorAnaEco = 'rgba(175, 28, 28, 0.774)';
+      colorAnaEcoR = 'rgba(249, 61, 61, 0.400)';
+    }
+  }
 
-    //AnalisisyEvolucion
-    if (Analisisyevolucion==4) {
-     colorAnaEvo= 'rgba(27, 105, 17, 0.774)';
-     colorAnaEvoR = 'rgba(41, 253, 3, 0.400)';
-   } else {
-     if (Analisisyevolucion==3 || Analisisyevolucion==2) {
-       colorAnaEvo = 'rgba(253, 165, 3, 0.774)';
-       colorAnaEvoR = 'rgba(253, 253, 3, 0.400)';
-     }
-     else {
-       colorAnaEvo = 'rgba(175, 28, 28, 0.774)';
-       colorAnaEvoR = 'rgba(249, 61, 61, 0.400)';
-     }
-   }
+  //AnalisisyEvolucion
+  if (Analisisyevolucion == 4) {
+    colorAnaEvo = 'rgba(27, 105, 17, 0.774)';
+    colorAnaEvoR = 'rgba(41, 253, 3, 0.400)';
+  } else {
+    if (Analisisyevolucion == 3 || Analisisyevolucion == 2) {
+      colorAnaEvo = 'rgba(253, 165, 3, 0.774)';
+      colorAnaEvoR = 'rgba(253, 253, 3, 0.400)';
+    }
+    else {
+      colorAnaEvo = 'rgba(175, 28, 28, 0.774)';
+      colorAnaEvoR = 'rgba(249, 61, 61, 0.400)';
+    }
+  }
 
-   //Conocimiento digital
-   if (ConocimientoDigital==5) {
-    colorConoDig= 'rgba(27, 105, 17, 0.774)';
+  //Conocimiento digital
+  if (ConocimientoDigital == 5) {
+    colorConoDig = 'rgba(27, 105, 17, 0.774)';
     colorConoDigR = 'rgba(41, 253, 3, 0.400)';
   } else {
-    if (ConocimientoDigital==4 || ConocimientoDigital==3) {
+    if (ConocimientoDigital == 4 || ConocimientoDigital == 3) {
       colorConoDig = 'rgba(253, 165, 3, 0.774)';
       colorConoDigR = 'rgba(253, 253, 3, 0.400)';
     }
@@ -259,11 +260,11 @@ const estadisticas = () => {
       colorConoDigR = 'rgba(249, 61, 61, 0.400)';
     }
   }
-  if (ComunicacionDigital==5) {
-    colorComDig= 'rgba(27, 105, 17, 0.774)';
+  if (ComunicacionDigital == 5) {
+    colorComDig = 'rgba(27, 105, 17, 0.774)';
     colorComDigR = 'rgba(41, 253, 3, 0.400)';
   } else {
-    if (ComunicacionDigital==4 || ComunicacionDigital==3) {
+    if (ComunicacionDigital == 4 || ComunicacionDigital == 3) {
       colorComDig = 'rgba(253, 165, 3, 0.774)';
       colorComDigR = 'rgba(253, 253, 3, 0.400)';
     }
@@ -272,11 +273,11 @@ const estadisticas = () => {
       colorComDigR = 'rgba(249, 61, 61, 0.400)';
     }
   }
-  if (AprendizajeContinuo==4) {
-    colorApCon= 'rgba(27, 105, 17, 0.774)';
+  if (AprendizajeContinuo == 4) {
+    colorApCon = 'rgba(27, 105, 17, 0.774)';
     colorApConR = 'rgba(41, 253, 3, 0.400)';
   } else {
-    if (AprendizajeContinuo==3 || AprendizajeContinuo==2) {
+    if (AprendizajeContinuo == 3 || AprendizajeContinuo == 2) {
       colorApCon = 'rgba(253, 165, 3, 0.774)';
       colorApConR = 'rgba(253, 253, 3, 0.400)';
     }
@@ -285,11 +286,11 @@ const estadisticas = () => {
       colorApConR = 'rgba(249, 61, 61, 0.400)';
     }
   }
-  if (VisionEstrategica==4) {
-    colorVision= 'rgba(27, 105, 17, 0.774)';
+  if (VisionEstrategica == 4) {
+    colorVision = 'rgba(27, 105, 17, 0.774)';
     colorVisionR = 'rgba(41, 253, 3, 0.400)';
   } else {
-    if (VisionEstrategica==3 || VisionEstrategica==2) {
+    if (VisionEstrategica == 3 || VisionEstrategica == 2) {
       colorVision = 'rgba(253, 165, 3, 0.774)';
       colorVisionR = 'rgba(253, 253, 3, 0.400)';
     }
@@ -298,11 +299,11 @@ const estadisticas = () => {
       colorVisionR = 'rgba(249, 61, 61, 0.400)';
     }
   }
-  if (Orientacionalcliente==4) {
-    colorOriCli= 'rgba(27, 105, 17, 0.774)';
+  if (Orientacionalcliente == 4) {
+    colorOriCli = 'rgba(27, 105, 17, 0.774)';
     colorOriCliR = 'rgba(41, 253, 3, 0.400)';
   } else {
-    if (Orientacionalcliente==3 || Orientacionalcliente==2) {
+    if (Orientacionalcliente == 3 || Orientacionalcliente == 2) {
       colorOriCli = 'rgba(253, 165, 3, 0.774)';
       colorOriCliR = 'rgba(253, 253, 3, 0.400)';
     }
@@ -311,11 +312,11 @@ const estadisticas = () => {
       colorOriCliR = 'rgba(249, 61, 61, 0.400)';
     }
   }
-  if (PensamientoAnalitico==4) {
-    colorPensAna= 'rgba(27, 105, 17, 0.774)';
+  if (PensamientoAnalitico == 4) {
+    colorPensAna = 'rgba(27, 105, 17, 0.774)';
     colorPensAnaR = 'rgba(41, 253, 3, 0.400)';
   } else {
-    if (PensamientoAnalitico==3 || PensamientoAnalitico==2) {
+    if (PensamientoAnalitico == 3 || PensamientoAnalitico == 2) {
       colorPensAna = 'rgba(253, 165, 3, 0.774)';
       colorPensAnaR = 'rgba(253, 253, 3, 0.400)';
     }
@@ -324,11 +325,11 @@ const estadisticas = () => {
       colorPensAnaR = 'rgba(249, 61, 61, 0.400)';
     }
   }
-  if (Solucion==4) {
-    colorSolucion= 'rgba(27, 105, 17, 0.774)';
+  if (Solucion == 4) {
+    colorSolucion = 'rgba(27, 105, 17, 0.774)';
     colorSolucionR = 'rgba(41, 253, 3, 0.400)';
   } else {
-    if (Solucion==3 || Solucion==2) {
+    if (Solucion == 3 || Solucion == 2) {
       colorSolucion = 'rgba(253, 165, 3, 0.774)';
       colorSolucionR = 'rgba(253, 253, 3, 0.400)';
     }
@@ -337,11 +338,11 @@ const estadisticas = () => {
       colorSolucionR = 'rgba(249, 61, 61, 0.400)';
     }
   }
-  if (Gestiondelainformacion==5) {
-    colorGestionInf= 'rgba(27, 105, 17, 0.774)';
+  if (Gestiondelainformacion == 5) {
+    colorGestionInf = 'rgba(27, 105, 17, 0.774)';
     colorGestionInfR = 'rgba(41, 253, 3, 0.400)';
   } else {
-    if (Gestiondelainformacion==4 || Gestiondelainformacion==3) {
+    if (Gestiondelainformacion == 4 || Gestiondelainformacion == 3) {
       colorGestionInf = 'rgba(253, 165, 3, 0.774)';
       colorGestionInfR = 'rgba(253, 253, 3, 0.400)';
     }
@@ -350,11 +351,11 @@ const estadisticas = () => {
       colorGestionInfR = 'rgba(249, 61, 61, 0.400)';
     }
   }
-  if (Liderazgoenred==5) {
-    colorLidRed= 'rgba(27, 105, 17, 0.774)';
+  if (Liderazgoenred == 5) {
+    colorLidRed = 'rgba(27, 105, 17, 0.774)';
     colorLidRedR = 'rgba(41, 253, 3, 0.400)';
   } else {
-    if (Liderazgoenred==4 || Liderazgoenred==3) {
+    if (Liderazgoenred == 4 || Liderazgoenred == 3) {
       colorLidRed = 'rgba(253, 165, 3, 0.774)';
       colorLidRedR = 'rgba(253, 253, 3, 0.400)';
     }
@@ -363,11 +364,11 @@ const estadisticas = () => {
       colorLidRedR = 'rgba(249, 61, 61, 0.400)';
     }
   }
-  if (Trabajoenred==5) {
-    colorTraRed= 'rgba(27, 105, 17, 0.774)';
+  if (Trabajoenred == 5) {
+    colorTraRed = 'rgba(27, 105, 17, 0.774)';
     colorTraRedR = 'rgba(41, 253, 3, 0.400)';
   } else {
-    if (Trabajoenred==4 || Trabajoenred==3) {
+    if (Trabajoenred == 4 || Trabajoenred == 3) {
       colorTraRed = 'rgba(253, 165, 3, 0.774)';
       colorTraRedR = 'rgba(253, 253, 3, 0.400)';
     }
@@ -376,11 +377,11 @@ const estadisticas = () => {
       colorTraRedR = 'rgba(249, 61, 61, 0.400)';
     }
   }
-  if (PensamientoCritico==5) {
-    colorPensCri= 'rgba(27, 105, 17, 0.774)';
+  if (PensamientoCritico == 5) {
+    colorPensCri = 'rgba(27, 105, 17, 0.774)';
     colorPensCriR = 'rgba(41, 253, 3, 0.400)';
   } else {
-    if (PensamientoCritico==4 || PensamientoCritico==3) {
+    if (PensamientoCritico == 4 || PensamientoCritico == 3) {
       colorPensCri = 'rgba(253, 165, 3, 0.774)';
       colorPensCriR = 'rgba(253, 253, 3, 0.400)';
     }
@@ -389,11 +390,11 @@ const estadisticas = () => {
       colorPensCriR = 'rgba(249, 61, 61, 0.400)';
     }
   }
-  if (Diseñoyprogramacion==2) {
-    colorDiseño= 'rgba(27, 105, 17, 0.774)';
+  if (Diseñoyprogramacion == 2) {
+    colorDiseño = 'rgba(27, 105, 17, 0.774)';
     colorDiseñoR = 'rgba(41, 253, 3, 0.400)';
   } else {
-    if (Diseñoyprogramacion==1) {
+    if (Diseñoyprogramacion == 1) {
       colorDiseño = 'rgba(253, 165, 3, 0.774)';
       colorDiseñoR = 'rgba(253, 253, 3, 0.400)';
     }
@@ -402,11 +403,11 @@ const estadisticas = () => {
       colorDiseñoR = 'rgba(249, 61, 61, 0.400)';
     }
   }
-  if (Innovacion==4) {
-    colorInno= 'rgba(27, 105, 17, 0.774)';
+  if (Innovacion == 4) {
+    colorInno = 'rgba(27, 105, 17, 0.774)';
     colorInnoR = 'rgba(41, 253, 3, 0.400)';
   } else {
-    if (Innovacion==2 || Innovacion==3) {
+    if (Innovacion == 2 || Innovacion == 3) {
       colorInno = 'rgba(253, 165, 3, 0.774)';
       colorInnoR = 'rgba(253, 253, 3, 0.400)';
     }
@@ -415,11 +416,11 @@ const estadisticas = () => {
       colorInnoR = 'rgba(249, 61, 61, 0.400)';
     }
   }
-  if (InteligenciaEmocional==4) {
-    colorIntEmo= 'rgba(27, 105, 17, 0.774)';
+  if (InteligenciaEmocional == 4) {
+    colorIntEmo = 'rgba(27, 105, 17, 0.774)';
     colorIntEmoR = 'rgba(41, 253, 3, 0.400)';
   } else {
-    if (InteligenciaEmocional==2 || InteligenciaEmocional==3) {
+    if (InteligenciaEmocional == 2 || InteligenciaEmocional == 3) {
       colorIntEmo = 'rgba(253, 165, 3, 0.774)';
       colorIntEmoR = 'rgba(253, 253, 3, 0.400)';
     }
@@ -428,11 +429,11 @@ const estadisticas = () => {
       colorIntEmoR = 'rgba(249, 61, 61, 0.400)';
     }
   }
-  if (Liderazgoeinfluencia==4) {
-    colorLiderazgo= 'rgba(27, 105, 17, 0.774)';
+  if (Liderazgoeinfluencia == 4) {
+    colorLiderazgo = 'rgba(27, 105, 17, 0.774)';
     colorLiderazgoR = 'rgba(41, 253, 3, 0.400)';
   } else {
-    if (Liderazgoeinfluencia==2 || Liderazgoeinfluencia==3) {
+    if (Liderazgoeinfluencia == 2 || Liderazgoeinfluencia == 3) {
       colorLiderazgo = 'rgba(253, 165, 3, 0.774)';
       colorLiderazgoR = 'rgba(253, 253, 3, 0.400)';
     }
@@ -492,39 +493,40 @@ const estadisticas = () => {
     label: '',
     data: [0],
   };
-  var speedCanvas= document.getElementById("modConocimiento");
-  var speedData={
+  if (contador == 0) {
+    var speedCanvas = document.getElementById("modConocimiento");
+    var speedData = {
 
-    label:'#Respuestas correctas',
-    data: [InformacionContable, Gestion, AnalisisEconomico],
-    backgroundColor: [
-      colorInfContR,
-      colorGestionR,
-      colorAnaEcoR
-    ],
-    borderColor: [
-      colorInfCont,
-      colorGestion,
-      colorAnaEco
-    ],
-    borderWidth: 1
-  };
+      label: '#Respuestas correctas',
+      data: [InformacionContable, Gestion, AnalisisEconomico],
+      backgroundColor: [
+        colorInfContR,
+        colorGestionR,
+        colorAnaEcoR
+      ],
+      borderColor: [
+        colorInfCont,
+        colorGestion,
+        colorAnaEco
+      ],
+      borderWidth: 1
+    };
 
-  var barChart= new ChartJS(speedCanvas,
-    {
-      type: 'bar',
-      data: {
-        labels: ['Información contable',
-        'Gestión de organizaciones',
-        'Analisis Economico'],
-        datasets: [speedData]
+    var barChart = new ChartJS(speedCanvas,
+      {
+        type: 'bar',
+        data: {
+          labels: ['Información contable',
+            'Gestión de organizaciones',
+            'Analisis Economico'],
+          datasets: [speedData]
 
-      }
-    });
-    var speedCanvas2= document.getElementById("modCompetecias");
-    var speedData2={
-  
-      label:'#Respuestas correctas',
+        }
+      });
+    var speedCanvas2 = document.getElementById("modCompetecias");
+    var speedData2 = {
+
+      label: '#Respuestas correctas',
       data: [ConocimientoDigital, AprendizajeContinuo, ComunicacionDigital, VisionEstrategica, Gestiondelainformacion, Liderazgoenred, Orientacionalcliente, Trabajoenred],
       backgroundColor: [
         colorConoDigR,
@@ -548,27 +550,27 @@ const estadisticas = () => {
       ],
       borderWidth: 1
     };
-    var barChart2= new ChartJS(speedCanvas2,
+    var barChart2 = new ChartJS(speedCanvas2,
       {
         type: 'bar',
         data: {
           labels: ["Conocimiento digital",
-          'Aprendizaje continuo',
-          'Comunicacion Digital',
-          'Vision estrategica',
-          'Gestion de la informacion',
-          'Liderazgo en red',
-          'Orientacion al cliente',
-          'Trabajo en red'],
+            'Aprendizaje continuo',
+            'Comunicacion Digital',
+            'Vision estrategica',
+            'Gestion de la informacion',
+            'Liderazgo en red',
+            'Orientacion al cliente',
+            'Trabajo en red'],
           datasets: [speedData2]
-  
+
         }
       });
 
-    var speedCanvas3= document.getElementById("modActitud");
-    var speedData3={
-  
-      label:'#Respuestas correctas',
+    var speedCanvas3 = document.getElementById("modActitud");
+    var speedData3 = {
+
+      label: '#Respuestas correctas',
       data: [Analisisyevolucion, Diseñoyprogramacion, Innovacion, InteligenciaEmocional, Liderazgoeinfluencia, PensamientoAnalitico, PensamientoCritico, Solucion],
       backgroundColor: [
         colorAnaEvoR,
@@ -592,11 +594,84 @@ const estadisticas = () => {
       ],
       borderWidth: 1
     };
-    var barChart3= new ChartJS(speedCanvas3,
+    var barChart3 = new ChartJS(speedCanvas3,
       {
         type: 'bar',
         data: {
           labels: ['Analisis y evolucion de sistemas',
+            'Diseño y programacion de nuevas tecnologias',
+            'Innovacion,originalidad e iniciativa',
+            'Inteligencia emocional',
+            'Liderazgo e influencia social',
+            'Pensamiento analítico',
+            'Pensamiento crítico',
+            'Solucion de problemas'],
+          datasets: [speedData3]
+
+        }
+      });
+
+    //COMPETENCIAS
+    var radarCanvas = document.getElementById("RadarChartCom");
+    var radarData = {
+      label: 'Preguntas Correctas',
+      data: [ConocimientoDigital, AprendizajeContinuo, ComunicacionDigital, VisionEstrategica, Gestiondelainformacion, Liderazgoenred, Orientacionalcliente, Trabajoenred],
+      backgroundColor: colorCompR,
+      borderColor: colorComp,
+      pointBackgroundColor: colorComp,
+    };
+
+    var radChart = new ChartJS(radarCanvas, {
+
+      type: 'radar',
+      data: {
+        labels: ["Conocimiento digital",
+          'Aprendizaje continuo',
+          'Comunicacion Digital',
+          'Vision estrategica',
+          'Gestion de la informacion',
+          'Liderazgo en red',
+          'Orientacion al cliente',
+          'Trabajo en red'],
+        datasets: [radarData, base]
+      }
+    });
+    //CONOCIMIENTO
+    var radarCanvas2 = document.getElementById("RadarChartCon");
+
+    var radarData2 = {
+      label: 'Preguntas Correctas',
+      data: [InformacionContable, Gestion, AnalisisEconomico],
+      backgroundColor: colorConoR,
+      borderColor: colorCono,
+      pointBackgroundColor: colorCono,
+
+    };
+
+    var radChart2 = new ChartJS(radarCanvas2, {
+
+      type: 'radar',
+      data: {
+        labels: ['Información contable',
+          'Gestión de organizaciones',
+          'Analisis Economico'],
+        datasets: [radarData2, base],
+      }
+    });
+    var radarCanvas3 = document.getElementById("RadarChartAct");
+    var radarData3 = {
+      label: 'Preguntas Correctas',
+      data: [Analisisyevolucion, Diseñoyprogramacion, Innovacion, InteligenciaEmocional, Liderazgoeinfluencia, PensamientoAnalitico, PensamientoCritico, Solucion],
+      backgroundColor: colorActiR,
+      borderColor: colorActi,
+      pointBackgroundColor: colorActi,
+    };
+
+    var radChart3 = new ChartJS(radarCanvas3, {
+
+      type: 'radar',
+      data: {
+        labels: ['Analisis y evolucion de sistemas',
           'Diseño y programacion de nuevas tecnologias',
           'Innovacion,originalidad e iniciativa',
           'Inteligencia emocional',
@@ -604,82 +679,12 @@ const estadisticas = () => {
           'Pensamiento analítico',
           'Pensamiento crítico',
           'Solucion de problemas'],
-          datasets: [speedData3]
-  
-        }
-      });
-  
-  //COMPETENCIAS
-  var radarCanvas = document.getElementById("RadarChartCom");
-  var radarData = {
-    label: 'Preguntas Correctas',
-    data: [ConocimientoDigital, AprendizajeContinuo, ComunicacionDigital, VisionEstrategica, Gestiondelainformacion, Liderazgoenred, Orientacionalcliente, Trabajoenred],
-    backgroundColor:colorCompR,
-    borderColor: colorComp,
-    pointBackgroundColor: colorComp,
-  };
+        datasets: [radarData3, base]
+      }
+    });
+    contador+=1;
+  }
 
-  var radChart = new ChartJS(radarCanvas, {
-
-    type: 'radar',
-    data: {
-      labels: ["Conocimiento digital",
-        'Aprendizaje continuo',
-        'Comunicacion Digital',
-        'Vision estrategica',
-        'Gestion de la informacion',
-        'Liderazgo en red',
-        'Orientacion al cliente',
-        'Trabajo en red'],
-      datasets: [radarData,base]
-    }
-  });
-  //CONOCIMIENTO
-  var radarCanvas2 = document.getElementById("RadarChartCon");
-  
-  var radarData2 = {
-    label: 'Preguntas Correctas',
-    data: [InformacionContable, Gestion, AnalisisEconomico],
-    backgroundColor: colorConoR,
-    borderColor: colorCono,
-    pointBackgroundColor: colorCono,
-
-  };
-
-  var radChart2 = new ChartJS(radarCanvas2, {
-
-    type: 'radar',
-    data: {
-      labels: ['Información contable',
-      'Gestión de organizaciones',
-      'Analisis Economico'],
-      datasets: [radarData2,base],
-    }
-  });
-  var radarCanvas3 = document.getElementById("RadarChartAct");
-  var radarData3 = {
-    label: 'Preguntas Correctas',
-    data: [Analisisyevolucion, Diseñoyprogramacion, Innovacion, InteligenciaEmocional, Liderazgoeinfluencia, PensamientoAnalitico, PensamientoCritico, Solucion],
-    backgroundColor: colorActiR,
-    borderColor: colorActi,
-    pointBackgroundColor: colorActi,
-  };
-
-  var radChart3 = new ChartJS(radarCanvas3, {
-
-    type: 'radar',
-    data: {
-      labels: ['Analisis y evolucion de sistemas',
-      'Diseño y programacion de nuevas tecnologias',
-      'Innovacion,originalidad e iniciativa',
-      'Inteligencia emocional',
-      'Liderazgo e influencia social',
-      'Pensamiento analítico',
-      'Pensamiento crítico',
-      'Solucion de problemas'],
-      datasets: [radarData3,base]
-    }
-  });
 }
 export default function EstadisticasEstudiantes() {
   const mostrarEstadisticaA = (e) => {
@@ -701,7 +706,7 @@ export default function EstadisticasEstudiantes() {
         <button onClick={(e) => { mostrarEstadisticaM(e) }} id="btEM" type="button" class="btn btn-success">Estadisticas MODULO</button>
       </div>
       <div id="graficasEstudiantes" class="mencuesta">
-      <h2 id="tituloEstadisticas">Area COMPETENCIAS</h2>
+        <h2 id="tituloEstadisticas">Area COMPETENCIAS</h2>
         <canvas id="RadarChartCom" width="600" height="400">Competencias</canvas>
         <h2 id="tituloEstadisticas">Area CONOCIMIENTO</h2>
         <canvas id="RadarChartCon" width="600" height="400">Conocimiento</canvas>
@@ -709,7 +714,7 @@ export default function EstadisticasEstudiantes() {
         <canvas id="RadarChartAct" width="600" height="400">Actitud</canvas>
       </div>
       <div id="graficasEstudiantesM" class="mencuesta">
-      <h2 id="tituloEstadisticas">CONOCIMIENTO por Modulo</h2>
+        <h2 id="tituloEstadisticas">CONOCIMIENTO por Modulo</h2>
         <canvas id="modConocimiento" width="600" height="400">Conocimiento por Modulo</canvas>
         <h2 id="tituloEstadisticas">COMPETENCIAS por Modulo</h2>
         <canvas id="modCompetecias" width="600" height="400">Competencias por Modulo</canvas>
