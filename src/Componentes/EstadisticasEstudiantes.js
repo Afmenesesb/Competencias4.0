@@ -721,6 +721,11 @@ export default function EstadisticasEstudiantes() {
         <button onClick={(e) => { mostrarEstadisticaM(e) }} id="btEM" type="button" class="btn btn-success">Estadisticas MODULO</button>
       </div>
       <div id="graficasEstudiantes" class="mencuesta">
+      <div id="convenciones">
+      <button disabled="true" id="btnRojo">Nivel bajo</button>
+      <button disabled="true"id="btnAmarillo">Nivel medio</button>
+      <button disabled="true"id="btnVerde"> Nivel alto</button>
+      </div>
         <h2 id="tituloEstadisticas">Area COMPETENCIAS</h2>
         <canvas id="RadarChartCom" width="600" height="400">Competencias</canvas>
         <h2 id="tituloEstadisticas">Area CONOCIMIENTO</h2>
@@ -729,6 +734,11 @@ export default function EstadisticasEstudiantes() {
         <canvas id="RadarChartAct" width="600" height="400">Actitud</canvas>
       </div>
       <div id="graficasEstudiantesM" class="mencuesta">
+      <div id="convenciones">
+      <button disabled="true" id="btnRojo">Nivel bajo</button>
+      <button disabled="true"id="btnAmarillo">Nivel medio</button>
+      <button disabled="true"id="btnVerde"> Nivel alto</button>
+      </div>
         <h2 id="tituloEstadisticas">CONOCIMIENTO por Modulo</h2>
         <canvas id="modConocimiento" width="600" height="400">Conocimiento por Modulo</canvas>
         <h2 id="tituloEstadisticas">COMPETENCIAS por Modulo</h2>

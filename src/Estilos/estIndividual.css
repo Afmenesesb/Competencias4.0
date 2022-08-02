@@ -4,6 +4,45 @@
 #formEstadisticas{
     display: none;
 }
-#graficasIndividuales,#bloqueGrupal{
+#bloqueGrupal{
     display: none;
 }
+#graficasIndividuales{
+    display: none;
+    width: 50%;
+    margin-left: 450px;
+   
+}
+#separador{
+    border: 1px solid #000;
+}
+h5{
+    text-align: left;
+
+}
+#btnRojo{
+    border-radius: 2px;
+    border-color: rgba(175, 28, 28, 0.774);
+    background-color: rgba(249, 61, 61, 0.400);
+    font-weight: bold;
+    color: rgba(175, 28, 28, 0.774);
+}
+#btnAmarillo{
+    border-radius: 2px;
+    border-color: rgba(253, 165, 3, 0.774);
+    background-color: rgba(253, 253, 3, 0.400);
+    font-weight: bold;
+    color: rgba(253, 165, 3, 0.774);
+}
+#btnVerde{
+    border-radius: 2px;
+    border-color: rgba(27, 105, 17, 0.774);
+    background-color: rgba(41, 253, 3, 0.400);
+    font-weight: bold;
+    color: rgba(27, 105, 17, 0.774);
+}
+#convenciones{
+   margin-top: 30px;
+   margin-bottom: 10px;
+}
+

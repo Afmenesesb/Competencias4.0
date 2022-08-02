@@ -29,7 +29,7 @@ ChartJS.register(
   Legend,
   CategoryScale,
   LinearScale,
-  BarElement
+  BarElement,
 );
 var contador = 0;
 var InformacionContable = 0;
@@ -505,6 +505,7 @@ const estadisticas = () => {
 
     label: '#Respuestas correctas',
     data: [InformacionContable, Gestion, AnalisisEconomico],
+    axis: 'y',
     backgroundColor: [
       colorInfContR,
       colorGestionR,
@@ -522,6 +523,7 @@ const estadisticas = () => {
 
     label: '#Respuestas correctas',
     data: [ConocimientoDigital, AprendizajeContinuo, ComunicacionDigital, VisionEstrategica, Gestiondelainformacion, Liderazgoenred, Orientacionalcliente, Trabajoenred],
+    axis: 'y',
     backgroundColor: [
       colorConoDigR,
       colorApConR,
@@ -549,6 +551,7 @@ const estadisticas = () => {
 
     label: '#Respuestas correctas',
     data: [Analisisyevolucion, Diseñoyprogramacion, Innovacion, InteligenciaEmocional, Liderazgoeinfluencia, PensamientoAnalitico, PensamientoCritico, Solucion],
+    axis: 'y',
     backgroundColor: [
       colorAnaEvoR,
       colorDiseñoR,
@@ -623,7 +626,10 @@ const estadisticas = () => {
           'Analisis Economico'],
         datasets: [speedData]
 
-      }
+      },
+      options: {
+        indexAxis: 'y',
+      } 
     });
   console.log(barChart.data.datasets.at(0))
   barChart2 = new ChartJS(speedCanvas2,
@@ -640,7 +646,10 @@ const estadisticas = () => {
           'Trabajo en red'],
         datasets: [speedData2]
 
-      }
+      },
+      options: {
+        indexAxis: 'y',
+      } 
     });
    barChart3 = new ChartJS(speedCanvas3,
     {
@@ -656,7 +665,10 @@ const estadisticas = () => {
           'Solucion de problemas'],
         datasets: [speedData3]
 
-      }
+      },
+      options: {
+        indexAxis: 'y',
+      } 
     });
   radChart = new ChartJS(radarCanvas, {
 
@@ -722,21 +734,39 @@ export default function Estadisticas() {
         <button  id="btEG" onClick={(e) => {mostrarEstadisticaG(e)}} type="button" class="btn btn-success">Estadisticas GRUPALES</button>
       </div>
       <div id="bloqueIndividual">
-      <textarea id="textoBusqueda"placeholder="Ingrese el correo... "></textarea>
+      <textarea id="textoBusqueda"placeholder="Ingrese el correo del estudiante..."></textarea>
       <button id="botonBuscar" onClick={(e) => {buscarGraficasCorreo(e)}}class="btn btn-warning">Buscar</button>
       <div id="graficasIndividuales">
-        <h2 id="tituloEstadisticas">Area COMPETENCIAS</h2>
+      <div id="convenciones">
+      <button disabled="true" id="btnRojo">Nivel bajo</button>
+      <button disabled="true"id="btnAmarillo">Nivel medio</button>
+      <button disabled="true"id="btnVerde"> Nivel alto</button>
+      </div>
+      <div id="separador">
+      <h2 id="tituloEstadisticas">Area COMPETENCIAS</h2>
         <canvas id="RadarChartCom" width="600" height="400">Competencias</canvas>
-        <h2 id="tituloEstadisticas">Area CONOCIMIENTO</h2>
+      </div>
+      <div id="separador">
+      <h2 id="tituloEstadisticas">Area CONOCIMIENTO</h2>
         <canvas id="RadarChartCon" width="600" height="400">Conocimiento</canvas>
-        <h2 id="tituloEstadisticas">Area ACTITUD</h2>
+      </div>
+      <div id="separador">
+      <h2 id="tituloEstadisticas">Area ACTITUD</h2>
         <canvas id="RadarChartAct" width="600" height="400">Actitud</canvas>
-        <h2 id="tituloEstadisticas">CONOCIMIENTO por Modulo</h2>
+      </div>  
+      <div id="separador">
+      <h2 id="tituloEstadisticas">CONOCIMIENTO por Modulo</h2>
         <canvas id="modConocimiento" width="600" height="400">Conocimiento por Modulo</canvas>
-        <h2 id="tituloEstadisticas">COMPETENCIAS por Modulo</h2>
+      </div>
+      <div id="separador">
+      <h2 id="tituloEstadisticas">COMPETENCIAS por Modulo</h2>
         <canvas id="modCompetecias" width="600" height="400">Competencias por Modulo</canvas>
-        <h2 id="tituloEstadisticas">ACTITUD por Modulo</h2>
+      </div >
+      <div id="separador">
+      <h2 id="tituloEstadisticas">ACTITUD por Modulo</h2>
         <canvas id="modActitud" width="300" height="200">Actitud por Modulo</canvas>
+      </div>
+       
       </div>
         </div> 
       <div id="bloqueGrupal">
