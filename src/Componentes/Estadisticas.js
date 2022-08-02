@@ -448,11 +448,6 @@ const estadisticas = () => {
       colorLiderazgoR = 'rgba(249, 61, 61, 0.400)';
     }
   }
-  if (conocimientoM >= 12) {
-    colorCono = 'rgba(27, 105, 17, 0.774)';
-    colorConoR = 'rgba(41, 253, 3, 0.400)';
-  }
-
   //Graficas CONOCIMIENTO
   if (conocimientoM >= 12) {
     colorCono = 'rgba(27, 105, 17, 0.774)';

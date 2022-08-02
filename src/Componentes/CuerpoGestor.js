@@ -48,9 +48,7 @@ export default function CuerpoGestor() {
         <div id="cuerpoPrin" class="cuerpo">
             <text id="textoInfo"></text>
             <form id="formCuerpoGestor">
-                
                 <textarea id="textoSubir"placeholder="Ingrese el texto"></textarea>
-                
             </form>
             <button id="botonSubir" class="btn btn-warning" onClick={(e) => { subirInformacion(e) }}>Subir informacion</button> 
         </div>
