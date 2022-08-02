@@ -10,6 +10,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 var usuario = "";
 var email = "";
 var contador = 0;
+
 const ConteoRespuestas = (event) => {
     usuario = document.getElementById('usuario').innerText;
     email = document.getElementById('email').innerText;
@@ -18,23 +19,66 @@ const ConteoRespuestas = (event) => {
     const btn3 = document.getElementById('v-pills-act-tab');
     var auxChecked = document.getElementById('cantPreguntas');
     var pregChecked = auxChecked.innerText.substring(25, 26);
+    var contador2 = 0;
+    contador=0;
 
 
 
     console.log(pregChecked);
+    const terminarEncuesta = () => {
 
-    for (let index = 0; index <pregChecked; index++) {
+        for (let index = 0; index < pregChecked; index++) {
 
-        var checked_pregunta = document.querySelector('input[name = "pregunta' + (index+1) + '"]:checked');
-        console.log(checked_pregunta);
-        console.log("hola");
+            var checked_pregunta = document.querySelector('input[name = "pregunta' + (index + 1) + '"]:checked');
+            if (checked_pregunta != null) {
+                checked_pregunta.checked = false;
+            }
+
+
+        }
+        const formula = document.getElementById('divForm');
+        formula.style.display = 'none';
+        btn1.disabled = false;
+        btn2.disabled = false;
+        btn3.disabled = false;
+        window.bandCuest = null;
+
+
+        guardarInfo();
+        guardarNota();
+
+        /* ciclo con el fin de ocultar las preguntas de los modulos que tienen menos de 5 preguntas*/
+        for (let index = 3; index < 6; index++) {
+
+            var texto = document.getElementById('pregunta' + index);
+            if (texto.style.display = 'none') {
+                texto.style.display = 'block';
+            }
+
+            /*ciclo para ocultar las respuestas a las preguntas del formulario que no se le dieron valores*/
+            for (let index2 = 1; index2 < 5; index2++) {
+                var aux2 = document.getElementById('respuesta' + index + '.' + index2);
+                if (aux2.style.display = 'none') {
+                    aux2.style.display = 'block';
+                }
+
+            }
+        }
+
+    }
+
+    for (let index = 0; index < pregChecked; index++) {
+
+        var checked_pregunta = document.querySelector('input[name = "pregunta' + (index + 1) + '"]:checked');
         if (checked_pregunta == null) {
+            console.log("que pasa");
             swal(
                 {
                     title: "Error de selección",
                     text: "Debe seleccionar mínimo una respuesta para cada pregunta",
                     icon: "warning",
-                    button: "Aceptar"
+                    button: "Aceptar",
+                    timer: "8000"
                 }
             );
         }
@@ -42,53 +86,27 @@ const ConteoRespuestas = (event) => {
             if (checked_pregunta.value == "C") {
                 contador++;
             }
+            contador2++;
         }
+
+
     }
-    swal(
-        {
-            title: "Terminó la encuesta",
-            text: usuario + " Usted ha tenido " + contador + " respuestas correctas",
-            icon: "success",
-            button: "Aceptar",
-            timer: "8000"
-        }
-    );
-    for (let index =0; index < pregChecked; index++) {
-        var checked_pregunta = document.querySelector('input[name = "pregunta' + (index+1) + '"]:checked');
-        console.log(index);
-        checked_pregunta.checked = false;
-        
-    }
-    const formula = document.getElementById('divForm');
-    formula.style.display = 'none';
-    btn1.disabled = false;
-    btn2.disabled = false;
-    btn3.disabled = false;
-    window.bandCuest = null;
-
-
-    guardarInfo();
-    guardarNota();
-
-    /* ciclo con el fin de ocultar las preguntas de los modulos que tienen menos de 5 preguntas*/
-    for (let index = 3; index <6; index++) {
-        
-        var texto=document.getElementById('pregunta' + index);
-        if(texto.style.display='none')
-        {
-            texto.style.display='block';
-        }
-  
-      /*ciclo para ocultar las respuestas a las preguntas del formulario que no se le dieron valores*/
-        for (let index2 = 1; index2 < 5 ; index2++){
-            var aux2=document.getElementById('respuesta' + index + '.' + index2);
-            if(aux2.style.display='none')
+    console.log(contador2);
+    if (contador2 == pregChecked) {
+        swal(
             {
-                aux2.style.display='block';
+                title: "Terminó la encuesta",
+                text: usuario + " Usted ha tenido " + contador + " respuestas correctas",
+                icon: "success",
+                button: "Aceptar",
+                timer: "8000"
             }
-          
-        }
-      }
+        );
+        terminarEncuesta();
+    }
+
+    
+
 
 }
 const guardarInfo = async () => {
