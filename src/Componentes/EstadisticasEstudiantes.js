@@ -85,14 +85,14 @@ var colorOriCli, colorOriCliR
 var colorInfCont, colorInfContR
 var colorGestion, colorGestionR
 var notasEstudiante = [];
-var barChart=null;
-var barChart2=null;
-var barChart3=null;
-var radarCanvas=null;
-var radarCanvas2=null;
-var radarCanvas3=null;
+var barChart = null;
+var barChart2 = null;
+var barChart3 = null;
+var radChart = null;
+var radChart2 = null;
+var radChart3 = null;
 const obtenerNotas = async () => {
-  var email = "afmenesesb@uqvirtual.edu.co";
+  var email = document.getElementById('email').innerText;
   const q = query(collection(db, "Estudiantes", email, "Notas"));
   try {
     const querySnapshot = await getDocs(q);
@@ -190,6 +190,7 @@ const obtenerNotas = async () => {
 
 const estadisticas = () => {
 
+  console.log(InformacionContable);
   actitudM = Analisisyevolucion + Diseñoyprogramacion + Innovacion + InteligenciaEmocional + Liderazgoeinfluencia + PensamientoAnalitico + PensamientoCritico + Solucion;
   competenciasM = ConocimientoDigital + AprendizajeContinuo + ComunicacionDigital + VisionEstrategica + Gestiondelainformacion + Liderazgoenred + Orientacionalcliente + Trabajoenred;
   conocimientoM = InformacionContable + Gestion + AnalisisEconomico;
@@ -499,229 +500,206 @@ const estadisticas = () => {
     label: '',
     data: [0],
   };
- 
-    var speedCanvas = document.getElementById("modConocimiento");
-    var speedData = {
 
-      label: '#Respuestas correctas',
-      data: [InformacionContable, Gestion, AnalisisEconomico],
-      backgroundColor: [
-        colorInfContR,
-        colorGestionR,
-        colorAnaEcoR
-      ],
-      borderColor: [
-        colorInfCont,
-        colorGestion,
-        colorAnaEco
-      ],
-      borderWidth: 1
-    };
-    var speedCanvas2 = document.getElementById("modCompetecias");
-    var speedData2 = {
+  var speedCanvas = document.getElementById("modConocimiento");
+  var speedData = {
 
-      label: '#Respuestas correctas',
-      data: [ConocimientoDigital, AprendizajeContinuo, ComunicacionDigital, VisionEstrategica, Gestiondelainformacion, Liderazgoenred, Orientacionalcliente, Trabajoenred],
-      backgroundColor: [
-        colorConoDigR,
-        colorApConR,
-        colorComDigR,
-        colorVisionR,
-        colorGestionInfR,
-        colorLidRedR,
-        colorOriCliR,
-        colorTraRedR
-      ],
-      borderColor: [
-        colorConoDig,
-        colorApCon,
-        colorComDig,
-        colorVision,
-        colorGestionInf,
-        colorLidRed,
-        colorOriCli,
-        colorTraRed
-      ],
-      borderWidth: 1
-    };
-    var speedCanvas3 = document.getElementById("modActitud");
-    var speedData3 = {
+    label: '#Respuestas correctas',
+    data: [InformacionContable, Gestion, AnalisisEconomico],
+    backgroundColor: [
+      colorInfContR,
+      colorGestionR,
+      colorAnaEcoR
+    ],
+    borderColor: [
+      colorInfCont,
+      colorGestion,
+      colorAnaEco
+    ],
+    borderWidth: 1
+  };
+  var speedCanvas2 = document.getElementById("modCompetecias");
+  var speedData2 = {
 
-      label: '#Respuestas correctas',
-      data: [Analisisyevolucion, Diseñoyprogramacion, Innovacion, InteligenciaEmocional, Liderazgoeinfluencia, PensamientoAnalitico, PensamientoCritico, Solucion],
-      backgroundColor: [
-        colorAnaEvoR,
-        colorDiseñoR,
-        colorInnoR,
-        colorIntEmoR,
-        colorLiderazgoR,
-        colorPensAnaR,
-        colorPensCriR,
-        colorSolucionR
-      ],
-      borderColor: [
-        colorAnaEvo,
-        colorDiseño,
-        colorInno,
-        colorIntEmo,
-        colorLiderazgo,
-        colorPensAna,
-        colorPensCri,
-        colorSolucion
-      ],
-      borderWidth: 1
-    };
-    var radarCanvas = document.getElementById("RadarChartCom");
-    var radarData = {
-      label: 'Preguntas Correctas',
-      data: [ConocimientoDigital, AprendizajeContinuo, ComunicacionDigital, VisionEstrategica, Gestiondelainformacion, Liderazgoenred, Orientacionalcliente, Trabajoenred],
-      backgroundColor: colorCompR,
-      borderColor: colorComp,
-      pointBackgroundColor: colorComp,
-    };
+    label: '#Respuestas correctas',
+    data: [ConocimientoDigital, AprendizajeContinuo, ComunicacionDigital, VisionEstrategica, Gestiondelainformacion, Liderazgoenred, Orientacionalcliente, Trabajoenred],
+    backgroundColor: [
+      colorConoDigR,
+      colorApConR,
+      colorComDigR,
+      colorVisionR,
+      colorGestionInfR,
+      colorLidRedR,
+      colorOriCliR,
+      colorTraRedR
+    ],
+    borderColor: [
+      colorConoDig,
+      colorApCon,
+      colorComDig,
+      colorVision,
+      colorGestionInf,
+      colorLidRed,
+      colorOriCli,
+      colorTraRed
+    ],
+    borderWidth: 1
+  };
+  var speedCanvas3 = document.getElementById("modActitud");
+  var speedData3 = {
 
-    
-    //CONOCIMIENTO
-    var radarCanvas2 = document.getElementById("RadarChartCon");
+    label: '#Respuestas correctas',
+    data: [Analisisyevolucion, Diseñoyprogramacion, Innovacion, InteligenciaEmocional, Liderazgoeinfluencia, PensamientoAnalitico, PensamientoCritico, Solucion],
+    backgroundColor: [
+      colorAnaEvoR,
+      colorDiseñoR,
+      colorInnoR,
+      colorIntEmoR,
+      colorLiderazgoR,
+      colorPensAnaR,
+      colorPensCriR,
+      colorSolucionR
+    ],
+    borderColor: [
+      colorAnaEvo,
+      colorDiseño,
+      colorInno,
+      colorIntEmo,
+      colorLiderazgo,
+      colorPensAna,
+      colorPensCri,
+      colorSolucion
+    ],
+    borderWidth: 1
+  };
+  var radarCanvas = document.getElementById("RadarChartCom");
+  var radarData = {
+    label: 'Preguntas Correctas',
+    data: [ConocimientoDigital, AprendizajeContinuo, ComunicacionDigital, VisionEstrategica, Gestiondelainformacion, Liderazgoenred, Orientacionalcliente, Trabajoenred],
+    backgroundColor: colorCompR,
+    borderColor: colorComp,
+    pointBackgroundColor: colorComp,
+  };
 
-    var radarData2 = {
-      label: 'Preguntas Correctas',
-      data: [InformacionContable, Gestion, AnalisisEconomico],
-      backgroundColor: colorConoR,
-      borderColor: colorCono,
-      pointBackgroundColor: colorCono,
 
-    };
+  //CONOCIMIENTO
+  var radarCanvas2 = document.getElementById("RadarChartCon");
 
-   
-    var radarCanvas3 = document.getElementById("RadarChartAct");
-    var radarData3 = {
-      label: 'Preguntas Correctas',
-      data: [Analisisyevolucion, Diseñoyprogramacion, Innovacion, InteligenciaEmocional, Liderazgoeinfluencia, PensamientoAnalitico, PensamientoCritico, Solucion],
-      backgroundColor: colorActiR,
-      borderColor: colorActi,
-      pointBackgroundColor: colorActi,
-    };
+  var radarData2 = {
+    label: 'Preguntas Correctas',
+    data: [InformacionContable, Gestion, AnalisisEconomico],
+    backgroundColor: colorConoR,
+    borderColor: colorCono,
+    pointBackgroundColor: colorCono,
 
-    if(contador==0){
-      barChart = new ChartJS(speedCanvas,
-        {
-          type: 'bar',
-          data: {
-            labels: ['Información contable',
-              'Gestión de organizaciones',
-              'Analisis Economico'],
-            datasets: [speedData]
-  
-          }
-        });
-        console.log(barChart.data.datasets.at(0))
-        barChart2 = new ChartJS(speedCanvas2,
-          {
-            type: 'bar',
-            data: {
-              labels: ["Conocimiento digital",
-                'Aprendizaje continuo',
-                'Comunicacion Digital',
-                'Vision estrategica',
-                'Gestion de la informacion',
-                'Liderazgo en red',
-                'Orientacion al cliente',
-                'Trabajo en red'],
-              datasets: [speedData2]
-    
-            }
-          });
-          var barChart3 = new ChartJS(speedCanvas3,
-            {
-              type: 'bar',
-              data: {
-                labels: ['Analisis y evolucion de sistemas',
-                  'Diseño y programacion de nuevas tecnologias',
-                  'Innovacion,originalidad e iniciativa',
-                  'Inteligencia emocional',
-                  'Liderazgo e influencia social',
-                  'Pensamiento analítico',
-                  'Pensamiento crítico',
-                  'Solucion de problemas'],
-                datasets: [speedData3]
-      
-              }
-            });
-            var radChart = new ChartJS(radarCanvas, {
+  };
 
-              type: 'radar',
-              data: {
-                labels: ["Conocimiento digital",
-                  'Aprendizaje continuo',
-                  'Comunicacion Digital',
-                  'Vision estrategica',
-                  'Gestion de la informacion',
-                  'Liderazgo en red',
-                  'Orientacion al cliente',
-                  'Trabajo en red'],
-                datasets: [radarData, base]
-              }
-            });
-            var radChart2 = new ChartJS(radarCanvas2, {
 
-              type: 'radar',
-              data: {
-                labels: ['Información contable',
-                  'Gestión de organizaciones',
-                  'Analisis Economico'],
-                datasets: [radarData2, base],
-              }
-            });
-            var radChart3 = new ChartJS(radarCanvas3, {
+  var radarCanvas3 = document.getElementById("RadarChartAct");
+  var radarData3 = {
+    label: 'Preguntas Correctas',
+    data: [Analisisyevolucion, Diseñoyprogramacion, Innovacion, InteligenciaEmocional, Liderazgoeinfluencia, PensamientoAnalitico, PensamientoCritico, Solucion],
+    backgroundColor: colorActiR,
+    borderColor: colorActi,
+    pointBackgroundColor: colorActi,
+  };
 
-              type: 'radar',
-              data: {
-                labels: ['Analisis y evolucion de sistemas',
-                  'Diseño y programacion de nuevas tecnologias',
-                  'Innovacion,originalidad e iniciativa',
-                  'Inteligencia emocional',
-                  'Liderazgo e influencia social',
-                  'Pensamiento analítico',
-                  'Pensamiento crítico',
-                  'Solucion de problemas'],
-                datasets: [radarData3, base]
-              }
-            });
-            contador++
+  if (contador > 0) {
+
+    barChart.destroy();
+    barChart2.destroy();
+    barChart3.destroy();
+    radChart.destroy();
+    radChart2.destroy();
+    radChart3.destroy();
+    console.log("entre");
+  }
+
+  barChart = new ChartJS(speedCanvas,
+    {
+      type: 'bar',
+      data: {
+        labels: ['Información contable',
+          'Gestión de organizaciones',
+          'Analisis Economico'],
+        datasets: [speedData]
+
+      }
+    });
+  console.log(barChart.data.datasets.at(0))
+  barChart2 = new ChartJS(speedCanvas2,
+    {
+      type: 'bar',
+      data: {
+        labels: ["Conocimiento digital",
+          'Aprendizaje continuo',
+          'Comunicacion Digital',
+          'Vision estrategica',
+          'Gestion de la informacion',
+          'Liderazgo en red',
+          'Orientacion al cliente',
+          'Trabajo en red'],
+        datasets: [speedData2]
+
+      }
+    });
+   barChart3 = new ChartJS(speedCanvas3,
+    {
+      type: 'bar',
+      data: {
+        labels: ['Analisis y evolucion de sistemas',
+          'Diseño y programacion de nuevas tecnologias',
+          'Innovacion,originalidad e iniciativa',
+          'Inteligencia emocional',
+          'Liderazgo e influencia social',
+          'Pensamiento analítico',
+          'Pensamiento crítico',
+          'Solucion de problemas'],
+        datasets: [speedData3]
+
+      }
+    });
+  radChart = new ChartJS(radarCanvas, {
+
+    type: 'radar',
+    data: {
+      labels: ["Conocimiento digital",
+        'Aprendizaje continuo',
+        'Comunicacion Digital',
+        'Vision estrategica',
+        'Gestion de la informacion',
+        'Liderazgo en red',
+        'Orientacion al cliente',
+        'Trabajo en red'],
+      datasets: [radarData, base]
     }
-    else{
-      barChart.destroy()
-      barChart = new ChartJS(speedCanvas,
-        {
-          type: 'bar',
-          data: {
-            labels: ['Información contable',
-              'Gestión de organizaciones',
-              'Analisis Economico'],
-            datasets: [speedData]
-          }
-        });
-        
+  });
+  radChart2 = new ChartJS(radarCanvas2, {
+
+    type: 'radar',
+    data: {
+      labels: ['Información contable',
+        'Gestión de organizaciones',
+        'Analisis Economico'],
+      datasets: [radarData2, base],
     }
-    
-  
-    
+  });
+  radChart3 = new ChartJS(radarCanvas3, {
 
-    
-  
-
-    //COMPETENCIAS
-    
-    
-    swal({
-      text:"Este es:"+InformacionContable
-    })
-    swal({
-      text:"Este no es:"+InformacionContable
-    })
- 
-
+    type: 'radar',
+    data: {
+      labels: ['Analisis y evolucion de sistemas',
+        'Diseño y programacion de nuevas tecnologias',
+        'Innovacion,originalidad e iniciativa',
+        'Inteligencia emocional',
+        'Liderazgo e influencia social',
+        'Pensamiento analítico',
+        'Pensamiento crítico',
+        'Solucion de problemas'],
+      datasets: [radarData3, base]
+    }
+  });
+  contador++;
 }
 export default function EstadisticasEstudiantes() {
   const mostrarEstadisticaA = (e) => {

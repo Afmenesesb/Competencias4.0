@@ -104,6 +104,7 @@ const guardarNota = async () => {
     await setDoc(doc(db, "Estudiantes", email, "Notas", window.modulo), {
         nota: contador
     });
+    console.log("se guardo");
     contador = 0;
 }
 
