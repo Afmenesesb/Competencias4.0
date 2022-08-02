@@ -761,16 +761,8 @@ export default function Estadisticas() {
       <h2 id="tituloEstadisticas">ACTITUD por Modulo</h2>
         <canvas id="modActitud" width="300" height="200">Actitud por Modulo</canvas>
       </div>
-       
       </div>
         </div> 
-      <div id="bloqueGrupal">
-      <h2 id="tituloEstadisticasGraf">AREA</h2>
-        <button  id="btEI" type="button" class="btn btn-success">Competencia</button>
-        <button  id="btEG" type="button" class="btn btn-success">Conocimiento</button>
-        <button  id="btEI" type="button" class="btn btn-success">Actitud</button>
-
-      </div>
         </div>
     );
 

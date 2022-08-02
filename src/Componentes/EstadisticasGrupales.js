@@ -71,17 +71,45 @@ const obtenerEmail = async () => {
         contador+=1
     });
     console.log("Al email entró"+contador)
+    console.log("Alta comp :"+ compAlto+
+    "Media comp :"+ compMedio+
+    "Baja comp :"+ compBajo+
+    "Alta cono:"+ conAlto+
+    "Media cono :"+ conMedio+
+    "Baja cono :"+ conBajo+
+    "Alta act:"+ actAlto+
+    "Media act :"+ actMedio+
+    "Baja act :"+ actBajo)
   }
   const obtenerNotas = async (email) => {
-    compAlto=0
-    compBajo=0
-    compMedio=0
-    conAlto=0
-    conBajo=0
-    conMedio=0
-    actAlto=0
-    actBajo=0
-    actMedio=0
+      InformacionContable = 0;
+      Gestion = 0;
+      AnalisisEconomico = 0;
+      Analisisyevolucion = 0;
+      Diseñoyprogramacion = 0;
+      InteligenciaEmocional = 0;
+      Innovacion = 0;
+      Liderazgoeinfluencia = 0;
+      PensamientoAnalitico = 0;
+      PensamientoCritico = 0;
+      Solucion = 0;
+      ConocimientoDigital = 0;
+      AprendizajeContinuo = 0;
+      ComunicacionDigital = 0;
+      Gestiondelainformacion = 0;
+      Liderazgoenred = 0;
+      Trabajoenred = 0;
+      VisionEstrategica = 0;
+      Orientacionalcliente = 0;
+      compAlto=0
+      compBajo=0
+      compMedio=0
+      conAlto=0
+      conBajo=0
+      conMedio=0
+      actAlto=0
+      actBajo=0
+      actMedio=0
     var contador1=0;
     const q = query(collection(db, "Estudiantes", email, "Notas"));
         try {
@@ -210,15 +238,7 @@ const obtenerEmail = async () => {
                   actBajo+=1
                 }
               }
-              console.log("Alta comp :"+ compAlto+
-              "Media comp :"+ compMedio+
-              "Baja comp :"+ compBajo+
-              "Alta cono:"+ conAlto+
-              "Media cono :"+ conMedio+
-              "Baja cono :"+ conBajo+
-              "Alta act:"+ actAlto+
-              "Media act :"+ actMedio+
-              "Baja act :"+ actBajo)
+             
 
   }
 
@@ -227,8 +247,31 @@ export default function EstadisticasGrupales() {
 
 
     return (
-        <div id="estadisticasGrupales" >
-            <button id="botonGenerar" onClick={(e) => {obtenerEmail(e)}} >Click</button>
+        <div id="bloqueGrupal" >
+          <h2 id="tituloEstadisticasGraf">AREA</h2>
+        <button  onClick={(e) => {obtenerEmail(e)}} id="btEI" type="button" class="btn btn-success">Competencia</button>
+        <button  onClick={(e) => {obtenerEmail(e)}} id="btEG" type="button" class="btn btn-success">Conocimiento</button>
+        <button  onClick={(e) => {obtenerEmail(e)}} id="btEI" type="button" class="btn btn-success">Actitud</button>
+        <div id="bloqueCompetencias">
+        <div id="separador">
+        <h2 id="tituloEstadisticas">Area COMPETENCIAS</h2>
+        <canvas id="RadarChartCom" width="600" height="400">Competencias</canvas>
+      </div>
+      <div id="separador">
+         <h2 id="tituloEstadisticas">Area CONOCIMIENTO</h2>
+        <canvas id="RadarChartCon" width="600" height="400">Conocimiento</canvas>
+      </div>
+        </div>
+        <div id="bloqueCompetencias">
+        <div id="separador">
+        <h2 id="tituloEstadisticas">Area COMPETENCIAS</h2>
+        <canvas id="RadarChartCom" width="600" height="400">Competencias</canvas>
+      </div>
+      <div id="separador">
+         <h2 id="tituloEstadisticas">Area CONOCIMIENTO</h2>
+        <canvas id="RadarChartCon" width="600" height="400">Conocimiento</canvas>
+      </div>
+        </div>
         </div>
 
 
