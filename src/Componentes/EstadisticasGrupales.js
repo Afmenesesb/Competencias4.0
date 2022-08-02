@@ -62,29 +62,15 @@ var competenciasEstudiante = ["Informacion Contable", "Gestion de organizaciones
   "Innovacion, Originalidad e iniciativa", "Liderazgo e influencia social", "Pensamiento Analitico", "Pensamiento Critico",
   "Solucion de problemas", "Conocimiento Digital", "Aprendizaje Continuo", "Comunicacion Digital", "Gestion de la informacion",
   "Liderazgo en red", "Trabajo en red", "Vision Estrategica", "Orientacion al cliente"];
-const mostrar = () =>{
-    obtenerEmail()
-    swal({
-        text: "Alta comp :"+compAlto+
-        "Media comp :"+compMedio+
-        "Baja comp :"+compBajo+
-        "Alta cono:"+conAlto+
-        "Media cono :"+conMedio+
-        "Baja cono :"+conBajo+
-        "Alta act:"+actAlto+
-        "Media act :"+actMedio+
-        "Baja act :"+actBajo
-      })
-
-}
 const obtenerEmail = async () => {
     var contador=0;
     const e=query(collection(db, "Estudiantes"));
     const querySnapshotE=await getDocs(e);
     querySnapshotE.forEach((docE)=>{
-        contador+=1
         obtenerNotas(docE.id)
+        contador+=1
     });
+    console.log("Al email entró"+contador)
   }
   const obtenerNotas = async (email) => {
     compAlto=0
@@ -190,10 +176,11 @@ const obtenerEmail = async () => {
             text: "El error fue: " + error
           })
         }
-        actitudM = Analisisyevolucion + Diseñoyprogramacion + Innovacion + InteligenciaEmocional + Liderazgoeinfluencia + PensamientoAnalitico + PensamientoCritico + Solucion;
+            actitudM = Analisisyevolucion + Diseñoyprogramacion + Innovacion + InteligenciaEmocional + Liderazgoeinfluencia + PensamientoAnalitico + PensamientoCritico + Solucion;
             competenciasM = ConocimientoDigital + AprendizajeContinuo + ComunicacionDigital + VisionEstrategica + Gestiondelainformacion + Liderazgoenred + Orientacionalcliente + Trabajoenred;
             conocimientoM = InformacionContable + Gestion + AnalisisEconomico;
             if (conocimientoM >= 12) {
+                console.log(email)
                 conAlto+=1
               } else {
                 if (conocimientoM < 12 && conocimientoM >= 8) {
@@ -201,7 +188,6 @@ const obtenerEmail = async () => {
                 }
                 else {
                     conBajo+=1
-                    console.log("si entré perrito")
                 }
               }
               if (competenciasM >= 30) {
@@ -224,6 +210,15 @@ const obtenerEmail = async () => {
                   actBajo+=1
                 }
               }
+              console.log("Alta comp :"+ compAlto+
+              "Media comp :"+ compMedio+
+              "Baja comp :"+ compBajo+
+              "Alta cono:"+ conAlto+
+              "Media cono :"+ conMedio+
+              "Baja cono :"+ conBajo+
+              "Alta act:"+ actAlto+
+              "Media act :"+ actMedio+
+              "Baja act :"+ actBajo)
 
   }
 
@@ -233,7 +228,7 @@ export default function EstadisticasGrupales() {
 
     return (
         <div id="estadisticasGrupales" >
-            <button id="botonGenerar" onClick={(e) => {mostrar(e)}} >Click</button>
+            <button id="botonGenerar" onClick={(e) => {obtenerEmail(e)}} >Click</button>
         </div>
 
 

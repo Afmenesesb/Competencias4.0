@@ -20,7 +20,6 @@ function mostrarI() {
     document.getElementById('formularioPregunta').style.display = 'none'
     document.getElementById('formularioRespuesta').style.display = 'none'
     document.getElementById('formEstadisticas').style.display = 'none'
-    document.getElementById('formularioBusquedaEst').style.display = 'none'
 }
 /*Funcion para ocultar los elementos de inicio*/
 function mostrarP(e) {
@@ -29,7 +28,7 @@ function mostrarP(e) {
     document.getElementById('formularioPregunta').style.display = 'block'
     document.getElementById('formularioRespuesta').style.display = 'none'
     document.getElementById('formEstadisticas').style.display = 'none'
-    document.getElementById('formularioBusquedaEst').style.display = 'none'
+
 }
 function mostrarR(e) {
 
@@ -37,7 +36,7 @@ function mostrarR(e) {
     document.getElementById('formularioPregunta').style.display = 'none'
     document.getElementById('formularioRespuesta').style.display= 'block'
     document.getElementById('formEstadisticas').style.display = 'none'
-    document.getElementById('formularioBusquedaEst').style.display = 'none'
+
 }
 function mostrarE(e) {
 
@@ -45,7 +44,6 @@ function mostrarE(e) {
     document.getElementById('formularioPregunta').style.display = 'none'
     document.getElementById('formularioRespuesta').style.display= 'none'
     document.getElementById('formEstadisticas').style.display = 'block'
-    document.getElementById('formularioBusquedaEst').style.display = 'none'
 }
 
 export default class CabeceraGestor extends Component {
