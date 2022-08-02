@@ -1,3 +1,9 @@
 #formularioBusquedaEst{
     display: none;
 }
+#formEstadisticas{
+    display: none;
+}
+#graficasIndividuales,#bloqueGrupal{
+    display: none;
+}
