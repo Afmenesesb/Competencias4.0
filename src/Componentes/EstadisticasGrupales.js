@@ -4,7 +4,7 @@ import db from "../firebaseConfig";
 import swal from 'sweetalert';
 import Encuestas from "./Encuestas";
 import '../Estilos/estIndividual.css';
-import { Radar, Bar, Chart } from 'react-chartjs-2';
+import { Radar, Bar, Chart,Pie} from 'react-chartjs-2';
 import { useAuth0 } from "@auth0/auth0-react";
 import {
   Chart as ChartJS,
@@ -16,7 +16,8 @@ import {
   Legend,
   CategoryScale,
   LinearScale,
-  BarElement
+  BarElement,
+  ArcElement
 } from 'chart.js';
 import { Email } from "@material-ui/icons";
 import { async } from "@firebase/util";
@@ -30,6 +31,7 @@ ChartJS.register(
   CategoryScale,
   LinearScale,
   BarElement,
+  ArcElement
 );
 var compAlto=0,compBajo=0,compMedio=0;
 var conAlto=0,conBajo=0,conMedio=0;
@@ -37,7 +39,7 @@ var actAlto=0,actBajo=0,actMedio=0;
 var actitudM;
 var conocimientoM;
 var competenciasM;
-var contador = 0;
+var contador = 1;
 var InformacionContable = 0;
 var Gestion = 0;
 var AnalisisEconomico = 0;
@@ -57,29 +59,151 @@ var Liderazgoenred = 0;
 var Trabajoenred = 0;
 var VisionEstrategica = 0;
 var Orientacionalcliente = 0;
+var barChart = null;
+var barChart2 = null;
+var barChart3 = null;
+var pieChart = null;
+var pieChart2 = null;
+var pieChart3 = null;
 var competenciasEstudiante = ["Informacion Contable", "Gestion de organizaciones", "Analisis Economico",
   "Analisis y evolucion de sistemas", "Diseño y programacion de nuevas tecnologias", "Inteligencia Emocional",
   "Innovacion, Originalidad e iniciativa", "Liderazgo e influencia social", "Pensamiento Analitico", "Pensamiento Critico",
   "Solucion de problemas", "Conocimiento Digital", "Aprendizaje Continuo", "Comunicacion Digital", "Gestion de la informacion",
   "Liderazgo en red", "Trabajo en red", "Vision Estrategica", "Orientacion al cliente"];
 const obtenerEmail = async () => {
-    var contador=0;
     const e=query(collection(db, "Estudiantes"));
     const querySnapshotE=await getDocs(e);
     querySnapshotE.forEach((docE)=>{
         obtenerNotas(docE.id)
-        contador+=1
     });
-    console.log("Al email entró"+contador)
-    console.log("Alta comp :"+ compAlto+
-    "Media comp :"+ compMedio+
-    "Baja comp :"+ compBajo+
-    "Alta cono:"+ conAlto+
-    "Media cono :"+ conMedio+
-    "Baja cono :"+ conBajo+
-    "Alta act:"+ actAlto+
-    "Media act :"+ actMedio+
-    "Baja act :"+ actBajo)
+  var speedCanvas = document.getElementById("PieChartCompetencias");
+  var speedData = {
+    label: '#Cantidad alumnos',
+    data: [compAlto, compMedio, compBajo],
+  };
+  var speedCanvas2 = document.getElementById("PieChartConocimento");
+  var speedData2 = {
+
+    label: '#Cantidad alumnos',
+    data: [conAlto,conMedio,conBajo],
+  };
+  var speedCanvas3 = document.getElementById("PieChartActitud");
+  var speedData3 = {
+    label: '#Cantidad alumnos',
+    data: [actAlto,actMedio,actBajo],
+  };
+  var radarCanvas = document.getElementById("BarChartCompetencias");
+  var radarData = {
+    label: 'Preguntas Correctas',
+    data: [ConocimientoDigital, AprendizajeContinuo, ComunicacionDigital, VisionEstrategica, Gestiondelainformacion, Liderazgoenred, Orientacionalcliente, Trabajoenred],
+  };
+
+
+  //CONOCIMIENTO
+  var radarCanvas2 = document.getElementById("BarChartConocimiento");
+
+  var radarData2 = {
+    label: 'Preguntas Correctas',
+    data: [InformacionContable, Gestion, AnalisisEconomico],
+  };
+
+
+  var radarCanvas3 = document.getElementById("BarChartActitud");
+  var radarData3 = {
+    label: 'Preguntas Correctas',
+    data: [Analisisyevolucion, Diseñoyprogramacion, Innovacion, InteligenciaEmocional, Liderazgoeinfluencia, PensamientoAnalitico, PensamientoCritico, Solucion],
+  };
+
+  pieChart = new ChartJS(speedCanvas,
+    {
+      type: 'pie',
+      data: {
+        labels: ['Nivel alto',
+          'Nivel medio',
+          'Nivel bajo'],
+        datasets: [speedData]
+      },
+      backgroundColor: [
+        'green',
+        'yellow',
+        'red'
+      ]
+    });
+  pieChart2 = new ChartJS(speedCanvas2,
+    {
+      type: 'pie',
+      data: {
+        labels: ['Nivel alto',
+          'Nivel medio',
+          'Nivel bajo'],
+        datasets: [speedData2]
+      },
+      backgroundColor: [
+        'green',
+        'yellow',
+        'red'
+      ]
+    });
+  pieChart3 = new ChartJS(speedCanvas3,
+    {
+      type: 'pie',
+      data: {
+        labels: ['Nivel alto',
+          'Nivel medio',
+          'Nivel bajo'],
+        datasets: [speedData3]
+      },
+      backgroundColor: [
+        'green',
+        'yellow',
+        'red'
+      ]
+    });
+  barChart = new ChartJS(radarCanvas, {
+
+    type: 'pie',
+    data: {
+      labels: ["Nivel alto",
+        'Nivel medio',
+        'Nivel bajo'],
+      datasets: [radarData]
+    }
+  });
+  barChart2 = new ChartJS(radarCanvas2, {
+
+    type: 'pie',
+    data: {
+      labels: ['Información contable',
+        'Gestión de organizaciones',
+        'Analisis Economico'],
+      datasets: [radarData2],
+    }
+  });
+  barChart3 = new ChartJS(radarCanvas3, {
+
+    type: 'pie',
+    data: {
+      labels: ['Analisis y evolucion de sistemas',
+        'Diseño y programacion de nuevas tecnologias',
+        'Innovacion,originalidad e iniciativa',
+        'Inteligencia emocional',
+        'Liderazgo e influencia social',
+        'Pensamiento analítico',
+        'Pensamiento crítico',
+        'Solucion de problemas'],
+      datasets: [radarData3]
+    }
+  });
+  contador++;
+  if (contador > 0) {
+    console.log("entre")
+    pieChart.destroy()
+    pieChart2.destroy()
+    pieChart3.destroy()
+    barChart.destroy()
+    barChart2.destroy()
+    barChart3.destroy()
+  }
   }
   const obtenerNotas = async (email) => {
       InformacionContable = 0;
@@ -110,12 +234,10 @@ const obtenerEmail = async () => {
       actAlto=0
       actBajo=0
       actMedio=0
-    var contador1=0;
     const q = query(collection(db, "Estudiantes", email, "Notas"));
         try {
           const querySnapshot = await getDocs(q);
           querySnapshot.forEach((doc) => {
-            contador1+=1
             for (let index = 0; index < competenciasEstudiante.length; index++) {
               if (doc.id == competenciasEstudiante[index]) {
                 if (index == 0) {
@@ -208,7 +330,6 @@ const obtenerEmail = async () => {
             competenciasM = ConocimientoDigital + AprendizajeContinuo + ComunicacionDigital + VisionEstrategica + Gestiondelainformacion + Liderazgoenred + Orientacionalcliente + Trabajoenred;
             conocimientoM = InformacionContable + Gestion + AnalisisEconomico;
             if (conocimientoM >= 12) {
-                console.log(email)
                 conAlto+=1
               } else {
                 if (conocimientoM < 12 && conocimientoM >= 8) {
@@ -238,8 +359,6 @@ const obtenerEmail = async () => {
                   actBajo+=1
                 }
               }
-             
-
   }
 
 export default function EstadisticasGrupales() {
@@ -255,21 +374,31 @@ export default function EstadisticasGrupales() {
         <div id="bloqueCompetencias">
         <div id="separador">
         <h2 id="tituloEstadisticas">Area COMPETENCIAS</h2>
-        <canvas id="RadarChartCom" width="600" height="400">Competencias</canvas>
+        <canvas id="PieChartCompetencias" width="600" height="400">Competencias</canvas>
       </div>
       <div id="separador">
-         <h2 id="tituloEstadisticas">Area CONOCIMIENTO</h2>
-        <canvas id="RadarChartCon" width="600" height="400">Conocimiento</canvas>
+         <h2 id="tituloEstadisticas">Modulo COMPETENCIAS</h2>
+        <canvas id="BarChartCompetencias" width="600" height="400">Conocimiento</canvas>
       </div>
         </div>
-        <div id="bloqueCompetencias">
+        <div id="bloqueConocimiento">
         <div id="separador">
-        <h2 id="tituloEstadisticas">Area COMPETENCIAS</h2>
-        <canvas id="RadarChartCom" width="600" height="400">Competencias</canvas>
+        <h2 id="tituloEstadisticas">Area CONOCIMIENTO</h2>
+        <canvas id="PieChartConocimiento" width="600" height="400">Competencias</canvas>
       </div>
       <div id="separador">
-         <h2 id="tituloEstadisticas">Area CONOCIMIENTO</h2>
-        <canvas id="RadarChartCon" width="600" height="400">Conocimiento</canvas>
+         <h2 id="tituloEstadisticas">Modulo CONOCIMIENTO</h2>
+        <canvas id="BarChartConocimiento" width="600" height="400">Conocimiento</canvas>
+      </div>
+        </div>
+        <div id="bloqueActitud">
+        <div id="separador">
+        <h2 id="tituloEstadisticas">Area ACTITUD</h2>
+        <canvas id="PieChartActitud" width="600" height="400">Competencias</canvas>
+      </div>
+      <div id="separador">
+         <h2 id="tituloEstadisticas">Modulo ACTITUD</h2>
+        <canvas id="BarChartActitud" width="600" height="400">Conocimiento</canvas>
       </div>
         </div>
         </div>
