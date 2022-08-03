@@ -92,6 +92,25 @@ var radChart = null;
 var radChart2 = null;
 var radChart3 = null;
 const obtenerNotas = async () => {
+ InformacionContable = 0;
+ Gestion = 0;
+AnalisisEconomico = 0;
+Analisisyevolucion = 0;
+ Diseñoyprogramacion = 0;
+ InteligenciaEmocional = 0;
+ Innovacion = 0;
+ Liderazgoeinfluencia = 0;
+ PensamientoAnalitico = 0;
+ PensamientoCritico = 0;
+ Solucion = 0;
+ConocimientoDigital = 0;
+AprendizajeContinuo = 0;
+ComunicacionDigital = 0;
+ Gestiondelainformacion = 0;
+ Liderazgoenred = 0;
+ Trabajoenred = 0;
+ VisionEstrategica = 0;
+ Orientacionalcliente = 0;
   var email = document.getElementById('textoBusqueda').value
   const q = query(collection(db, "Estudiantes", email, "Notas"));
   try {

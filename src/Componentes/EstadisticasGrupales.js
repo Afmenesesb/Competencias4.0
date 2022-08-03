@@ -56,9 +56,9 @@ var lidredAlto=0,lidredMedio=0,lidredBajo=0;
 var traredAlto=0,traredMedio=0,traredBajo=0;
 var viseAlto=0,viseMedio=0,viseBajo=0;
 var orcliAlto=0,orcliMedio=0,orcliBajo=0;
-var actitudM;
-var conocimientoM;
-var competenciasM;
+var actitudM=0;
+var conocimientoM=0;
+var competenciasM=0;
 var contador = 0;
 var bandera =0;
 var InformacionContable = 0;
@@ -130,6 +130,9 @@ var competenciasEstudiante = ["Informacion Contable", "Gestion de organizaciones
     penaAlto=0
     penaMedio=0
     penaBajo=0
+    pencAlto=0
+    pencMedio=0
+    pencBajo=0
     solAlto=0
     solMedio=0
     solBajo=0
@@ -160,28 +163,32 @@ var competenciasEstudiante = ["Informacion Contable", "Gestion de organizaciones
     });
   }
   const obtenerNotas = async (email) => {
-      InformacionContable = 0;
-      Gestion = 0;
-      AnalisisEconomico = 0;
-      Analisisyevolucion = 0;
-      Diseñoyprogramacion = 0;
-      InteligenciaEmocional = 0;
-      Innovacion = 0;
-      Liderazgoeinfluencia = 0;
-      PensamientoAnalitico = 0;
-      PensamientoCritico = 0;
-      Solucion = 0;
-      ConocimientoDigital = 0;
-      AprendizajeContinuo = 0;
-      ComunicacionDigital = 0;
-      Gestiondelainformacion = 0;
-      Liderazgoenred = 0;
-      Trabajoenred = 0;
-      VisionEstrategica = 0;
-      Orientacionalcliente = 0;
+    
     const q = query(collection(db, "Estudiantes", email, "Notas"));
         try {
           const querySnapshot = await getDocs(q);
+          actitudM=0;
+          competenciasM=0;
+          conocimientoM=0;
+          InformacionContable = 0;
+          Gestion = 0;
+          AnalisisEconomico = 0;
+          Analisisyevolucion = 0;
+          Diseñoyprogramacion = 0;
+          InteligenciaEmocional = 0;
+          Innovacion = 0;
+          Liderazgoeinfluencia = 0;
+          PensamientoAnalitico = 0;
+          PensamientoCritico = 0;
+          Solucion = 0;
+          ConocimientoDigital = 0;
+          AprendizajeContinuo = 0;
+          ComunicacionDigital = 0;
+          Gestiondelainformacion = 0;
+          Liderazgoenred = 0;
+          Trabajoenred = 0;
+          VisionEstrategica = 0;
+          Orientacionalcliente = 0;
           querySnapshot.forEach((doc) => {
             for (let index = 0; index < competenciasEstudiante.length; index++) {
               if (doc.id == competenciasEstudiante[index]) {
@@ -452,9 +459,7 @@ var competenciasEstudiante = ["Informacion Contable", "Gestion de organizaciones
                   break;
                 }
               }
-            }
-            
-            
+            }  
           });
         } catch (error) {
           swal({
@@ -466,6 +471,8 @@ var competenciasEstudiante = ["Informacion Contable", "Gestion de organizaciones
         conocimientoM = InformacionContable + Gestion + AnalisisEconomico;
         if (conocimientoM >= 12) {
             conAlto+=1
+            
+
           } else {
             if (conocimientoM < 12 && conocimientoM >= 8) {
                 conMedio+=1
