@@ -189,8 +189,6 @@ const obtenerNotas = async () => {
 
 
 const estadisticas = () => {
-
-  console.log(InformacionContable);
   actitudM = Analisisyevolucion + Diseñoyprogramacion + Innovacion + InteligenciaEmocional + Liderazgoeinfluencia + PensamientoAnalitico + PensamientoCritico + Solucion;
   competenciasM = ConocimientoDigital + AprendizajeContinuo + ComunicacionDigital + VisionEstrategica + Gestiondelainformacion + Liderazgoenred + Orientacionalcliente + Trabajoenred;
   conocimientoM = InformacionContable + Gestion + AnalisisEconomico;
@@ -605,14 +603,12 @@ const estadisticas = () => {
   };
 
   if (contador > 0) {
-
     barChart.destroy();
     barChart2.destroy();
     barChart3.destroy();
     radChart.destroy();
     radChart2.destroy();
     radChart3.destroy();
-    console.log("entre");
   }
 
   barChart = new ChartJS(speedCanvas,
@@ -626,7 +622,6 @@ const estadisticas = () => {
 
       }
     });
-  console.log(barChart.data.datasets.at(0))
   barChart2 = new ChartJS(speedCanvas2,
     {
       type: 'bar',
