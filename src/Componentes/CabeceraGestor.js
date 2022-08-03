@@ -16,6 +16,7 @@ import CuerpoGestor from "./CuerpoGestor"
 import EstadisticasGrupales from "./EstadisticasGrupales";
 
 function mostrarI() {
+    document.getElementById('bloqueGrupal').style.display = 'none'
     document.getElementById('inicioGestor').style.display = 'block'
     document.getElementById('formularioPregunta').style.display = 'none'
     document.getElementById('formularioRespuesta').style.display = 'none'
@@ -23,7 +24,7 @@ function mostrarI() {
 }
 /*Funcion para ocultar los elementos de inicio*/
 function mostrarP(e) {
-
+    document.getElementById('bloqueGrupal').style.display = 'none'
     document.getElementById('inicioGestor').style.display = 'none'
     document.getElementById('formularioPregunta').style.display = 'block'
     document.getElementById('formularioRespuesta').style.display = 'none'
@@ -31,7 +32,7 @@ function mostrarP(e) {
 
 }
 function mostrarR(e) {
-
+    document.getElementById('bloqueGrupal').style.display = 'none'
     document.getElementById('inicioGestor').style.display = 'none'
     document.getElementById('formularioPregunta').style.display = 'none'
     document.getElementById('formularioRespuesta').style.display= 'block'
@@ -39,7 +40,6 @@ function mostrarR(e) {
 
 }
 function mostrarE(e) {
-
     document.getElementById('inicioGestor').style.display = 'none'
     document.getElementById('formularioPregunta').style.display = 'none'
     document.getElementById('formularioRespuesta').style.display= 'none'
