@@ -53,3 +53,6 @@ h5{
     margin-left: 480px;
     margin-top: 20px;
 }
+#botonesArchivos{
+    display: none;
+}

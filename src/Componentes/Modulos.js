@@ -1,9 +1,7 @@
 import React, { Component, useState, useEffect } from "react";
-import { onSnapshot, collection } from "firebase/firestore";
-import { Navbar, Nav, NavDropdown, Container, ButtonGroup, Button, ToggleButton, ToggleButtonGroup } from "react-bootstrap";
 import './../Estilos/buttongroup.css';
 import infCont1 from './../Recursos/img-informacionContable.jpg';
-import db from "../firebaseConfig";
+
 
 const modificarCont = (event) => {
     const boton1 = document.getElementById('btM1');
@@ -32,9 +30,6 @@ const modificarCont = (event) => {
         if (boton1.innerText == 'Información contable') {
             contLorem.innerText = 'Este es el bloque de informacion contable';
             contImg.src = infCont1;
-            descTab1.innerHTML = 'Tabla-inf contable';
-            descTab2.innerHTML = 'Tabla2-inf contable';
-            descTab3.innerHTML = 'Tabla3-inf contable';
             cuerpo.style.display = 'block';
             check.innerText="Activar encuesta para Informacion Contable";
             botonEncuesta.checked=false;   

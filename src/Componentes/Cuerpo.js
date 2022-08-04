@@ -1,9 +1,43 @@
-import React, { Component, useState } from "react";
-import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
+import React, {useState } from "react";
 import './../Estilos/cuerpo.css';
 import infCont from './../Recursos/img-informacionContable.jpg';
 import Table from 'react-bootstrap/Table';
 import swal from 'sweetalert';
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
+
+function descargarArchivo(){
+const storage = getStorage();
+getDownloadURL(ref(storage, 'finr17.pdf'))
+  .then((url) => {
+    const xhr = new XMLHttpRequest();
+    xhr.responseType = 'blob';
+    xhr.onload = (event) => {
+      const blob = xhr.response;
+    };
+    xhr.open('GET', url);
+    xhr.send();
+  })
+  .catch((error) => {
+     switch (error.code) {
+      case 'storage/object-not-found':
+        // File doesn't exist
+        break;
+      case 'storage/unauthorized':
+        // User doesn't have permission to access the object
+        break;
+      case 'storage/canceled':
+        // User canceled the upload
+        break;
+
+      // ...
+
+      case 'storage/unknown':
+        // Unknown error occurred, inspect the server response
+        break;
+    }
+  });
+
+}
 
 
 /*const verificarEncuestas= () => {
@@ -186,39 +220,36 @@ export default function Cuerpo() {
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td id="desc1">Drive</td>
+                            <td id="desc1">Archivo 1</td>
                             <td >
-                                <a class="link" href="www.facebook.com" target="_blank">
-                                    <button id="btnCP1" class="btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                                    <button onClick={(e) => { descargarArchivo(e) }}id="btnCP1" class="btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
                                         <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z" />
                                         <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z" />
                                     </svg></button>
-                                </a>
                             </td>
                         </tr>
                         <tr>
                             <td>2</td>
-                            <td id="desc2">Pagina web</td>
+                            <td id="desc2">Archivo 2</td>
                             <td >
-                                <a class="link" href="../Descargas/Plataformas virtuales de aprendizaje.pdf" download="Aplicaciones.pdf">
                                     <button id="btnCP2" class="btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
                                         <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z" />
                                         <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z" />
                                     </svg></button>
-                                </a>
+                               
                             </td>
                         </tr>
                         <tr>
                             <td>3</td>
-                            <td id="desc3">Soporte</td>
+                            <td id="desc3">Archivo 3</td>
                             <td >
 
-                                <a class="link" href="../Descargas/Plataformas virtuales de aprendizaje.pdf" download="Aplicaciones.pdf">
+                                
                                     <button id="btnCP3" class="btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
                                         <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z" />
                                         <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z" />
                                     </svg></button>
-                                </a></td>
+                                </td>
                         </tr>
                     </tbody>
                 </Table>
