@@ -1,8 +1,14 @@
 import React, { Component, useState, useEffect } from "react";
+<<<<<<< HEAD
 import { setDoc, doc, getDoc, collection, query, getDocs, onSnapshot } from "firebase/firestore";
 import db from "../firebaseConfig";
+=======
+import { onSnapshot, collection, doc, getDoc } from "firebase/firestore";
+import { Navbar, Nav, NavDropdown, Container, ButtonGroup, Button, ToggleButton, ToggleButtonGroup } from "react-bootstrap";
+>>>>>>> 5ddb416237f70b9c52f73418920ba047ecde2ecd
 import './../Estilos/buttongroup.css';
 import infCont1 from './../Recursos/img-informacionContable.jpg';
+import db from "../firebaseConfig";
 
 
 const modificarCont = async (event) => {
