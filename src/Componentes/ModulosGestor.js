@@ -43,7 +43,7 @@ const modificarCont = (event) => {
             if (boton2.innerText == 'Gestión de organizaciones') {
                 check.innerText="Usted ha elegido modificar la información de GESTION DE ORGANIZACIONES";
                 cuerpo.style.display = 'block';
-                window.moduloAModificar="Pensamiento Critico"
+                window.moduloAModificar="Gestion de organizaciones"
             }
             if (boton2.innerText == 'Comunicacion digital') {
                 check.innerText="Usted ha elegido modificar la información de COMUNICACION DIGITAL";

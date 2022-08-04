@@ -54,3 +54,14 @@ table{
     margin-top: 20px;
     resize: none;
 }
+#contenedorInfo{
+    margin-top: 20px;
+}
+#botonImagen{
+    margin: 50px;
+    display: block;
+}
+#botonArchivos{
+    margin: 50px;
+    display: block;
+}

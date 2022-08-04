@@ -89,17 +89,23 @@ export default function CuerpoGestor() {
 
     return (
         <div id="cuerpoPrin" class="cuerpo">
-            <text id="textoInfo"></text>
+            <div id="contenedorInfo">
+            <text id="textoInfo" ></text>
+            </div>
+            
             <form id="formCuerpoGestor">
                 <textarea id="textoSubir"placeholder="Ingrese el texto"></textarea>
             </form >
             <button id="botonSubir" class="btn btn-warning" onClick={(e) => { subirInformacion(e) }}>Subir informacion</button>
-            <div>
-            <input type="file" name="" onChange={e =>uploadFile(e.target.files[0])}></input>
-            <input type="file" name="" onChange={e =>uploadFile1(e.target.files[0])}></input>
-            <input type="file" name="" onChange={e =>uploadFile2(e.target.files[0])}></input>
-            <input type="file" name="" onChange={e =>uploadFile3(e.target.files[0])}></input>
-            </div>
+            <h2 id="tituloEstadisticas">SUBIR IMAGEN DE PRESENTACION DE MODULO</h2>
+            <input type="file" id="imagen" name="" onChange={e =>uploadFile(e.target.files[0])}></input>
+            <h2 id="tituloEstadisticas">SUBIR DOCUMENTOS DE APOYO PARA LOS MODULOS</h2>
+            <input type="file" id="archivo1" name="" onChange={e =>uploadFile1(e.target.files[0])}></input>
+            <h2></h2>
+            <input type="file" id="archivo2" name="" onChange={e =>uploadFile2(e.target.files[0])}></input>
+            <h2></h2>
+            <input type="file" id="archivo3" name="" onChange={e =>uploadFile3(e.target.files[0])}></input>
+          
            
     
         </div>

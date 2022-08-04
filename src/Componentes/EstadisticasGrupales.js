@@ -17,7 +17,7 @@ import {
   CategoryScale,
   LinearScale,
   BarElement,
-  ArcElement
+  ArcElement,
 } from 'chart.js';
 import { Email, TramRounded } from "@material-ui/icons";
 import { async } from "@firebase/util";
@@ -31,7 +31,7 @@ ChartJS.register(
   CategoryScale,
   LinearScale,
   BarElement,
-  ArcElement
+  ArcElement,
 );
 
 var gesIAlto=0,gesIMedio=0,gesIBajo=0;
