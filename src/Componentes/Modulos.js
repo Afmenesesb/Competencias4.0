@@ -1,9 +1,6 @@
 import React, { Component, useState, useEffect } from "react";
-<<<<<<< HEAD
-=======
-import { onSnapshot, collection, doc, getDoc } from "firebase/firestore";
-import { Navbar, Nav, NavDropdown, Container, ButtonGroup, Button, ToggleButton, ToggleButtonGroup } from "react-bootstrap";
->>>>>>> 1692f95d304ee2d7712bdba09b1f8dd77518eec6
+import { setDoc, doc, getDoc, collection, query, getDocs, onSnapshot } from "firebase/firestore";
+import db from "../firebaseConfig";
 import './../Estilos/buttongroup.css';
 import infCont1 from './../Recursos/img-informacionContable.jpg';
 
