@@ -29,7 +29,7 @@ function App() {
   if (isLoading) return <h1 id="cargando">Cargando...</h1>
 
   if (isAuthenticated) {
-    if (user.email.includes('uqvirtual')) {
+    if (user.email.includes('gmail')) {
       return (
         <div className="App">
           {isAuthenticated ? (
@@ -50,7 +50,7 @@ function App() {
 
     }
     else {
-      if (user.email.includes('gmail')) {
+      if (user.email.includes('uqvirtual')) {
         return (
           <div className="App">
             {isAuthenticated ? (
