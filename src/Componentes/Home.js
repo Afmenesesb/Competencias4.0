@@ -3,12 +3,6 @@ import { Carousel, ListGroupItem } from "react-bootstrap";
 import Admin from './../Recursos/Admin.png';
 import AdminFin from './../Recursos/AdminFin.jpg';
 import Contaduria from './../Recursos/Contaduria.png';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import './../Estilos/prueba.css';
-import SwiperCore, {
-    Pagination, Navigation
-} from 'swiper';
-SwiperCore.use([Pagination, Navigation]);
 
 
 
@@ -47,17 +41,14 @@ class Slider1 extends Component {
 
         return (
             <div className='app'>
-                <Swiper
                     slidesPerView={"auto"}
                     spaceBetween={30}
                     navigation
                     pagination={{ clickable: true }}
                     onSlideChange={() => console.log('slide change')}
                     onSwiper={(swiper) => console.log(swiper)}
-                >
+                
                     {data.map(user => (
-
-                        <SwiperSlide key={user.id} className='slide'>
 
                             <div className='slide-content'>
 
@@ -67,11 +58,9 @@ class Slider1 extends Component {
                                 </div>
                                 <h3>{user.compt}</h3>
                                 <h6>{user.parrafo}</h6>
-                            </div>
+                            </div>))}
 
-                        </SwiperSlide>))}
-
-                </Swiper>
+              
             </div>
         );
     }

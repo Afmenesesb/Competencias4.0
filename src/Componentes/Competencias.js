@@ -8,10 +8,19 @@ import { LoginButton } from './Login';
 import { LogoutButton } from "./Logout";
 import './../Estilos/buttongroup.css';
 
-
 /*Funcion para la interaccion y coneccion entre los botones de competencia*/
+export const testIdentificar= (evento) => {
+    var prueba=""
+    if(evento=="btC1"){
+        prueba="boton1"
+    }
+    else{
+        prueba="boton2"
+    }
+    return(prueba)
+}
 
-const identificar = (event) => {
+export const identificar = (event) => {
     /*Se obtienen los elementos por medio del getElementById*/
     const boton1 = document.getElementById('btM1');
     const boton2 = document.getElementById('btM2');
@@ -79,7 +88,6 @@ const identificar = (event) => {
             }
         }
     }
-
 
 
 }
