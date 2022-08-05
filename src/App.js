@@ -4,6 +4,7 @@ import Cabecera from './Componentes/Cabecera';
 import { useAuth0 } from '@auth0/auth0-react';
 import CabeceraHome from './Componentes/CabeceraHome';
 import CabeceraGestor from './Componentes/CabeceraGestor';
+import Home from './Componentes/Home'
 
 
 export const Salir = () => {
@@ -93,9 +94,7 @@ function App() {
           <Cabecera />
 
         ) : (
-
-          <Cabecera />
-
+          <Home/>
         )}
 
       </div>
