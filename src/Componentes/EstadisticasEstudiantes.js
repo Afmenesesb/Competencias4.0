@@ -4,7 +4,7 @@ import db from "../firebaseConfig";
 import swal from 'sweetalert';
 import Encuestas from "./Encuestas";
 import '../Estilos/estIndividual.css';
-import { Radar, Bar, Chart } from 'react-chartjs-2';
+import { Radar, Bar, Chart,Pie } from 'react-chartjs-2';
 import { useAuth0 } from "@auth0/auth0-react";
 import {
   Chart as ChartJS,

@@ -1,4 +1,6 @@
 import { setDoc, doc, getDoc, collection, query, getDocs, onSnapshot } from "firebase/firestore";
+import { Chart, registerables } from 'chart.js'
+
 import React, { Component, useState } from "react";
 import db from "../firebaseConfig";
 import swal from 'sweetalert';
@@ -30,6 +32,7 @@ ChartJS.register(
   LinearScale,
   BarElement,
 );
+Chart.register(...registerables)
 var contador = 0;
 var InformacionContable = 0;
 var Gestion = 0;

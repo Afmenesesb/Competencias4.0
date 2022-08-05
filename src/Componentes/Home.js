@@ -4,11 +4,7 @@ import Admin from './../Recursos/Admin.png';
 import AdminFin from './../Recursos/AdminFin.jpg';
 import Contaduria from './../Recursos/Contaduria.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper.scss';
 import './../Estilos/prueba.css';
-import 'swiper/components/navigation/navigation.scss';
-import 'swiper/components/pagination/pagination.scss';
-import 'swiper/components/scrollbar/scrollbar.scss';
 import SwiperCore, {
     Pagination, Navigation
 } from 'swiper';
