@@ -64,7 +64,7 @@ export default class CabeceraGestor extends Component {
                             className="rounded float-start"
 
                         />
-                        <Navbar.Brand >Competencias 2.0</Navbar.Brand>
+                        <Navbar.Brand >Competencias 4.0</Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="me-auto">

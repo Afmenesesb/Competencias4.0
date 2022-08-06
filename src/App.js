@@ -16,21 +16,13 @@ export const Salir = () => {
     </button>
   );
 };
-function verificarDominio(dominio) {
-  if (dominio.includes('uqvirtual')) {
-    return true;
-  }
-  else {
-    return false;
-  }
-}
 function App() {
   const { isAuthenticated, isLoading, user } = useAuth0();
 
   if (isLoading) return <h1 id="cargando">Cargando...</h1>
 
   if (isAuthenticated) {
-    if (user.email.includes('gmail')) {
+    if (user.email.includes('uqvirtual.edu.co')) {
       return (
         <div className="App">
           {isAuthenticated ? (
@@ -51,7 +43,7 @@ function App() {
 
     }
     else {
-      if (user.email.includes('uqvirtual')) {
+      if (user.email.includes('gmail')) {
         return (
           <div className="App">
             {isAuthenticated ? (
@@ -94,7 +86,8 @@ function App() {
           <Cabecera />
 
         ) : (
-          <Home/>
+
+          <Cabecera/>
         )}
 
       </div>

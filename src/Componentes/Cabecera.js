@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import iconoU from './../Recursos/iconoU.svg';
-import { useAuth0 } from "@auth0/auth0-react";
-import Home from './Home';
 import { LoginButton } from './Login';
-import { LogoutButton } from "./Logout";
+
 
 
 class Cabecera extends Component {
@@ -34,7 +32,7 @@ class Cabecera extends Component {
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
-                <Home/>
+             
             </div>
         );
     }

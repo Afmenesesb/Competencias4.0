@@ -10,7 +10,8 @@
 #graficasIndividuales{
     display: none;
     width: 50%;
-    margin-left: 450px;
+    margin-left: auto;
+    margin-right: auto;
    
 }
 #separador{
@@ -49,9 +50,11 @@ h5{
     display: none;
 }
 #bloqueGrupal{
-    width: 50%;
-    margin-left: 480px;
     margin-top: 20px;
+    display: none;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 #botonesArchivos{
     display: none;

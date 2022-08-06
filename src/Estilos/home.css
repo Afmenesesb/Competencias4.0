@@ -51,4 +51,10 @@ p{
     background-color: #308113;
     border-radius: 4px;
     }
-    
+#usuario,#email{
+    color: white;
+}
+#imagenperfil{
+    border-radius: 50px;
+    width: 70px;
+}

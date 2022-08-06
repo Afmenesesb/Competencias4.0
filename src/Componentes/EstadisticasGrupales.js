@@ -778,37 +778,37 @@ export default function EstadisticasGrupales() {
 
     return (
         <div id="bloqueGrupal" >
-          <h2 id="tituloEstadisticasGraf">AREA</h2>
+          <h2 id="area">AREA</h2>
         <button  onClick={(e) => {mostrarCompetencia(e)}} id="btEI" type="button" class="btn btn-success">Competencia</button>
         <button  onClick={(e) => {mostrarConocimiento(e)}} id="btEG" type="button" class="btn btn-success">Conocimiento</button>
         <button  onClick={(e) => {mostrarActitud(e)}} id="btEI" type="button" class="btn btn-success">Actitud</button>
         <div id="bloqueCompetencias">
         <div id="separador">
-        <h2 id="tituloEstadisticas">Area COMPETENCIAS</h2>
+        <h2 id="area">Area COMPETENCIAS</h2>
         <canvas id="PieChartCompetencias" width="600" height="400">Competencias</canvas>
       </div>
       <div id="separador">
-         <h2 id="tituloEstadisticas">Modulo COMPETENCIAS</h2>
+         <h2 id="area">Modulo COMPETENCIAS</h2>
         <canvas id="BarChartCompetencias" width="600" height="400">Conocimiento</canvas>
       </div>
         </div>
         <div id="bloqueConocimiento">
         <div id="separador">
-        <h2 id="tituloEstadisticas">Area CONOCIMIENTO</h2>
+        <h2 id="area">Area CONOCIMIENTO</h2>
         <canvas id="PieChartConocimiento" width="600" height="400">Competencias</canvas>
       </div>
       <div id="separador">
-         <h2 id="tituloEstadisticas">Modulo CONOCIMIENTO</h2>
+         <h2 id="area">Modulo CONOCIMIENTO</h2>
         <canvas id="BarChartConocimiento" width="600" height="400">Conocimiento</canvas>
       </div>
         </div>
         <div id="bloqueActitud">
         <div id="separador">
-        <h2 id="tituloEstadisticas">Area ACTITUD</h2>
+        <h2 id="area">Area ACTITUD</h2>
         <canvas id="PieChartActitud" width="600" height="400">Competencias</canvas>
       </div>
       <div id="separador">
-         <h2 id="tituloEstadisticas">Modulo ACTITUD</h2>
+         <h2 id="area">Modulo ACTITUD</h2>
         <canvas id="BarChartActitud" width="600" height="400">Conocimiento</canvas>
       </div>
         </div>

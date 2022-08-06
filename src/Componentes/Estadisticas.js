@@ -744,7 +744,7 @@ export default function Estadisticas() {
     return (
         <div id="formEstadisticas">
        <div id="btnsGrafica" class="btn-group1" role="group" aria-label="Basic example">
-        <h2 id="tituloEstadisticas">ESTADISTICAS</h2>
+        <h2 id="area">ESTADISTICAS</h2>
         <button  id="btEI" onClick={(e) => {mostrarEstadisticaI(e)}} type="button" class="btn btn-success">Estadisticas INDIVIDUALES</button>
         <button  id="btEG" onClick={(e) => {mostrarEstadisticaG(e)}} type="button" class="btn btn-success">Estadisticas GRUPALES</button>
       </div>
@@ -758,15 +758,15 @@ export default function Estadisticas() {
       <button disabled="true"id="btnVerde"> Nivel alto</button>
       </div>
       <div id="separador">
-      <h2 id="tituloEstadisticas">Area COMPETENCIAS</h2>
+      <h2 id="area">Area COMPETENCIAS</h2>
         <canvas id="RadarChartCom" width="600" height="400">Competencias</canvas>
       </div>
       <div id="separador">
-      <h2 id="tituloEstadisticas">Area CONOCIMIENTO</h2>
+      <h2 id="area">Area CONOCIMIENTO</h2>
         <canvas id="RadarChartCon" width="600" height="400">Conocimiento</canvas>
       </div>
       <div id="separador">
-      <h2 id="tituloEstadisticas">Area ACTITUD</h2>
+      <h2 id="area">Area ACTITUD</h2>
         <canvas id="RadarChartAct" width="600" height="400">Actitud</canvas>
       </div>  
       <div id="separador">
@@ -774,11 +774,11 @@ export default function Estadisticas() {
         <canvas id="modConocimiento" width="600" height="400">Conocimiento por Modulo</canvas>
       </div>
       <div id="separador">
-      <h2 id="tituloEstadisticas">COMPETENCIAS por Modulo</h2>
+      <h2 id="area">COMPETENCIAS por Modulo</h2>
         <canvas id="modCompetecias" width="600" height="400">Competencias por Modulo</canvas>
       </div >
       <div id="separador">
-      <h2 id="tituloEstadisticas">ACTITUD por Modulo</h2>
+      <h2 id="area">ACTITUD por Modulo</h2>
         <canvas id="modActitud" width="300" height="200">Actitud por Modulo</canvas>
       </div>
       </div>
