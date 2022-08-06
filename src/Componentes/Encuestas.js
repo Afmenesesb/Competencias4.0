@@ -1,13 +1,17 @@
 import React, { Component, useState, useEffect } from "react";
 import './../Estilos/encuesta.css';
 import Formulario from "./Formulario";
-import EstadisticasEstudiantes from "./EstadisticasEstudiantes";
 import swal from 'sweetalert';
 import db from "../firebaseConfig";
 import { onSnapshot, collection, doc, getDoc, query, getDocs } from "firebase/firestore";
 
 
+var preguntasMostradas = [];
 
+export const identificarPreguntas= () => {
+  var cantidadPreguntas=2;
+  return(cantidadPreguntas);
+}
 export default function Encuestas() {
   window.bandCuest = null;
   window.modulo = null;
@@ -23,7 +27,7 @@ export default function Encuestas() {
   var contenidoRespuesta = "";
   var aleatorios = [];
   var aleatoriosRespuesta = [];
-  var preguntasMostradas = [];
+  
   var respuestaCorrecta = [];
   var cantidadPreguntas = [];
   const modificarForm = (event) => {

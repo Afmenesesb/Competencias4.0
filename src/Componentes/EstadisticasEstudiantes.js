@@ -91,6 +91,12 @@ var barChart3 = null;
 var radChart = null;
 var radChart2 = null;
 var radChart3 = null;
+
+export const identificarGraficaEstudiante= () => {
+  notasEstudiante=10;
+  return(notasEstudiante);
+}
+
 const obtenerNotas = async () => {
   var email = document.getElementById('email').innerText;
   const q = query(collection(db, "Estudiantes", email, "Notas"));

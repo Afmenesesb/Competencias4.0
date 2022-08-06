@@ -5,7 +5,13 @@ import db from "../firebaseConfig";
 import swal from 'sweetalert';
 
 var preguntasModulo = [];
+var subidaExitosa= false;
 
+
+export const identificarSubidaPregunta= () => {
+    subidaExitosa=true
+    return(subidaExitosa);
+  }
 
 
 export default function Pregunta() {
