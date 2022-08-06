@@ -11,6 +11,13 @@ var usuario = "";
 var email = "";
 var contador = 0;
 
+export const identificarCalificacion= () => {
+    var cal= "Su calificacion es :";
+    return(cal);
+  }
+
+
+
 const ConteoRespuestas = (event) => {
     usuario = document.getElementById('usuario').innerText;
     email = document.getElementById('email').innerText;
