@@ -30,8 +30,6 @@ const ConteoRespuestas = (event) => {
     contador=0;
 
 
-
-    console.log(pregChecked);
     const terminarEncuesta = () => {
 
         for (let index = 0; index < pregChecked; index++) {
@@ -78,7 +76,7 @@ const ConteoRespuestas = (event) => {
 
         var checked_pregunta = document.querySelector('input[name = "pregunta' + (index + 1) + '"]:checked');
         if (checked_pregunta == null) {
-            console.log("que pasa");
+         
             swal(
                 {
                     title: "Error de selección",
@@ -98,7 +96,7 @@ const ConteoRespuestas = (event) => {
 
 
     }
-    console.log(contador2);
+    
     if (contador2 == pregChecked) {
         swal(
             {
@@ -129,7 +127,6 @@ const guardarNota = async () => {
     await setDoc(doc(db, "Estudiantes", email, "Notas", window.modulo), {
         nota: contador
     });
-    console.log("se guardo");
     contador = 0;
 }
 

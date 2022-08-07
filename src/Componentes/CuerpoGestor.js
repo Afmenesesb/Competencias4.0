@@ -41,7 +41,6 @@ function uploadFile(file){
         else{
             const storageRef = ref(storage,'imagen-'+window.moduloAModificar)
             uploadBytes(storageRef,file).then(snapshot=>{
-            console.log(snapshot)
         })
         }
        
@@ -55,7 +54,6 @@ function uploadFile1(file){
     else{
         const storageRef = ref(storage,'archivo1-'+window.moduloAModificar)
         uploadBytes(storageRef,file).then(snapshot=>{
-        console.log(snapshot)
     })
     }
 }
@@ -68,7 +66,7 @@ function uploadFile2(file){
     else{
         const storageRef = ref(storage,'archivo2-'+window.moduloAModificar)
         uploadBytes(storageRef,file).then(snapshot=>{
-        console.log(snapshot)
+
     })
     }
 }
@@ -81,7 +79,6 @@ function uploadFile3(file){
     else{
         const storageRef = ref(storage,'archivo3-'+window.moduloAModificar)
         uploadBytes(storageRef,file).then(snapshot=>{
-        console.log(snapshot)
     })
     }
 }

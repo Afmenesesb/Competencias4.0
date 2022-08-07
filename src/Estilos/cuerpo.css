@@ -7,8 +7,9 @@
 }
 .imgCuerpo{
     display:block;
-    margin-top: 2%;
-    width: 750px;
+    margin-right: auto;
+    width: 600px;
+    margin-left: auto;
     border-radius: 50px;
 }
 table{
@@ -24,6 +25,9 @@ table{
     margin: auto;
 }
 .cuerpo{
+    margin-right: auto;
+    width: 50%;
+    margin-left: auto;
     display: none;
 }
 #checkEncuesta{

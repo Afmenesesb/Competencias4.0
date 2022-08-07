@@ -210,7 +210,6 @@ ComunicacionDigital = 0;
 
 const estadisticas = () => {
 
-  console.log(InformacionContable);
   actitudM = Analisisyevolucion + Diseñoyprogramacion + Innovacion + InteligenciaEmocional + Liderazgoeinfluencia + PensamientoAnalitico + PensamientoCritico + Solucion;
   competenciasM = ConocimientoDigital + AprendizajeContinuo + ComunicacionDigital + VisionEstrategica + Gestiondelainformacion + Liderazgoenred + Orientacionalcliente + Trabajoenred;
   conocimientoM = InformacionContable + Gestion + AnalisisEconomico;
@@ -630,7 +629,7 @@ const estadisticas = () => {
     radChart.destroy();
     radChart2.destroy();
     radChart3.destroy();
-    console.log("entre");
+
   }
 
   barChart = new ChartJS(speedCanvas,

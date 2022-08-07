@@ -64,12 +64,12 @@ export default function Pregunta() {
         e.preventDefault();
 
         /*muestro los valores al dar en el boton gracuas al onSumit del from*/
-        console.log(values);
+  
         setValues({ ...initialValues });
     }
     const handleInputChange = e => {
         /*muestro el cambio en el input*/
-        console.log(e.target.value);
+    
         const { name, value } = e.target;
         setValues({ ...values, [name]: value });
     }

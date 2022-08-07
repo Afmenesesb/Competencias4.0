@@ -35,7 +35,6 @@ export default function Encuestas() {
     const btn2 = document.getElementById('v-pills-compdi-tab');
     const btn3 = document.getElementById('v-pills-act-tab');
     window.modulo = document.getElementById(event.target.id).innerText;
-    console.log(window.modulo);
 
     if (window.bandCuest == false) {
       swal(
@@ -160,10 +159,8 @@ export default function Encuestas() {
     querySnapshot.forEach((doc) => {
       cantidadPreguntas.push(doc);
     });
-    var snap = null;
-    console.log(cantidadPreguntas);
-    llenarArregloPreguntasAleatoriasMostrar(cantidadPreguntas.length);
-    console.log(preguntasMostradas);
+    var snap = null;    llenarArregloPreguntasAleatoriasMostrar(cantidadPreguntas.length);
+
     for (let index = 0; index < 5; index++) {
       var posicion = preguntasMostradas[index];
       const collectionPreg = collection(db, "Modulo", modulo, "Preguntas");
@@ -172,7 +169,7 @@ export default function Encuestas() {
 
       if (snap.get("texto") != null) {
         pregModulo.push(snap.get("texto"));
-        console.log(pregModulo);
+     
       }
 
     }
@@ -197,18 +194,16 @@ export default function Encuestas() {
     }
   }
 
-  console.log(numeroPreguntas);
+
     for (let step = 0; step <numeroPreguntas; step++) {
       var posicion2 = preguntasMostradas[step];
-      console.log(preguntas);
+
       preguntas[step].innerText = (step + 1) + ") " + pregModulo[step];
       añadirRespuestas(modulo, (posicion2 + 1), step);
     }
   
     preguntasMostradas.splice(0, preguntasMostradas.length);
     pregModulo.splice(0, pregModulo.length);
-    console.log(preguntasMostradas);
-    console.log(pregModulo);
     cantidadPreguntas.splice(0,cantidadPreguntas.length);
 
 

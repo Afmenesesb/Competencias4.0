@@ -14,7 +14,6 @@ export default function Respuesta() {
     const agregarRes = async (values) => {
         /*Referencia de la coleccion o tabla donde queremos insertar*/
         try {
-            console.log(values.idModulo);
             const querySnapshot2 = await getDocs(collection(db, "Modulo", values.idModulo, "Preguntas", values.idPregunta, "Respuestas"));
             querySnapshot2.forEach((doc) => {
                 // doc.data() is never undefined for query doc snapshots
@@ -22,7 +21,7 @@ export default function Respuesta() {
             });
             var cantidad = (respuestasPregunta.length + 1);
             id = "Respuesta" + cantidad;
-            console.log(id);
+
             const citiesRef = collection(db, "Modulo", values.idModulo, "Preguntas", values.idPregunta, "Respuestas");
             /*Insertamos los valores en la tabla*/
             await setDoc(doc(citiesRef, id), {
@@ -67,12 +66,11 @@ export default function Respuesta() {
         e.preventDefault();
 
         /*muestro los valores al dar en el boton gracuas al onSumit del from*/
-        console.log(values);
+
         setValues({ ...initialValues });
     }
     const handleInputChange = e => {
         /*muestro el cambio en el input*/
-        console.log(e.target.value);
         const { name, value } = e.target;
         setValues({ ...values, [name]: value });
     }
