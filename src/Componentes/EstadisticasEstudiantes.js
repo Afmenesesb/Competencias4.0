@@ -727,12 +727,18 @@ export default function EstadisticasEstudiantes() {
       <button disabled="true"id="btnAmarillo">Nivel medio</button>
       <button disabled="true"id="btnVerde"> Nivel alto</button>
       </div>
-        <h2 id="area">Area COMPETENCIAS</h2>
+      <div id="separador">
+      <h2 id="area">Area COMPETENCIAS</h2>
         <canvas id="RadarChartCom" width="600" height="400">Competencias</canvas>
-        <h2 id="area">Area CONOCIMIENTO</h2>
+      </div>
+      <div id="separador">
+      <h2 id="area">Area CONOCIMIENTO</h2>
         <canvas id="RadarChartCon" width="600" height="400">Conocimiento</canvas>
-        <h2 id="area">Area ACTITUD</h2>
+      </div>
+      <div id="separador">
+      <h2 id="area">Area ACTITUD</h2>
         <canvas id="RadarChartAct" width="600" height="400">Actitud</canvas>
+      </div>
       </div>
       <div id="graficasEstudiantesM" class="mencuesta">
       <div id="convenciones">
@@ -740,12 +746,18 @@ export default function EstadisticasEstudiantes() {
       <button disabled="true"id="btnAmarillo">Nivel medio</button>
       <button disabled="true"id="btnVerde"> Nivel alto</button>
       </div>
-        <h2 id="area">CONOCIMIENTO por Modulo</h2>
+      <div id="separador">
+      <h2 id="area">CONOCIMIENTO por Modulo</h2>
         <canvas id="modConocimiento" width="600" height="400">Conocimiento por Modulo</canvas>
-        <h2 id="area">COMPETENCIAS por Modulo</h2>
+      </div>
+      <div id="separador">
+      <h2 id="area">COMPETENCIAS por Modulo</h2>
         <canvas id="modCompetecias" width="600" height="400">Competencias por Modulo</canvas>
-        <h2 id="area">ACTITUD por Modulo</h2>
+      </div>
+      <div id="separador">
+      <h2 id="area">ACTITUD por Modulo</h2>
         <canvas id="modActitud" width="600" height="400">Actitud por Modulo</canvas>
+      </div>
       </div>
     </div>
 
