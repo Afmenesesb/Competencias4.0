@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import iconoU from './../Recursos/iconoU.svg';
 import { LoginButton } from './Login';
+import Home2 from './Home2';
 
 
 
@@ -28,12 +29,15 @@ class Cabecera extends Component {
                             </Nav>
                             <Nav>
                                 <LoginButton/>
+                                
                             </Nav>
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
-             
+                
+                <Home2/>
             </div>
+           
         );
     }
 
