@@ -34,7 +34,6 @@ class Cabecera extends Component {
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
-                
                 <Home2/>
             </div>
            

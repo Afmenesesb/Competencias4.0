@@ -1,0 +1,19 @@
+#Admin, #AdminFin, #Contaduria {
+
+  width: 340px;
+  margin: auto;
+  margin-top: 2%;
+  
+}
+.row{
+  height: 100%;
+  overflow: hidden;
+}
+.iconoAdmin, .iconoAdminFin, .iconoContaduria{
+  margin: auto;
+  margin-top: 5%;
+}
+.card-title {
+  font-size: 16px;
+  text-align: justify;
+}
