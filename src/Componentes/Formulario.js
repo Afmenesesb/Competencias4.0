@@ -1,6 +1,5 @@
 import React, { Component, useState, useEffect } from "react";
 import swal from 'sweetalert';
-import Encuestas from "./Encuestas";
 import db from "../firebaseConfig";
 import { onSnapshot, collection, doc, setDoc } from "firebase/firestore";
 import './../Estilos/formulario.css';
