@@ -2,6 +2,8 @@ import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import '../Estilos/boton.css';
 
+
+/*Funcion para el logeo del usuario y el gestor*/
 export const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
 

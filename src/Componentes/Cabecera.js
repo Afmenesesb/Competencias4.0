@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import iconoU from './../Recursos/iconoU.svg';
 import { LoginButton } from './Login';
 import Home2 from './Home2';
@@ -19,7 +19,7 @@ class Cabecera extends Component {
                             width="70"
                             height="70"
                             className="rounded float-start"
-
+                            alt=""
                         />
                         <Navbar.Brand>COMPETENCIAS 4.0</Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

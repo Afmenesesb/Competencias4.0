@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, {useState, useEffect } from "react";
 import './../Estilos/encuesta.css';
 import Formulario from "./Formulario";
 import swal from 'sweetalert';
@@ -8,6 +8,7 @@ import { onSnapshot, collection, doc, getDoc, query, getDocs } from "firebase/fi
 
 var preguntasMostradas = [];
 
+/*Funcion para pruebas unitarias*/
 export const identificarPreguntas= () => {
   var cantidadPreguntas=2;
   return(cantidadPreguntas);
@@ -15,21 +16,17 @@ export const identificarPreguntas= () => {
 export default function Encuestas() {
   window.bandCuest = null;
   window.modulo = null;
-  const [modulo1, setModulo1] = useState(false);
-  const [modulo2, setModulo2] = useState(false);
-  const checkbtn = document.getElementById('moduloEncuesta');
-  const respuestaC = "";
-  const reinicio = [];
   var pregModulo = [];
   var preguntas = [];
   var respuestas = [];
   var respuestasModulo = [];
   var contenidoRespuesta = "";
-  var aleatorios = [];
   var aleatoriosRespuesta = [];
   
   var respuestaCorrecta = [];
   var cantidadPreguntas = [];
+
+  /*Funcion para gestionar la activacion y bloqueo de encuestas*/
   const modificarForm = (event) => {
     const btn1 = document.getElementById('v-pills-con-tab');
     const btn2 = document.getElementById('v-pills-compdi-tab');
@@ -86,11 +83,13 @@ export default function Encuestas() {
       ),
     []
   );
-
+  
+  /*Funcion para obtener la respuesta correcta de la pregunta*/
   const obtenerRespuestaCorrecta = (step) => {
     const respuestaFormulario = document.getElementById('r' + (step));
     respuestaFormulario.value = 'C';
   }
+  /*Funcion para obtener las respuestas correspondientes a cada pregunta*/
   const obtenerRespuestas = async (ref, inicio) => {
     var document = await getDoc(ref);
     var contenido = document.get("texto");
@@ -117,6 +116,7 @@ export default function Encuestas() {
 
   }
 
+  /*Funcion para añadir las respuestas a cada una de las preguntas*/
   const añadirRespuestas = (modulo, numPreguntas, inicio) => {
 
     for (let index2 = 0; index2 < 4; index2++) {
@@ -125,6 +125,8 @@ export default function Encuestas() {
     }
 
   }
+
+  /*Funcion para mostrar las respuestas de forma aleatoria*/
   const llenarArregloRespuestasAleatorias = (numeroRespuestas) => {
 
     var inicio = numeroRespuestas - 4;
@@ -139,6 +141,7 @@ export default function Encuestas() {
       aleatoriosRespuesta[j] = k;
     }
   }
+  /*Funcion para mostrar 5 preguntas de forma aleatoria*/
   const llenarArregloPreguntasAleatoriasMostrar = (numeroPreg) => {
     for (let index = 0; index < numeroPreg; index++) {
       preguntasMostradas.push(index);
@@ -151,6 +154,8 @@ export default function Encuestas() {
       preguntasMostradas[j] = k;
     }
   }
+
+  /*Funcion para añadir las preguntas a mostrar*/
   const añadirPreguntas = async (modulo) => {
 
     const q = query(collection(db, "Modulo", modulo, "Preguntas"));
@@ -163,7 +168,6 @@ export default function Encuestas() {
 
     for (let index = 0; index < 5; index++) {
       var posicion = preguntasMostradas[index];
-      const collectionPreg = collection(db, "Modulo", modulo, "Preguntas");
       const docRef = doc(db, "Modulo", modulo, "Preguntas", "Pregunta" + (posicion + 1));
       snap = await getDoc(docRef);
 
@@ -210,6 +214,7 @@ export default function Encuestas() {
 
 
   }
+  /*Funcion para modificar el formulario*/
   const modificarModulos = (event) => {
 
 
@@ -223,6 +228,8 @@ export default function Encuestas() {
 
     }
   }
+
+  /*componentes html*/
   return (
     <div id="menuEncuesta" class="mencuesta">
       <div class="nav flex-column nav-pills me-3" id="botones" role="tablist" aria-orientation="vertical">

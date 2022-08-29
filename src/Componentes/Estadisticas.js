@@ -1,12 +1,8 @@
-import { setDoc, doc, getDoc, collection, query, getDocs, onSnapshot } from "firebase/firestore";
+import { collection, query, getDocs } from "firebase/firestore";
 import { Chart, registerables } from 'chart.js'
-
-import React, { Component, useState } from "react";
 import db from "../firebaseConfig";
 import swal from 'sweetalert';
-import Encuestas from "./Encuestas";
 import '../Estilos/estIndividual.css';
-import { useAuth0 } from "@auth0/auth0-react";
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -19,8 +15,6 @@ import {
   LinearScale,
   BarElement
 } from 'chart.js';
-import { Email } from "@material-ui/icons";
-import { async } from "@firebase/util";
 ChartJS.register(
   RadialLinearScale,
   PointElement,
@@ -93,26 +87,28 @@ var barChart3 = null;
 var radChart = null;
 var radChart2 = null;
 var radChart3 = null;
+
+/*Funcion para obtener las notas del usuario en cada uno de los modulos*/
 const obtenerNotas = async () => {
- InformacionContable = 0;
- Gestion = 0;
-AnalisisEconomico = 0;
-Analisisyevolucion = 0;
- Diseñoyprogramacion = 0;
- InteligenciaEmocional = 0;
- Innovacion = 0;
- Liderazgoeinfluencia = 0;
- PensamientoAnalitico = 0;
- PensamientoCritico = 0;
- Solucion = 0;
-ConocimientoDigital = 0;
-AprendizajeContinuo = 0;
-ComunicacionDigital = 0;
- Gestiondelainformacion = 0;
- Liderazgoenred = 0;
- Trabajoenred = 0;
- VisionEstrategica = 0;
- Orientacionalcliente = 0;
+  InformacionContable = 0;
+  Gestion = 0;
+  AnalisisEconomico = 0;
+  Analisisyevolucion = 0;
+  Diseñoyprogramacion = 0;
+  InteligenciaEmocional = 0;
+  Innovacion = 0;
+  Liderazgoeinfluencia = 0;
+  PensamientoAnalitico = 0;
+  PensamientoCritico = 0;
+  Solucion = 0;
+  ConocimientoDigital = 0;
+  AprendizajeContinuo = 0;
+  ComunicacionDigital = 0;
+  Gestiondelainformacion = 0;
+  Liderazgoenred = 0;
+  Trabajoenred = 0;
+  VisionEstrategica = 0;
+  Orientacionalcliente = 0;
   var email = document.getElementById('textoBusqueda').value
   const q = query(collection(db, "Estudiantes", email, "Notas"));
   try {
@@ -208,6 +204,7 @@ ComunicacionDigital = 0;
   estadisticas();
 }
 
+/*Funcion para modificar las graficas segun las notas obtenidas*/
 const estadisticas = () => {
 
   actitudM = Analisisyevolucion + Diseñoyprogramacion + Innovacion + InteligenciaEmocional + Liderazgoeinfluencia + PensamientoAnalitico + PensamientoCritico + Solucion;
@@ -644,7 +641,7 @@ const estadisticas = () => {
       },
       options: {
         indexAxis: 'y',
-      } 
+      }
     });
   barChart2 = new ChartJS(speedCanvas2,
     {
@@ -663,9 +660,9 @@ const estadisticas = () => {
       },
       options: {
         indexAxis: 'y',
-      } 
+      }
     });
-   barChart3 = new ChartJS(speedCanvas3,
+  barChart3 = new ChartJS(speedCanvas3,
     {
       type: 'bar',
       data: {
@@ -682,7 +679,7 @@ const estadisticas = () => {
       },
       options: {
         indexAxis: 'y',
-      } 
+      }
     });
   radChart = new ChartJS(radarCanvas, {
 
@@ -726,63 +723,69 @@ const estadisticas = () => {
   });
   contador++;
 }
-const mostrarEstadisticaI= (e) => {
 
-    document.getElementById('bloqueIndividual').style.display = 'block'
-    document.getElementById('bloqueGrupal').style.display = 'none'
-  }
-  const mostrarEstadisticaG= (e) => {
-    document.getElementById('bloqueIndividual').style.display = 'none'
-    document.getElementById('bloqueGrupal').style.display = 'block'
-  }
-  const buscarGraficasCorreo= (e) => {
-    obtenerNotas();
-    document.getElementById('graficasIndividuales').style.display = 'block'
-  }
+/*Funcion gestionar la visualizacion de las estadisticas individuales*/
+const mostrarEstadisticaI = (e) => {
+
+  document.getElementById('bloqueIndividual').style.display = 'block'
+  document.getElementById('bloqueGrupal').style.display = 'none'
+}
+/*Funcion para gestionar la visualizacion de las estadisticas generales*/
+const mostrarEstadisticaG = (e) => {
+  document.getElementById('bloqueIndividual').style.display = 'none'
+  document.getElementById('bloqueGrupal').style.display = 'block'
+}
+/*Funcion para ver estadisticas segun un el correo del usuario*/
+const buscarGraficasCorreo = (e) => {
+  obtenerNotas();
+  document.getElementById('graficasIndividuales').style.display = 'block'
+}
+
+/*Componentes html*/
 export default function Estadisticas() {
-    return (
-        <div id="formEstadisticas">
-       <div id="btnsGrafica" class="btn-group1" role="group" aria-label="Basic example">
+  return (
+    <div id="formEstadisticas">
+      <div id="btnsGrafica" class="btn-group1" role="group" aria-label="Basic example">
         <h2 id="area">ESTADISTICAS</h2>
-        <button  id="btEI" onClick={(e) => {mostrarEstadisticaI(e)}} type="button" class="btn btn-success">Estadisticas INDIVIDUALES</button>
-        <button  id="btEG" onClick={(e) => {mostrarEstadisticaG(e)}} type="button" class="btn btn-success">Estadisticas GRUPALES</button>
+        <button id="btEI" onClick={(e) => { mostrarEstadisticaI(e) }} type="button" class="btn btn-success">Estadisticas INDIVIDUALES</button>
+        <button id="btEG" onClick={(e) => { mostrarEstadisticaG(e) }} type="button" class="btn btn-success">Estadisticas GRUPALES</button>
       </div>
       <div id="bloqueIndividual">
-      <textarea id="textoBusqueda"placeholder="Ingrese el correo del estudiante..."></textarea>
-      <button id="botonBuscar" onClick={(e) => {buscarGraficasCorreo(e)}}class="btn btn-warning">Buscar</button>
-      <div id="graficasIndividuales">
-      <div id="convenciones">
-      <button disabled="true" id="btnRojo">Nivel bajo</button>
-      <button disabled="true"id="btnAmarillo">Nivel medio</button>
-      <button disabled="true"id="btnVerde"> Nivel alto</button>
-      </div>
-      <div id="separador">
-      <h2 id="area">Area COMPETENCIAS</h2>
-        <canvas id="RadarChartCom" width="600" height="400">Competencias</canvas>
-      </div>
-      <div id="separador">
-      <h2 id="area">Area CONOCIMIENTO</h2>
-        <canvas id="RadarChartCon" width="600" height="400">Conocimiento</canvas>
-      </div>
-      <div id="separador">
-      <h2 id="area">Area ACTITUD</h2>
-        <canvas id="RadarChartAct" width="600" height="400">Actitud</canvas>
-      </div>  
-      <div id="separador">
-      <h2 id="tituloEstadisticas">CONOCIMIENTO por Modulo</h2>
-        <canvas id="modConocimiento" width="600" height="400">Conocimiento por Modulo</canvas>
-      </div>
-      <div id="separador">
-      <h2 id="area">COMPETENCIAS por Modulo</h2>
-        <canvas id="modCompetecias" width="600" height="400">Competencias por Modulo</canvas>
-      </div >
-      <div id="separador">
-      <h2 id="area">ACTITUD por Modulo</h2>
-        <canvas id="modActitud" width="300" height="200">Actitud por Modulo</canvas>
-      </div>
-      </div>
-        </div> 
+        <textarea id="textoBusqueda" placeholder="Ingrese el correo del estudiante..."></textarea>
+        <button id="botonBuscar" onClick={(e) => { buscarGraficasCorreo(e) }} class="btn btn-warning">Buscar</button>
+        <div id="graficasIndividuales">
+          <div id="convenciones">
+            <button disabled="true" id="btnRojo">Nivel bajo</button>
+            <button disabled="true" id="btnAmarillo">Nivel medio</button>
+            <button disabled="true" id="btnVerde"> Nivel alto</button>
+          </div>
+          <div id="separador">
+            <h2 id="area">Area COMPETENCIAS</h2>
+            <canvas id="RadarChartCom" width="600" height="400">Competencias</canvas>
+          </div>
+          <div id="separador">
+            <h2 id="area">Area CONOCIMIENTO</h2>
+            <canvas id="RadarChartCon" width="600" height="400">Conocimiento</canvas>
+          </div>
+          <div id="separador">
+            <h2 id="area">Area ACTITUD</h2>
+            <canvas id="RadarChartAct" width="600" height="400">Actitud</canvas>
+          </div>
+          <div id="separador">
+            <h2 id="tituloEstadisticas">CONOCIMIENTO por Modulo</h2>
+            <canvas id="modConocimiento" width="600" height="400">Conocimiento por Modulo</canvas>
+          </div>
+          <div id="separador">
+            <h2 id="area">COMPETENCIAS por Modulo</h2>
+            <canvas id="modCompetecias" width="600" height="400">Competencias por Modulo</canvas>
+          </div >
+          <div id="separador">
+            <h2 id="area">ACTITUD por Modulo</h2>
+            <canvas id="modActitud" width="300" height="200">Actitud por Modulo</canvas>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 
 }

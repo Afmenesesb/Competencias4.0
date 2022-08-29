@@ -7,7 +7,7 @@ import swal from 'sweetalert';
 var preguntasModulo = [];
 var subidaExitosa= false;
 
-
+/*Funcion para prueba unitaria*/
 export const identificarSubidaPregunta= () => {
     subidaExitosa=true
     return(subidaExitosa);
@@ -15,6 +15,8 @@ export const identificarSubidaPregunta= () => {
 
 
 export default function Pregunta() {
+
+    /*Funcion para agregar las preguntas a la base de datos por parte del gestor*/
     const agregarPreg = async (values) => {
 
         /*Referencia de la coleccion o tabla donde queremos insertar*/
@@ -48,10 +50,13 @@ export default function Pregunta() {
         preguntasModulo=[];    
     }
 
+    /*Funcion para limpiar los valores del formulario*/
     const limpiar=()=>{
         setValues({ ...initialValues});
        
     }
+
+    /*Funcion dar los valores iniciales de los campos*/
     const initialValues = {
 
         id: '',
@@ -73,6 +78,7 @@ export default function Pregunta() {
         const { name, value } = e.target;
         setValues({ ...values, [name]: value });
     }
+    /*Componentes html*/
     return (
         <div id="formularioPregunta" >
             <form class="form1" onSubmit={handleSumit}>

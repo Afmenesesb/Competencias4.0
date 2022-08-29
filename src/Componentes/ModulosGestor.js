@@ -5,6 +5,7 @@ import './../Estilos/buttongroup.css';
 import infCont1 from './../Recursos/img-informacionContable.jpg';
 import db from "../firebaseConfig";
 
+/*Funcion para gestionar el contenido de los modulos por parte del gestor de conocimiento*/
 const modificarCont = (event) => {
     const boton1 = document.getElementById('btM1');
     const boton2 = document.getElementById('btM2');
@@ -165,6 +166,7 @@ const modificarCont = (event) => {
         }
     }
 }
+/*Componentes html*/
 export default function Modulos() {
     return (
         <div>

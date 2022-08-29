@@ -9,6 +9,7 @@ export const Profile = () => {
     return <div>Loading...</div>;
   }
 
+  /*Componentes html de la cabecera del usuario*/
   return (
     isAuthenticated && (
       <div id="menu">

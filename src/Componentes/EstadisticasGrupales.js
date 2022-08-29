@@ -162,6 +162,7 @@ var competenciasEstudiante = ["Informacion Contable", "Gestion de organizaciones
         obtenerNotas(docE.id)
     });
   }
+  /*Funcion para obtener las notas de los usuarios*/
   const obtenerNotas = async (email) => {
     
     const q = query(collection(db, "Estudiantes", email, "Notas"));
@@ -754,18 +755,22 @@ var competenciasEstudiante = ["Informacion Contable", "Gestion de organizaciones
   }
 
 export default function EstadisticasGrupales() {
+
+  /*Funcion para gestionar la visibilidad del area conocimiento*/
   const mostrarConocimiento = (e) => {
     obtenerEmail()
     document.getElementById('bloqueCompetencias').style.display = 'none'
     document.getElementById('bloqueActitud').style.display = 'none'
     document.getElementById('bloqueConocimiento').style.display = 'block'
   }
+  /*Funcion para gestionar la visibilidad del area competencia*/
   const mostrarCompetencia = (e) => {
     obtenerEmail()
     document.getElementById('bloqueCompetencias').style.display = 'block'
     document.getElementById('bloqueActitud').style.display = 'none'
     document.getElementById('bloqueConocimiento').style.display = 'none'
   }
+  /*Funcion para gestionar la visibilidad del area actitud*/
   const mostrarActitud = (e) => {
     obtenerEmail()
     document.getElementById('bloqueCompetencias').style.display = 'none'
@@ -775,7 +780,7 @@ export default function EstadisticasGrupales() {
   
 
 
-
+/*Componentes html*/
     return (
         <div id="bloqueGrupal" >
           <h2 id="area">AREA</h2>
