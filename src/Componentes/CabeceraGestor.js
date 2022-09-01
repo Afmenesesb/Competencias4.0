@@ -65,7 +65,7 @@ export default class CabeceraGestor extends Component {
                             alt=""
 
                         />
-                        <Navbar.Brand >COMPETENCIAS 4.0</Navbar.Brand>
+                        <Navbar.Brand >ECCPI FCEAC 4.0<h6>Gestor</h6></Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="me-auto">

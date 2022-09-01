@@ -21,7 +21,9 @@ class Cabecera extends Component {
                             className="rounded float-start"
                             alt=""
                         />
-                        <Navbar.Brand>COMPETENCIAS 4.0</Navbar.Brand>
+                        <Navbar.Brand>ECCPI FCEAC 4.0<h6>Inicio</h6> 
+                        </Navbar.Brand>
+                        <Navbar.Brand><h6>       Evaluacion y caracterización de competencias profesionales industria 4.0</h6></Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="me-auto">

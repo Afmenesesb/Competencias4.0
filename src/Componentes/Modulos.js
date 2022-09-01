@@ -15,9 +15,6 @@ export function establecerImagen(){
     getDownloadURL(ref(storage, 'imagen-'+window.moduloADescargar))
       .then((url) => {
             contImg.src=url;
-      
-        
-        
       })
 
      
@@ -65,8 +62,6 @@ const modificarCont = async (event) => {
             docRef = doc(db, "Modulo", "Conocimiento Digital");
             snap = await getDoc(docRef);
             contLorem.innerText = snap.get("Informacion");
-       
-            descTab1.innerHTML = 'Tabla-Con digital';
             check.innerText = "Activar encuesta para Conocimiento Digital";
             botonEncuesta.checked = false;
             window.moduloADescargar="Conocimiento Digital"
@@ -169,6 +164,7 @@ const modificarCont = async (event) => {
                         check.innerText = "Activar encuesta para Innovacion,originalidad e iniciativa";
                         botonEncuesta.checked = false;
                         window.moduloADescargar="Innovacion, Originalidad e iniciativa"
+                        establecerImagen()
                     }
                     if (boton4.innerText == 'Liderazgo en red') {
                         docRef = doc(db, "Modulo", "Liderazgo en red");
@@ -179,6 +175,7 @@ const modificarCont = async (event) => {
                         cuerpo.style.display = 'block';
                         botonEncuesta.checked = false;
                         window.moduloADescargar="Liderazgo en red"
+                        establecerImagen()
                     }
 
 
@@ -195,6 +192,7 @@ const modificarCont = async (event) => {
                             check.innerText = "Activar encuesta para Analisis y evolución de sistemas";
                             botonEncuesta.checked = false;
                             window.moduloADescargar="Analisis y evolucion de sistemas"
+                            establecerImagen()
                         }
                         if (boton5.innerText == 'Trabajo en red') {
                             docRef = doc(db, "Modulo", "Trabajo en red");
@@ -205,6 +203,7 @@ const modificarCont = async (event) => {
                             cuerpo.style.display = 'block';
                             botonEncuesta.checked = false;
                             window.moduloADescargar="Trabajo en red"
+                            establecerImagen()
                         }
 
 
@@ -221,6 +220,7 @@ const modificarCont = async (event) => {
                                 check.innerText = "Activar encuesta para Diseños y programación de nuevas tecnológicas";
                                 botonEncuesta.checked = false;
                                 window.moduloADescargar="Diseño y programacion de nuevas tecnologias"
+                                establecerImagen()
                             }
                             if (boton6.innerText == 'Aprendizaje continuo') {
                                 docRef = doc(db, "Modulo", "Aprendizaje Continuo");
@@ -231,6 +231,7 @@ const modificarCont = async (event) => {
                                 cuerpo.style.display = 'block';
                                 botonEncuesta.checked = false;
                                 window.moduloADescargar="Aprendizaje Continuo"
+                                establecerImagen()
                             }
 
 
@@ -247,6 +248,7 @@ const modificarCont = async (event) => {
                                     check.innerText = "Activar encuesta para Liderazgo e influencia social";
                                     botonEncuesta.checked = false;
                                     window.moduloADescargar="Liderazgo e influencia social"
+                                    establecerImagen()
 
                                 }
                                 if (boton7.innerText == 'Visión estratégica') {
@@ -258,6 +260,7 @@ const modificarCont = async (event) => {
                                     cuerpo.style.display = 'block';
                                     botonEncuesta.checked = false;
                                     window.moduloADescargar="Vision Estrategica"
+                                    establecerImagen()
                                 }
 
 
@@ -274,6 +277,7 @@ const modificarCont = async (event) => {
                                         check.innerText = "Activar encuesta para Inteligencia emocional";
                                         botonEncuesta.checked = false;
                                         window.moduloADescargar="Inteligencia Emocional"
+                                        establecerImagen()
 
                                     }
                                     if (boton8.innerText == 'Orientación al cliente') {
@@ -285,6 +289,7 @@ const modificarCont = async (event) => {
                                         cuerpo.style.display = 'block';
                                         botonEncuesta.checked = false;
                                         window.moduloADescargar="Orientacion al cliente"
+                                        establecerImagen()
                                     }
 
 

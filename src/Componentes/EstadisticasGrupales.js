@@ -789,32 +789,33 @@ export default function EstadisticasGrupales() {
         <button  onClick={(e) => {mostrarActitud(e)}} id="btEI" type="button" class="btn btn-success">Actitud</button>
         <div id="bloqueCompetencias">
         <div id="separador">
-        <h2 id="area">Area COMPETENCIAS</h2>
-        <canvas id="PieChartCompetencias" width="600" height="400">Competencias</canvas>
-      </div>
-      <div id="separador">
          <h2 id="area">Modulo COMPETENCIAS</h2>
         <canvas id="BarChartCompetencias" width="600" height="400">Conocimiento</canvas>
+      </div>
+        <div id="separador">
+        <h2 id="area">Area COMPETENCIAS</h2>
+        <canvas id="PieChartCompetencias" width="600" height="400">Competencias</canvas>
       </div>
         </div>
         <div id="bloqueConocimiento">
         <div id="separador">
-        <h2 id="area">Area CONOCIMIENTO</h2>
-        <canvas id="PieChartConocimiento" width="600" height="400">Competencias</canvas>
-      </div>
-      <div id="separador">
          <h2 id="area">Modulo CONOCIMIENTO</h2>
         <canvas id="BarChartConocimiento" width="600" height="400">Conocimiento</canvas>
       </div>
+        <div id="separador">
+        <h2 id="area">Area CONOCIMIENTO</h2>
+        <canvas id="PieChartConocimiento" width="600" height="400">Competencias</canvas>
+      </div>
+     
         </div>
         <div id="bloqueActitud">
         <div id="separador">
-        <h2 id="area">Area ACTITUD</h2>
-        <canvas id="PieChartActitud" width="600" height="400">Competencias</canvas>
-      </div>
-      <div id="separador">
+        <div id="separador">
          <h2 id="area">Modulo ACTITUD</h2>
         <canvas id="BarChartActitud" width="600" height="400">Conocimiento</canvas>
+      </div>
+        <h2 id="area">Area ACTITUD</h2>
+        <canvas id="PieChartActitud" width="600" height="400">Competencias</canvas>
       </div>
         </div>
         </div>

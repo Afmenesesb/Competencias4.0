@@ -253,7 +253,7 @@ export default function Cuerpo() {
             <h1 id="contLor" class="parrafo1">
             </h1>
             <div class="contenedorImg">
-                <img id="imgCont" class="imgCuerpo" alt=""></img>
+                <img id="imgCont" class="imgCuerpo" alt="" width={100}></img>
             </div>
             <div class="tablaLink">
                 <Table striped bordered hover >
@@ -304,8 +304,6 @@ export default function Cuerpo() {
                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onClick={() => modificarEstado()} />
                 <label id="moduloEncuesta" class="form-check-label" for="flexSwitchCheckDefault">Checked switch checkbox input</label>
             </div>
-
-
         </div>
     );
 }
