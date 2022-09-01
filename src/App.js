@@ -43,7 +43,7 @@ function App() {
 
     }
     else {
-      if (user.email.includes('gmail')) {
+      if (user.email.includes('uniquindio.edu.co')) {
         return (
           <div className="App">
             {isAuthenticated ? (
