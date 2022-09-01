@@ -92,11 +92,13 @@ var radChart = null;
 var radChart2 = null;
 var radChart3 = null;
 
+/*Funcion para pruebas unitarias*/
 export const identificarGraficaEstudiante= () => {
   notasEstudiante=10;
   return(notasEstudiante);
 }
 
+/*Funcion para obtener las notas del usuario*/
 const obtenerNotas = async () => {
   var email = document.getElementById('email').innerText;
   const q = query(collection(db, "Estudiantes", email, "Notas"));
@@ -193,7 +195,7 @@ const obtenerNotas = async () => {
   estadisticas();
 }
 
-
+/*Funcion modificar las graficas segun las notas obtenidas*/
 const estadisticas = () => {
   actitudM = Analisisyevolucion + Diseñoyprogramacion + Innovacion + InteligenciaEmocional + Liderazgoeinfluencia + PensamientoAnalitico + PensamientoCritico + Solucion;
   competenciasM = ConocimientoDigital + AprendizajeContinuo + ComunicacionDigital + VisionEstrategica + Gestiondelainformacion + Liderazgoenred + Orientacionalcliente + Trabajoenred;
@@ -702,18 +704,23 @@ const estadisticas = () => {
   });
   contador++;
 }
+
 export default function EstadisticasEstudiantes() {
+
+  /*Funcion para gestionar la visibilidad de las graficas de los estudiantes por area*/
   const mostrarEstadisticaA = (e) => {
     obtenerNotas();
     document.getElementById('graficasEstudiantes').style.display = 'block'
     document.getElementById('graficasEstudiantesM').style.display = 'none'
   }
+  /*Funcion para gestionar la visibilidad de las graficas de los estudiantes por modulo*/
   const mostrarEstadisticaM = (e) => {
     document.getElementById('graficasEstudiantes').style.display = 'none'
     document.getElementById('graficasEstudiantesM').style.display = 'block'
   }
 
 
+  /*Componenetes html*/
   return (
     <div>
       <div id="btnsGraficas" class="btn-group1" role="group" aria-label="Basic example">

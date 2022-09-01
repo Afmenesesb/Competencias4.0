@@ -6,6 +6,7 @@ import iconoAdminFin from './../Recursos/AdminFin.jpg';
 import iconoContaduria from './../Recursos/Contaduria.png';
 
 
+/*Componentes html, cartas de presentacion de areas del conocimiento*/
 export default function Home2() {
   return (
     <div class="row">

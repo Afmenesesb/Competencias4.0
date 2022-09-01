@@ -10,6 +10,7 @@ var usuario = "";
 var email = "";
 var contador = 0;
 
+/*Funcion para pruebas unitarias*/
 export const identificarCalificacion= () => {
     var cal= "Su calificacion es :";
     return(cal);
@@ -17,6 +18,7 @@ export const identificarCalificacion= () => {
 
 
 
+  /*Funcion para contar las respuestas correctas*/
 const ConteoRespuestas = (event) => {
     usuario = document.getElementById('usuario').innerText;
     email = document.getElementById('email').innerText;
@@ -29,6 +31,7 @@ const ConteoRespuestas = (event) => {
     contador=0;
 
 
+    /*Funcion para comprobar que se respondieron todas las preguntas*/
     const terminarEncuesta = () => {
 
         for (let index = 0; index < pregChecked; index++) {
@@ -113,6 +116,7 @@ const ConteoRespuestas = (event) => {
 
 
 }
+/*Funcion para guardar la informacion del usuario en la base de datos*/
 const guardarInfo = async () => {
 
 
@@ -120,6 +124,7 @@ const guardarInfo = async () => {
         nombre: usuario
     });
 }
+/*Funcion para guardar la nota en la base de datos*/
 const guardarNota = async () => {
 
 
@@ -153,6 +158,7 @@ export default function Formulario() {
     );
 
 
+    /*Componentes html*/
     return (
         <div class="formularioC" id="formularioC">
             <h2 id="encuesta">ENCUESTA</h2>

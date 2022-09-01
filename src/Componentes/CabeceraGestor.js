@@ -1,20 +1,18 @@
-import React, { Component, useState } from "react";
-import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
+import React, { Component} from "react";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import iconoU from './../Recursos/iconoU.svg';
-import { useAuth0 } from "@auth0/auth0-react";
 import { LogoutButton } from "./Logout";
 import { Profile } from "./Profile";
 import '../Estilos/boton.css';
 import Pregunta from "./Pregunta";
 import ModulosGestor from "./ModulosGestor";
-import Modulos from "./Modulos";
 import Competencias from "./Competencias";
-import Cuerpo from "./Cuerpo";
 import Respuesta from "./Respuesta";
 import Estadisticas from "./Estadisticas";
 import CuerpoGestor from "./CuerpoGestor"
 import EstadisticasGrupales from "./EstadisticasGrupales";
 
+/*Funcion para ocultar los elementos que pertenecen a todos los componentes menos inicio*/
 function mostrarI() {
     document.getElementById('bloqueGrupal').style.display = 'none'
     document.getElementById('inicioGestor').style.display = 'block'
@@ -22,7 +20,7 @@ function mostrarI() {
     document.getElementById('formularioRespuesta').style.display = 'none'
     document.getElementById('formEstadisticas').style.display = 'none'
 }
-/*Funcion para ocultar los elementos de inicio*/
+/*Funcion para ocultar los elementos que pertenecen a todos los componentes menos Pregunta*/
 function mostrarP(e) {
     document.getElementById('bloqueGrupal').style.display = 'none'
     document.getElementById('inicioGestor').style.display = 'none'
@@ -31,6 +29,7 @@ function mostrarP(e) {
     document.getElementById('formEstadisticas').style.display = 'none'
 
 }
+/*Funcion para ocultar los elementos que pertenecen a todos los componentes menos Respuesta*/
 function mostrarR(e) {
     document.getElementById('bloqueGrupal').style.display = 'none'
     document.getElementById('inicioGestor').style.display = 'none'
@@ -39,6 +38,7 @@ function mostrarR(e) {
     document.getElementById('formEstadisticas').style.display = 'none'
 
 }
+/*Funcion para ocultar los elementos que pertenecen a todos los componentes menos estadisticas*/
 function mostrarE(e) {
     document.getElementById('inicioGestor').style.display = 'none'
     document.getElementById('formularioPregunta').style.display = 'none'
@@ -62,6 +62,7 @@ export default class CabeceraGestor extends Component {
                             width="70"
                             height="70"
                             className="rounded float-start"
+                            alt=""
 
                         />
                         <Navbar.Brand >COMPETENCIAS 4.0</Navbar.Brand>

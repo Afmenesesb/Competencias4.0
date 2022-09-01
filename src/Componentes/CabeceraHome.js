@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import iconoU from './../Recursos/iconoU.svg';
 import { LogoutButton } from "./Logout";
 import { Profile } from "./Profile";
@@ -20,7 +19,7 @@ function inicio(e) {
     document.getElementById('graficasEstudiantesM').style.display='none'
     
 }
-/*Funcion para ocultar los elementos de inicio*/
+/*Funcion para ocultar los elementos de encuesta y deshabilitar los demas*/
 function encuesta(e) {
     
     document.getElementById('inicio').style.display='none'
@@ -30,6 +29,7 @@ function encuesta(e) {
     document.getElementById('graficasEstudiantesM').style.display='none'
 
 }
+/*Funcion para ocultar los elementos de estadisticas y deshabilitar los demas*/
 function estadistica(e) {
     
     document.getElementById('inicio').style.display='none'
@@ -37,6 +37,7 @@ function estadistica(e) {
     document.getElementById('btnsGraficas').style.display='block'
 }
 
+/*Funcion para informar sobre el uso de la indormacion*/
 function usoInformacion()
 {
     swal(
@@ -49,6 +50,7 @@ function usoInformacion()
     );
 }
 
+/*componentes de html*/
 export default function CabeceraHome()
 {
     usoInformacion();
@@ -63,6 +65,7 @@ export default function CabeceraHome()
                         width="70"
                         height="70"
                         className="rounded float-start"
+                        alt=""
 
                     />
                     <Navbar.Brand>COMPETENCIAS 4.0</Navbar.Brand>

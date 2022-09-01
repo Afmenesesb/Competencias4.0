@@ -11,6 +11,7 @@ var numeroRespuestas = 0;
 
 export default function Respuesta() {
 
+    /*Funcion para agregar las respuestas a la base de datos*/
     const agregarRes = async (values) => {
         /*Referencia de la coleccion o tabla donde queremos insertar*/
         try {
@@ -53,6 +54,7 @@ export default function Respuesta() {
         respuestasPregunta=[];
         setValues({ ...initialValues});
     }
+    /*valores iniciales de los campos del formulario*/
     const initialValues = {
 
         idModulo: '',
@@ -77,6 +79,7 @@ export default function Respuesta() {
 
 
 
+    /*Componentes html del formulario de respuestas*/
     return (
         <div id="formularioRespuesta">
             <form class="form1" onSubmit={handleSumit}>

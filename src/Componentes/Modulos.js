@@ -6,6 +6,8 @@ import { Navbar, Nav, NavDropdown, Container, ButtonGroup, Button, ToggleButton,
 import './../Estilos/buttongroup.css';
 import infCont1 from './../Recursos/img-informacionContable.jpg';
 
+
+/*Funcion para mostrar las imagenes que se suministraron por el gestor*/
 export function establecerImagen(){
     const contImg = document.getElementById('imgCont');
     const storage = getStorage();
@@ -20,6 +22,8 @@ export function establecerImagen(){
 
      
     }
+
+/*Funcion para gestionar el contenido de cada modulo segun lo suministrado por el gestor*/
 const modificarCont = async (event) => {
     window.moduloADescargar=""
     const boton1 = document.getElementById('btM1');
@@ -293,6 +297,7 @@ const modificarCont = async (event) => {
         }
     }
 }
+/*componentes html*/
 export default function Modulos() {
     return (
         <div>

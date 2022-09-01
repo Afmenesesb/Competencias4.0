@@ -1,11 +1,4 @@
 import React, { Component } from "react";
-import $ from 'jquery';
-import { Navbar, Nav, NavDropdown, Container, ButtonGroup, Button, ToggleButton, ToggleButtonGroup } from "react-bootstrap";
-import iconoU from './../Recursos/iconoU.svg';
-import { useAuth0 } from "@auth0/auth0-react";
-import Home from './Home';
-import { LoginButton } from './Login';
-import { LogoutButton } from "./Logout";
 import './../Estilos/buttongroup.css';
 
 /*Funcion para la interaccion y coneccion entre los botones de competencia*/
@@ -19,7 +12,7 @@ export const testIdentificar= (evento) => {
     }
     return(prueba)
 }
-
+/*Funcion para mostrar la informacion ocrrespondiente a cada modulo segun la accion que realizo el usuario*/
 export const identificar = (event) => {
     /*Se obtienen los elementos por medio del getElementById*/
     const boton1 = document.getElementById('btM1');
@@ -91,6 +84,7 @@ export const identificar = (event) => {
 
 
 }
+/*componentes html*/
 class Competencias extends Component {
 
     render() {
