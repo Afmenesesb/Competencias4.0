@@ -3,6 +3,7 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import iconoU from './../Recursos/iconoU.svg';
 import { LoginButton } from './Login';
 import Home2 from './Home2';
+import '../Estilos/cabecera.css';
 
 
 
@@ -21,9 +22,10 @@ class Cabecera extends Component {
                             className="rounded float-start"
                             alt=""
                         />
-                        <Navbar.Brand>ECCPI FCEAC 4.0<h6>Inicio</h6> 
+                        <Navbar.Brand>ECCPI FCEAC 4.0 
                         </Navbar.Brand>
-                        <Navbar.Brand><h6>       Evaluacion y caracterización de competencias profesionales industria 4.0</h6></Navbar.Brand>
+                        <Navbar.Brand></Navbar.Brand>
+                        <Navbar.Brand><h6 class="titulo">Evaluacion y caracterización de competencias industria 4.0</h6></Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="me-auto">

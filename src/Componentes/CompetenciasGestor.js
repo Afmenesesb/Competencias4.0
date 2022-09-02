@@ -1,18 +1,6 @@
 import React, { Component } from "react";
 import './../Estilos/buttongroup.css';
 
-/*Funcion para la interaccion y coneccion entre los botones de competencia*/
-export const testIdentificar = (evento) => {
-    var prueba = ""
-    if (evento == "btC1") {
-        prueba = "boton1"
-    }
-    else {
-        prueba = "boton2"
-    }
-    return (prueba)
-}
-/*Funcion para mostrar la informacion ocrrespondiente a cada modulo segun la accion que realizo el usuario*/
 export const identificar = (event) => {
     /*Se obtienen los elementos por medio del getElementById*/
     const boton1 = document.getElementById('btM1');
@@ -85,18 +73,18 @@ export const identificar = (event) => {
 
 }
 /*componentes html*/
-class Competencias extends Component {
+class CompetenciasGestor extends Component {
 
     render() {
         return (
             /*Estructura de grupo de botones de competencias*/
             <div id="comp" class="btn-group1" role="group" aria-label="Basic example">
                 <p id="competencias">En la siguiente seccion se presentan las tres diferentes areas del conocimiento, dentro de las cuales estan los modulos
-                    correspondientes a cada una de ellas. Ademas, cada modulo cuenta con su informacion correspondiente y material de apoyo.
+                    correspondientes a cada una de ellas. Ademas, cada modulo cuenta con las opciones correspondientes para modificar la informacion que lo componen.
 
                     
                 </p>
-                <p id="nota"> Nota: Al finalizar la revision del modulo, recuerde activar la encuesta, para poder realizar la misma.</p>
+                <p id="nota"> Nota: No olvide subir los cambios, cada vez que modifique la informacion.</p>
                 <br></br>
                 <h2 id="area">AREAS</h2>
                 <button id="btC1" onClick={(e) => { identificar(e) }} type="button" class="btn btn-success">Conocimiento</button>
@@ -109,4 +97,4 @@ class Competencias extends Component {
 
 }
 
-export default Competencias;
+export default CompetenciasGestor;

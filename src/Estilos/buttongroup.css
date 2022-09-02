@@ -22,3 +22,17 @@
     margin-top: 0.5%;
 
 }
+#competencias{
+    color: black;
+    font-size: 18px;
+    text-align: justify;
+    margin-top: 5%;
+}
+#nota {
+
+    color: black;
+    font-size: 16px;
+    text-align: justify;
+    margin-top: 0%;
+    font-weight: bold;
+}

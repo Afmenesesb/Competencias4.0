@@ -1,6 +1,6 @@
-#Admin, #AdminFin, #Contaduria {
+#Admin, #AdminFin, #Contaduria, #Economia{
 
-  width: 340px;
+  width: 300px;
   margin: auto;
   margin-top: 2%;
   
@@ -9,7 +9,7 @@
   height: 100%;
   overflow: hidden;
 }
-.iconoAdmin, .iconoAdminFin, .iconoContaduria{
+.iconoAdmin, .iconoAdminFin, .iconoContaduria, .iconoEconomia{
   margin: auto;
   margin-top: 5%;
 }

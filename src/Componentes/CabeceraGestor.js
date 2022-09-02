@@ -6,7 +6,7 @@ import { Profile } from "./Profile";
 import '../Estilos/boton.css';
 import Pregunta from "./Pregunta";
 import ModulosGestor from "./ModulosGestor";
-import Competencias from "./Competencias";
+import CompetenciasGestor from "./CompetenciasGestor";
 import Respuesta from "./Respuesta";
 import Estadisticas from "./Estadisticas";
 import CuerpoGestor from "./CuerpoGestor"
@@ -83,7 +83,7 @@ export default class CabeceraGestor extends Component {
                 </Navbar>
 
                 <div id="inicioGestor">
-                    <Competencias />
+                    <CompetenciasGestor />
                     <ModulosGestor />
                     <CuerpoGestor />
 

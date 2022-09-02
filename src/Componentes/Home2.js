@@ -38,6 +38,7 @@ export default function Home2() {
           <div class="card-body">
             <h5 class="card-title">El éxito y crecimiento de una compañía depende de la capacidad intelectual que tiene su equipo profesional en formular, resolver y administrar las dificultades corporativas de la empresa.</h5>
             <br></br>
+            <br></br>
             <a href="https://www.uniquindio.edu.co/programas/publicaciones/306/administracion-financiera-a-distancia/" class="btn btn-success">Mas informacion</a>
           </div>
         </div>
@@ -49,6 +50,22 @@ export default function Home2() {
             width="200"
             height="200"
             class="iconoContaduria"
+
+          />
+          <div class="card-body">
+            <h5 class="card-title">Evaluar y proponer alternativas de solución a problemas sociales, ambientales y económicos, relacionados con la Ciencia Contable teniendo en cuenta estándares nacionales e internacionales.</h5>
+            <br></br>
+            <a href="https://www.uniquindio.edu.co/programas/publicaciones/310/contaduria-publica/" class="btn btn-success">Mas informacion</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6" id="Economia">
+        <div class="card">
+          <img
+            src={iconoContaduria}
+            width="200"
+            height="200"
+            class="iconoEconomia"
 
           />
           <div class="card-body">
