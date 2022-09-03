@@ -745,6 +745,8 @@ const buscarGraficasCorreo = (e) => {
 export default function Estadisticas() {
   return (
     <div id="formEstadisticas">
+      <p id="infoEstGest">En esta seccion podra encontrar las estadisticas individuales de cada usuario por medio del correo del mismo. Ademas podra ver las estadisticas en general de todos los usuarios y su rendimiento por areas y modulos.</p>
+      <br></br>
       <div id="btnsGrafica" class="btn-group1" role="group" aria-label="Basic example">
         <h2 id="area">ESTADISTICAS</h2>
         <button id="btEI" onClick={(e) => { mostrarEstadisticaI(e) }} type="button" class="btn btn-success">Estadisticas INDIVIDUALES</button>

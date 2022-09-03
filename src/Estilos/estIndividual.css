@@ -62,3 +62,25 @@ h5{
 #botonesArchivos{
     display: none;
 }
+#infoEstEstud{
+    color: black;
+    font-size: 18px;
+    text-align: justify;
+    margin-top: 5%;
+}
+#estArea, #estMod{
+    color: black;
+    font-size: 16px;
+    margin-top: 0%;
+    font-weight: bold;
+}
+#infoEstGest{
+    height: 30%;
+    width: 65%;
+    margin: auto;
+    margin-top: 3%;
+    color: black;
+    font-size: 18px;
+    text-align: justify;
+}
+

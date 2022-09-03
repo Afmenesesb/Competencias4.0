@@ -232,6 +232,7 @@ export default function Encuestas() {
   /*componentes html*/
   return (
     <div id="menuEncuesta" class="mencuesta">
+      <p id="infoEncuesta">En esta seccion encontrara las encuestas correspondientes a cada modulo, que anteriormente ha activado. Una vez finalice la encuesta evaluativa, esta misma sera bloqueada y se pintara en verde, indicando que ya fue realizada </p>
       <div class="nav flex-column nav-pills me-3" id="botones" role="tablist" aria-orientation="vertical">
         <h2 id="area">AREAS</h2>
         <button class="btn btn-success" onClick={(e) => { modificarModulos(e) }} id="v-pills-con-tab" data-bs-toggle="pill" data-bs-target="#v-pills-con" type="button" role="tab" aria-controls="v-pills-con" aria-selected="true" >Conocimiento</button>

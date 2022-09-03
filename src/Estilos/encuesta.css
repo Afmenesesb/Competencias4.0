@@ -83,3 +83,9 @@ margin-top: 4px;
     text-align: left;
     font-weight: bold;
 }
+#infoEncuesta{
+    color: black;
+    font-size: 18px;
+    text-align: justify;
+    margin-top: 5%;
+}

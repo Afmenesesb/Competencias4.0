@@ -69,7 +69,8 @@ export default function Home2() {
 
           />
           <div class="card-body">
-            <h5 class="card-title">Evaluar y proponer alternativas de solución a problemas sociales, ambientales y económicos, relacionados con la Ciencia Contable teniendo en cuenta estándares nacionales e internacionales.</h5>
+            <h5 class="card-title">La economía está llamada a ser una disciplina central en la orientación de país en la actualidad, ya que Colombia ingreso a la Organización para la Cooperación el Desarrollo Económico OCDE.</h5>
+            <br></br>
             <br></br>
             <a href="https://www.uniquindio.edu.co/programas/publicaciones/310/contaduria-publica/" class="btn btn-success">Mas informacion</a>
           </div>

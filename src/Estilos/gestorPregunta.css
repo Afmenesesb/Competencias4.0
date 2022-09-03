@@ -9,3 +9,16 @@
 
     margin-top: 5%;
 }
+#infoPreg{
+    height: 30%;
+    width: 65%;
+    margin: auto;
+    color: black;
+    font-size: 18px;
+    text-align: justify;
+    margin-top: 3%;
+}
+#nota{
+    font-size: 17px;
+}
+

@@ -82,6 +82,7 @@ export default function Respuesta() {
     /*Componentes html del formulario de respuestas*/
     return (
         <div id="formularioRespuesta">
+            <p id="infoRespuesta">En esta seccion puede añadir las respuestas a una pregunta en especifico. Ademas el aplicativo le informa la cantidad de respuestas que la pregunta posea, con el fin de llevar un control.</p>
             <form class="form1" onSubmit={handleSumit}>
 
                 <div class="mb-3">

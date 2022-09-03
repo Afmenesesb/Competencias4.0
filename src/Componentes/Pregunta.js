@@ -81,6 +81,7 @@ export default function Pregunta() {
     /*Componentes html*/
     return (
         <div id="formularioPregunta" >
+            <p id="infoPreg">En esta seccion puede agregar las preguntas a la base de datos.<b id="nota"> Importante tener en cuenta el id de la pregunta que le suministre el aplicativo.</b></p>
             <form class="form1" onSubmit={handleSumit}>
                 <div class="mb-3">
                     <label for="exampleInputTexto2" class="form-label">Nombre del modulo</label>

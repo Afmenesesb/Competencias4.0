@@ -4,7 +4,7 @@ import db from "../firebaseConfig";
 import swal from 'sweetalert';
 import Encuestas from "./Encuestas";
 import '../Estilos/estIndividual.css';
-import { Radar, Bar, Chart,Pie } from 'react-chartjs-2';
+import { Radar, Bar, Chart, Pie } from 'react-chartjs-2';
 import { useAuth0 } from "@auth0/auth0-react";
 import {
   Chart as ChartJS,
@@ -93,9 +93,9 @@ var radChart2 = null;
 var radChart3 = null;
 
 /*Funcion para pruebas unitarias*/
-export const identificarGraficaEstudiante= () => {
-  notasEstudiante=10;
-  return(notasEstudiante);
+export const identificarGraficaEstudiante = () => {
+  notasEstudiante = 10;
+  return (notasEstudiante);
 }
 
 /*Funcion para obtener las notas del usuario*/
@@ -646,7 +646,7 @@ const estadisticas = () => {
 
       }
     });
-   barChart3 = new ChartJS(speedCanvas3,
+  barChart3 = new ChartJS(speedCanvas3,
     {
       type: 'bar',
       data: {
@@ -723,48 +723,52 @@ export default function EstadisticasEstudiantes() {
   /*Componenetes html*/
   return (
     <div>
+
       <div id="btnsGraficas" class="btn-group1" role="group" aria-label="Basic example">
+        <p id="infoEstEstud">En esta seccion podra visualizar el rendimiento sobre las encuestas en cada una de las areas y modulos respectivos. En el apartartado de <b id="estArea">"Estadisticas AREA" </b>
+           se visualiza el rendimiento en las tres areas en general, y en el apartado de <b id="estMod">"Estadisticas MODULO" </b> se visualiza el rendimiento en los modulos de cada una de las areas.</p>
+           <br></br>
         <h2 id="area">ESTADISTICAS</h2>
         <button onClick={(e) => { mostrarEstadisticaA(e) }} id="btEA" type="button" class="btn btn-success">Estadisticas AREA</button>
         <button onClick={(e) => { mostrarEstadisticaM(e) }} id="btEM" type="button" class="btn btn-success">Estadisticas MODULO</button>
       </div>
       <div id="graficasEstudiantes" class="mencuesta">
-      <div id="convenciones">
-      <button disabled="true" id="btnRojo">Nivel bajo</button>
-      <button disabled="true"id="btnAmarillo">Nivel medio</button>
-      <button disabled="true"id="btnVerde"> Nivel alto</button>
-      </div>
-      <div id="separador">
-      <h2 id="area">Area COMPETENCIAS</h2>
-        <canvas id="RadarChartCom" width="600" height="400">Competencias</canvas>
-      </div>
-      <div id="separador">
-      <h2 id="area">Area CONOCIMIENTO</h2>
-        <canvas id="RadarChartCon" width="600" height="400">Conocimiento</canvas>
-      </div>
-      <div id="separador">
-      <h2 id="area">Area ACTITUD</h2>
-        <canvas id="RadarChartAct" width="600" height="400">Actitud</canvas>
-      </div>
+        <div id="convenciones">
+          <button disabled="true" id="btnRojo">Nivel bajo</button>
+          <button disabled="true" id="btnAmarillo">Nivel medio</button>
+          <button disabled="true" id="btnVerde"> Nivel alto</button>
+        </div>
+        <div id="separador">
+          <h2 id="area">Area COMPETENCIAS</h2>
+          <canvas id="RadarChartCom" width="600" height="400">Competencias</canvas>
+        </div>
+        <div id="separador">
+          <h2 id="area">Area CONOCIMIENTO</h2>
+          <canvas id="RadarChartCon" width="600" height="400">Conocimiento</canvas>
+        </div>
+        <div id="separador">
+          <h2 id="area">Area ACTITUD</h2>
+          <canvas id="RadarChartAct" width="600" height="400">Actitud</canvas>
+        </div>
       </div>
       <div id="graficasEstudiantesM" class="mencuesta">
-      <div id="convenciones">
-      <button disabled="true" id="btnRojo">Nivel bajo</button>
-      <button disabled="true"id="btnAmarillo">Nivel medio</button>
-      <button disabled="true"id="btnVerde"> Nivel alto</button>
-      </div>
-      <div id="separador">
-      <h2 id="area">CONOCIMIENTO por Modulo</h2>
-        <canvas id="modConocimiento" width="600" height="400">Conocimiento por Modulo</canvas>
-      </div>
-      <div id="separador">
-      <h2 id="area">COMPETENCIAS por Modulo</h2>
-        <canvas id="modCompetecias" width="600" height="400">Competencias por Modulo</canvas>
-      </div>
-      <div id="separador">
-      <h2 id="area">ACTITUD por Modulo</h2>
-        <canvas id="modActitud" width="600" height="400">Actitud por Modulo</canvas>
-      </div>
+        <div id="convenciones">
+          <button disabled="true" id="btnRojo">Nivel bajo</button>
+          <button disabled="true" id="btnAmarillo">Nivel medio</button>
+          <button disabled="true" id="btnVerde"> Nivel alto</button>
+        </div>
+        <div id="separador">
+          <h2 id="area">CONOCIMIENTO por Modulo</h2>
+          <canvas id="modConocimiento" width="600" height="400">Conocimiento por Modulo</canvas>
+        </div>
+        <div id="separador">
+          <h2 id="area">COMPETENCIAS por Modulo</h2>
+          <canvas id="modCompetecias" width="600" height="400">Competencias por Modulo</canvas>
+        </div>
+        <div id="separador">
+          <h2 id="area">ACTITUD por Modulo</h2>
+          <canvas id="modActitud" width="600" height="400">Actitud por Modulo</canvas>
+        </div>
       </div>
     </div>
 
