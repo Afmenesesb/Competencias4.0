@@ -21,7 +21,7 @@ function App() {
   if (isLoading) return <h1 id="cargando">Cargando...</h1>
 
   if (isAuthenticated) {
-    if (user.email.includes('uqvirtual.edu.co')) {
+    if (user.email.includes('uniquindio.edu.co')||user.email.includes('uqvirtual.edu.co')) {
       return (
         <div className="App">
           {isAuthenticated ? (
@@ -42,7 +42,7 @@ function App() {
 
     }
     else {
-      if (user.email.includes('gmail')) {
+      if (user.email.includes('gmail.com')) {
         return (
           <div className="App">
             {isAuthenticated ? (
